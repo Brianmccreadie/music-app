@@ -1,0 +1,142 @@
+{
+  "five-note-scale": {
+    "vocalInstruction": "Sing on \"Ma\"",
+    "syllables": "Ma Ma Ma Ma Ma Ma Ma Ma Ma",
+    "technique": "Keep your jaw relaxed and tongue forward. The \"M\" helps place the sound in the mask (front of face). Think of a gentle, forward placement on each note.",
+    "demoDescription": "Sing \"Ma\" on each note of the 5-note scale, ascending and descending. The \"M\" consonant naturally places the voice forward.",
+    "demoRootNote": "C4"
+  },
+  "major-triad": {
+    "vocalInstruction": "Sing on \"Mee\"",
+    "syllables": "Mee Mee Mee Mee Mee",
+    "technique": "The \"ee\" vowel helps with brightness and forward placement. Keep the sound narrow and focused as you jump between intervals. Don't spread the vowel.",
+    "demoDescription": "Sing \"Mee\" on each note of the major triad (1-3-5-3-1). Focus on landing each interval cleanly.",
+    "demoRootNote": "C4"
+  },
+  "octave-arpeggio": {
+    "vocalInstruction": "Sing on \"Noh\"",
+    "syllables": "Noh Noh Noh Noh Noh Noh Noh",
+    "technique": "The \"N\" helps nasal resonance while \"oh\" keeps the throat open. As you go up to the octave, think of the sound going over your head, not reaching up with your chin.",
+    "demoDescription": "Sing \"Noh\" on each note of the arpeggio. The open \"oh\" vowel helps keep space as you reach the octave.",
+    "demoRootNote": "C4"
+  },
+  "chromatic-five": {
+    "vocalInstruction": "Sing on \"Zee\"",
+    "syllables": "Zee Zee Zee Zee Zee Zee Zee Zee Zee Zee Zee",
+    "technique": "The buzzy \"Z\" activates the resonators. Each half-step should be distinct and precise — no scooping between notes. Think of each note as a separate, clean event.",
+    "demoDescription": "Sing \"Zee\" on each chromatic half-step. The \"Z\" buzz helps you feel the vibration and stay precise.",
+    "demoRootNote": "C4"
+  },
+  "fifth-jump": {
+    "vocalInstruction": "Sing on \"Yah\"",
+    "syllables": "Yah Yah Yah Yah Yah",
+    "technique": "The \"Y\" glide helps bridge the fifth interval smoothly. Drop your jaw on \"ah\" and keep the space consistent for both the low and high notes.",
+    "demoDescription": "Sing \"Yah\" as you jump a fifth and back. Focus on nailing the interval without scooping up to it.",
+    "demoRootNote": "C4"
+  },
+  "major-scale-full": {
+    "vocalInstruction": "Sing on \"La\"",
+    "syllables": "La La La La La La La La La La La La La La La",
+    "technique": "\"La\" is the classic solfege-style syllable. Keep the tongue light and the jaw dropped. Maintain even volume and tone from bottom to top and back.",
+    "demoDescription": "Sing \"La\" on each note of the full major scale. Aim for smooth, even tone through the entire octave.",
+    "demoRootNote": "C4"
+  },
+  "minor-triad": {
+    "vocalInstruction": "Sing on \"Moh\"",
+    "syllables": "Moh Moh Moh Moh Moh",
+    "technique": "The darker \"oh\" vowel matches the minor quality. Feel the resonance shift compared to singing a major triad. Keep the placement forward despite the rounder vowel.",
+    "demoDescription": "Sing \"Moh\" on the minor triad (1-b3-5-b3-1). Notice how the \"oh\" complements the minor tonality.",
+    "demoRootNote": "C4"
+  },
+  "dominant-seventh": {
+    "vocalInstruction": "Sing on \"Nay\"",
+    "syllables": "Nay Nay Nay Nay Nay Nay Nay",
+    "technique": "\"Nay\" (as in \"neighbor\") is brassy and forward — perfect for the dominant 7th's bluesy character. Keep a slight twang in the sound. Don't let it go breathy.",
+    "demoDescription": "Sing \"Nay\" on the dominant 7th arpeggio. The twangy quality of \"Nay\" suits the jazzy chord perfectly.",
+    "demoRootNote": "C4"
+  },
+  "staccato-repeated": {
+    "vocalInstruction": "Sing on \"Ha\"",
+    "syllables": "Ha Ha Ha Ha Ha",
+    "technique": "Each \"Ha\" should be short and bouncy — a quick burst from the diaphragm. Feel your belly pulse with each note. The \"H\" forces you to use breath support for each attack.",
+    "demoDescription": "Sing quick, detached \"Ha\" sounds on the repeated note. Each one should pop from the diaphragm like a laugh.",
+    "demoRootNote": "C4"
+  },
+  "sustained-tone": {
+    "vocalInstruction": "Sing on \"Ooh\"",
+    "syllables": "Ooooooooh",
+    "technique": "Round your lips into a gentle \"Ooh\" and hold it as long as possible. Focus on steady airflow — no wobble, no breathiness. Imagine a laser beam of sound.",
+    "demoDescription": "Sustain a long, steady \"Ooh\" on a single pitch. The goal is consistent tone and airflow with no wavering.",
+    "demoRootNote": "C4"
+  },
+  "thirds-pattern": {
+    "vocalInstruction": "Sing on \"Mi-Ma\"",
+    "syllables": "Mi Ma Mi Ma Mi Ma Mi Ma Mi Ma Mi",
+    "technique": "Alternate between \"Mi\" and \"Ma\" to practice moving between vowels while maintaining placement. The weaving thirds pattern trains your ear and agility simultaneously.",
+    "demoDescription": "Alternate \"Mi\" and \"Ma\" on the weaving thirds pattern. The vowel change adds an extra coordination challenge.",
+    "demoRootNote": "C4"
+  },
+  "octave-jump": {
+    "vocalInstruction": "Sing on \"Woh\"",
+    "syllables": "Woh Woh Woh",
+    "technique": "The \"W\" glide helps bridge the octave smoothly. Think of tossing the sound up to the high note rather than reaching for it. Your support should increase, not your tension.",
+    "demoDescription": "Sing \"Woh\" on the octave jump (1-8-1). The \"W\" helps you glide through the big interval.",
+    "demoRootNote": "C4"
+  },
+  "descending-five-note": {
+    "vocalInstruction": "Sing on \"Mee-Meh-Mah-Moh-Moo\"",
+    "syllables": "Mee Meh Mah Moh Moo",
+    "technique": "Each note gets a different vowel, descending from bright to dark: ee-eh-ah-oh-oo. This trains vowel modification across your range. Keep the placement forward on every vowel.",
+    "demoDescription": "Sing descending vowels: Mee-Meh-Mah-Moh-Moo from the 5th down to the root. Great for vowel unification.",
+    "demoRootNote": "C4"
+  },
+  "lip-trill-scale": {
+    "vocalInstruction": "Lip Trill (Bubble Lips)",
+    "syllables": "Brrrrrrrrr (lips buzzing)",
+    "technique": "Let your lips vibrate loosely like a motorboat. Keep steady air pressure — if the trill stops, you're either pushing too hard or not enough. This exercise releases jaw and tongue tension.",
+    "demoDescription": "Do a lip trill (bubble lips / motorboat sound) through the 5-note scale. If you can't trill, try a tongue trill (rolled R) instead.",
+    "demoRootNote": "C4"
+  },
+  "pentatonic-scale": {
+    "vocalInstruction": "Sing on \"Na\"",
+    "syllables": "Na Na Na Na Na Na Na Na Na",
+    "technique": "\"Na\" places the voice right in the nasal resonators. The pentatonic scale has no half-steps, so each interval should feel natural and singable. Great for riff practice.",
+    "demoDescription": "Sing \"Na\" on the pentatonic scale. The smooth intervals make this feel natural — like singing a pop melody.",
+    "demoRootNote": "C4"
+  },
+  "minor-scale-full": {
+    "vocalInstruction": "Sing on \"Lah\"",
+    "syllables": "Lah Lah Lah Lah Lah Lah Lah Lah Lah Lah Lah Lah Lah Lah Lah",
+    "technique": "\"Lah\" with a darker, warmer tone to match the minor scale quality. Notice the half-steps between 2-b3 and 5-b6 — keep those precise. Feel the emotional quality of minor.",
+    "demoDescription": "Sing \"Lah\" through the full natural minor scale. Let the darker quality of the scale come through naturally.",
+    "demoRootNote": "C4"
+  },
+  "messa-di-voce": {
+    "vocalInstruction": "Sing on \"Ah\" (soft → loud → soft)",
+    "syllables": "Ahhhhhhhhh (crescendo then diminuendo)",
+    "technique": "Start pianissimo, gradually crescendo to full volume at the middle, then diminuendo back to pianissimo. The pitch must not change! This is the ultimate breath control exercise.",
+    "demoDescription": "Hold a single \"Ah\" and swell from quiet to loud and back to quiet. The note should stay perfectly steady in pitch.",
+    "demoRootNote": "C4"
+  },
+  "rapid-five-note": {
+    "vocalInstruction": "Sing on \"Ma-Mi-Ma-De-Me-Ma-Sh-My-Em-In-Nems\"",
+    "syllables": "Ma Mi Ma De Me Ma Sh My Em",
+    "technique": "This nonsense phrase builds tongue and lip agility at speed. Each consonant change forces different mouth shapes while maintaining airflow. Start slow, then push the tempo.",
+    "demoDescription": "Rapid articulation exercise. The alternating consonants build dexterity — don't sacrifice clarity for speed.",
+    "demoRootNote": "C4"
+  },
+  "sirens": {
+    "vocalInstruction": "Sing on \"Wee\" (continuous slide)",
+    "syllables": "Weeeeeeeeeee ↑↑↑",
+    "technique": "Glide smoothly from bottom to top like a fire siren. Don't let the sound break or flip — slide through your registers. The \"ee\" vowel helps keep the sound thin enough to slide.",
+    "demoDescription": "Slide continuously on \"Wee\" from the root up to the octave. Focus on seamless register transitions.",
+    "demoRootNote": "C4"
+  },
+  "fourth-jump": {
+    "vocalInstruction": "Sing on \"Gee\"",
+    "syllables": "Gee Gee Gee Gee Gee",
+    "technique": "The hard \"G\" onset gives a clean attack on each note. Think of the sound bouncing off the soft palate. The fourth interval should feel natural — like the beginning of \"Here Comes the Bride.\"",
+    "demoDescription": "Sing \"Gee\" on the fourth interval jumps. The \"G\" consonant helps with clean, supported note onsets.",
+    "demoRootNote": "C4"
+  }
+}

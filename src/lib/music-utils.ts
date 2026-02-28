@@ -127,6 +127,19 @@ export function patternToNotes(
 }
 
 /**
+ * Generate chord notes (major triad) for a given root note.
+ * Returns [root, major third, fifth] — e.g., "C4" → ["C4", "E4", "G4"]
+ */
+export function chordNotesForRoot(rootNote: string): string[] {
+  const rootMidi = parseNote(rootNote).midi;
+  return [
+    midiToNote(rootMidi),       // root
+    midiToNote(rootMidi + 4),   // major third
+    midiToNote(rootMidi + 7),   // perfect fifth
+  ];
+}
+
+/**
  * Common note values for the range selector
  */
 export const PIANO_NOTES: string[] = [];
