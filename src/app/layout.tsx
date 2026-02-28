@@ -28,6 +28,24 @@ export default function RootLayout({
               >
                 Exercises
               </Link>
+              <Link
+                href="/plans"
+                className="text-gray-600 hover:text-indigo-600 transition-colors"
+              >
+                Plans
+              </Link>
+              <Link
+                href="/generate"
+                className="text-gray-600 hover:text-indigo-600 transition-colors"
+              >
+                AI Generate
+              </Link>
+              <Link
+                href="/settings"
+                className="text-gray-600 hover:text-indigo-600 transition-colors"
+              >
+                Settings
+              </Link>
             </div>
           </div>
         </nav>

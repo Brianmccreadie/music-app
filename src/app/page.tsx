@@ -27,12 +27,20 @@ export default function HomePage() {
           your range, and the piano plays each pattern ascending through your
           range — just like practicing with a vocal coach.
         </p>
-        <Link
-          href="/exercises"
-          className="inline-block mt-6 px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors"
-        >
-          Browse Exercises
-        </Link>
+        <div className="flex gap-3 justify-center mt-6">
+          <Link
+            href="/exercises"
+            className="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors"
+          >
+            Browse Exercises
+          </Link>
+          <Link
+            href="/plans"
+            className="px-6 py-3 border border-indigo-600 text-indigo-600 rounded-lg font-medium hover:bg-indigo-50 transition-colors"
+          >
+            Practice Plans
+          </Link>
+        </div>
       </div>
 
       {/* Categories */}

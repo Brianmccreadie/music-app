@@ -1,15 +1,15 @@
 "use client";
 
-import { use, useState } from "react";
+import { use, useState, useEffect } from "react";
 import Link from "next/link";
 import exercisesData from "@/data/exercises.json";
 import type { Exercise } from "@/lib/exercises";
 import ExercisePlayer from "@/components/ExercisePlayer";
 import { PIANO_NOTES } from "@/lib/music-utils";
+import { getProfile } from "@/lib/user-profile";
 
 const exercises = exercisesData as Exercise[];
 
-// Reasonable default notes for the range selector
 const LOW_NOTES = PIANO_NOTES.filter((n) => {
   const octave = parseInt(n.slice(-1));
   return octave >= 2 && octave <= 4;
@@ -29,6 +29,15 @@ export default function ExerciseDetailPage({
 
   const [startNote, setStartNote] = useState("C3");
   const [endNote, setEndNote] = useState("A4");
+
+  // Load saved range from profile
+  useEffect(() => {
+    const profile = getProfile();
+    if (profile.onboardingComplete) {
+      setStartNote(profile.rangeLow);
+      setEndNote(profile.rangeHigh);
+    }
+  }, []);
 
   if (!exercise) {
     return (
@@ -54,9 +63,17 @@ export default function ExerciseDetailPage({
 
       {/* Range selector */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 mb-6">
-        <h3 className="text-sm font-medium text-gray-700 mb-3">
-          Your Vocal Range
-        </h3>
+        <div className="flex items-center justify-between mb-3">
+          <h3 className="text-sm font-medium text-gray-700">
+            Your Vocal Range
+          </h3>
+          <Link
+            href="/settings"
+            className="text-xs text-indigo-600 hover:text-indigo-700"
+          >
+            Edit in Settings
+          </Link>
+        </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
             <label className="text-xs text-gray-500 mb-1 block">
