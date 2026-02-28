@@ -30,8 +30,9 @@ export default function ExercisePlayer({
   const [roots, setRoots] = useState<string[]>([]);
   const [audioLoaded, setAudioLoaded] = useState(false);
 
-  // Refs to hold mutable state accessible in callbacks
+  // Refs for mutable state in callbacks
   const cancelRef = useRef<(() => void) | null>(null);
+  const restTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const rootIndexRef = useRef(0);
   const isPlayingRef = useRef(false);
   const bpmRef = useRef(bpm);
@@ -68,7 +69,7 @@ export default function ExercisePlayer({
       const notes = patternToNotes(rootNote, exercise.pattern);
       setCurrentRootIndex(repIndex);
 
-      const cancel = engine.schedulePattern({
+      const cancel = engine.playSequence({
         notes,
         noteDuration: exercise.noteDuration,
         bpm: bpmRef.current,
@@ -80,7 +81,6 @@ export default function ExercisePlayer({
       });
 
       cancelRef.current = cancel;
-      engine.startTransport();
     },
     [exercise]
   );
@@ -95,12 +95,9 @@ export default function ExercisePlayer({
       rootIndexRef.current = startFromIndex;
 
       const playNext = () => {
-        if (
-          !isPlayingRef.current ||
-          rootIndexRef.current >= roots.length
-        ) {
+        if (!isPlayingRef.current || rootIndexRef.current >= roots.length) {
           // Done
-          engine.stopTransport();
+          engine.stopAll();
           setPlayerState("idle");
           setCurrentRootIndex(-1);
           setCurrentNoteIndex(-1);
@@ -110,12 +107,14 @@ export default function ExercisePlayer({
         }
 
         const rootNote = roots[rootIndexRef.current];
-        engine.stopTransport();
 
         playRep(rootNote, rootIndexRef.current, () => {
           rootIndexRef.current++;
           // Rest between reps
-          setTimeout(playNext, exercise.restBetweenReps * 1000);
+          restTimerRef.current = setTimeout(
+            playNext,
+            exercise.restBetweenReps * 1000
+          );
         });
       };
 
@@ -130,39 +129,46 @@ export default function ExercisePlayer({
       await loadAudio();
       setPlayerState("playing");
       playAllReps(0);
-    } catch {
+    } catch (err) {
+      console.error("Failed to load audio:", err);
       setPlayerState("idle");
     }
   };
 
   const handlePause = () => {
-    const engine = audioEngineRef.current;
-    if (engine) {
-      engine.pauseTransport();
+    // Cancel current sequence and rest timer
+    if (cancelRef.current) {
+      cancelRef.current();
+      cancelRef.current = null;
     }
+    if (restTimerRef.current) {
+      clearTimeout(restTimerRef.current);
+      restTimerRef.current = null;
+    }
+    const engine = audioEngineRef.current;
+    if (engine) engine.stopAll();
     isPlayingRef.current = false;
     setPlayerState("paused");
   };
 
   const handleResume = () => {
-    const engine = audioEngineRef.current;
-    if (engine) {
-      isPlayingRef.current = true;
-      setPlayerState("playing");
-      // Resume from current position
-      playAllReps(rootIndexRef.current);
-    }
+    isPlayingRef.current = true;
+    setPlayerState("playing");
+    // Resume from current root
+    playAllReps(rootIndexRef.current);
   };
 
   const handleStop = () => {
-    const engine = audioEngineRef.current;
-    if (engine) {
-      engine.stopTransport();
-    }
     if (cancelRef.current) {
       cancelRef.current();
       cancelRef.current = null;
     }
+    if (restTimerRef.current) {
+      clearTimeout(restTimerRef.current);
+      restTimerRef.current = null;
+    }
+    const engine = audioEngineRef.current;
+    if (engine) engine.stopAll();
     isPlayingRef.current = false;
     setPlayerState("idle");
     setCurrentRootIndex(-1);
@@ -174,20 +180,16 @@ export default function ExercisePlayer({
   const handleBpmChange = (newBpm: number) => {
     setBpmState(newBpm);
     bpmRef.current = newBpm;
-    const engine = audioEngineRef.current;
-    if (engine) {
-      engine.setBpm(newBpm);
-    }
   };
 
   // Cleanup on unmount
   useEffect(() => {
     return () => {
       isPlayingRef.current = false;
+      if (cancelRef.current) cancelRef.current();
+      if (restTimerRef.current) clearTimeout(restTimerRef.current);
       const engine = audioEngineRef.current;
-      if (engine) {
-        engine.stopTransport();
-      }
+      if (engine) engine.stopAll();
     };
   }, []);
 
@@ -271,7 +273,11 @@ export default function ExercisePlayer({
             className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-full w-14 h-14 flex items-center justify-center transition-colors"
             aria-label="Play"
           >
-            <svg className="w-6 h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+            <svg
+              className="w-6 h-6 ml-0.5"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+            >
               <path d="M8 5v14l11-7z" />
             </svg>
           </button>
@@ -309,7 +315,11 @@ export default function ExercisePlayer({
               className="bg-amber-500 hover:bg-amber-600 text-white rounded-full w-14 h-14 flex items-center justify-center transition-colors"
               aria-label="Pause"
             >
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path d="M6 4h4v16H6zm8 0h4v16h-4z" />
               </svg>
             </button>
@@ -318,7 +328,11 @@ export default function ExercisePlayer({
               className="bg-red-500 hover:bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center transition-colors"
               aria-label="Stop"
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path d="M6 6h12v12H6z" />
               </svg>
             </button>
@@ -331,7 +345,11 @@ export default function ExercisePlayer({
               className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-full w-14 h-14 flex items-center justify-center transition-colors"
               aria-label="Resume"
             >
-              <svg className="w-6 h-6 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-6 h-6 ml-0.5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path d="M8 5v14l11-7z" />
               </svg>
             </button>
@@ -340,7 +358,11 @@ export default function ExercisePlayer({
               className="bg-red-500 hover:bg-red-600 text-white rounded-full w-12 h-12 flex items-center justify-center transition-colors"
               aria-label="Stop"
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-5 h-5"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path d="M6 6h12v12H6z" />
               </svg>
             </button>

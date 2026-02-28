@@ -4,32 +4,32 @@ const SALAMANDER_BASE_URL = "https://tonejs.github.io/audio/salamander/";
 
 // Sampled notes from the Salamander piano set — Tone.js interpolates the rest
 const SAMPLED_NOTES: Record<string, string> = {
-  A0: "A0v8.mp3",
-  C1: "C1v8.mp3",
-  "D#1": "Ds1v8.mp3",
-  "F#1": "Fs1v8.mp3",
-  A1: "A1v8.mp3",
-  C2: "C2v8.mp3",
-  "D#2": "Ds2v8.mp3",
-  "F#2": "Fs2v8.mp3",
-  A2: "A2v8.mp3",
-  C3: "C3v8.mp3",
-  "D#3": "Ds3v8.mp3",
-  "F#3": "Fs3v8.mp3",
-  A3: "A3v8.mp3",
-  C4: "C4v8.mp3",
-  "D#4": "Ds4v8.mp3",
-  "F#4": "Fs4v8.mp3",
-  A4: "A4v8.mp3",
-  C5: "C5v8.mp3",
-  "D#5": "Ds5v8.mp3",
-  "F#5": "Fs5v8.mp3",
-  A5: "A5v8.mp3",
-  C6: "C6v8.mp3",
-  "D#6": "Ds6v8.mp3",
-  "F#6": "Fs6v8.mp3",
-  A6: "A6v8.mp3",
-  C7: "C7v8.mp3",
+  A0: "A0.mp3",
+  C1: "C1.mp3",
+  "D#1": "Ds1.mp3",
+  "F#1": "Fs1.mp3",
+  A1: "A1.mp3",
+  C2: "C2.mp3",
+  "D#2": "Ds2.mp3",
+  "F#2": "Fs2.mp3",
+  A2: "A2.mp3",
+  C3: "C3.mp3",
+  "D#3": "Ds3.mp3",
+  "F#3": "Fs3.mp3",
+  A3: "A3.mp3",
+  C4: "C4.mp3",
+  "D#4": "Ds4.mp3",
+  "F#4": "Fs4.mp3",
+  A4: "A4.mp3",
+  C5: "C5.mp3",
+  "D#5": "Ds5.mp3",
+  "F#5": "Fs5.mp3",
+  A5: "A5.mp3",
+  C6: "C6.mp3",
+  "D#6": "Ds6.mp3",
+  "F#6": "Fs6.mp3",
+  A6: "A6.mp3",
+  C7: "C7.mp3",
 };
 
 let sampler: Tone.Sampler | null = null;
@@ -78,7 +78,38 @@ export function isAudioLoaded(): boolean {
   return isLoaded;
 }
 
-export interface PlayPatternOptions {
+/**
+ * Convert a note duration string (e.g. "4n") to seconds at a given BPM.
+ */
+export function durationToSeconds(duration: string, bpm: number): number {
+  // Quarter note duration in seconds
+  const quarterNote = 60 / bpm;
+  switch (duration) {
+    case "1n":
+      return quarterNote * 4;
+    case "2n":
+      return quarterNote * 2;
+    case "4n":
+      return quarterNote;
+    case "8n":
+      return quarterNote / 2;
+    case "16n":
+      return quarterNote / 4;
+    default:
+      return quarterNote;
+  }
+}
+
+/**
+ * Play a single note on the piano sampler.
+ */
+export function playNote(note: string, duration: string, bpm: number): void {
+  if (!sampler || !isLoaded) return;
+  const durationSec = durationToSeconds(duration, bpm);
+  sampler.triggerAttackRelease(note, durationSec);
+}
+
+export interface PlaySequenceOptions {
   notes: string[];
   noteDuration: string;
   bpm: number;
@@ -87,82 +118,51 @@ export interface PlayPatternOptions {
 }
 
 /**
- * Schedule a pattern of notes to play using the Tone.js Transport.
+ * Play a sequence of notes with simple setTimeout scheduling.
  * Returns a cancel function.
  */
-export function schedulePattern({
+export function playSequence({
   notes,
   noteDuration,
   bpm,
   onNotePlay,
   onComplete,
-}: PlayPatternOptions): () => void {
+}: PlaySequenceOptions): () => void {
   if (!sampler || !isLoaded) {
     throw new Error("Audio not loaded. Call initAudio() first.");
   }
 
-  Tone.getTransport().bpm.value = bpm;
-
-  const eventIds: number[] = [];
+  let cancelled = false;
+  const timers: ReturnType<typeof setTimeout>[] = [];
+  const intervalMs = durationToSeconds(noteDuration, bpm) * 1000;
 
   notes.forEach((note, index) => {
-    const eventId = Tone.getTransport().schedule((time) => {
-      sampler!.triggerAttackRelease(note, noteDuration, time);
-      // Use Tone.getDraw for UI updates synced to audio
-      Tone.getDraw().schedule(() => {
-        onNotePlay?.(index, note);
-      }, time);
-    }, index * Tone.Time(noteDuration).toSeconds());
-    eventIds.push(eventId);
+    const timer = setTimeout(() => {
+      if (cancelled) return;
+      sampler!.triggerAttackRelease(note, durationToSeconds(noteDuration, bpm));
+      onNotePlay?.(index, note);
+    }, index * intervalMs);
+    timers.push(timer);
   });
 
-  // Schedule completion callback
-  const totalDuration = notes.length * Tone.Time(noteDuration).toSeconds();
-  const completeId = Tone.getTransport().schedule(() => {
-    Tone.getDraw().schedule(() => {
-      onComplete?.();
-    }, Tone.now());
-  }, totalDuration);
-  eventIds.push(completeId);
+  // Schedule completion
+  const completeTimer = setTimeout(() => {
+    if (cancelled) return;
+    onComplete?.();
+  }, notes.length * intervalMs);
+  timers.push(completeTimer);
 
   return () => {
-    eventIds.forEach((id) => Tone.getTransport().clear(id));
+    cancelled = true;
+    timers.forEach((t) => clearTimeout(t));
   };
 }
 
 /**
- * Start the Tone.js Transport
+ * Stop all currently playing notes
  */
-export function startTransport(): void {
-  Tone.getTransport().start();
-}
-
-/**
- * Pause the Tone.js Transport
- */
-export function pauseTransport(): void {
-  Tone.getTransport().pause();
-}
-
-/**
- * Stop and reset the Tone.js Transport
- */
-export function stopTransport(): void {
-  Tone.getTransport().stop();
-  Tone.getTransport().cancel();
-  Tone.getTransport().position = 0;
-}
-
-/**
- * Set BPM on the transport
- */
-export function setBpm(bpm: number): void {
-  Tone.getTransport().bpm.value = bpm;
-}
-
-/**
- * Get current transport state
- */
-export function getTransportState(): string {
-  return Tone.getTransport().state;
+export function stopAll(): void {
+  if (sampler) {
+    sampler.releaseAll();
+  }
 }
