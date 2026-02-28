@@ -1,0 +1,222 @@
+[
+  {
+    "id": "five-note-scale",
+    "name": "5-Note Scale (1-2-3-4-5-4-3-2-1)",
+    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "The classic warm-up. Sing up 5 notes of the major scale and back down. Focus on even tone and smooth transitions between notes.",
+    "tags": ["warm-up", "beginner", "intonation"],
+    "difficulty": 1,
+    "category": "Warm-Ups"
+  },
+  {
+    "id": "major-triad",
+    "name": "Major Triad (1-3-5-3-1)",
+    "pattern": [0, 4, 7, 4, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "Sing each note of the major triad ascending and descending. Focus on clean pitch and even tone across the intervals.",
+    "tags": ["warm-up", "intonation", "beginner"],
+    "difficulty": 1,
+    "category": "Arpeggios"
+  },
+  {
+    "id": "octave-arpeggio",
+    "name": "Octave Arpeggio (1-3-5-8-5-3-1)",
+    "pattern": [0, 4, 7, 12, 7, 4, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "Full octave arpeggio. Great for building range and bridging registers. Keep your support steady through the top note.",
+    "tags": ["range", "intermediate", "intonation"],
+    "difficulty": 2,
+    "category": "Arpeggios"
+  },
+  {
+    "id": "chromatic-five",
+    "name": "Chromatic Scale (5 Half Steps)",
+    "pattern": [0, 1, 2, 3, 4, 5, 4, 3, 2, 1, 0],
+    "noteDuration": "8n",
+    "restBetweenReps": 2,
+    "description": "Chromatic half-step exercise. Excellent for pitch accuracy and ear training. Keep each note clean and distinct.",
+    "tags": ["technique", "intonation", "intermediate"],
+    "difficulty": 2,
+    "category": "Scales"
+  },
+  {
+    "id": "fifth-jump",
+    "name": "Fifth Interval Jump (1-5-1-5-1)",
+    "pattern": [0, 7, 0, 7, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "Practice jumping a perfect fifth. Focus on nailing the interval without scooping. Builds interval recognition.",
+    "tags": ["intonation", "beginner"],
+    "difficulty": 2,
+    "category": "Intervals"
+  },
+  {
+    "id": "major-scale-full",
+    "name": "Major Scale (Full Octave)",
+    "pattern": [0, 2, 4, 5, 7, 9, 11, 12, 11, 9, 7, 5, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "Full major scale up and down one octave. The foundation of Western music. Focus on even spacing and consistent tone.",
+    "tags": ["technique", "intermediate", "intonation"],
+    "difficulty": 2,
+    "category": "Scales"
+  },
+  {
+    "id": "minor-triad",
+    "name": "Minor Triad (1-b3-5-b3-1)",
+    "pattern": [0, 3, 7, 3, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "Minor triad arpeggio. Practice the darker tonality with clean pitch. Notice the difference from the major triad.",
+    "tags": ["warm-up", "intonation", "beginner"],
+    "difficulty": 1,
+    "category": "Arpeggios"
+  },
+  {
+    "id": "dominant-seventh",
+    "name": "Dominant 7th Arpeggio (1-3-5-b7-5-3-1)",
+    "pattern": [0, 4, 7, 10, 7, 4, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "Dominant seventh chord arpeggio. Adds the flat-7th for a bluesy, jazzy quality. Great for genre versatility.",
+    "tags": ["intermediate", "intonation", "technique"],
+    "difficulty": 3,
+    "category": "Arpeggios"
+  },
+  {
+    "id": "staccato-repeated",
+    "name": "Staccato Repeated Note",
+    "pattern": [0, 0, 0, 0, 0],
+    "noteDuration": "8n",
+    "restBetweenReps": 2,
+    "description": "Repeat the same note with short, bouncy staccato. Builds diaphragm control and clean onset. Think 'ha ha ha ha ha'.",
+    "tags": ["technique", "staccato", "breath", "beginner"],
+    "difficulty": 1,
+    "category": "Technique"
+  },
+  {
+    "id": "sustained-tone",
+    "name": "Sustained Single Tone",
+    "pattern": [0],
+    "noteDuration": "1n",
+    "restBetweenReps": 3,
+    "description": "Hold a single note as long and steady as possible. Focus on consistent airflow, no wobble. Build your breath support foundation.",
+    "tags": ["breath", "beginner", "legato"],
+    "difficulty": 1,
+    "category": "Breath Control"
+  },
+  {
+    "id": "thirds-pattern",
+    "name": "Ascending Thirds",
+    "pattern": [0, 4, 2, 5, 4, 7, 4, 5, 2, 4, 0],
+    "noteDuration": "8n",
+    "restBetweenReps": 2,
+    "description": "Weaving thirds pattern. Builds agility and interval awareness. Keep it smooth and connected.",
+    "tags": ["agility", "intermediate", "technique"],
+    "difficulty": 3,
+    "category": "Agility"
+  },
+  {
+    "id": "octave-jump",
+    "name": "Octave Jump (1-8-1)",
+    "pattern": [0, 12, 0],
+    "noteDuration": "2n",
+    "restBetweenReps": 2,
+    "description": "Jump a full octave and back. The ultimate interval challenge. Keep both notes in tune without scooping.",
+    "tags": ["range", "intermediate", "intonation"],
+    "difficulty": 3,
+    "category": "Intervals"
+  },
+  {
+    "id": "descending-five-note",
+    "name": "Descending 5-Note Scale",
+    "pattern": [7, 5, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "Start from the 5th and descend. Great for practicing head-to-chest transitions. Keep the tone consistent as you come down.",
+    "tags": ["warm-up", "beginner", "technique"],
+    "difficulty": 1,
+    "category": "Warm-Ups"
+  },
+  {
+    "id": "lip-trill-scale",
+    "name": "Lip Trill / Bubble Scale",
+    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "Do this exercise on a lip trill (bubble lips). Relaxes tension, warms up the voice gently. Perfect first exercise of any session.",
+    "tags": ["warm-up", "beginner", "breath"],
+    "difficulty": 1,
+    "category": "Warm-Ups"
+  },
+  {
+    "id": "pentatonic-scale",
+    "name": "Pentatonic Scale",
+    "pattern": [0, 2, 4, 7, 9, 7, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "The 5-note pentatonic scale used in pop, R&B, and rock. No awkward half steps. Great for riff building.",
+    "tags": ["technique", "intermediate", "agility"],
+    "difficulty": 2,
+    "category": "Scales"
+  },
+  {
+    "id": "minor-scale-full",
+    "name": "Natural Minor Scale (Full Octave)",
+    "pattern": [0, 2, 3, 5, 7, 8, 10, 12, 10, 8, 7, 5, 3, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "Full natural minor scale. Practice the darker, more emotional tonality. Essential for classical and contemporary styles.",
+    "tags": ["technique", "intermediate", "intonation"],
+    "difficulty": 2,
+    "category": "Scales"
+  },
+  {
+    "id": "messa-di-voce",
+    "name": "Messa di Voce (Swell)",
+    "pattern": [0],
+    "noteDuration": "1n",
+    "restBetweenReps": 4,
+    "description": "Hold a single note. Start quiet, crescendo to full volume, then diminuendo back to quiet. The ultimate dynamic control exercise.",
+    "tags": ["breath", "advanced", "technique", "legato"],
+    "difficulty": 3,
+    "category": "Breath Control"
+  },
+  {
+    "id": "rapid-five-note",
+    "name": "Rapid 5-Note Scale",
+    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "noteDuration": "8n",
+    "restBetweenReps": 2,
+    "description": "The classic 5-note scale at double speed. Builds vocal agility and coordination. Don't sacrifice pitch for speed.",
+    "tags": ["agility", "intermediate", "technique"],
+    "difficulty": 3,
+    "category": "Agility"
+  },
+  {
+    "id": "sirens",
+    "name": "Siren Slide (1 to 8)",
+    "pattern": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "noteDuration": "16n",
+    "restBetweenReps": 3,
+    "description": "Glide smoothly from root to octave like a siren. Focus on seamless register transitions. Don't break the sound.",
+    "tags": ["warm-up", "range", "beginner"],
+    "difficulty": 2,
+    "category": "Range Extension"
+  },
+  {
+    "id": "fourth-jump",
+    "name": "Fourth Interval Jump (1-4-1-4-1)",
+    "pattern": [0, 5, 0, 5, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "Practice the perfect fourth interval. A natural-sounding jump found everywhere in music. Keep both notes centered.",
+    "tags": ["intonation", "beginner"],
+    "difficulty": 2,
+    "category": "Intervals"
+  }
+]
