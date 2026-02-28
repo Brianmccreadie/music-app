@@ -1,0 +1,188 @@
+[
+  {
+    "id": "quick-warmup",
+    "name": "5-Minute Quick Warm-Up",
+    "description": "A fast warm-up to get your voice ready. Start with lip trills to relax, then gentle scales to open up, and finish with a triad to engage your full voice.",
+    "category": "Warm-Ups",
+    "difficulty": 1,
+    "durationMinutes": 5,
+    "exercises": [
+      { "exerciseId": "lip-trill-scale", "tempoOverride": 90, "notes": "Start gentle. Let your lips buzz loosely." },
+      { "exerciseId": "five-note-scale", "tempoOverride": 100, "notes": "Keep it light and easy. No pushing." },
+      { "exerciseId": "major-triad", "tempoOverride": 100, "notes": "Open up into fuller tone now." }
+    ]
+  },
+  {
+    "id": "full-warmup",
+    "name": "Full Warm-Up Routine",
+    "description": "A comprehensive 10-minute warm-up that progresses from gentle to full voice. Perfect before rehearsals or performances.",
+    "category": "Warm-Ups",
+    "difficulty": 2,
+    "durationMinutes": 10,
+    "exercises": [
+      { "exerciseId": "lip-trill-scale", "tempoOverride": 80, "notes": "Start very gently. Wake up the voice." },
+      { "exerciseId": "sustained-tone", "notes": "Hold each note steady. Focus on breath support." },
+      { "exerciseId": "five-note-scale", "tempoOverride": 90, "notes": "Smooth and connected. No breaks between notes." },
+      { "exerciseId": "descending-five-note", "tempoOverride": 90, "notes": "Keep the same placement as you descend." },
+      { "exerciseId": "major-triad", "tempoOverride": 100, "notes": "Open up to fuller volume." },
+      { "exerciseId": "octave-arpeggio", "tempoOverride": 90, "notes": "Bridge through your passaggio smoothly." },
+      { "exerciseId": "major-scale-full", "tempoOverride": 100, "notes": "Full voice. You should be warmed up now." }
+    ]
+  },
+  {
+    "id": "performance-day",
+    "name": "Performance Day Warm-Up",
+    "description": "A gentle, voice-preserving warm-up for show days. Warms without fatiguing. Keep everything at comfortable volume.",
+    "category": "Warm-Ups",
+    "difficulty": 1,
+    "durationMinutes": 7,
+    "exercises": [
+      { "exerciseId": "lip-trill-scale", "tempoOverride": 80, "notes": "Very gentle. Just getting blood flowing." },
+      { "exerciseId": "sustained-tone", "notes": "Quiet to medium volume only. Save your voice." },
+      { "exerciseId": "five-note-scale", "tempoOverride": 90, "notes": "Light and easy. Don't push." },
+      { "exerciseId": "minor-triad", "tempoOverride": 90, "notes": "Stay relaxed. You're ready." }
+    ]
+  },
+  {
+    "id": "range-high",
+    "name": "Range Extension: High Notes",
+    "description": "Gradually push your upper range with exercises that build from comfortable mid-voice up through your passaggio into head voice.",
+    "category": "Technique",
+    "difficulty": 3,
+    "durationMinutes": 12,
+    "exercises": [
+      { "exerciseId": "lip-trill-scale", "tempoOverride": 90, "notes": "Warm up first. Never push cold." },
+      { "exerciseId": "five-note-scale", "tempoOverride": 100, "notes": "Establish your comfortable range." },
+      { "exerciseId": "sirens", "tempoOverride": 80, "notes": "Glide up smoothly. Feel the register shift." },
+      { "exerciseId": "octave-arpeggio", "tempoOverride": 80, "notes": "Keep support engaged through the top note." },
+      { "exerciseId": "octave-jump", "tempoOverride": 70, "notes": "Don't reach for the top. Let it float." },
+      { "exerciseId": "major-scale-full", "tempoOverride": 90, "notes": "Full range. Stay relaxed at the top." }
+    ]
+  },
+  {
+    "id": "range-low",
+    "name": "Range Extension: Low Notes",
+    "description": "Develop your chest voice and lower range. Focus on resonance and keeping the tone warm as you descend.",
+    "category": "Technique",
+    "difficulty": 3,
+    "durationMinutes": 10,
+    "exercises": [
+      { "exerciseId": "lip-trill-scale", "tempoOverride": 90, "notes": "Warm up gently first." },
+      { "exerciseId": "descending-five-note", "tempoOverride": 90, "notes": "Let the voice settle down naturally." },
+      { "exerciseId": "sustained-tone", "notes": "Hold low notes. Focus on chest resonance." },
+      { "exerciseId": "five-note-scale", "tempoOverride": 80, "notes": "Start from your lowest comfortable note." },
+      { "exerciseId": "minor-scale-full", "tempoOverride": 80, "notes": "The minor quality suits lower range work." }
+    ]
+  },
+  {
+    "id": "agility-runs",
+    "name": "Agility & Runs",
+    "description": "Build speed and precision with fast-moving patterns. Essential for pop, R&B, and musical theater singers who need to navigate melismatic passages.",
+    "category": "Technique",
+    "difficulty": 3,
+    "durationMinutes": 12,
+    "exercises": [
+      { "exerciseId": "five-note-scale", "tempoOverride": 100, "notes": "Warm up at moderate speed first." },
+      { "exerciseId": "rapid-five-note", "tempoOverride": 120, "notes": "Now double speed. Stay clean." },
+      { "exerciseId": "chromatic-five", "tempoOverride": 130, "notes": "Every half step must be distinct." },
+      { "exerciseId": "thirds-pattern", "tempoOverride": 110, "notes": "Weaving pattern. Keep it smooth." },
+      { "exerciseId": "pentatonic-scale", "tempoOverride": 130, "notes": "Think riffs. This is your improv vocabulary." },
+      { "exerciseId": "rapid-five-note", "tempoOverride": 150, "notes": "Push the tempo. How fast can you stay clean?" }
+    ]
+  },
+  {
+    "id": "breath-control",
+    "name": "Breath Control Builder",
+    "description": "Develop your breath support and sustaining power. These exercises focus on airflow management and dynamic control.",
+    "category": "Technique",
+    "difficulty": 2,
+    "durationMinutes": 10,
+    "exercises": [
+      { "exerciseId": "lip-trill-scale", "tempoOverride": 70, "notes": "Slow and steady. Feel the air support." },
+      { "exerciseId": "sustained-tone", "notes": "Hold as long as possible. Count your seconds." },
+      { "exerciseId": "messa-di-voce", "notes": "Soft → loud → soft on one breath. The ultimate control exercise." },
+      { "exerciseId": "five-note-scale", "tempoOverride": 60, "notes": "Very slow. One breath for the full pattern." },
+      { "exerciseId": "major-scale-full", "tempoOverride": 60, "notes": "Try the full scale on one breath." }
+    ]
+  },
+  {
+    "id": "belt-training",
+    "name": "Belt Training",
+    "description": "Build your belt voice with chest-dominant patterns in the mid-high range. Focus on power without strain.",
+    "category": "Technique",
+    "difficulty": 4,
+    "durationMinutes": 12,
+    "exercises": [
+      { "exerciseId": "lip-trill-scale", "tempoOverride": 100, "notes": "Warm up thoroughly. Belting cold = injury." },
+      { "exerciseId": "five-note-scale", "tempoOverride": 100, "notes": "Establish your chest voice foundation." },
+      { "exerciseId": "staccato-repeated", "tempoOverride": 120, "notes": "Engage the diaphragm. Short, powerful bursts." },
+      { "exerciseId": "fifth-jump", "tempoOverride": 90, "notes": "Power through the fifth. Keep it chest-dominant." },
+      { "exerciseId": "octave-arpeggio", "tempoOverride": 80, "notes": "Mix as needed at the top but keep the power." },
+      { "exerciseId": "major-triad", "tempoOverride": 100, "notes": "Full power triads. This is your belt zone." }
+    ]
+  },
+  {
+    "id": "pop-contemporary",
+    "name": "Pop/Contemporary Warm-Up",
+    "description": "A warm-up tailored for contemporary pop singing. Includes mix voice, agility, and pentatonic patterns common in pop music.",
+    "category": "Genre-Specific",
+    "difficulty": 2,
+    "durationMinutes": 10,
+    "exercises": [
+      { "exerciseId": "lip-trill-scale", "tempoOverride": 100, "notes": "Light and breezy. Think pop vocal tone." },
+      { "exerciseId": "five-note-scale", "tempoOverride": 110, "notes": "Bright, forward placement." },
+      { "exerciseId": "pentatonic-scale", "tempoOverride": 120, "notes": "The backbone of pop melody. Make it groove." },
+      { "exerciseId": "staccato-repeated", "tempoOverride": 120, "notes": "Rhythmic precision. Think vocal chops." },
+      { "exerciseId": "octave-arpeggio", "tempoOverride": 100, "notes": "Smooth mix through the bridge." },
+      { "exerciseId": "rapid-five-note", "tempoOverride": 130, "notes": "Quick runs for ad-libs and riffs." }
+    ]
+  },
+  {
+    "id": "classical-mt",
+    "name": "Classical / Musical Theater Prep",
+    "description": "A warm-up focused on legato line, even tone, and the technical demands of classical and musical theater singing.",
+    "category": "Genre-Specific",
+    "difficulty": 3,
+    "durationMinutes": 12,
+    "exercises": [
+      { "exerciseId": "sustained-tone", "notes": "Start with pure, steady tone. No vibrato yet." },
+      { "exerciseId": "lip-trill-scale", "tempoOverride": 80, "notes": "Gentle connection through the range." },
+      { "exerciseId": "messa-di-voce", "notes": "Dynamic control is everything in classical singing." },
+      { "exerciseId": "major-scale-full", "tempoOverride": 80, "notes": "Even, legato line. Every note the same quality." },
+      { "exerciseId": "minor-scale-full", "tempoOverride": 80, "notes": "Practice the emotional color shift." },
+      { "exerciseId": "octave-arpeggio", "tempoOverride": 80, "notes": "Seamless register transitions." },
+      { "exerciseId": "dominant-seventh", "tempoOverride": 80, "notes": "The 7th chord adds harmonic richness." }
+    ]
+  },
+  {
+    "id": "rnb-riffs",
+    "name": "R&B Agility & Riffs",
+    "description": "Build the vocal agility needed for R&B riffing and runs. Focuses on pentatonic patterns, chromatic movement, and speed.",
+    "category": "Genre-Specific",
+    "difficulty": 3,
+    "durationMinutes": 10,
+    "exercises": [
+      { "exerciseId": "five-note-scale", "tempoOverride": 100, "notes": "Warm up with the basics." },
+      { "exerciseId": "pentatonic-scale", "tempoOverride": 120, "notes": "This IS the R&B scale. Own it." },
+      { "exerciseId": "thirds-pattern", "tempoOverride": 120, "notes": "Weaving thirds = instant riff vocabulary." },
+      { "exerciseId": "chromatic-five", "tempoOverride": 140, "notes": "Chromatic slides for that smooth R&B feel." },
+      { "exerciseId": "rapid-five-note", "tempoOverride": 150, "notes": "Speed it up. Think Beyoncé runs." },
+      { "exerciseId": "pentatonic-scale", "tempoOverride": 150, "notes": "Now pentatonic at riff speed. Go!" }
+    ]
+  },
+  {
+    "id": "beginners-first-week",
+    "name": "Beginner's First Week",
+    "description": "A gentle introduction to vocal exercises for complete beginners. Simple patterns, moderate tempo, clear guidance. Do this plan daily for your first week.",
+    "category": "Progressive",
+    "difficulty": 1,
+    "durationMinutes": 8,
+    "exercises": [
+      { "exerciseId": "lip-trill-scale", "tempoOverride": 80, "notes": "Bubble your lips loosely. This relaxes your voice." },
+      { "exerciseId": "sustained-tone", "notes": "Just hold one note. Focus on keeping it steady." },
+      { "exerciseId": "five-note-scale", "tempoOverride": 80, "notes": "Do Re Mi Fa Sol and back. The foundation of everything." },
+      { "exerciseId": "major-triad", "tempoOverride": 80, "notes": "Three notes of a chord. Listen to how they fit together." },
+      { "exerciseId": "descending-five-note", "tempoOverride": 80, "notes": "Same as the 5-note scale but starting from the top." }
+    ]
+  }
+]
