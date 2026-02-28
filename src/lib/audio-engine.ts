@@ -159,6 +159,23 @@ export function playSequence({
 }
 
 /**
+ * Play a chord (multiple notes simultaneously) on the piano sampler.
+ * Returns a promise that resolves after the chord duration.
+ */
+export function playChord(
+  notes: string[],
+  duration: string,
+  bpm: number
+): Promise<void> {
+  if (!sampler || !isLoaded) return Promise.resolve();
+  const durationSec = durationToSeconds(duration, bpm);
+  notes.forEach((note) => {
+    sampler!.triggerAttackRelease(note, durationSec);
+  });
+  return new Promise((resolve) => setTimeout(resolve, durationSec * 1000));
+}
+
+/**
  * Stop all currently playing notes
  */
 export function stopAll(): void {

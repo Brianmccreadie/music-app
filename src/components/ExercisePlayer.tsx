@@ -7,21 +7,37 @@ import {
   patternToNotes,
   noteDisplayName,
   noteShortName,
+  chordNotesForRoot,
+  PIANO_NOTES,
 } from "@/lib/music-utils";
 
 type PlayerState = "idle" | "loading" | "playing" | "paused";
+
+const LOW_NOTES = PIANO_NOTES.filter((n) => {
+  const octave = parseInt(n.slice(-1));
+  return octave >= 2 && octave <= 4;
+});
+const HIGH_NOTES = PIANO_NOTES.filter((n) => {
+  const octave = parseInt(n.slice(-1));
+  return octave >= 3 && octave <= 6;
+});
 
 interface ExercisePlayerProps {
   exercise: Exercise;
   startNote?: string;
   endNote?: string;
+  onRangeChange?: (low: string, high: string) => void;
 }
 
 export default function ExercisePlayer({
   exercise,
   startNote = "C3",
   endNote = "A4",
+  onRangeChange,
 }: ExercisePlayerProps) {
+  const [localStartNote, setLocalStartNote] = useState(startNote);
+  const [localEndNote, setLocalEndNote] = useState(endNote);
+  const [showRangeAdjust, setShowRangeAdjust] = useState(false);
   const [playerState, setPlayerState] = useState<PlayerState>("idle");
   const [bpm, setBpmState] = useState(100);
   const [currentRootIndex, setCurrentRootIndex] = useState(-1);
@@ -29,10 +45,12 @@ export default function ExercisePlayer({
   const [currentNoteName, setCurrentNoteName] = useState("");
   const [roots, setRoots] = useState<string[]>([]);
   const [audioLoaded, setAudioLoaded] = useState(false);
+  const [showingChord, setShowingChord] = useState(false);
 
   // Refs for mutable state in callbacks
   const cancelRef = useRef<(() => void) | null>(null);
   const restTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const chordTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const rootIndexRef = useRef(0);
   const isPlayingRef = useRef(false);
   const bpmRef = useRef(bpm);
@@ -40,15 +58,27 @@ export default function ExercisePlayer({
     null
   );
 
+  // Sync local range with props
+  useEffect(() => {
+    setLocalStartNote(startNote);
+    setLocalEndNote(endNote);
+  }, [startNote, endNote]);
+
   // Compute roots when exercise or range changes
   useEffect(() => {
     const newRoots = generateExerciseRoots(
-      startNote,
-      endNote,
+      localStartNote,
+      localEndNote,
       exercise.pattern
     );
     setRoots(newRoots);
-  }, [exercise, startNote, endNote]);
+  }, [exercise, localStartNote, localEndNote]);
+
+  const handleLocalRangeChange = (low: string, high: string) => {
+    setLocalStartNote(low);
+    setLocalEndNote(high);
+    onRangeChange?.(low, high);
+  };
 
   // Lazy-load audio engine (Tone.js doesn't work server-side)
   const loadAudio = useCallback(async () => {
@@ -60,7 +90,7 @@ export default function ExercisePlayer({
     setAudioLoaded(true);
   }, [audioLoaded]);
 
-  // Play a single rep (one root note's pattern) then call onComplete
+  // Play a single rep: chord first to orient the singer, then the pattern
   const playRep = useCallback(
     (rootNote: string, repIndex: number, onComplete: () => void) => {
       const engine = audioEngineRef.current;
@@ -69,18 +99,32 @@ export default function ExercisePlayer({
       const notes = patternToNotes(rootNote, exercise.pattern);
       setCurrentRootIndex(repIndex);
 
-      const cancel = engine.playSequence({
-        notes,
-        noteDuration: exercise.noteDuration,
-        bpm: bpmRef.current,
-        onNotePlay: (noteIndex, note) => {
-          setCurrentNoteIndex(noteIndex);
-          setCurrentNoteName(note);
-        },
-        onComplete,
-      });
+      // Play the major chord for this root to orient the singer
+      const chordNotes = chordNotesForRoot(rootNote);
+      setShowingChord(true);
+      setCurrentNoteName(rootNote);
+      engine.playChord(chordNotes, "2n", bpmRef.current);
 
-      cancelRef.current = cancel;
+      // After the chord rings, play the exercise pattern
+      const chordDurationMs =
+        engine.durationToSeconds("2n", bpmRef.current) * 1000;
+      chordTimerRef.current = setTimeout(() => {
+        if (!isPlayingRef.current) return;
+        setShowingChord(false);
+
+        const cancel = engine.playSequence({
+          notes,
+          noteDuration: exercise.noteDuration,
+          bpm: bpmRef.current,
+          onNotePlay: (noteIndex, note) => {
+            setCurrentNoteIndex(noteIndex);
+            setCurrentNoteName(note);
+          },
+          onComplete,
+        });
+
+        cancelRef.current = cancel;
+      }, chordDurationMs);
     },
     [exercise]
   );
@@ -136,10 +180,14 @@ export default function ExercisePlayer({
   };
 
   const handlePause = () => {
-    // Cancel current sequence and rest timer
+    // Cancel current sequence, chord timer, and rest timer
     if (cancelRef.current) {
       cancelRef.current();
       cancelRef.current = null;
+    }
+    if (chordTimerRef.current) {
+      clearTimeout(chordTimerRef.current);
+      chordTimerRef.current = null;
     }
     if (restTimerRef.current) {
       clearTimeout(restTimerRef.current);
@@ -148,6 +196,7 @@ export default function ExercisePlayer({
     const engine = audioEngineRef.current;
     if (engine) engine.stopAll();
     isPlayingRef.current = false;
+    setShowingChord(false);
     setPlayerState("paused");
   };
 
@@ -163,6 +212,10 @@ export default function ExercisePlayer({
       cancelRef.current();
       cancelRef.current = null;
     }
+    if (chordTimerRef.current) {
+      clearTimeout(chordTimerRef.current);
+      chordTimerRef.current = null;
+    }
     if (restTimerRef.current) {
       clearTimeout(restTimerRef.current);
       restTimerRef.current = null;
@@ -170,6 +223,7 @@ export default function ExercisePlayer({
     const engine = audioEngineRef.current;
     if (engine) engine.stopAll();
     isPlayingRef.current = false;
+    setShowingChord(false);
     setPlayerState("idle");
     setCurrentRootIndex(-1);
     setCurrentNoteIndex(-1);
@@ -187,6 +241,7 @@ export default function ExercisePlayer({
     return () => {
       isPlayingRef.current = false;
       if (cancelRef.current) cancelRef.current();
+      if (chordTimerRef.current) clearTimeout(chordTimerRef.current);
       if (restTimerRef.current) clearTimeout(restTimerRef.current);
       const engine = audioEngineRef.current;
       if (engine) engine.stopAll();
@@ -224,11 +279,20 @@ export default function ExercisePlayer({
         <div className="bg-gray-50 rounded-xl p-6">
           {currentNoteName ? (
             <>
-              <div className="text-5xl font-bold text-indigo-600 mb-1">
+              {showingChord && (
+                <div className="text-xs font-semibold text-amber-600 uppercase tracking-wide mb-1">
+                  Chord — Listen
+                </div>
+              )}
+              <div
+                className={`text-5xl font-bold mb-1 ${showingChord ? "text-amber-500" : "text-indigo-600"}`}
+              >
                 {noteShortName(currentNoteName)}
               </div>
               <div className="text-sm text-gray-500">
-                {noteDisplayName(currentNoteName)}
+                {showingChord
+                  ? `${noteDisplayName(currentNoteName)} major`
+                  : noteDisplayName(currentNoteName)}
               </div>
             </>
           ) : (
@@ -239,18 +303,84 @@ export default function ExercisePlayer({
         </div>
       </div>
 
-      {/* Progress info */}
+      {/* Range & Progress */}
       <div className="mb-4">
         <div className="flex justify-between text-sm text-gray-600 mb-1">
-          <span>
-            Range: {startNote} → {endNote}
-          </span>
+          <button
+            type="button"
+            onClick={() => setShowRangeAdjust(!showRangeAdjust)}
+            className="text-indigo-600 hover:text-indigo-700 font-medium flex items-center gap-1"
+            disabled={playerState === "playing"}
+          >
+            Range: {localStartNote} → {localEndNote}
+            <svg
+              className={`w-3 h-3 transition-transform ${showRangeAdjust ? "rotate-180" : ""}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
+            </svg>
+          </button>
           <span>
             {currentRootIndex >= 0
               ? `${currentRootIndex + 1} / ${totalReps}`
               : `${totalReps} keys`}
           </span>
         </div>
+
+        {/* Inline range adjuster */}
+        {showRangeAdjust && playerState !== "playing" && (
+          <div className="bg-gray-50 rounded-lg p-3 mb-2 border border-gray-200">
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <label className="text-xs text-gray-500 mb-1 block">
+                  Low Note
+                </label>
+                <select
+                  value={localStartNote}
+                  onChange={(e) =>
+                    handleLocalRangeChange(e.target.value, localEndNote)
+                  }
+                  className="w-full px-2 py-1.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  {LOW_NOTES.map((note) => (
+                    <option key={note} value={note}>
+                      {note}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div>
+                <label className="text-xs text-gray-500 mb-1 block">
+                  High Note
+                </label>
+                <select
+                  value={localEndNote}
+                  onChange={(e) =>
+                    handleLocalRangeChange(localStartNote, e.target.value)
+                  }
+                  className="w-full px-2 py-1.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                >
+                  {HIGH_NOTES.map((note) => (
+                    <option key={note} value={note}>
+                      {note}
+                    </option>
+                  ))}
+                </select>
+              </div>
+            </div>
+            <p className="text-xs text-gray-400 mt-2">
+              Adjust range for this exercise without changing your profile.
+            </p>
+          </div>
+        )}
+
         <div className="w-full bg-gray-200 rounded-full h-2">
           <div
             className="bg-indigo-500 h-2 rounded-full transition-all duration-300"
