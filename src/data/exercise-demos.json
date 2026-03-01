@@ -4,139 +4,279 @@
     "syllables": "Ma Ma Ma Ma Ma Ma Ma Ma Ma",
     "technique": "Keep your jaw relaxed and tongue forward. The \"M\" helps place the sound in the mask (front of face). Think of a gentle, forward placement on each note.",
     "demoDescription": "Sing \"Ma\" on each note of the 5-note scale, ascending and descending. The \"M\" consonant naturally places the voice forward.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "Drop your jaw to create a tall, oval mouth shape on \"Ah.\" Your tongue should rest flat with the tip lightly touching your lower teeth. Avoid spreading sideways — think vertical, not horizontal.",
+      "breathSupport": "Engage your diaphragm by expanding your lower ribs and belly as you inhale. As you sing each \"Ma,\" feel a gentle inward engagement of the lower abs — like squeezing a tube of toothpaste from the bottom. Don't push from the throat.",
+      "mouthAndJaw": "Close your lips gently for the \"M\" then immediately open to the relaxed \"Ah.\" Your jaw should drop naturally, not clench. Place a finger on your jaw hinge (near your ear) — if you feel tension, you're holding too tight.",
+      "posture": "Stand with feet shoulder-width apart, knees soft (not locked). Imagine a string pulling the crown of your head toward the ceiling. Shoulders relaxed and down, chest comfortably lifted. This alignment gives your diaphragm room to work.",
+      "commonMistakes": "Don't scoop up to each note — hit it cleanly from above. Avoid tensing your neck or raising your shoulders as you ascend. If you feel strain on the higher notes, you're likely pushing from the throat instead of supporting from below."
+    }
   },
   "major-triad": {
     "vocalInstruction": "Sing on \"Mee\"",
     "syllables": "Mee Mee Mee Mee Mee",
     "technique": "The \"ee\" vowel helps with brightness and forward placement. Keep the sound narrow and focused as you jump between intervals. Don't spread the vowel.",
     "demoDescription": "Sing \"Mee\" on each note of the major triad (1-3-5-3-1). Focus on landing each interval cleanly.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "For \"ee,\" your tongue should arch high in the mouth with the sides touching your upper molars. Keep your lips in a gentle smile shape but don't spread them wide — think more \"tall\" than \"wide.\" The space behind your tongue stays open.",
+      "breathSupport": "The jumps between triad notes require consistent air pressure. Imagine your breath as a steady stream that doesn't change speed between intervals. Your diaphragm should stay engaged throughout — don't \"reload\" air between notes.",
+      "mouthAndJaw": "Keep a small, consistent jaw opening. The \"ee\" vowel doesn't need much jaw drop, but avoid clenching. As you ascend to the 5th, resist the urge to close your jaw — maintain the same opening.",
+      "posture": "Keep your chin level — don't tilt up for higher notes or tuck down for lower ones. Your larynx position should stay relatively stable. Think of the pitch change happening inside, not by physically reaching.",
+      "commonMistakes": "Don't let the \"ee\" become thin and squeezed on higher notes. If it sounds pinched, add a touch more space behind the tongue. Also avoid scooping — each note of the triad should land precisely."
+    }
   },
   "octave-arpeggio": {
     "vocalInstruction": "Sing on \"Noh\"",
     "syllables": "Noh Noh Noh Noh Noh Noh Noh",
     "technique": "The \"N\" helps nasal resonance while \"oh\" keeps the throat open. As you go up to the octave, think of the sound going over your head, not reaching up with your chin.",
     "demoDescription": "Sing \"Noh\" on each note of the arpeggio. The open \"oh\" vowel helps keep space as you reach the octave.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "Round your lips into an oval for \"Oh.\" Your tongue should be low and relaxed, pulled slightly back. Think of the inside of your mouth as a cathedral — lots of open space. As you ascend, keep the roundness but don't tighten.",
+      "breathSupport": "This exercise spans a full octave, so you need strong support. Take a deep, low breath that expands your sides and back. As you ascend, increase your support (more core engagement) rather than pushing more air.",
+      "mouthAndJaw": "The \"N\" starts with your tongue on the roof of your mouth — let it drop cleanly into the \"Oh.\" As you go higher, allow your jaw to drop more. On the octave note, your jaw should be noticeably more open than the root.",
+      "posture": "When reaching for the octave, singers often lift their chin or tense their neck. Instead, think of the high note as dropping down into you, not reaching up. Keep your chin slightly tucked and your neck long.",
+      "commonMistakes": "The most common mistake is \"reaching\" for the octave by tightening the throat. Instead, increase your breath support and open more space in the back of your throat. If the top note feels strained, start on a lower root note."
+    }
   },
   "chromatic-five": {
     "vocalInstruction": "Sing on \"Zee\"",
     "syllables": "Zee Zee Zee Zee Zee Zee Zee Zee Zee Zee Zee",
     "technique": "The buzzy \"Z\" activates the resonators. Each half-step should be distinct and precise — no scooping between notes. Think of each note as a separate, clean event.",
     "demoDescription": "Sing \"Zee\" on each chromatic half-step. The \"Z\" buzz helps you feel the vibration and stay precise.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "The \"Z\" creates a focused buzz on your teeth and lips — you should feel vibration in your front teeth and nasal bridge. Transition quickly from the buzzy \"Z\" into a bright \"ee.\" Keep the buzz feeling even on every note.",
+      "breathSupport": "Chromatic exercises require extremely precise air control. Think of your breath as a thin, focused stream — not a firehose. The \"Z\" consonant naturally regulates airflow, which is why it's chosen for this exercise.",
+      "mouthAndJaw": "Your teeth should be close together (but not clenched) for the \"Z,\" then separate slightly for the \"ee.\" Keep movements small and efficient — this exercise is about precision, not big mouth shapes.",
+      "posture": "Stay relaxed and centered. Chromatic exercises can create mental tension as you concentrate on hitting half-steps precisely. Check that your shoulders haven't crept up and your jaw hasn't tightened.",
+      "commonMistakes": "Don't scoop or slide between half-steps — each note should have a clean onset. If notes sound blurry, slow the tempo down. Also avoid rushing through the pattern; half-steps require more ear focus than whole steps."
+    }
   },
   "fifth-jump": {
     "vocalInstruction": "Sing on \"Yah\"",
     "syllables": "Yah Yah Yah Yah Yah",
     "technique": "The \"Y\" glide helps bridge the fifth interval smoothly. Drop your jaw on \"ah\" and keep the space consistent for both the low and high notes.",
     "demoDescription": "Sing \"Yah\" as you jump a fifth and back. Focus on nailing the interval without scooping up to it.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "The \"Y\" creates a quick glide from an \"ee\" position into a wide, open \"Ah.\" Your jaw should drop fully for the \"Ah\" — think of gently biting into a large apple. The vowel should be the same on both the low and high notes.",
+      "breathSupport": "When jumping up a fifth, your instinct may be to blast more air. Instead, think of firming your support — engage your lower abs slightly more for the upper note while keeping airflow steady. The jump should feel effortless.",
+      "mouthAndJaw": "Keep your jaw consistently dropped on every \"Yah\" — don't close it between notes. The jaw position should remain stable whether you're on the root or the fifth. Let the pitch change happen internally, not with jaw movement.",
+      "posture": "Ground your feet firmly. Large interval jumps can cause your body to physically react — rising on tiptoes for high notes, slumping for low ones. Stay rooted and stable; only your voice moves, not your body.",
+      "commonMistakes": "The #1 mistake is scooping up to the fifth instead of landing on it cleanly. Think of the upper note first — mentally hear it before you sing it. Also, don't let the volume increase just because the pitch goes up."
+    }
   },
   "major-scale-full": {
     "vocalInstruction": "Sing on \"La\"",
     "syllables": "La La La La La La La La La La La La La La La",
     "technique": "\"La\" is the classic solfege-style syllable. Keep the tongue light and the jaw dropped. Maintain even volume and tone from bottom to top and back.",
     "demoDescription": "Sing \"La\" on each note of the full major scale. Aim for smooth, even tone through the entire octave.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "For \"Ah\" (after the L), open tall and relaxed. Your tongue tip flicks the ridge behind your upper teeth for each \"L\" then immediately drops back down. Modify slightly toward \"aw\" as you go higher to keep space.",
+      "breathSupport": "A full octave scale requires a well-planned breath. Inhale low and wide (expanding ribs, belly, and even your back), then meter your air carefully — you have 15 notes to get through. Gradually increase core engagement as you ascend, then release gradually descending.",
+      "mouthAndJaw": "The \"L\" requires quick, light tongue contact on the alveolar ridge (bumpy spot behind upper teeth). Your jaw should progressively open more as you ascend. By the top note, your jaw should be noticeably more open than the bottom.",
+      "posture": "With 15 notes in this exercise, you need endurance. Plant your feet, engage your core lightly, and think of your body as a resonating chamber. Don't lock your knees — keep them soft to avoid tension traveling up through your body.",
+      "commonMistakes": "Watch for the \"gear change\" points: between notes 3-4 (E-F, the half step) and 7-8 (B-C, the other half step). These spots are where intonation often slips. Also avoid getting louder as you go up — aim for consistent volume."
+    }
   },
   "minor-triad": {
     "vocalInstruction": "Sing on \"Moh\"",
     "syllables": "Moh Moh Moh Moh Moh",
     "technique": "The darker \"oh\" vowel matches the minor quality. Feel the resonance shift compared to singing a major triad. Keep the placement forward despite the rounder vowel.",
     "demoDescription": "Sing \"Moh\" on the minor triad (1-b3-5-b3-1). Notice how the \"oh\" complements the minor tonality.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "Round your lips for \"Oh\" — think of making a small circle. Your tongue should be mid-low in the mouth. Despite the rounder shape, keep the sound forward. Imagine the \"Oh\" resonating right behind your nose, not falling back into your throat.",
+      "breathSupport": "The minor triad feels emotionally darker — don't let that translate to less energy. Keep your support just as active as with a major triad. Your breath should flow warmly and steadily, like fogging a mirror with each note.",
+      "mouthAndJaw": "The \"M\" closure should be gentle — barely touching your lips together before opening to \"Oh.\" Keep your jaw relaxed and hanging, not pulled back. The inner space of your mouth should feel like you're holding a small egg.",
+      "posture": "Maintain the same upright posture as with major exercises. Emotional quality comes from vowel color and resonance, not from changing your physical posture. Stand tall even when singing something dark or somber.",
+      "commonMistakes": "Don't let the \"Oh\" vowel go dark and swallowed. A common issue is retracting the tongue when singing rounder vowels, which dulls the resonance. Keep thinking \"forward\" even with the rounded lip shape."
+    }
   },
   "dominant-seventh": {
     "vocalInstruction": "Sing on \"Nay\"",
     "syllables": "Nay Nay Nay Nay Nay Nay Nay",
     "technique": "\"Nay\" (as in \"neighbor\") is brassy and forward — perfect for the dominant 7th's bluesy character. Keep a slight twang in the sound. Don't let it go breathy.",
     "demoDescription": "Sing \"Nay\" on the dominant 7th arpeggio. The twangy quality of \"Nay\" suits the jazzy chord perfectly.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "\"Nay\" uses a bright, twangy vowel. Your tongue should be high and forward, similar to saying \"cat\" — this is the \"twang\" position. It may feel nasal, and that's intentional. The brightness cuts through and builds power without force.",
+      "breathSupport": "The twangy quality naturally compresses the airstream, so you need less air than you think. Don't oversupply — let the twang do the work. Think of your breath as a thin, focused laser rather than a broad floodlight.",
+      "mouthAndJaw": "The \"N\" channels sound through the nose before releasing into \"ay.\" Let the nasal resonance ring. Your jaw should open to a medium position — not too wide. Keep the corners of your mouth slightly forward, not pulled back into a grin.",
+      "posture": "This exercise has an assertive, brassy energy. Channel that through your body — stand confidently with a slightly engaged core. Don't let the intensity creep into your shoulders or neck; keep the energy low and grounded.",
+      "commonMistakes": "Don't confuse \"twangy\" with \"nasal and pinched.\" Good twang has resonance and ring; bad twang sounds thin and whiney. If it sounds pinched, open your throat more while keeping the forward tongue position. The b7 interval often goes flat — tune it carefully."
+    }
   },
   "staccato-repeated": {
     "vocalInstruction": "Sing on \"Ha\"",
     "syllables": "Ha Ha Ha Ha Ha",
     "technique": "Each \"Ha\" should be short and bouncy — a quick burst from the diaphragm. Feel your belly pulse with each note. The \"H\" forces you to use breath support for each attack.",
     "demoDescription": "Sing quick, detached \"Ha\" sounds on the repeated note. Each one should pop from the diaphragm like a laugh.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "Open \"Ah\" shape with a relaxed jaw. Because each note is short, the vowel is just a flash — but it still needs good shape. Think of a surprised, happy \"Ha!\" — open and bright. Your mouth should spring open on each pulse.",
+      "breathSupport": "This is THE diaphragm exercise. Place your hand on your belly — you should feel it pulse inward with each \"Ha.\" Each note is powered by a quick contraction of the abdominal muscles. Think of panting like a dog, but with pitch. Don't use your throat to create the staccato.",
+      "mouthAndJaw": "Keep your jaw loose and bouncy. The \"H\" requires an open glottis (open throat), which prevents the hard glottal attacks that damage your voice. If you feel a \"click\" at the start of each note, you're using glottal stops instead of the \"H.\"",
+      "posture": "Lean very slightly forward — this activates your abdominal muscles naturally and makes the diaphragmatic pulses easier. Keep your shoulders relaxed and your ribcage lifted. Your upper body should be still while your belly does all the work.",
+      "commonMistakes": "Don't create staccato by stopping the sound with your throat (glottal stop). The separation between notes should come from your diaphragm, not your vocal cords. If your throat feels tight or sore, you're doing it wrong. Also, keep every \"Ha\" at the same pitch."
+    }
   },
   "sustained-tone": {
     "vocalInstruction": "Sing on \"Ooh\"",
     "syllables": "Ooooooooh",
     "technique": "Round your lips into a gentle \"Ooh\" and hold it as long as possible. Focus on steady airflow — no wobble, no breathiness. Imagine a laser beam of sound.",
     "demoDescription": "Sustain a long, steady \"Ooh\" on a single pitch. The goal is consistent tone and airflow with no wavering.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "Purse your lips into a small, round opening — like whistling but slightly wider. Your tongue should be high in the back of your mouth. The space inside should feel large despite the small lip opening. Think of blowing across a bottle top.",
+      "breathSupport": "This is all about breath management. Take the deepest breath you can (expand ribs, belly, and even your back), then release air at the slowest possible rate. Your abdominals should engage gradually — a slow, controlled squeeze. Time yourself and try to extend your hold each day.",
+      "mouthAndJaw": "Your jaw should be slightly dropped but not wide open — the \"Ooh\" vowel uses a relatively small jaw opening. The key is keeping everything stable — no jaw movement, no tongue movement. Any movement creates wobble in the tone.",
+      "posture": "Stand tall with your arms relaxed at your sides. Your ribcage should feel lifted and expanded, giving your lungs maximum capacity. Don't collapse your chest as you run out of air — maintain the lifted position throughout.",
+      "commonMistakes": "If the tone wobbles, you're either using too much air or not enough support. It should feel effortless — like the note is floating on a cushion of air. If you run out of breath too quickly, you're pushing too hard. Use less air, not more."
+    }
   },
   "thirds-pattern": {
     "vocalInstruction": "Sing on \"Mi-Ma\"",
     "syllables": "Mi Ma Mi Ma Mi Ma Mi Ma Mi Ma Mi",
     "technique": "Alternate between \"Mi\" and \"Ma\" to practice moving between vowels while maintaining placement. The weaving thirds pattern trains your ear and agility simultaneously.",
     "demoDescription": "Alternate \"Mi\" and \"Ma\" on the weaving thirds pattern. The vowel change adds an extra coordination challenge.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "You're alternating between bright \"ee\" (tongue high, small opening) and open \"ah\" (tongue low, jaw dropped). The challenge is transitioning smoothly. Keep both vowels in the same \"forward\" placement — don't let \"ah\" fall back into your throat.",
+      "breathSupport": "This agility exercise needs light, nimble support — not heavy pushing. Think of your breath as a conveyor belt that keeps moving at a constant speed. The vowel changes and interval jumps happen on top of this steady airstream.",
+      "mouthAndJaw": "The jaw should move efficiently between the smaller \"ee\" position and the wider \"ah\" position. Don't exaggerate the movements — keep them small and quick. The \"M\" consonant gives you a brief reset between each vowel.",
+      "posture": "Stay loose and agile in your upper body. This exercise requires coordination, which is easier when you're physically relaxed. Shake out your arms and shoulders before starting. Keep your face relaxed — no furrowed brows.",
+      "commonMistakes": "The biggest trap is losing pitch accuracy when switching vowels. Each vowel has different resonance, which can make intonation tricky. Also, don't let the alternating syllables create an accent pattern — keep every note equal."
+    }
   },
   "octave-jump": {
     "vocalInstruction": "Sing on \"Woh\"",
     "syllables": "Woh Woh Woh",
     "technique": "The \"W\" glide helps bridge the octave smoothly. Think of tossing the sound up to the high note rather than reaching for it. Your support should increase, not your tension.",
     "demoDescription": "Sing \"Woh\" on the octave jump (1-8-1). The \"W\" helps you glide through the big interval.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "The \"W\" starts with very rounded, pursed lips that then open into \"Oh.\" This glide naturally stretches through your registers. On the upper octave, keep the \"Oh\" spacious — think of yawning while saying \"Oh.\" Don't let it thin out.",
+      "breathSupport": "An octave jump is the biggest interval you'll sing. Your support needs to ramp up significantly for the top note — not by pushing more air, but by engaging your core more firmly. Think of your support like a springboard that launches the note upward.",
+      "mouthAndJaw": "Your jaw should drop significantly more for the upper note. On the lower note, a moderate opening is fine. On the octave, think of the biggest \"Oh\" you can make — jaw down, soft palate lifted (beginning of a yawn). Then return to moderate on the way back down.",
+      "posture": "Bend your knees very slightly when hitting the upper note — this counterintuitive move helps ground your support and prevents reaching upward with your body. Professional singers often use this technique for big interval jumps.",
+      "commonMistakes": "Never reach up with your chin for the high note — this closes the throat. Instead, think of the sound going up and over like a rainbow while your body stays grounded. If the top note cracks, lower the root note until it's comfortable."
+    }
   },
   "descending-five-note": {
     "vocalInstruction": "Sing on \"Mee-Meh-Mah-Moh-Moo\"",
     "syllables": "Mee Meh Mah Moh Moo",
     "technique": "Each note gets a different vowel, descending from bright to dark: ee-eh-ah-oh-oo. This trains vowel modification across your range. Keep the placement forward on every vowel.",
     "demoDescription": "Sing descending vowels: Mee-Meh-Mah-Moh-Moo from the 5th down to the root. Great for vowel unification.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "Five different vowels descending bright to dark: ee (high tongue, small opening) → eh (mid tongue, medium) → ah (low tongue, wide) → oh (rounded lips, medium) → oo (pursed lips, small). Each should be distinct but connected in placement.",
+      "breathSupport": "As you descend, the tendency is to lose support and let the sound fall flat. Maintain your core engagement all the way down. Think of it like lowering a heavy object on a rope — controlled descent, never dropping.",
+      "mouthAndJaw": "Each vowel requires a different mouth shape. Practice the sequence slowly: feel how your tongue, lips, and jaw move from one vowel to the next. The \"M\" gives you a reset point between each transition.",
+      "posture": "Don't slump as you descend in pitch. Keep your chest lifted and your body tall. Lower pitches need just as much physical support as higher ones. Think of supporting the low notes from underneath.",
+      "commonMistakes": "The biggest challenge is keeping all five vowels equally resonant. Singers tend to lose forward placement on \"Oh\" and \"Oo\" — these darker vowels can fall back in the throat. Maintain the \"buzz\" in the front of your face on every vowel."
+    }
   },
   "lip-trill-scale": {
     "vocalInstruction": "Lip Trill (Bubble Lips)",
     "syllables": "Brrrrrrrrr (lips buzzing)",
     "technique": "Let your lips vibrate loosely like a motorboat. Keep steady air pressure — if the trill stops, you're either pushing too hard or not enough. This exercise releases jaw and tongue tension.",
     "demoDescription": "Do a lip trill (bubble lips / motorboat sound) through the 5-note scale. If you can't trill, try a tongue trill (rolled R) instead.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "No specific vowel — your lips are vibrating loosely together. Inside, keep a relaxed, neutral mouth position. Think of the sound \"uh\" inside while your lips flutter. Some singers gently press their cheeks with their fingers to help the lips vibrate.",
+      "breathSupport": "Lip trills require perfectly balanced air pressure. Too much and the trill sputters; too little and the lips stop. This is why lip trills are THE best diagnostic tool — if you can sustain a trill, your breath support is working correctly.",
+      "mouthAndJaw": "Your jaw should be completely relaxed — hanging loose. Your lips should be soft and floppy, not pressed together tightly. If you can't start the trill, try saying \"buh buh buh\" very fast until the lips vibrate continuously.",
+      "posture": "Lip trills are a great tension detector. Stand relaxed and notice where you hold tension. If your shoulders are tight, the trill will be inconsistent. If your jaw is clenched, the lips won't vibrate. Use this as a full-body relaxation check.",
+      "commonMistakes": "If the trill keeps stopping: (1) Relax your jaw more, (2) Push your cheeks toward your lips with your fingers, (3) Lean forward slightly. If you truly can't lip trill, a tongue trill (rolled R as in Spanish \"perro\") is an excellent substitute."
+    }
   },
   "pentatonic-scale": {
     "vocalInstruction": "Sing on \"Na\"",
     "syllables": "Na Na Na Na Na Na Na Na Na",
     "technique": "\"Na\" places the voice right in the nasal resonators. The pentatonic scale has no half-steps, so each interval should feel natural and singable. Great for riff practice.",
     "demoDescription": "Sing \"Na\" on the pentatonic scale. The smooth intervals make this feel natural — like singing a pop melody.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "\"Na\" combines nasal resonance (from \"N\") with an open \"Ah.\" Your tongue tip touches the ridge behind your upper teeth for the \"N\" then drops for \"Ah.\" Feel the vibration buzz in your nose on the \"N\" — that's the resonance that gives this exercise its power.",
+      "breathSupport": "The pentatonic is very singable — no awkward half-steps. Use this comfort to focus on smooth, even airflow. Each note should have the same breath behind it. Think of your breath as a river flowing continuously under the melody.",
+      "mouthAndJaw": "Keep the jaw relaxed and let it hang open naturally for each \"Ah.\" The tongue does most of the work — flicking up for \"N\" and dropping for \"Ah.\" Keep movements light and quick. No jaw tension.",
+      "posture": "This is a great exercise to practice with movement — try gentle swaying or stepping side to side. The pentatonic is inherently musical and groovy. Moving your body helps keep your breathing natural and relaxed.",
+      "commonMistakes": "Because the pentatonic is so comfortable, singers sometimes get lazy with intonation. Stay precise — each note should be tuned, not approximated. Also, don't rush the scale; give each note its full value."
+    }
   },
   "minor-scale-full": {
     "vocalInstruction": "Sing on \"Lah\"",
     "syllables": "Lah Lah Lah Lah Lah Lah Lah Lah Lah Lah Lah Lah Lah Lah Lah",
     "technique": "\"Lah\" with a darker, warmer tone to match the minor scale quality. Notice the half-steps between 2-b3 and 5-b6 — keep those precise. Feel the emotional quality of minor.",
     "demoDescription": "Sing \"Lah\" through the full natural minor scale. Let the darker quality of the scale come through naturally.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "\"Lah\" uses a slightly warmer, darker \"Ah.\" Think of the vowel in \"father\" rather than \"cat.\" Your mouth should be open and relaxed. The tongue flicks lightly for each \"L\" then drops back to resting.",
+      "breathSupport": "Like the major scale, this is 15 notes — pace your breath carefully. Take a deep, expansive breath and meter it. The minor scale can feel emotionally heavier — don't let that translate to heavier, wasteful breathing.",
+      "mouthAndJaw": "Progressive jaw opening as you ascend. Pay special attention to the half-steps (between notes 2-3 and 5-6) — these narrow intervals require extra precision in your jaw and tongue position.",
+      "posture": "Maintain your tall, grounded stance. The emotional quality should come from your voice, not from changing your physical posture. Stay physically neutral and let the music carry the emotion.",
+      "commonMistakes": "The flat 3rd (b3) and flat 6th (b6) are where most intonation errors happen — these notes tend to drift sharp (toward major). Use a piano or tuner reference. Really listen and tune them carefully."
+    }
   },
   "messa-di-voce": {
     "vocalInstruction": "Sing on \"Ah\" (soft → loud → soft)",
     "syllables": "Ahhhhhhhhh (crescendo then diminuendo)",
     "technique": "Start pianissimo, gradually crescendo to full volume at the middle, then diminuendo back to pianissimo. The pitch must not change! This is the ultimate breath control exercise.",
     "demoDescription": "Hold a single \"Ah\" and swell from quiet to loud and back to quiet. The note should stay perfectly steady in pitch.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "Use a pure, open \"Ah\" — your most natural, relaxed vowel. The shape should remain constant throughout the swell — don't let it change as you get louder or softer. The temptation is to widen as you crescendo; resist it.",
+      "breathSupport": "This is the ultimate breath control exercise. Start with minimal airflow (barely audible), gradually increase air speed and support, then reverse. Your abdominals should engage progressively — imagine a dimmer switch, not an on/off switch.",
+      "mouthAndJaw": "Lock your jaw position at the start and don't move it. The volume change must come entirely from breath support, not from opening or closing your mouth. Any jaw movement will change the vowel color.",
+      "posture": "Your body is your anchor. Plant your feet, engage your core, keep your chest high. As you crescendo, the energy increases in your body — but it should stay low (in your abs and back), not creep up into shoulders and neck.",
+      "commonMistakes": "The most common mistake is pitch drift — going sharp during crescendo or flat during diminuendo. Use a tuner to monitor. The transition from crescendo to diminuendo should be seamless — no sudden drop. The whole exercise draws one smooth diamond shape."
+    }
   },
   "rapid-five-note": {
-    "vocalInstruction": "Sing on \"Ma-Mi-Ma-De-Me-Ma-Sh-My-Em-In-Nems\"",
-    "syllables": "Ma Mi Ma De Me Ma Sh My Em",
+    "vocalInstruction": "Sing on various consonants",
+    "syllables": "Ma Mi Ma De Me Ma",
     "technique": "This nonsense phrase builds tongue and lip agility at speed. Each consonant change forces different mouth shapes while maintaining airflow. Start slow, then push the tempo.",
     "demoDescription": "Rapid articulation exercise. The alternating consonants build dexterity — don't sacrifice clarity for speed.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "You're rapidly switching between multiple vowels (ah, ee, eh). Don't try to perfect each vowel at speed — aim for clarity. At fast tempos, vowels naturally become more neutral (toward \"uh\"). That's okay — clarity of consonants matters more here.",
+      "breathSupport": "Fast articulation requires quick, light breath support — not heavy pushing. Think of your breath as a fast-moving conveyor belt. The consonants ride on top of the airstream. If you push too hard, articulation gets muddy.",
+      "mouthAndJaw": "Your lips, tongue, and jaw all need to move independently and quickly. Start at half-speed and gradually increase. Your jaw should stay relatively still while your tongue and lips do the work. If your jaw bounces with every syllable, you'll never get fast enough.",
+      "posture": "Stay relaxed — tension is the enemy of speed. Shake out your hands and shoulders before starting. Your face should be relaxed; if you're furrowing your brow, you're overworking. Only the muscles needed for articulation should be active.",
+      "commonMistakes": "Don't sacrifice clarity for speed. If syllables sound mushy, slow down. Speed comes with practice and muscle memory. Also, keep the pitch accurate — at high speeds, intonation often slips because all focus goes to articulation."
+    }
   },
   "sirens": {
     "vocalInstruction": "Sing on \"Wee\" (continuous slide)",
     "syllables": "Weeeeeeeeeee ↑↑↑",
     "technique": "Glide smoothly from bottom to top like a fire siren. Don't let the sound break or flip — slide through your registers. The \"ee\" vowel helps keep the sound thin enough to slide.",
     "demoDescription": "Slide continuously on \"Wee\" from the root up to the octave. Focus on seamless register transitions.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "Start with a bright \"ee\" — tongue high, lips in a gentle smile. As you slide higher, you may need to slightly modify toward \"ih\" to keep the sound free. Keep the vowel narrow and focused so it can slide through registers without breaking.",
+      "breathSupport": "The siren needs continuously increasing support as you ascend. Start gentle at the bottom and smoothly increase core engagement going higher. Think of slowly inflating a balloon — the pressure increases gradually, never suddenly.",
+      "mouthAndJaw": "Start with a small mouth opening. As you slide up, gradually allow your jaw to drop slightly. The transition through your vocal break (passaggio) is crucial — if you feel a crack, try slightly modifying the vowel or adding a tiny bit more air.",
+      "posture": "Imagine your voice as an elevator moving smoothly through floors (registers). Your body is the building — stable and unchanging. Don't rise on your toes or tilt your head back as you go higher. Stay grounded.",
+      "commonMistakes": "The voice will want to \"flip\" or \"crack\" at register transitions (usually around E4-F4 for men, A4-B4 for women). Don't avoid this zone — slide through it gently. Over time, the transition smooths out. Make it a true slide (portamento), not a fast scale."
+    }
   },
   "fourth-jump": {
     "vocalInstruction": "Sing on \"Gee\"",
     "syllables": "Gee Gee Gee Gee Gee",
     "technique": "The hard \"G\" onset gives a clean attack on each note. Think of the sound bouncing off the soft palate. The fourth interval should feel natural — like the beginning of \"Here Comes the Bride.\"",
     "demoDescription": "Sing \"Gee\" on the fourth interval jumps. The \"G\" consonant helps with clean, supported note onsets.",
-    "demoRootNote": "C4"
+    "demoRootNote": "C4",
+    "tips": {
+      "vowelShape": "The \"ee\" after the \"G\" should be bright and forward. Your tongue arches high after the \"G\" release. Keep the \"ee\" consistent on both the root and the fourth — same placement, same brightness, just different pitch.",
+      "breathSupport": "The \"G\" creates a brief build-up of air pressure before the vowel releases. Use this to your advantage — let the \"G\" help you engage your support. Each \"Gee\" should feel like a controlled burst of energy from your core.",
+      "mouthAndJaw": "The \"G\" is produced at the back of the mouth — your tongue touches your soft palate then releases. After the release, move quickly to the \"ee\" position (tongue high and forward). Keep your jaw stable and let the tongue do the work.",
+      "posture": "The perfect fourth is one of the most natural intervals in music (\"Here Comes the Bride\"). Let your body reflect that naturalness — stay relaxed and grounded. The interval should feel like a comfortable hop, not a strenuous leap.",
+      "commonMistakes": "Don't make the \"G\" too heavy or explosive — it should be a clean, light attack, not a grunt. The fourth interval sometimes gets confused with a fifth. If unsure, sing the beginning of \"Here Comes the Bride\" to calibrate your ear."
+    }
   }
 }
