@@ -7,21 +7,21 @@ interface PlanCardProps {
 }
 
 const DIFFICULTY_COLORS: Record<number, string> = {
-  1: "bg-green-100 text-green-700",
-  2: "bg-blue-100 text-blue-700",
-  3: "bg-yellow-100 text-yellow-800",
-  4: "bg-orange-100 text-orange-700",
-  5: "bg-red-100 text-red-700",
+  1: "bg-emerald-900/50 text-emerald-400",
+  2: "bg-blue-900/50 text-blue-400",
+  3: "bg-yellow-900/50 text-yellow-400",
+  4: "bg-orange-900/50 text-orange-400",
+  5: "bg-red-900/50 text-red-400",
 };
 
 export default function PlanCard({ plan }: PlanCardProps) {
   return (
     <Link
       href={`/plans/${plan.id}`}
-      className="block bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-indigo-200 transition-all p-4"
+      className="block bg-card rounded-xl border border-border hover:bg-card-hover hover:border-accent/30 transition-all p-4"
     >
       <div className="flex items-start justify-between mb-2">
-        <h3 className="font-semibold text-gray-900 leading-tight">
+        <h3 className="font-semibold text-foreground leading-tight">
           {plan.name}
         </h3>
         <span
@@ -32,10 +32,10 @@ export default function PlanCard({ plan }: PlanCardProps) {
           {DIFFICULTY_LABELS[plan.difficulty]}
         </span>
       </div>
-      <p className="text-sm text-gray-500 line-clamp-2 mb-3">
+      <p className="text-sm text-muted line-clamp-2 mb-3">
         {plan.description}
       </p>
-      <div className="flex items-center justify-between text-xs text-gray-400">
+      <div className="flex items-center justify-between text-xs text-muted">
         <span>{plan.category}</span>
         <span>
           {plan.exercises.length} exercises &middot; ~{plan.durationMinutes} min

@@ -218,5 +218,181 @@
     "tags": ["intonation", "beginner"],
     "difficulty": 2,
     "category": "Intervals"
+  },
+  {
+    "id": "two-octave-arpeggio",
+    "name": "Two-Octave Arpeggio",
+    "pattern": [0, 4, 7, 12, 16, 19, 24, 19, 16, 12, 7, 4, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 3,
+    "description": "Extended two-octave arpeggio for advanced range work. Challenges your full register from chest through head voice.",
+    "tags": ["range", "advanced", "technique"],
+    "difficulty": 4,
+    "category": "Range Extension"
+  },
+  {
+    "id": "diminished-seventh",
+    "name": "Diminished 7th Arpeggio",
+    "pattern": [0, 3, 6, 9, 6, 3, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "Each interval is a minor third. The symmetrical pattern trains your ear for unusual intervals common in classical and jazz.",
+    "tags": ["technique", "advanced", "intonation"],
+    "difficulty": 4,
+    "category": "Arpeggios"
+  },
+  {
+    "id": "tongue-trill-scale",
+    "name": "Tongue Trill Scale",
+    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "Rolled R (tongue trill) through the 5-note scale. An alternative to lip trills that works the same relaxation benefits with different coordination.",
+    "tags": ["warm-up", "beginner", "technique"],
+    "difficulty": 1,
+    "category": "Warm-Ups"
+  },
+  {
+    "id": "humming",
+    "name": "Humming Scale",
+    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "Hum with closed lips through the 5-note scale. Feel the vibrations in your face (mask resonance). The gentlest possible warm-up.",
+    "tags": ["warm-up", "beginner", "technique"],
+    "difficulty": 1,
+    "category": "Warm-Ups"
+  },
+  {
+    "id": "nay-twang",
+    "name": "Nay Twang Exercise",
+    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "Sing 'Nay' with an exaggerated twang. Builds forward placement and bright resonance. Essential for contemporary singing and belt technique.",
+    "tags": ["technique", "intermediate", "chest voice", "mix voice"],
+    "difficulty": 2,
+    "category": "Technique"
+  },
+  {
+    "id": "vocal-fry-onset",
+    "name": "Vocal Fry to Chest Voice",
+    "pattern": [0, 0, 0],
+    "noteDuration": "2n",
+    "restBetweenReps": 3,
+    "description": "Start in vocal fry, then gradually add air to transition into full chest voice. Builds cord closure and clean onset.",
+    "tags": ["technique", "intermediate", "chest voice"],
+    "difficulty": 2,
+    "category": "Technique"
+  },
+  {
+    "id": "yawn-sigh",
+    "name": "Yawn-Sigh",
+    "pattern": [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0],
+    "noteDuration": "16n",
+    "restBetweenReps": 3,
+    "description": "Start high and sigh downward through your full range. Releases tension and helps find relaxed head voice. Think of a lazy yawn.",
+    "tags": ["warm-up", "beginner", "range", "head voice"],
+    "difficulty": 1,
+    "category": "Warm-Ups"
+  },
+  {
+    "id": "staccato-five-descending",
+    "name": "Descending Staccato 5-Note",
+    "pattern": [7, 5, 4, 2, 0],
+    "noteDuration": "8n",
+    "restBetweenReps": 2,
+    "description": "Staccato bouncing from the 5th descending. Builds agility and diaphragmatic engagement with descending patterns.",
+    "tags": ["agility", "intermediate", "staccato"],
+    "difficulty": 2,
+    "category": "Agility"
+  },
+  {
+    "id": "wide-arpeggio",
+    "name": "Wide Arpeggio (1-5-8-5-1)",
+    "pattern": [0, 7, 12, 7, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "Skips the third and jumps straight to the fifth and octave. Challenging intervals that build range and intonation simultaneously.",
+    "tags": ["range", "intermediate", "intonation"],
+    "difficulty": 3,
+    "category": "Arpeggios"
+  },
+  {
+    "id": "semitone-trill",
+    "name": "Semitone Trill",
+    "pattern": [0, 1, 0, 1, 0, 1, 0, 1, 0],
+    "noteDuration": "16n",
+    "restBetweenReps": 2,
+    "description": "Rapidly alternate between two adjacent notes. Builds laryngeal flexibility and vocal agility. Start slow and increase speed.",
+    "tags": ["agility", "advanced", "technique"],
+    "difficulty": 4,
+    "category": "Agility"
+  },
+  {
+    "id": "blues-scale",
+    "name": "Blues Scale",
+    "pattern": [0, 3, 5, 6, 7, 10, 12, 10, 7, 6, 5, 3, 0],
+    "noteDuration": "8n",
+    "restBetweenReps": 2,
+    "description": "The classic blues scale with the blue note (b5). Essential for gospel, R&B, blues, and rock. Feel the soul in those chromatic passing tones.",
+    "tags": ["technique", "intermediate", "agility"],
+    "difficulty": 3,
+    "category": "Scales"
+  },
+  {
+    "id": "major-sixth-jump",
+    "name": "Major 6th Interval Jump",
+    "pattern": [0, 9, 0, 9, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "Jump a major sixth — the opening interval of 'My Bonnie Lies Over the Ocean.' A wide, beautiful interval that challenges intonation.",
+    "tags": ["intonation", "intermediate", "range"],
+    "difficulty": 3,
+    "category": "Intervals"
+  },
+  {
+    "id": "nine-note-run",
+    "name": "9-Note Rapid Run",
+    "pattern": [0, 2, 4, 5, 7, 9, 11, 12, 14, 12, 11, 9, 7, 5, 4, 2, 0],
+    "noteDuration": "16n",
+    "restBetweenReps": 3,
+    "description": "A blazing fast run through 9 notes and beyond. The ultimate agility test. Speed comes from relaxation, not force.",
+    "tags": ["agility", "advanced", "technique"],
+    "difficulty": 5,
+    "category": "Agility"
+  },
+  {
+    "id": "vowel-modification",
+    "name": "Vowel Modification (Ah-Eh-Ee-Oh-Oo)",
+    "pattern": [0, 0, 0, 0, 0],
+    "noteDuration": "2n",
+    "restBetweenReps": 3,
+    "description": "Hold a single pitch while cycling through all five Italian vowels. Trains vowel purity and consistent resonance across different mouth shapes.",
+    "tags": ["technique", "intermediate", "legato"],
+    "difficulty": 2,
+    "category": "Technique"
+  },
+  {
+    "id": "sob-exercise",
+    "name": "Sob / Cry Exercise",
+    "pattern": [7, 5, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "Sing with a gentle 'crying' quality. This tilts the larynx forward, thins the vocal folds, and helps access head voice with emotion.",
+    "tags": ["technique", "intermediate", "head voice", "mix voice"],
+    "difficulty": 2,
+    "category": "Technique"
+  },
+  {
+    "id": "belt-1-3-5-8",
+    "name": "Belt Arpeggio (1-3-5-8)",
+    "pattern": [0, 4, 7, 12],
+    "noteDuration": "4n",
+    "restBetweenReps": 2,
+    "description": "Ascend-only arpeggio finishing on the octave. Build toward holding the top note with chest-dominant mix. The money note exercise.",
+    "tags": ["range", "advanced", "chest voice", "mix voice"],
+    "difficulty": 4,
+    "category": "Range Extension"
   }
 ]

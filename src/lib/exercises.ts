@@ -47,3 +47,15 @@ export const ALL_TAGS = [
   "head voice",
   "mix voice",
 ] as const;
+
+// Goal tags map goals (user-facing) to exercise tags (data-facing)
+export const GOAL_TAG_MAP: Record<string, string[]> = {
+  "Expand range": ["range", "head voice", "chest voice", "mix voice"],
+  "Improve agility": ["agility", "staccato"],
+  "Warm-up routine": ["warm-up", "beginner"],
+  "Audition prep": ["technique", "range", "agility"],
+  "Breath control": ["breath", "legato"],
+  "Tone quality": ["technique", "legato", "intonation"],
+  "Pitch accuracy": ["intonation"],
+  "Build confidence": ["beginner", "warm-up"],
+};

@@ -1,84 +1,153 @@
 import Link from "next/link";
 import exercisesData from "@/data/exercises.json";
 import type { Exercise } from "@/lib/exercises";
-import { CATEGORIES } from "@/lib/exercises";
-import ExerciseCard from "@/components/ExerciseCard";
+import { TRACKS } from "@/lib/tracks";
 
 const exercises = exercisesData as Exercise[];
 
+function getExercisesByIds(ids: string[]) {
+  return ids
+    .map((id) => exercises.find((ex) => ex.id === id))
+    .filter(Boolean) as Exercise[];
+}
+
 export default function HomePage() {
-  // Show a few featured exercises
-  const featured = exercises.slice(0, 4);
-  // Count by category
-  const categoryCounts = CATEGORIES.map((cat) => ({
-    name: cat,
-    count: exercises.filter((ex) => ex.category === cat).length,
-  })).filter((c) => c.count > 0);
-
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
+    <div className="min-h-screen">
       {/* Hero */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-3">
-          Warm up. Build range. Sing better.
-        </h1>
-        <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-          A vocal exercise player with real piano sound. Pick an exercise, set
-          your range, and the piano plays each pattern ascending through your
-          range — just like practicing with a vocal coach.
-        </p>
-        <div className="flex gap-3 justify-center mt-6">
-          <Link
-            href="/exercises"
-            className="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors"
-          >
-            Browse Exercises
-          </Link>
-          <Link
-            href="/plans"
-            className="px-6 py-3 border border-indigo-600 text-indigo-600 rounded-lg font-medium hover:bg-indigo-50 transition-colors"
-          >
-            Practice Plans
-          </Link>
-        </div>
-      </div>
+      <div className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-transparent" />
+        <div className="max-w-6xl mx-auto px-4 py-16 relative">
+          <div className="max-w-2xl">
+            <h1 className="text-5xl font-bold text-foreground mb-4 tracking-tight">
+              Train your voice.
+              <br />
+              <span className="text-accent">Like a pro.</span>
+            </h1>
+            <p className="text-lg text-muted max-w-xl mb-8">
+              Professional vocal training with personalized routines, goal-based
+              tracks, and real piano accompaniment. Pick a track, build a routine,
+              and start singing.
+            </p>
+            <div className="flex gap-3">
+              <Link
+                href="/routines"
+                className="px-6 py-3 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors"
+              >
+                My Routines
+              </Link>
+              <Link
+                href="/exercises"
+                className="px-6 py-3 border border-border text-foreground rounded-lg font-medium hover:bg-card-hover transition-colors"
+              >
+                Browse Library
+              </Link>
+            </div>
+          </div>
 
-      {/* Categories */}
-      <div className="mb-12">
-        <h2 className="text-xl font-bold text-gray-900 mb-4">Categories</h2>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          {categoryCounts.map((cat) => (
-            <Link
-              key={cat.name}
-              href={`/exercises`}
-              className="bg-white rounded-xl p-4 border border-gray-100 hover:border-indigo-200 hover:shadow-sm transition-all text-center"
-            >
-              <div className="font-semibold text-gray-900">{cat.name}</div>
-              <div className="text-sm text-gray-400">
-                {cat.count} exercise{cat.count !== 1 ? "s" : ""}
+          {/* Quick stats */}
+          <div className="flex gap-8 mt-12">
+            <div>
+              <div className="text-3xl font-bold text-accent">
+                {exercises.length}
               </div>
-            </Link>
-          ))}
+              <div className="text-sm text-muted">Exercises</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-accent">
+                {TRACKS.length}
+              </div>
+              <div className="text-sm text-muted">Training Tracks</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-accent">5</div>
+              <div className="text-sm text-muted">Difficulty Levels</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Featured */}
-      <div>
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-xl font-bold text-gray-900">
-            Popular Exercises
+      {/* Training Tracks */}
+      <div className="max-w-6xl mx-auto px-4 pb-16">
+        <div className="mb-6">
+          <h2 className="text-2xl font-bold text-foreground">
+            Training Tracks
           </h2>
-          <Link
-            href="/exercises"
-            className="text-sm text-indigo-600 hover:text-indigo-700"
-          >
-            View all &rarr;
-          </Link>
+          <p className="text-sm text-muted mt-1">
+            Goal-focused collections to guide your practice
+          </p>
         </div>
-        <div className="grid gap-3 sm:grid-cols-2">
-          {featured.map((ex) => (
-            <ExerciseCard key={ex.id} exercise={ex} />
-          ))}
+
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {TRACKS.map((track) => {
+            const trackExercises = getExercisesByIds(track.exerciseIds);
+            return (
+              <Link
+                key={track.id}
+                href={`/exercises?track=${track.id}`}
+                className="group block rounded-2xl overflow-hidden border border-border hover:border-accent/30 transition-all"
+              >
+                <div
+                  className={`bg-gradient-to-br ${track.gradient} p-6 pb-4`}
+                >
+                  <h3 className="text-lg font-bold text-white mb-1">
+                    {track.name}
+                  </h3>
+                  <p className="text-sm text-white/70">{track.subtitle}</p>
+                </div>
+                <div className="bg-card p-4">
+                  <p className="text-xs text-muted line-clamp-2 mb-3">
+                    {track.description}
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-accent font-medium">
+                      {trackExercises.length} exercises
+                    </span>
+                    <span className="text-xs text-muted group-hover:text-accent transition-colors">
+                      View track &rarr;
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Popular Exercises */}
+        <div className="mt-16">
+          <div className="flex items-center justify-between mb-6">
+            <div>
+              <h2 className="text-2xl font-bold text-foreground">
+                Popular Exercises
+              </h2>
+              <p className="text-sm text-muted mt-1">
+                Jump right in with these essentials
+              </p>
+            </div>
+            <Link
+              href="/exercises"
+              className="text-sm text-accent hover:text-accent-hover font-medium"
+            >
+              View all &rarr;
+            </Link>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {exercises.slice(0, 8).map((ex) => (
+              <Link
+                key={ex.id}
+                href={`/exercises/${ex.id}`}
+                className="bg-card rounded-xl border border-border hover:bg-card-hover hover:border-accent/30 transition-all p-4"
+              >
+                <h3 className="font-semibold text-foreground text-sm mb-1 leading-tight">
+                  {ex.name}
+                </h3>
+                <p className="text-xs text-muted line-clamp-2 mb-2">
+                  {ex.description}
+                </p>
+                <span className="text-[10px] text-accent">{ex.category}</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </div>
