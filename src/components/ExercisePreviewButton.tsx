@@ -6,71 +6,83 @@ import { patternToNotes } from "@/lib/music-utils";
 
 interface ExercisePreviewButtonProps {
   exercise: Exercise;
-  className?: string;
+  rootNote?: string;
 }
 
 export default function ExercisePreviewButton({
   exercise,
-  className = "",
+  rootNote = "C4",
 }: ExercisePreviewButtonProps) {
-  const [playing, setPlaying] = useState(false);
+  const [state, setState] = useState<"idle" | "loading" | "playing">("idle");
   const cancelRef = useRef<(() => void) | null>(null);
+  const audioRef = useRef<typeof import("@/lib/audio-engine") | null>(null);
 
-  const handlePreview = useCallback(
+  const stop = useCallback(() => {
+    if (cancelRef.current) {
+      cancelRef.current();
+      cancelRef.current = null;
+    }
+    if (audioRef.current) audioRef.current.stopAll();
+    setState("idle");
+  }, []);
+
+  const handleClick = useCallback(
     async (e: React.MouseEvent) => {
       e.preventDefault();
       e.stopPropagation();
 
-      if (playing) {
-        if (cancelRef.current) {
-          cancelRef.current();
-          cancelRef.current = null;
-        }
-        setPlaying(false);
+      if (state === "playing") {
+        stop();
         return;
       }
 
+      setState("loading");
       try {
-        setPlaying(true);
-        const engine = await import("@/lib/audio-engine");
-        await engine.ensureAudioContext();
-        await engine.initAudio();
+        if (!audioRef.current) {
+          const engine = await import("@/lib/audio-engine");
+          await engine.ensureAudioContext();
+          await engine.initAudio();
+          audioRef.current = engine;
+        }
 
-        const notes = patternToNotes("C4", exercise.pattern);
-        const cancel = engine.playSequence({
+        const notes = patternToNotes(rootNote, exercise.pattern);
+        setState("playing");
+
+        cancelRef.current = audioRef.current.playSequence({
           notes,
           noteDuration: exercise.noteDuration,
           bpm: 100,
-          onComplete: () => {
-            setPlaying(false);
-            cancelRef.current = null;
-          },
+          onComplete: () => setState("idle"),
         });
-        cancelRef.current = cancel;
       } catch {
-        setPlaying(false);
+        setState("idle");
       }
     },
-    [exercise, playing]
+    [exercise, rootNote, state, stop]
   );
 
   return (
     <button
       type="button"
-      onClick={handlePreview}
-      className={`w-7 h-7 rounded-full flex items-center justify-center transition-colors ${
-        playing
+      onClick={handleClick}
+      className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors flex-shrink-0 ${
+        state === "playing"
           ? "bg-accent text-background"
-          : "bg-accent/10 text-accent hover:bg-accent/20"
-      } ${className}`}
-      title={playing ? "Stop preview" : "Preview exercise"}
+          : "bg-accent/15 text-accent hover:bg-accent/30"
+      }`}
+      title={state === "playing" ? "Stop preview" : "Preview exercise"}
     >
-      {playing ? (
-        <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+      {state === "loading" ? (
+        <svg className="w-3.5 h-3.5 animate-spin" fill="none" viewBox="0 0 24 24">
+          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+        </svg>
+      ) : state === "playing" ? (
+        <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
           <path d="M6 6h12v12H6z" />
         </svg>
       ) : (
-        <svg className="w-3 h-3 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+        <svg className="w-3.5 h-3.5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
           <path d="M8 5v14l11-7z" />
         </svg>
       )}

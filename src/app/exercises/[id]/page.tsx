@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useState, useEffect, useCallback } from "react";
+import { use, useState, useEffect } from "react";
 import Link from "next/link";
 import exercisesData from "@/data/exercises.json";
 import demoData from "@/data/exercise-demos.json";
@@ -48,18 +48,9 @@ export default function ExerciseDetailPage({
       setStartNote(profile.rangeLow);
       setEndNote(profile.rangeHigh);
     }
-  }, []);
-
-  useEffect(() => {
     if (exercise) {
       setFavorited(isFavorite(exercise.id));
     }
-  }, [exercise]);
-
-  const handleToggleFavorite = useCallback(() => {
-    if (!exercise) return;
-    toggleFavorite(exercise.id);
-    setFavorited((prev) => !prev);
   }, [exercise]);
 
   if (!exercise) {
@@ -77,6 +68,11 @@ export default function ExerciseDetailPage({
 
   const demoInfo = demos[exercise.id];
 
+  const handleToggleFavorite = () => {
+    const nowFavorited = toggleFavorite(exercise.id);
+    setFavorited(nowFavorited);
+  };
+
   return (
     <div className="max-w-lg mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-6">
@@ -89,14 +85,13 @@ export default function ExerciseDetailPage({
         <button
           type="button"
           onClick={handleToggleFavorite}
-          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
-            favorited
-              ? "bg-red-500/20 text-red-400 border border-red-500/50"
-              : "bg-card border border-border text-muted hover:text-foreground hover:border-accent/50"
-          }`}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border hover:bg-card-hover transition-colors"
+          title={favorited ? "Remove from favorites" : "Add to favorites"}
         >
           <svg
-            className="w-4 h-4"
+            className={`w-5 h-5 transition-colors ${
+              favorited ? "text-red-500 fill-red-500" : "text-muted"
+            }`}
             fill={favorited ? "currentColor" : "none"}
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -108,7 +103,9 @@ export default function ExerciseDetailPage({
               d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
             />
           </svg>
-          {favorited ? "Favorited" : "Favorite"}
+          <span className="text-sm text-muted">
+            {favorited ? "Saved" : "Save"}
+          </span>
         </button>
       </div>
 

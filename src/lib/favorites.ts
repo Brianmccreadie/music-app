@@ -11,18 +11,18 @@ export function getFavorites(): string[] {
   return [];
 }
 
-export function toggleFavorite(exerciseId: string): string[] {
-  const favorites = getFavorites();
-  const index = favorites.indexOf(exerciseId);
-  if (index === -1) {
-    favorites.push(exerciseId);
-  } else {
-    favorites.splice(index, 1);
-  }
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
-  return favorites;
-}
-
 export function isFavorite(exerciseId: string): boolean {
   return getFavorites().includes(exerciseId);
+}
+
+export function toggleFavorite(exerciseId: string): boolean {
+  const favorites = getFavorites();
+  const index = favorites.indexOf(exerciseId);
+  if (index >= 0) {
+    favorites.splice(index, 1);
+  } else {
+    favorites.push(exerciseId);
+  }
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
+  return index < 0;
 }

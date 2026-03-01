@@ -135,6 +135,9 @@ export default function RoutineDetailPage({
   const activeExercise = activeExerciseConfig
     ? findExercise(activeExerciseConfig.exerciseId)
     : null;
+  const activeDemoInfo = activeExercise
+    ? demos[activeExercise.id]
+    : undefined;
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-8">
@@ -368,14 +371,12 @@ export default function RoutineDetailPage({
         )
       ) : activeExercise ? (
         <div>
-          {demos[activeExercise.id] && (
+          {activeDemoInfo && (
             <div className="mb-6">
-              <ExerciseDemo
-                exercise={activeExercise}
-                demoInfo={demos[activeExercise.id]}
-              />
+              <ExerciseDemo exercise={activeExercise} demoInfo={activeDemoInfo} />
             </div>
           )}
+
           <ExercisePlayer
             key={`routine-${id}-${activeExerciseIndex}`}
             exercise={activeExercise}

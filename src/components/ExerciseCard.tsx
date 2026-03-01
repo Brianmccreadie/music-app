@@ -45,7 +45,10 @@ export default function ExerciseCard({
         {exercise.description}
       </p>
       <div className="flex items-center justify-between">
-        <span className="text-[10px] text-muted">{exercise.category}</span>
+        <div className="flex items-center gap-2">
+          <ExercisePreviewButton exercise={exercise} />
+          <span className="text-[10px] text-muted">{exercise.category}</span>
+        </div>
         <div className="flex gap-1">
           {exercise.tags.slice(0, 3).map((tag) => (
             <span
