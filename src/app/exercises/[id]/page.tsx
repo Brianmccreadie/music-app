@@ -18,6 +18,13 @@ const demos = demoData as Record<
     technique: string;
     demoDescription: string;
     demoRootNote: string;
+    tips?: {
+      vowelShape: string;
+      breathSupport: string;
+      mouthAndJaw: string;
+      posture: string;
+      commonMistakes: string;
+    };
   }
 >;
 
