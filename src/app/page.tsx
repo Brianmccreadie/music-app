@@ -1,7 +1,12 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import exercisesData from "@/data/exercises.json";
 import type { Exercise } from "@/lib/exercises";
 import { TRACKS, TRACK_CATEGORIES } from "@/lib/tracks";
+import { getFavorites } from "@/lib/favorites";
+import ExerciseCard from "@/components/ExerciseCard";
 
 const exercises = exercisesData as Exercise[];
 
@@ -12,6 +17,14 @@ function getExercisesByIds(ids: string[]) {
 }
 
 export default function HomePage() {
+  const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
+
+  useEffect(() => {
+    setFavoriteIds(getFavorites());
+  }, []);
+
+  const favoriteExercises = getExercisesByIds(favoriteIds);
+
   return (
     <div className="min-h-screen">
       {/* Hero */}
@@ -67,8 +80,48 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Training Tracks by Category */}
+      {/* Main content */}
       <div className="max-w-6xl mx-auto px-4 pb-16">
+        {/* Favorites section */}
+        {favoriteExercises.length > 0 && (
+          <div className="mb-12">
+            <div className="flex items-center justify-between mb-6">
+              <div>
+                <h2 className="text-2xl font-bold text-foreground flex items-center gap-2">
+                  <svg
+                    className="w-6 h-6 text-red-500 fill-red-500"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                    />
+                  </svg>
+                  My Favorites
+                </h2>
+                <p className="text-sm text-muted mt-1">
+                  Your saved exercises — quick access to what you love
+                </p>
+              </div>
+              <Link
+                href="/exercises"
+                className="text-sm text-accent hover:text-accent-hover font-medium"
+              >
+                Browse all &rarr;
+              </Link>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+              {favoriteExercises.map((ex) => (
+                <ExerciseCard key={ex.id} exercise={ex} />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* Training Tracks by Category */}
         {TRACK_CATEGORIES.map((category) => {
           const categoryTracks = TRACKS.filter((t) => t.category === category);
           return (
@@ -140,21 +193,9 @@ export default function HomePage() {
               View all &rarr;
             </Link>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {exercises.slice(0, 8).map((ex) => (
-              <Link
-                key={ex.id}
-                href={`/exercises/${ex.id}`}
-                className="bg-card rounded-xl border border-border hover:bg-card-hover hover:border-accent/30 transition-all p-4"
-              >
-                <h3 className="font-semibold text-foreground text-sm mb-1 leading-tight">
-                  {ex.name}
-                </h3>
-                <p className="text-xs text-muted line-clamp-2 mb-2">
-                  {ex.description}
-                </p>
-                <span className="text-[10px] text-accent">{ex.category}</span>
-              </Link>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {exercises.slice(0, 6).map((ex) => (
+              <ExerciseCard key={ex.id} exercise={ex} />
             ))}
           </div>
         </div>

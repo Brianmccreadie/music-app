@@ -138,7 +138,7 @@
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Start from the 5th and descend. Great for practicing head-to-chest transitions. Keep the tone consistent as you come down.",
-    "tags": ["warm-up", "beginner", "technique"],
+    "tags": ["warm-up", "beginner", "technique", "phrasing"],
     "difficulty": 1,
     "category": "Warm-Ups"
   },
@@ -149,7 +149,7 @@
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Do this exercise on a lip trill (bubble lips). Relaxes tension, warms up the voice gently. Perfect first exercise of any session.",
-    "tags": ["warm-up", "beginner", "breath"],
+    "tags": ["warm-up", "beginner", "breath", "sovt"],
     "difficulty": 1,
     "category": "Warm-Ups"
   },
@@ -248,7 +248,7 @@
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Rolled R (tongue trill) through the 5-note scale. An alternative to lip trills that works the same relaxation benefits with different coordination.",
-    "tags": ["warm-up", "beginner", "technique"],
+    "tags": ["warm-up", "beginner", "technique", "sovt"],
     "difficulty": 1,
     "category": "Warm-Ups"
   },
@@ -259,7 +259,7 @@
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Hum with closed lips through the 5-note scale. Feel the vibrations in your face (mask resonance). The gentlest possible warm-up.",
-    "tags": ["warm-up", "beginner", "technique"],
+    "tags": ["warm-up", "beginner", "technique", "sovt"],
     "difficulty": 1,
     "category": "Warm-Ups"
   },
@@ -281,7 +281,7 @@
     "noteDuration": "2n",
     "restBetweenReps": 2,
     "description": "Start in vocal fry, then gradually add air to transition into full chest voice. Builds cord closure and clean onset.",
-    "tags": ["technique", "intermediate", "chest voice"],
+    "tags": ["technique", "intermediate", "chest voice", "onset"],
     "difficulty": 2,
     "category": "Technique"
   },
@@ -369,7 +369,7 @@
     "noteDuration": "2n",
     "restBetweenReps": 2,
     "description": "Hold a single pitch while cycling through all five Italian vowels. Trains vowel purity and consistent resonance across different mouth shapes.",
-    "tags": ["technique", "intermediate", "legato"],
+    "tags": ["technique", "intermediate", "legato", "phrasing"],
     "difficulty": 2,
     "category": "Technique"
   },
@@ -570,5 +570,225 @@
     "tags": ["runs", "agility", "advanced"],
     "difficulty": 4,
     "category": "Agility"
+  },
+  {
+    "id": "straw-phonation",
+    "name": "Straw Phonation Scale",
+    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 1.2,
+    "description": "Sing through a straw (or mimic the narrowing) on a 5-note scale. The gold standard of modern voice therapy. Balances airflow and vocal fold vibration effortlessly.",
+    "tags": ["sovt", "warm-up", "beginner"],
+    "difficulty": 1,
+    "category": "Technique"
+  },
+  {
+    "id": "sustained-vvv",
+    "name": "Sustained Vvv Buzz",
+    "pattern": [0],
+    "noteDuration": "1n",
+    "restBetweenReps": 2,
+    "description": "Hold a voiced 'Vvv' fricative on a single pitch. The lip contact creates back-pressure that gently massages the vocal folds. A powerful SOVT exercise.",
+    "tags": ["sovt", "breath", "beginner"],
+    "difficulty": 1,
+    "category": "Technique"
+  },
+  {
+    "id": "sustained-zzz",
+    "name": "Sustained Zzz Buzz Scale",
+    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 1.2,
+    "description": "Sing 'Zzz' through a 5-note scale. The voiced fricative activates forward resonance and creates gentle back-pressure for healthy phonation.",
+    "tags": ["sovt", "warm-up", "beginner"],
+    "difficulty": 1,
+    "category": "Technique"
+  },
+  {
+    "id": "ma-me-mi-mo-mu",
+    "name": "Ma Me Mi Mo Mu Scale",
+    "pattern": [0, 2, 4, 5, 7],
+    "noteDuration": "4n",
+    "restBetweenReps": 1.5,
+    "description": "Each ascending note gets a different vowel: Ma-Me-Mi-Mo-Mu. Trains smooth vowel transitions while maintaining forward placement through the nasal M consonant.",
+    "tags": ["phrasing", "technique", "intermediate"],
+    "difficulty": 2,
+    "category": "Technique"
+  },
+  {
+    "id": "bah-onset",
+    "name": "Bah Onset Exercise",
+    "pattern": [0, 0, 0, 0, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 1.2,
+    "description": "Sing 'Bah' on repeated notes. The bilabial plosive B builds clean cord closure without glottal attack. One of the most universal onset exercises in vocal pedagogy.",
+    "tags": ["onset", "chest voice", "beginner"],
+    "difficulty": 1,
+    "category": "Technique"
+  },
+  {
+    "id": "vee-resonance",
+    "name": "Vee Resonance Scale",
+    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 1.2,
+    "description": "Sing 'Vee' through the 5-note scale. The labiodental V activates forward resonance and mask placement. Used by speech therapists and vocal coaches alike.",
+    "tags": ["technique", "sovt", "intermediate"],
+    "difficulty": 2,
+    "category": "Technique"
+  },
+  {
+    "id": "wah-open-throat",
+    "name": "Wah Open Throat Scale",
+    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 1.2,
+    "description": "Sing 'Wah' through the 5-note scale. The W glide naturally opens the throat while the Ah vowel encourages relaxed, open resonance. Great for releasing tension.",
+    "tags": ["technique", "onset", "beginner"],
+    "difficulty": 2,
+    "category": "Technique"
+  },
+  {
+    "id": "gentle-descending-hum",
+    "name": "Gentle Descending Hum",
+    "pattern": [7, 5, 4, 2, 0],
+    "noteDuration": "2n",
+    "restBetweenReps": 1.5,
+    "description": "Softly hum from the 5th down to the root. A gentle cool-down that releases tension and brings the voice back to a relaxed state after intensive practice.",
+    "tags": ["sovt", "legato", "beginner"],
+    "difficulty": 1,
+    "category": "Cool-Down"
+  },
+  {
+    "id": "low-range-sigh",
+    "name": "Low Range Sigh",
+    "pattern": [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0],
+    "noteDuration": "16n",
+    "restBetweenReps": 2,
+    "description": "A gentle chromatic sigh from octave down to root. Like the yawn-sigh but specifically for cooling down. Keep it light, breathy, and completely tension-free.",
+    "tags": ["head voice", "legato", "beginner"],
+    "difficulty": 1,
+    "category": "Cool-Down"
+  },
+  {
+    "id": "cool-down-lip-trill",
+    "name": "Cool-Down Lip Trill",
+    "pattern": [7, 5, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 1.5,
+    "description": "Gentle descending lip trill to wind down your voice. The bubbling releases any remaining tension in the lips and jaw. Use minimal effort.",
+    "tags": ["sovt", "beginner"],
+    "difficulty": 1,
+    "category": "Cool-Down"
+  },
+  {
+    "id": "quiet-sustained-oo",
+    "name": "Quiet Sustained Oo",
+    "pattern": [0],
+    "noteDuration": "1n",
+    "restBetweenReps": 2.5,
+    "description": "Hold a very quiet 'Oo' on a comfortable pitch. Pianissimo singing is the perfect cool-down — it requires minimal cord contact and gentle airflow. End your session here.",
+    "tags": ["breath", "legato", "beginner"],
+    "difficulty": 1,
+    "category": "Cool-Down"
+  },
+  {
+    "id": "chest-voice-power-scale",
+    "name": "Chest Voice Power Scale",
+    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 1.2,
+    "description": "Sing 'Hey' with strong chest voice resonance on the 5-note scale. Stay in your lower range and focus on a full, grounded sound. Build the foundation of your voice.",
+    "tags": ["chest voice", "onset", "intermediate"],
+    "difficulty": 2,
+    "category": "Technique"
+  },
+  {
+    "id": "hey-call",
+    "name": "Hey Call Exercise",
+    "pattern": [0, 7],
+    "noteDuration": "2n",
+    "restBetweenReps": 1.5,
+    "description": "Call out 'Hey!' on the root then the fifth. Like calling across a room. Builds projection, forward placement, and chest voice power through speech-like sounds.",
+    "tags": ["chest voice", "onset", "intermediate"],
+    "difficulty": 2,
+    "category": "Technique"
+  },
+  {
+    "id": "minor-third-jump",
+    "name": "Minor 3rd Interval Jump (1-b3-1-b3-1)",
+    "pattern": [0, 3, 0, 3, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 1.2,
+    "description": "Jump a minor third — the soulful, bluesy interval. Think of the first two notes of 'Greensleeves.' Trains your ear for this essential interval.",
+    "tags": ["intonation", "beginner"],
+    "difficulty": 2,
+    "category": "Intervals"
+  },
+  {
+    "id": "major-third-jump",
+    "name": "Major 3rd Interval Jump (1-3-1-3-1)",
+    "pattern": [0, 4, 0, 4, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 1.2,
+    "description": "Jump a major third — the bright, happy interval. Think of the first two notes of 'When the Saints Go Marching In.' Clean and precise.",
+    "tags": ["intonation", "beginner"],
+    "difficulty": 2,
+    "category": "Intervals"
+  },
+  {
+    "id": "minor-seventh-jump",
+    "name": "Minor 7th Interval Jump (1-b7-1-b7-1)",
+    "pattern": [0, 10, 0, 10, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 1.2,
+    "description": "Jump a minor seventh — a wide, dramatic interval. Think of the opening of 'Somewhere' from West Side Story. Challenges your range and intonation.",
+    "tags": ["intonation", "intermediate", "range"],
+    "difficulty": 3,
+    "category": "Intervals"
+  },
+  {
+    "id": "pa-ta-ka",
+    "name": "Pa-Ta-Ka Articulation",
+    "pattern": [0, 0, 0, 0, 0, 0],
+    "noteDuration": "8n",
+    "restBetweenReps": 1.2,
+    "description": "Alternate Pa-Ta-Ka on repeated notes. Each consonant activates different articulators: Pa (lips), Ta (tongue tip), Ka (tongue back). The gold standard of diction exercises.",
+    "tags": ["staccato", "onset", "beginner"],
+    "difficulty": 2,
+    "category": "Articulation"
+  },
+  {
+    "id": "tongue-twister-scale",
+    "name": "Tongue Twister Scale",
+    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "noteDuration": "8n",
+    "restBetweenReps": 1.5,
+    "description": "Sing 'Bri-Bri-Bri' or 'Dri-Dri-Dri' through the 5-note scale. Consonant clusters force precise tongue coordination at speed. Essential for clear diction while singing.",
+    "tags": ["staccato", "intermediate"],
+    "difficulty": 3,
+    "category": "Articulation"
+  },
+  {
+    "id": "rapid-consonant-switch",
+    "name": "Rapid Consonant Switch",
+    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "noteDuration": "8n",
+    "restBetweenReps": 1.5,
+    "description": "Alternate 'Bee-Dee-Gee' rapidly through the scale. Each consonant shifts the point of articulation forward to back. Builds independent control of lips, tongue tip, and tongue back.",
+    "tags": ["staccato", "intermediate"],
+    "difficulty": 3,
+    "category": "Articulation"
+  },
+  {
+    "id": "legato-phrase",
+    "name": "Legato Phrase Exercise",
+    "pattern": [0, 2, 4, 5, 7, 9, 12, 9, 7, 5, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 1.5,
+    "description": "Sing 'La' in a long, connected phrase over an octave and back. Focus on seamless legato — no breaks, no bumps, just a smooth line of sound from start to finish.",
+    "tags": ["legato", "phrasing", "intermediate"],
+    "difficulty": 2,
+    "category": "Technique"
   }
 ]

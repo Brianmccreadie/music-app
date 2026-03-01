@@ -132,6 +132,24 @@ export const TRACKS: Track[] = [
     gradient: "from-yellow-600 to-amber-700",
     category: "Foundations",
   },
+  {
+    id: "cool-down-recovery",
+    name: "Cool-Down & Recovery",
+    subtitle: "End every session right",
+    description:
+      "Gentle descending exercises to wind down your voice after practice. Just as important as warming up — never skip your cool-down.",
+    exerciseIds: [
+      "gentle-descending-hum",
+      "cool-down-lip-trill",
+      "low-range-sigh",
+      "quiet-sustained-oo",
+      "humming",
+      "yawn-sigh",
+      "falsetto-slide-down",
+    ],
+    gradient: "from-slate-500 to-zinc-700",
+    category: "Foundations",
+  },
 
   // ── Focused Training ──
   {
@@ -242,6 +260,61 @@ export const TRACKS: Track[] = [
       "blues-scale",
     ],
     gradient: "from-orange-500 to-red-600",
+    category: "Focused Training",
+  },
+  {
+    id: "vocal-phrasing-onsets",
+    name: "Vocal Phrasing & Onsets",
+    subtitle: "Shape every phrase",
+    description:
+      "Train smooth vowel transitions, clean consonant onsets, and connected phrasing. The exercises that make singing sound like music, not just notes.",
+    exerciseIds: [
+      "ma-me-mi-mo-mu",
+      "bah-onset",
+      "vee-resonance",
+      "wah-open-throat",
+      "legato-phrase",
+      "descending-five-note",
+      "vowel-modification",
+      "vocal-fry-onset",
+    ],
+    gradient: "from-lime-600 to-green-700",
+    category: "Focused Training",
+  },
+  {
+    id: "develop-chest-voice",
+    name: "Develop Your Chest Voice",
+    subtitle: "Build your foundation",
+    description:
+      "Strengthen your chest voice with power exercises, call techniques, and grounded onset work. Build the resonant lower register that anchors your whole voice.",
+    exerciseIds: [
+      "chest-voice-power-scale",
+      "hey-call",
+      "bah-onset",
+      "vocal-fry-onset",
+      "nay-twang",
+      "staccato-repeated",
+      "gee-scale",
+      "belt-1-3-5-8",
+    ],
+    gradient: "from-amber-700 to-yellow-800",
+    category: "Focused Training",
+  },
+  {
+    id: "articulation-diction",
+    name: "Articulation & Diction",
+    subtitle: "Crystal clear words",
+    description:
+      "Exercises for tongue independence, consonant precision, and clear diction while singing. Essential for musical theater, classical, and any style where lyrics matter.",
+    exerciseIds: [
+      "pa-ta-ka",
+      "tongue-twister-scale",
+      "rapid-consonant-switch",
+      "rapid-five-note",
+      "chromatic-five",
+      "staccato-repeated",
+    ],
+    gradient: "from-teal-600 to-cyan-700",
     category: "Focused Training",
   },
 ];

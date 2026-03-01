@@ -4,6 +4,7 @@ import { use, useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import exercisesData from "@/data/exercises.json";
+import demoData from "@/data/exercise-demos.json";
 import type { Exercise } from "@/lib/exercises";
 import { CATEGORIES } from "@/lib/exercises";
 import {
@@ -15,8 +16,27 @@ import {
 import type { Routine, RoutineExercise } from "@/lib/routines";
 import { PIANO_NOTES } from "@/lib/music-utils";
 import ExercisePlayer from "@/components/ExercisePlayer";
+import ExerciseDemo from "@/components/ExerciseDemo";
 
 const allExercises = exercisesData as Exercise[];
+const demos = demoData as Record<
+  string,
+  {
+    vocalInstruction: string;
+    syllables: string;
+    technique: string;
+    demoDescription: string;
+    demoRootNote: string;
+    vowelOptions?: string[];
+    tips?: {
+      vowelShape: string;
+      breathSupport: string;
+      mouthAndJaw: string;
+      posture: string;
+      commonMistakes: string;
+    };
+  }
+>;
 
 const LOW_NOTES = PIANO_NOTES.filter((n) => {
   const octave = parseInt(n.slice(-1));
@@ -115,6 +135,9 @@ export default function RoutineDetailPage({
   const activeExercise = activeExerciseConfig
     ? findExercise(activeExerciseConfig.exerciseId)
     : null;
+  const activeDemoInfo = activeExercise
+    ? demos[activeExercise.id]
+    : undefined;
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-8">
@@ -348,6 +371,12 @@ export default function RoutineDetailPage({
         )
       ) : activeExercise ? (
         <div>
+          {activeDemoInfo && (
+            <div className="mb-6">
+              <ExerciseDemo exercise={activeExercise} demoInfo={activeDemoInfo} />
+            </div>
+          )}
+
           <ExercisePlayer
             key={`routine-${id}-${activeExerciseIndex}`}
             exercise={activeExercise}
