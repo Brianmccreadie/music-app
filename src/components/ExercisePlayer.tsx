@@ -243,7 +243,7 @@ export default function ExercisePlayer({
       : 0;
 
   return (
-    <div className="bg-card rounded-2xl border border-border p-6 max-w-lg mx-auto">
+    <div className="bg-white rounded-2xl border border-border p-6 max-w-lg mx-auto shadow-sm">
       {/* Exercise info */}
       <div className="mb-6">
         <h2 className="text-xl font-bold text-foreground">{exercise.name}</h2>
@@ -266,12 +266,12 @@ export default function ExercisePlayer({
           {currentNoteName ? (
             <>
               {showingChord && (
-                <div className="text-xs font-semibold text-amber-400 uppercase tracking-wide mb-1">
+                <div className="text-xs font-semibold text-amber-600 uppercase tracking-wide mb-1">
                   Chord — Listen
                 </div>
               )}
               <div
-                className={`text-5xl font-bold mb-1 ${showingChord ? "text-amber-400" : "text-accent"}`}
+                className={`text-5xl font-bold mb-1 ${showingChord ? "text-amber-600" : "text-accent"}`}
               >
                 {noteShortName(currentNoteName)}
               </div>
@@ -282,7 +282,7 @@ export default function ExercisePlayer({
               </div>
             </>
           ) : (
-            <div className="text-3xl font-medium text-muted/50">
+            <div className="text-3xl font-medium text-muted/40">
               {playerState === "loading" ? "Loading piano..." : "Ready"}
             </div>
           )}
@@ -332,7 +332,7 @@ export default function ExercisePlayer({
                   onChange={(e) =>
                     handleLocalRangeChange(e.target.value, localEndNote)
                   }
-                  className="w-full px-2 py-1.5 bg-card border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="w-full px-2 py-1.5 bg-white border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
                 >
                   {LOW_NOTES.map((note) => (
                     <option key={note} value={note}>
@@ -350,7 +350,7 @@ export default function ExercisePlayer({
                   onChange={(e) =>
                     handleLocalRangeChange(localStartNote, e.target.value)
                   }
-                  className="w-full px-2 py-1.5 bg-card border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="w-full px-2 py-1.5 bg-white border border-border rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
                 >
                   {HIGH_NOTES.map((note) => (
                     <option key={note} value={note}>
@@ -405,7 +405,7 @@ export default function ExercisePlayer({
           <>
             <button
               onClick={handlePause}
-              className="bg-amber-500 hover:bg-amber-600 text-white rounded-full w-14 h-14 flex items-center justify-center transition-colors"
+              className="bg-amber-500 hover:bg-amber-600 text-white rounded-full w-14 h-14 flex items-center justify-center transition-colors shadow-md"
               aria-label="Pause"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">

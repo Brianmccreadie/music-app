@@ -43,7 +43,7 @@ export default function ExerciseDemo({ exercise, demoInfo }: ExerciseDemoProps) 
   };
 
   return (
-    <div className="bg-card rounded-2xl border border-border p-5">
+    <div className="bg-white rounded-2xl border border-border p-5 shadow-sm">
       <h3 className="text-sm font-bold text-accent uppercase tracking-wide mb-3">
         How to Do This Exercise
       </h3>
@@ -96,8 +96,8 @@ export default function ExerciseDemo({ exercise, demoInfo }: ExerciseDemoProps) 
             onClick={() => setShowTips(!showTips)}
             className={`w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold transition-colors border ${
               showTips
-                ? "bg-accent text-background border-accent"
-                : "bg-card-hover text-foreground border-border hover:border-accent/50"
+                ? "bg-accent text-white border-accent"
+                : "bg-background text-foreground border-border hover:border-accent/50"
             }`}
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

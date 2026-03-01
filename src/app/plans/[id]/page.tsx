@@ -72,7 +72,7 @@ export default function PlanDetailPage({
       </Link>
 
       {/* Plan header */}
-      <div className="bg-card rounded-xl border border-border p-6 mb-6">
+      <div className="bg-white rounded-2xl border border-border p-6 mb-6 shadow-sm">
         <div className="flex items-start justify-between mb-2">
           <h1 className="text-2xl font-bold text-foreground">{plan.name}</h1>
           <span className="text-xs px-2 py-1 bg-accent/10 text-accent rounded-full">
@@ -103,9 +103,9 @@ export default function PlanDetailPage({
                 onClick={() => setActiveExerciseIndex(index)}
                 className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
                   isActive
-                    ? "border-accent bg-accent/5"
+                    ? "border-accent bg-accent-light"
                     : isCompleted
-                      ? "border-emerald-800 bg-emerald-900/20"
+                      ? "border-emerald-200 bg-emerald-50"
                       : "border-border hover:border-accent/20"
                 }`}
               >
@@ -113,7 +113,7 @@ export default function PlanDetailPage({
                   <div
                     className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
                       isActive
-                        ? "bg-accent text-background"
+                        ? "bg-accent text-white"
                         : isCompleted
                           ? "bg-emerald-600 text-white"
                           : "bg-border text-muted"
@@ -147,14 +147,14 @@ export default function PlanDetailPage({
       {activeExerciseIndex === -1 ? (
         <button
           onClick={() => setActiveExerciseIndex(0)}
-          className="w-full py-4 bg-accent text-background rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors"
+          className="w-full py-4 bg-accent text-white rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors"
         >
           Start Plan
         </button>
       ) : playerExercise ? (
         <div>
           {activeExerciseConfig?.notes && (
-            <div className="bg-accent/10 border border-accent/20 rounded-xl p-4 mb-4">
+            <div className="bg-accent-light border border-accent/20 rounded-xl p-4 mb-4">
               <div className="text-xs font-medium text-accent mb-1">
                 Coach Tip
               </div>
@@ -184,7 +184,7 @@ export default function PlanDetailPage({
                 onClick={() =>
                   setActiveExerciseIndex(activeExerciseIndex + 1)
                 }
-                className="flex-1 py-3 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors"
+                className="flex-1 py-3 bg-accent text-white rounded-lg font-semibold hover:bg-accent-hover transition-colors"
               >
                 Next Exercise
               </button>

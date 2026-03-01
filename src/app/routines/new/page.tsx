@@ -192,7 +192,7 @@ export default function NewRoutinePage() {
         <div className="space-y-4">
           <button
             onClick={() => setMode("intake")}
-            className="w-full text-left bg-card rounded-xl border border-border hover:border-accent/50 transition-all p-6"
+            className="w-full text-left bg-white rounded-2xl border border-border hover:border-accent/50 hover:shadow-md transition-all p-6"
           >
             <div className="font-bold text-foreground text-lg mb-1">
               Guided Setup
@@ -205,7 +205,7 @@ export default function NewRoutinePage() {
 
           <button
             onClick={() => setMode("manual")}
-            className="w-full text-left bg-card rounded-xl border border-border hover:border-accent/50 transition-all p-6"
+            className="w-full text-left bg-white rounded-2xl border border-border hover:border-accent/50 hover:shadow-md transition-all p-6"
           >
             <div className="font-bold text-foreground text-lg mb-1">
               Build Manually
@@ -261,7 +261,7 @@ export default function NewRoutinePage() {
                   onClick={() => handleVoiceSelect(vt)}
                   className={`p-4 rounded-xl border-2 text-left transition-all ${
                     voiceType === vt
-                      ? "border-accent bg-accent/10"
+                      ? "border-accent bg-accent-light"
                       : "border-border hover:border-accent/30"
                   }`}
                 >
@@ -281,7 +281,7 @@ export default function NewRoutinePage() {
               </button>
               <button
                 onClick={() => setIntakeStep(2)}
-                className="flex-1 py-3 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors"
+                className="flex-1 py-3 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors"
               >
                 Next
               </button>
@@ -310,7 +310,7 @@ export default function NewRoutinePage() {
                   <select
                     value={rangeLow}
                     onChange={(e) => setRangeLow(e.target.value)}
-                    className="flex-1 min-w-0 px-4 py-3 bg-card border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                    className="flex-1 min-w-0 px-4 py-3 bg-white border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
                   >
                     {LOW_NOTES.map((note) => (
                       <option key={note} value={note}>
@@ -329,7 +329,7 @@ export default function NewRoutinePage() {
                   <select
                     value={rangeHigh}
                     onChange={(e) => setRangeHigh(e.target.value)}
-                    className="flex-1 min-w-0 px-4 py-3 bg-card border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                    className="flex-1 min-w-0 px-4 py-3 bg-white border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
                   >
                     {HIGH_NOTES.map((note) => (
                       <option key={note} value={note}>
@@ -341,7 +341,7 @@ export default function NewRoutinePage() {
                 </div>
               </div>
             </div>
-            <div className="bg-card rounded-xl p-4 mb-6 text-center border border-border">
+            <div className="bg-white rounded-xl p-4 mb-6 text-center border border-border shadow-sm">
               <div className="text-sm text-muted">Your range</div>
               <div className="text-2xl font-bold text-accent">
                 {rangeLow} — {rangeHigh}
@@ -356,7 +356,7 @@ export default function NewRoutinePage() {
               </button>
               <button
                 onClick={() => setIntakeStep(3)}
-                className="flex-1 py-3 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors"
+                className="flex-1 py-3 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors"
               >
                 Next
               </button>
@@ -378,7 +378,7 @@ export default function NewRoutinePage() {
                   onClick={() => toggleGoal(goal)}
                   className={`p-3 rounded-xl border-2 text-sm text-left transition-all ${
                     goals.includes(goal)
-                      ? "border-accent bg-accent/10 text-accent"
+                      ? "border-accent bg-accent-light text-accent"
                       : "border-border text-muted hover:border-accent/30"
                   }`}
                 >
@@ -395,7 +395,7 @@ export default function NewRoutinePage() {
               </button>
               <button
                 onClick={() => setIntakeStep(4)}
-                className="flex-1 py-3 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors"
+                className="flex-1 py-3 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors"
               >
                 Next
               </button>
@@ -419,7 +419,7 @@ export default function NewRoutinePage() {
                   onClick={() => setExperience(level)}
                   className={`w-full p-4 rounded-xl border-2 text-left transition-all ${
                     experience === level
-                      ? "border-accent bg-accent/10"
+                      ? "border-accent bg-accent-light"
                       : "border-border hover:border-accent/30"
                   }`}
                 >
@@ -442,7 +442,7 @@ export default function NewRoutinePage() {
               <button
                 onClick={handleIntakeComplete}
                 disabled={!experience}
-                className="flex-1 py-3 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                className="flex-1 py-3 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
               >
                 Build My Routine
               </button>
@@ -483,14 +483,14 @@ export default function NewRoutinePage() {
                 placeholder="Routine name..."
                 value={routineName}
                 onChange={(e) => setRoutineName(e.target.value)}
-                className="w-full px-4 py-2.5 bg-card border border-border rounded-lg text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent"
+                className="w-full px-4 py-2.5 bg-white border border-border rounded-lg text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent"
               />
               <textarea
                 placeholder="Description (optional)"
                 value={routineDesc}
                 onChange={(e) => setRoutineDesc(e.target.value)}
                 rows={2}
-                className="w-full px-4 py-2 bg-card border border-border rounded-lg text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent text-sm resize-none"
+                className="w-full px-4 py-2 bg-white border border-border rounded-lg text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent text-sm resize-none"
               />
 
               {/* Range */}
@@ -532,7 +532,7 @@ export default function NewRoutinePage() {
 
             {/* Exercise order */}
             {selectedExercises.length === 0 ? (
-              <div className="bg-card border border-border border-dashed rounded-xl p-8 text-center">
+              <div className="bg-white border border-border border-dashed rounded-xl p-8 text-center">
                 <p className="text-muted text-sm">
                   Add exercises from the library on the right.
                 </p>
@@ -545,7 +545,7 @@ export default function NewRoutinePage() {
                   return (
                     <div
                       key={`${se.exerciseId}-${index}`}
-                      className="bg-card border border-border rounded-lg p-3 flex items-center gap-2"
+                      className="bg-white border border-border rounded-lg p-3 flex items-center gap-2"
                     >
                       <div className="flex flex-col gap-0.5">
                         <button
@@ -580,7 +580,7 @@ export default function NewRoutinePage() {
                       </div>
                       <button
                         onClick={() => removeExercise(index)}
-                        className="text-muted hover:text-red-400 p-1"
+                        className="text-muted hover:text-red-500 p-1"
                       >
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -595,7 +595,7 @@ export default function NewRoutinePage() {
             <button
               onClick={handleSave}
               disabled={!routineName.trim() || selectedExercises.length === 0}
-              className="w-full py-3 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              className="w-full py-3 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
               Save Routine ({selectedExercises.length} exercises)
             </button>
@@ -614,15 +614,15 @@ export default function NewRoutinePage() {
               placeholder="Search exercises..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full px-4 py-2 bg-card border border-border rounded-lg text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent text-sm"
+              className="w-full px-4 py-2 bg-white border border-border rounded-lg text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent text-sm"
             />
             <div className="flex flex-wrap gap-2">
               <button
                 onClick={() => setSelectedCategory("All")}
                 className={`px-3 py-1 rounded-full text-xs transition-colors ${
                   selectedCategory === "All"
-                    ? "bg-accent text-background"
-                    : "bg-card border border-border text-muted"
+                    ? "bg-accent text-white"
+                    : "bg-white border border-border text-muted"
                 }`}
               >
                 All
@@ -633,8 +633,8 @@ export default function NewRoutinePage() {
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-3 py-1 rounded-full text-xs transition-colors ${
                     selectedCategory === cat
-                      ? "bg-accent text-background"
-                      : "bg-card border border-border text-muted"
+                      ? "bg-accent text-white"
+                      : "bg-white border border-border text-muted"
                   }`}
                 >
                   {cat}

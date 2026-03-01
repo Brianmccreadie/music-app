@@ -52,8 +52,8 @@ export default function PlayNoteButton({
       type="button"
       onClick={handlePlay}
       disabled={loading}
-      className={`inline-flex items-center justify-center w-10 h-10 rounded-lg border border-border hover:border-accent/50 hover:bg-accent/10 transition-all disabled:opacity-50 ${
-        playing ? "bg-accent/20 border-accent" : "bg-card"
+      className={`inline-flex items-center justify-center w-10 h-10 rounded-lg border border-border hover:border-accent/50 hover:bg-accent-light transition-all disabled:opacity-50 ${
+        playing ? "bg-accent-light border-accent" : "bg-white"
       } ${className}`}
       aria-label={`Play ${note}`}
       title={`Play ${note}`}

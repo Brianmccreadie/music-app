@@ -32,7 +32,7 @@ export default function RoutinesPage() {
         </div>
         <Link
           href="/routines/new"
-          className="px-5 py-2.5 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors text-sm"
+          className="px-5 py-2.5 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors text-sm"
         >
           + New Routine
         </Link>
@@ -50,7 +50,7 @@ export default function RoutinesPage() {
           </p>
           <Link
             href="/routines/new"
-            className="inline-block px-6 py-3 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors"
+            className="inline-block px-6 py-3 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors"
           >
             Create Your First Routine
           </Link>
@@ -60,7 +60,7 @@ export default function RoutinesPage() {
           {routines.map((routine) => (
             <div
               key={routine.id}
-              className="bg-card rounded-xl border border-border p-5 hover:border-accent/30 transition-all"
+              className="bg-white rounded-2xl border border-border p-5 hover:shadow-md hover:border-accent/30 transition-all"
             >
               <div className="flex items-start justify-between mb-2">
                 <Link
@@ -71,7 +71,7 @@ export default function RoutinesPage() {
                 </Link>
                 <button
                   onClick={() => handleDelete(routine.id)}
-                  className="text-muted hover:text-red-400 text-xs p-1 transition-colors"
+                  className="text-muted hover:text-red-500 text-xs p-1 transition-colors"
                   title="Delete routine"
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -92,7 +92,7 @@ export default function RoutinesPage() {
               </div>
               <Link
                 href={`/routines/${routine.id}`}
-                className="mt-3 block w-full text-center py-2 rounded-lg bg-accent/10 text-accent text-sm font-medium hover:bg-accent/20 transition-colors"
+                className="mt-3 block w-full text-center py-2 rounded-full bg-accent-light text-accent text-sm font-medium hover:bg-accent/20 transition-colors"
               >
                 Practice
               </Link>

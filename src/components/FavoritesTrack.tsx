@@ -60,7 +60,7 @@ export default function FavoritesTrack({ exercises }: FavoritesTrackProps) {
           <Link
             key={ex.id}
             href={`/exercises/${ex.id}`}
-            className="bg-card rounded-xl border border-red-500/20 hover:bg-card-hover hover:border-red-500/40 transition-all p-4"
+            className="bg-white rounded-2xl border border-red-200 hover:shadow-md hover:border-red-300 transition-all p-4"
           >
             <div className="flex items-start justify-between mb-1">
               <h3 className="font-semibold text-foreground text-sm leading-tight">
