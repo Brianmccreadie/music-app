@@ -193,8 +193,8 @@ export default function HomePage() {
               View all &rarr;
             </Link>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {exercises.slice(0, 8).map((ex) => (
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {exercises.slice(0, 6).map((ex) => (
               <ExerciseCard key={ex.id} exercise={ex} />
             ))}
           </div>

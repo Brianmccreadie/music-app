@@ -192,7 +192,7 @@ function ExercisesContent() {
 
         {/* Tag filters */}
         <div className="flex flex-wrap gap-2">
-          {ALL_TAGS.map((tag) => (
+          {ALL_TAGS.filter((tag) => !["beginner", "intermediate", "advanced"].includes(tag)).map((tag) => (
             <button
               key={tag}
               onClick={() => toggleTag(tag)}
