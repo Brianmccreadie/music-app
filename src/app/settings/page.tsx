@@ -10,6 +10,7 @@ import {
   saveProfile,
 } from "@/lib/user-profile";
 import { PIANO_NOTES } from "@/lib/music-utils";
+import PlayNoteButton from "@/components/PlayNoteButton";
 
 const LOW_NOTES = PIANO_NOTES.filter((n) => {
   const octave = parseInt(n.slice(-1));
@@ -95,33 +96,39 @@ export default function SettingsPage() {
             <label className="text-xs text-muted mb-1 block">
               Lowest Note
             </label>
-            <select
-              value={rangeLow}
-              onChange={(e) => setRangeLow(e.target.value)}
-              className="w-full px-3 py-2 bg-card border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
-            >
-              {LOW_NOTES.map((note) => (
-                <option key={note} value={note}>
-                  {note}
-                </option>
-              ))}
-            </select>
+            <div className="flex gap-2">
+              <select
+                value={rangeLow}
+                onChange={(e) => setRangeLow(e.target.value)}
+                className="flex-1 min-w-0 px-3 py-2 bg-card border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+              >
+                {LOW_NOTES.map((note) => (
+                  <option key={note} value={note}>
+                    {note}
+                  </option>
+                ))}
+              </select>
+              <PlayNoteButton note={rangeLow} />
+            </div>
           </div>
           <div>
             <label className="text-xs text-muted mb-1 block">
               Highest Note
             </label>
-            <select
-              value={rangeHigh}
-              onChange={(e) => setRangeHigh(e.target.value)}
-              className="w-full px-3 py-2 bg-card border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
-            >
-              {HIGH_NOTES.map((note) => (
-                <option key={note} value={note}>
-                  {note}
-                </option>
-              ))}
-            </select>
+            <div className="flex gap-2">
+              <select
+                value={rangeHigh}
+                onChange={(e) => setRangeHigh(e.target.value)}
+                className="flex-1 min-w-0 px-3 py-2 bg-card border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+              >
+                {HIGH_NOTES.map((note) => (
+                  <option key={note} value={note}>
+                    {note}
+                  </option>
+                ))}
+              </select>
+              <PlayNoteButton note={rangeHigh} />
+            </div>
           </div>
         </div>
       </div>

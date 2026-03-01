@@ -32,6 +32,10 @@ export const GOAL_OPTIONS = [
   "Tone quality",
   "Pitch accuracy",
   "Build confidence",
+  "Develop mix voice",
+  "Develop vibrato",
+  "Develop head voice",
+  "Master runs & riffs",
 ] as const;
 
 // Default range presets per voice type
