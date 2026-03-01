@@ -19,7 +19,6 @@ export const CATEGORIES = [
   "Range Extension",
   "Breath Control",
   "Technique",
-  "Articulation",
   "Cool-Down",
 ] as const;
 
@@ -30,22 +29,7 @@ export const DIFFICULTY_LABELS: Record<number, string> = {
   2: "Easy",
   3: "Intermediate",
   4: "Advanced",
-  5: "Expert",
 };
-
-export const ALL_TAGS = [
-  "intonation",
-  "staccato",
-  "legato",
-  "chest voice",
-  "head voice",
-  "mix voice",
-  "vibrato",
-  "runs",
-  "sovt",
-  "onset",
-  "phrasing",
-] as const;
 
 // Goal tags map goals (user-facing) to exercise tags (data-facing)
 // Uses both displayed tags and hidden tags on exercises for matching

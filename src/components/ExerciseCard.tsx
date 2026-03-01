@@ -15,7 +15,6 @@ const DIFFICULTY_COLORS: Record<number, string> = {
   2: "bg-blue-900/50 text-blue-400",
   3: "bg-yellow-900/50 text-yellow-400",
   4: "bg-orange-900/50 text-orange-400",
-  5: "bg-red-900/50 text-red-400",
 };
 
 export default function ExerciseCard({

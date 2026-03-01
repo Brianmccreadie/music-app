@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import exercisesData from "@/data/exercises.json";
 import type { Exercise } from "@/lib/exercises";
-import { CATEGORIES, DIFFICULTY_LABELS, ALL_TAGS } from "@/lib/exercises";
+import { CATEGORIES, DIFFICULTY_LABELS } from "@/lib/exercises";
 import { TRACKS } from "@/lib/tracks";
 import ExerciseCard from "@/components/ExerciseCard";
 
@@ -27,16 +27,9 @@ function ExercisesContent() {
   const [search, setSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [selectedDifficulty, setSelectedDifficulty] = useState<number>(0);
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState<"default" | "difficulty" | "name">(
     "default"
   );
-
-  const toggleTag = (tag: string) => {
-    setSelectedTags((prev) =>
-      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
-    );
-  };
 
   const filtered = useMemo(() => {
     let list = activeTrack
@@ -49,11 +42,6 @@ function ExercisesContent() {
       if (selectedCategory !== "All" && ex.category !== selectedCategory)
         return false;
       if (selectedDifficulty > 0 && ex.difficulty !== selectedDifficulty)
-        return false;
-      if (
-        selectedTags.length > 0 &&
-        !selectedTags.some((tag) => ex.tags.includes(tag))
-      )
         return false;
       if (search) {
         const q = search.toLowerCase();
@@ -73,7 +61,7 @@ function ExercisesContent() {
     }
 
     return list;
-  }, [search, selectedCategory, selectedDifficulty, selectedTags, sortBy, activeTrack]);
+  }, [search, selectedCategory, selectedDifficulty, sortBy, activeTrack]);
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
@@ -124,6 +112,18 @@ function ExercisesContent() {
             className="flex-1 px-4 py-2 bg-card border border-border rounded-lg text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
           />
           <select
+            value={selectedDifficulty}
+            onChange={(e) => setSelectedDifficulty(Number(e.target.value))}
+            className="px-3 py-2 bg-card border border-border rounded-lg text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+          >
+            <option value={0}>Any Difficulty</option>
+            {[1, 2, 3, 4].map((d) => (
+              <option key={d} value={d}>
+                {DIFFICULTY_LABELS[d]}
+              </option>
+            ))}
+          </select>
+          <select
             value={sortBy}
             onChange={(e) =>
               setSortBy(e.target.value as "default" | "difficulty" | "name")
@@ -161,58 +161,6 @@ function ExercisesContent() {
               {cat}
             </button>
           ))}
-        </div>
-
-        {/* Difficulty filters */}
-        <div className="flex flex-wrap gap-2">
-          <button
-            onClick={() => setSelectedDifficulty(0)}
-            className={`px-3 py-1 rounded-full text-sm transition-colors ${
-              selectedDifficulty === 0
-                ? "bg-accent text-background"
-                : "bg-card border border-border text-muted hover:text-foreground"
-            }`}
-          >
-            Any Difficulty
-          </button>
-          {[1, 2, 3, 4, 5].map((d) => (
-            <button
-              key={d}
-              onClick={() => setSelectedDifficulty(d)}
-              className={`px-3 py-1 rounded-full text-sm transition-colors ${
-                selectedDifficulty === d
-                  ? "bg-accent text-background"
-                  : "bg-card border border-border text-muted hover:text-foreground"
-              }`}
-            >
-              {DIFFICULTY_LABELS[d]}
-            </button>
-          ))}
-        </div>
-
-        {/* Tag filters */}
-        <div className="flex flex-wrap gap-2">
-          {ALL_TAGS.filter((tag) => !["beginner", "intermediate", "advanced"].includes(tag)).map((tag) => (
-            <button
-              key={tag}
-              onClick={() => toggleTag(tag)}
-              className={`px-2.5 py-1 rounded-full text-xs transition-colors ${
-                selectedTags.includes(tag)
-                  ? "bg-accent/20 text-accent border border-accent/50"
-                  : "bg-card border border-border text-muted hover:text-foreground"
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
-          {selectedTags.length > 0 && (
-            <button
-              onClick={() => setSelectedTags([])}
-              className="px-2.5 py-1 rounded-full text-xs text-red-400 hover:text-red-300"
-            >
-              Clear tags
-            </button>
-          )}
         </div>
       </div>
 

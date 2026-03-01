@@ -359,7 +359,7 @@
     "restBetweenReps": 2,
     "description": "A blazing fast run through 9 notes and beyond. The ultimate agility test. Speed comes from relaxation, not force.",
     "tags": ["agility", "advanced", "technique"],
-    "difficulty": 5,
+    "difficulty": 4,
     "category": "Agility"
   },
   {
@@ -756,7 +756,7 @@
     "description": "Alternate Pa-Ta-Ka on repeated notes. Each consonant activates different articulators: Pa (lips), Ta (tongue tip), Ka (tongue back). The gold standard of diction exercises.",
     "tags": ["staccato", "onset", "beginner"],
     "difficulty": 2,
-    "category": "Articulation"
+    "category": "Technique"
   },
   {
     "id": "tongue-twister-scale",
@@ -767,7 +767,7 @@
     "description": "Sing 'Bri-Bri-Bri' or 'Dri-Dri-Dri' through the 5-note scale. Consonant clusters force precise tongue coordination at speed. Essential for clear diction while singing.",
     "tags": ["staccato", "intermediate"],
     "difficulty": 3,
-    "category": "Articulation"
+    "category": "Technique"
   },
   {
     "id": "rapid-consonant-switch",
@@ -778,7 +778,7 @@
     "description": "Alternate 'Bee-Dee-Gee' rapidly through the scale. Each consonant shifts the point of articulation forward to back. Builds independent control of lips, tongue tip, and tongue back.",
     "tags": ["staccato", "intermediate"],
     "difficulty": 3,
-    "category": "Articulation"
+    "category": "Technique"
   },
   {
     "id": "legato-phrase",
