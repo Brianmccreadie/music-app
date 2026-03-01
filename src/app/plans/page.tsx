@@ -29,20 +29,22 @@ export default function PlansPage() {
       <div className="mb-8">
         <Link
           href="/"
-          className="text-sm text-indigo-600 hover:text-indigo-700 mb-2 inline-block"
+          className="text-sm text-accent hover:text-accent-hover mb-2 inline-block"
         >
-          &larr; Back to Home
+          &larr; Home
         </Link>
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-3xl font-bold text-gray-900">Practice Plans</h1>
-            <p className="text-gray-500 mt-1">
+            <h1 className="text-3xl font-bold text-foreground">
+              Practice Plans
+            </h1>
+            <p className="text-muted mt-1">
               Curated exercise sequences for focused practice sessions.
             </p>
           </div>
           <Link
             href="/generate"
-            className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-medium hover:bg-indigo-700 transition-colors"
+            className="px-4 py-2 bg-accent text-background rounded-lg text-sm font-semibold hover:bg-accent-hover transition-colors"
           >
             AI Generate
           </Link>
@@ -56,8 +58,8 @@ export default function PlansPage() {
             onClick={() => setSelectedCategory("All")}
             className={`px-3 py-1 rounded-full text-sm transition-colors ${
               selectedCategory === "All"
-                ? "bg-indigo-600 text-white"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                ? "bg-accent text-background"
+                : "bg-card border border-border text-muted hover:text-foreground"
             }`}
           >
             All
@@ -68,8 +70,8 @@ export default function PlansPage() {
               onClick={() => setSelectedCategory(cat)}
               className={`px-3 py-1 rounded-full text-sm transition-colors ${
                 selectedCategory === cat
-                  ? "bg-indigo-600 text-white"
-                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  ? "bg-accent text-background"
+                  : "bg-card border border-border text-muted hover:text-foreground"
               }`}
             >
               {cat}
@@ -81,8 +83,8 @@ export default function PlansPage() {
             onClick={() => setSelectedDifficulty(0)}
             className={`px-3 py-1 rounded-full text-sm transition-colors ${
               selectedDifficulty === 0
-                ? "bg-indigo-600 text-white"
-                : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                ? "bg-accent text-background"
+                : "bg-card border border-border text-muted hover:text-foreground"
             }`}
           >
             Any Difficulty
@@ -93,8 +95,8 @@ export default function PlansPage() {
               onClick={() => setSelectedDifficulty(d)}
               className={`px-3 py-1 rounded-full text-sm transition-colors ${
                 selectedDifficulty === d
-                  ? "bg-indigo-600 text-white"
-                  : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  ? "bg-accent text-background"
+                  : "bg-card border border-border text-muted hover:text-foreground"
               }`}
             >
               {DIFFICULTY_LABELS[d]}
@@ -103,9 +105,8 @@ export default function PlansPage() {
         </div>
       </div>
 
-      {/* Results */}
       {filtered.length === 0 ? (
-        <div className="text-center py-12 text-gray-400">
+        <div className="text-center py-12 text-muted">
           No plans match your filters.
         </div>
       ) : (

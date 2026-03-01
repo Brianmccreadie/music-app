@@ -39,7 +39,6 @@ export default function ExerciseDetailPage({
   const [startNote, setStartNote] = useState("C3");
   const [endNote, setEndNote] = useState("A4");
 
-  // Load saved range from profile
   useEffect(() => {
     const profile = getProfile();
     if (profile.onboardingComplete) {
@@ -51,10 +50,10 @@ export default function ExerciseDetailPage({
   if (!exercise) {
     return (
       <div className="max-w-lg mx-auto px-4 py-8 text-center">
-        <h1 className="text-2xl font-bold text-gray-900 mb-4">
+        <h1 className="text-2xl font-bold text-foreground mb-4">
           Exercise not found
         </h1>
-        <Link href="/exercises" className="text-indigo-600 hover:underline">
+        <Link href="/exercises" className="text-accent hover:underline">
           Back to library
         </Link>
       </div>
@@ -67,19 +66,17 @@ export default function ExerciseDetailPage({
     <div className="max-w-lg mx-auto px-4 py-8">
       <Link
         href="/exercises"
-        className="text-sm text-indigo-600 hover:text-indigo-700 mb-6 inline-block"
+        className="text-sm text-accent hover:text-accent-hover mb-6 inline-block"
       >
         &larr; Back to Library
       </Link>
 
-      {/* Exercise demo — separate from the player */}
       {demoInfo && (
         <div className="mb-6">
           <ExerciseDemo exercise={exercise} demoInfo={demoInfo} />
         </div>
       )}
 
-      {/* Player with built-in range adjustment */}
       <ExercisePlayer
         exercise={exercise}
         startNote={startNote}

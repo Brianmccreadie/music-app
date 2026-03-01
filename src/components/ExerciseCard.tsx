@@ -4,55 +4,80 @@ import { DIFFICULTY_LABELS } from "@/lib/exercises";
 
 interface ExerciseCardProps {
   exercise: Exercise;
+  href?: string;
+  onClick?: () => void;
+  selected?: boolean;
 }
 
 const DIFFICULTY_COLORS: Record<number, string> = {
-  1: "bg-green-100 text-green-700",
-  2: "bg-blue-100 text-blue-700",
-  3: "bg-yellow-100 text-yellow-800",
-  4: "bg-orange-100 text-orange-700",
-  5: "bg-red-100 text-red-700",
+  1: "bg-emerald-900/50 text-emerald-400",
+  2: "bg-blue-900/50 text-blue-400",
+  3: "bg-yellow-900/50 text-yellow-400",
+  4: "bg-orange-900/50 text-orange-400",
+  5: "bg-red-900/50 text-red-400",
 };
 
-export default function ExerciseCard({ exercise }: ExerciseCardProps) {
-  return (
-    <Link
-      href={`/exercises/${exercise.id}`}
-      className="block bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md hover:border-indigo-200 transition-all p-4"
-    >
+export default function ExerciseCard({
+  exercise,
+  href,
+  onClick,
+  selected,
+}: ExerciseCardProps) {
+  const inner = (
+    <>
       <div className="flex items-start justify-between mb-2">
-        <h3 className="font-semibold text-gray-900 leading-tight">
+        <h3 className="font-semibold text-foreground leading-tight text-sm">
           {exercise.name}
         </h3>
         <span
-          className={`text-xs px-2 py-0.5 rounded-full whitespace-nowrap ml-2 ${
+          className={`text-[10px] px-2 py-0.5 rounded-full whitespace-nowrap ml-2 font-medium ${
             DIFFICULTY_COLORS[exercise.difficulty] || DIFFICULTY_COLORS[1]
           }`}
         >
           {DIFFICULTY_LABELS[exercise.difficulty]}
         </span>
       </div>
-      <p className="text-sm text-gray-500 line-clamp-2 mb-3">
+      <p className="text-xs text-muted line-clamp-2 mb-3">
         {exercise.description}
       </p>
       <div className="flex items-center justify-between">
-        <span className="text-xs text-gray-400">{exercise.category}</span>
+        <span className="text-[10px] text-muted">{exercise.category}</span>
         <div className="flex gap-1">
-          {exercise.pattern.slice(0, 7).map((interval, i) => (
+          {exercise.tags.slice(0, 3).map((tag) => (
             <span
-              key={i}
-              className="w-5 h-5 bg-gray-100 rounded text-[10px] flex items-center justify-center font-mono text-gray-500"
+              key={tag}
+              className="text-[10px] px-1.5 py-0.5 rounded bg-accent/10 text-accent"
             >
-              {interval}
+              {tag}
             </span>
           ))}
-          {exercise.pattern.length > 7 && (
-            <span className="text-[10px] text-gray-400 flex items-center">
-              +{exercise.pattern.length - 7}
-            </span>
-          )}
         </div>
       </div>
+    </>
+  );
+
+  if (onClick) {
+    return (
+      <button
+        type="button"
+        onClick={onClick}
+        className={`block w-full text-left rounded-xl border transition-all p-4 ${
+          selected
+            ? "bg-accent/10 border-accent"
+            : "bg-card border-border hover:bg-card-hover hover:border-accent/30"
+        }`}
+      >
+        {inner}
+      </button>
+    );
+  }
+
+  return (
+    <Link
+      href={href || `/exercises/${exercise.id}`}
+      className="block bg-card rounded-xl border border-border hover:bg-card-hover hover:border-accent/30 transition-all p-4"
+    >
+      {inner}
     </Link>
   );
 }

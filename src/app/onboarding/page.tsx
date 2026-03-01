@@ -30,7 +30,6 @@ export default function OnboardingPage() {
   const [goals, setGoals] = useState<string[]>([]);
   const [experienceLevel, setExperienceLevel] = useState("");
 
-  // Check if already onboarded
   useEffect(() => {
     const profile = getProfile();
     if (profile.onboardingComplete) {
@@ -38,7 +37,6 @@ export default function OnboardingPage() {
     }
   }, [router]);
 
-  // Apply range preset when voice type is selected
   const handleVoiceSelect = (vt: string) => {
     setVoiceType(vt);
     const preset = VOICE_RANGE_PRESETS[vt];
@@ -68,31 +66,25 @@ export default function OnboardingPage() {
 
   return (
     <div className="max-w-lg mx-auto px-4 py-12">
-      {/* Progress dots */}
-      <div className="flex justify-center gap-2 mb-8">
+      {/* Progress */}
+      <div className="flex gap-2 mb-8">
         {[1, 2, 3, 4].map((s) => (
           <div
             key={s}
-            className={`w-3 h-3 rounded-full transition-colors ${
-              s === step
-                ? "bg-indigo-600"
-                : s < step
-                  ? "bg-indigo-300"
-                  : "bg-gray-200"
+            className={`h-1 flex-1 rounded-full transition-colors ${
+              s <= step ? "bg-accent" : "bg-border"
             }`}
           />
         ))}
       </div>
 
-      {/* Step 1: Voice Type */}
       {step === 1 && (
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">
+          <h1 className="text-2xl font-bold text-foreground mb-2">
             What&apos;s your voice type?
           </h1>
-          <p className="text-gray-500 mb-6">
-            This helps us set a starting range. You can skip if you&apos;re not
-            sure.
+          <p className="text-muted mb-6">
+            This sets a starting range. Skip if unsure.
           </p>
           <div className="grid grid-cols-2 gap-3 mb-6">
             {VOICE_TYPES.map((vt) => (
@@ -101,12 +93,12 @@ export default function OnboardingPage() {
                 onClick={() => handleVoiceSelect(vt)}
                 className={`p-4 rounded-xl border-2 text-left transition-all ${
                   voiceType === vt
-                    ? "border-indigo-600 bg-indigo-50"
-                    : "border-gray-200 hover:border-gray-300"
+                    ? "border-accent bg-accent/10"
+                    : "border-border hover:border-accent/30"
                 }`}
               >
-                <div className="font-medium text-gray-900">{vt}</div>
-                <div className="text-xs text-gray-400 mt-1">
+                <div className="font-medium text-foreground">{vt}</div>
+                <div className="text-xs text-muted mt-1">
                   {VOICE_RANGE_PRESETS[vt]?.low} — {VOICE_RANGE_PRESETS[vt]?.high}
                 </div>
               </button>
@@ -115,13 +107,13 @@ export default function OnboardingPage() {
           <div className="flex gap-3">
             <button
               onClick={() => setStep(2)}
-              className="flex-1 py-3 text-gray-500 hover:text-gray-700"
+              className="flex-1 py-3 text-muted hover:text-foreground"
             >
               Skip
             </button>
             <button
               onClick={() => setStep(2)}
-              className="flex-1 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors"
+              className="flex-1 py-3 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors"
             >
               Next
             </button>
@@ -129,25 +121,24 @@ export default function OnboardingPage() {
         </div>
       )}
 
-      {/* Step 2: Range */}
       {step === 2 && (
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">
+          <h1 className="text-2xl font-bold text-foreground mb-2">
             Set your vocal range
           </h1>
-          <p className="text-gray-500 mb-6">
-            Select your lowest comfortable note and highest comfortable note.
-            {voiceType && " We've pre-filled based on your voice type."}
+          <p className="text-muted mb-6">
+            Your lowest and highest comfortable notes.
+            {voiceType && " Pre-filled from your voice type."}
           </p>
           <div className="grid grid-cols-2 gap-4 mb-8">
             <div>
-              <label className="text-sm font-medium text-gray-700 mb-2 block">
+              <label className="text-sm font-medium text-muted mb-2 block">
                 Lowest Note
               </label>
               <select
                 value={rangeLow}
                 onChange={(e) => setRangeLow(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-4 py-3 bg-card border border-border rounded-lg text-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
               >
                 {LOW_NOTES.map((note) => (
                   <option key={note} value={note}>
@@ -157,13 +148,13 @@ export default function OnboardingPage() {
               </select>
             </div>
             <div>
-              <label className="text-sm font-medium text-gray-700 mb-2 block">
+              <label className="text-sm font-medium text-muted mb-2 block">
                 Highest Note
               </label>
               <select
                 value={rangeHigh}
                 onChange={(e) => setRangeHigh(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg text-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-4 py-3 bg-card border border-border rounded-lg text-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
               >
                 {HIGH_NOTES.map((note) => (
                   <option key={note} value={note}>
@@ -173,22 +164,22 @@ export default function OnboardingPage() {
               </select>
             </div>
           </div>
-          <div className="bg-gray-50 rounded-xl p-4 mb-6 text-center">
-            <div className="text-sm text-gray-500">Your range</div>
-            <div className="text-2xl font-bold text-indigo-600">
-              {rangeLow} → {rangeHigh}
+          <div className="bg-card rounded-xl p-4 mb-6 text-center border border-border">
+            <div className="text-sm text-muted">Your range</div>
+            <div className="text-2xl font-bold text-accent">
+              {rangeLow} — {rangeHigh}
             </div>
           </div>
           <div className="flex gap-3">
             <button
               onClick={() => setStep(1)}
-              className="flex-1 py-3 text-gray-500 hover:text-gray-700"
+              className="flex-1 py-3 text-muted hover:text-foreground"
             >
               Back
             </button>
             <button
               onClick={() => setStep(3)}
-              className="flex-1 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors"
+              className="flex-1 py-3 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors"
             >
               Next
             </button>
@@ -196,16 +187,12 @@ export default function OnboardingPage() {
         </div>
       )}
 
-      {/* Step 3: Goals */}
       {step === 3 && (
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">
+          <h1 className="text-2xl font-bold text-foreground mb-2">
             What are your goals?
           </h1>
-          <p className="text-gray-500 mb-6">
-            Select all that apply. This helps us recommend the right exercises
-            and plans.
-          </p>
+          <p className="text-muted mb-6">Select all that apply.</p>
           <div className="grid grid-cols-2 gap-3 mb-6">
             {GOAL_OPTIONS.map((goal) => (
               <button
@@ -213,8 +200,8 @@ export default function OnboardingPage() {
                 onClick={() => toggleGoal(goal)}
                 className={`p-3 rounded-xl border-2 text-sm text-left transition-all ${
                   goals.includes(goal)
-                    ? "border-indigo-600 bg-indigo-50 text-indigo-700"
-                    : "border-gray-200 text-gray-700 hover:border-gray-300"
+                    ? "border-accent bg-accent/10 text-accent"
+                    : "border-border text-muted hover:border-accent/30"
                 }`}
               >
                 {goal}
@@ -224,13 +211,13 @@ export default function OnboardingPage() {
           <div className="flex gap-3">
             <button
               onClick={() => setStep(2)}
-              className="flex-1 py-3 text-gray-500 hover:text-gray-700"
+              className="flex-1 py-3 text-muted hover:text-foreground"
             >
               Back
             </button>
             <button
               onClick={() => setStep(4)}
-              className="flex-1 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors"
+              className="flex-1 py-3 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors"
             >
               Next
             </button>
@@ -238,14 +225,13 @@ export default function OnboardingPage() {
         </div>
       )}
 
-      {/* Step 4: Experience */}
       {step === 4 && (
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 mb-2">
+          <h1 className="text-2xl font-bold text-foreground mb-2">
             Experience level?
           </h1>
-          <p className="text-gray-500 mb-6">
-            This helps us match exercise difficulty to your skill level.
+          <p className="text-muted mb-6">
+            Helps us match exercise difficulty to your skill.
           </p>
           <div className="space-y-3 mb-8">
             {EXPERIENCE_LEVELS.map((level) => (
@@ -254,18 +240,15 @@ export default function OnboardingPage() {
                 onClick={() => setExperienceLevel(level)}
                 className={`w-full p-4 rounded-xl border-2 text-left transition-all ${
                   experienceLevel === level
-                    ? "border-indigo-600 bg-indigo-50"
-                    : "border-gray-200 hover:border-gray-300"
+                    ? "border-accent bg-accent/10"
+                    : "border-border hover:border-accent/30"
                 }`}
               >
-                <div className="font-medium text-gray-900">{level}</div>
-                <div className="text-xs text-gray-400 mt-1">
-                  {level === "Beginner" &&
-                    "New to vocal exercises or singing lessons"}
-                  {level === "Intermediate" &&
-                    "Some training, comfortable with basic exercises"}
-                  {level === "Advanced" &&
-                    "Extensive training, looking for challenging material"}
+                <div className="font-medium text-foreground">{level}</div>
+                <div className="text-xs text-muted mt-1">
+                  {level === "Beginner" && "New to vocal exercises or singing lessons"}
+                  {level === "Intermediate" && "Some training, comfortable with basic exercises"}
+                  {level === "Advanced" && "Extensive training, looking for challenging material"}
                 </div>
               </button>
             ))}
@@ -273,14 +256,14 @@ export default function OnboardingPage() {
           <div className="flex gap-3">
             <button
               onClick={() => setStep(3)}
-              className="flex-1 py-3 text-gray-500 hover:text-gray-700"
+              className="flex-1 py-3 text-muted hover:text-foreground"
             >
               Back
             </button>
             <button
               onClick={handleComplete}
               disabled={!experienceLevel}
-              className="flex-1 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition-colors disabled:bg-gray-300 disabled:cursor-not-allowed"
+              className="flex-1 py-3 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
               Get Started
             </button>
