@@ -1,6 +1,6 @@
 "use client";
 
-import { use, useState, useEffect } from "react";
+import { use, useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import exercisesData from "@/data/exercises.json";
 import demoData from "@/data/exercise-demos.json";
@@ -8,6 +8,7 @@ import type { Exercise } from "@/lib/exercises";
 import ExercisePlayer from "@/components/ExercisePlayer";
 import ExerciseDemo from "@/components/ExerciseDemo";
 import { getProfile } from "@/lib/user-profile";
+import { isFavorite, toggleFavorite } from "@/lib/favorites";
 
 const exercises = exercisesData as Exercise[];
 const demos = demoData as Record<
@@ -18,6 +19,7 @@ const demos = demoData as Record<
     technique: string;
     demoDescription: string;
     demoRootNote: string;
+    vowelOptions?: string[];
     tips?: {
       vowelShape: string;
       breathSupport: string;
@@ -38,6 +40,7 @@ export default function ExerciseDetailPage({
 
   const [startNote, setStartNote] = useState("C3");
   const [endNote, setEndNote] = useState("A4");
+  const [favorited, setFavorited] = useState(false);
 
   useEffect(() => {
     const profile = getProfile();
@@ -46,6 +49,18 @@ export default function ExerciseDetailPage({
       setEndNote(profile.rangeHigh);
     }
   }, []);
+
+  useEffect(() => {
+    if (exercise) {
+      setFavorited(isFavorite(exercise.id));
+    }
+  }, [exercise]);
+
+  const handleToggleFavorite = useCallback(() => {
+    if (!exercise) return;
+    toggleFavorite(exercise.id);
+    setFavorited((prev) => !prev);
+  }, [exercise]);
 
   if (!exercise) {
     return (
@@ -64,12 +79,38 @@ export default function ExerciseDetailPage({
 
   return (
     <div className="max-w-lg mx-auto px-4 py-8">
-      <Link
-        href="/exercises"
-        className="text-sm text-accent hover:text-accent-hover mb-6 inline-block"
-      >
-        &larr; Back to Library
-      </Link>
+      <div className="flex items-center justify-between mb-6">
+        <Link
+          href="/exercises"
+          className="text-sm text-accent hover:text-accent-hover"
+        >
+          &larr; Back to Library
+        </Link>
+        <button
+          type="button"
+          onClick={handleToggleFavorite}
+          className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium transition-all ${
+            favorited
+              ? "bg-red-500/20 text-red-400 border border-red-500/50"
+              : "bg-card border border-border text-muted hover:text-foreground hover:border-accent/50"
+          }`}
+        >
+          <svg
+            className="w-4 h-4"
+            fill={favorited ? "currentColor" : "none"}
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            strokeWidth={2}
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+            />
+          </svg>
+          {favorited ? "Favorited" : "Favorite"}
+        </button>
+      </div>
 
       {demoInfo && (
         <div className="mb-6">

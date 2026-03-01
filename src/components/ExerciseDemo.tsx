@@ -17,6 +17,7 @@ interface DemoInfo {
   technique: string;
   demoDescription: string;
   demoRootNote: string;
+  vowelOptions?: string[];
   tips?: Tips;
 }
 
@@ -56,6 +57,25 @@ export default function ExerciseDemo({ exercise, demoInfo }: ExerciseDemoProps) 
           {demoInfo.syllables}
         </div>
       </div>
+
+      {/* Vowel options */}
+      {demoInfo.vowelOptions && demoInfo.vowelOptions.length > 0 && (
+        <div className="mb-3">
+          <div className="text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+            Try it with
+          </div>
+          <div className="flex flex-wrap gap-1.5">
+            {demoInfo.vowelOptions.map((option) => (
+              <span
+                key={option}
+                className="px-2.5 py-1 rounded-full text-xs bg-accent/10 text-accent border border-accent/20"
+              >
+                {option}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Demo description */}
       <p className="text-sm text-muted mb-3">{demoInfo.demoDescription}</p>

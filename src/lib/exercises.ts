@@ -19,6 +19,8 @@ export const CATEGORIES = [
   "Range Extension",
   "Breath Control",
   "Technique",
+  "Articulation",
+  "Cool-Down",
 ] as const;
 
 export type Category = (typeof CATEGORIES)[number];
@@ -32,15 +34,7 @@ export const DIFFICULTY_LABELS: Record<number, string> = {
 };
 
 export const ALL_TAGS = [
-  "warm-up",
   "intonation",
-  "beginner",
-  "intermediate",
-  "advanced",
-  "agility",
-  "breath",
-  "range",
-  "technique",
   "staccato",
   "legato",
   "chest voice",
@@ -48,20 +42,24 @@ export const ALL_TAGS = [
   "mix voice",
   "vibrato",
   "runs",
+  "sovt",
+  "onset",
+  "phrasing",
 ] as const;
 
 // Goal tags map goals (user-facing) to exercise tags (data-facing)
+// Uses both displayed tags and hidden tags on exercises for matching
 export const GOAL_TAG_MAP: Record<string, string[]> = {
-  "Expand range": ["range", "head voice", "chest voice", "mix voice"],
-  "Improve agility": ["agility", "staccato", "runs"],
-  "Warm-up routine": ["warm-up", "beginner"],
-  "Audition prep": ["technique", "range", "agility", "runs"],
-  "Breath control": ["breath", "legato"],
-  "Tone quality": ["technique", "legato", "intonation"],
+  "Expand range": ["head voice", "chest voice", "mix voice", "range"],
+  "Improve agility": ["staccato", "runs", "agility"],
+  "Warm-up routine": ["sovt", "warm-up"],
+  "Audition prep": ["runs", "onset", "phrasing", "range"],
+  "Breath control": ["legato", "sovt", "breath"],
+  "Tone quality": ["legato", "intonation", "phrasing", "sovt"],
   "Pitch accuracy": ["intonation"],
-  "Build confidence": ["beginner", "warm-up"],
-  "Develop mix voice": ["mix voice", "technique", "range"],
-  "Develop vibrato": ["vibrato", "breath", "technique"],
-  "Develop head voice": ["head voice", "range"],
-  "Master runs & riffs": ["runs", "agility"],
+  "Build confidence": ["sovt", "onset", "warm-up"],
+  "Develop mix voice": ["mix voice"],
+  "Develop vibrato": ["vibrato"],
+  "Develop head voice": ["head voice"],
+  "Master runs & riffs": ["runs"],
 };

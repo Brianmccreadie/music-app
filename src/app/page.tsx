@@ -2,6 +2,7 @@ import Link from "next/link";
 import exercisesData from "@/data/exercises.json";
 import type { Exercise } from "@/lib/exercises";
 import { TRACKS, TRACK_CATEGORIES } from "@/lib/tracks";
+import FavoritesTrack from "@/components/FavoritesTrack";
 
 const exercises = exercisesData as Exercise[];
 
@@ -67,8 +68,12 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Training Tracks by Category */}
+      {/* Main Content */}
       <div className="max-w-6xl mx-auto px-4 pb-16">
+        {/* Favorites Track */}
+        <FavoritesTrack exercises={exercises} />
+
+        {/* Training Tracks by Category */}
         {TRACK_CATEGORIES.map((category) => {
           const categoryTracks = TRACKS.filter((t) => t.category === category);
           return (

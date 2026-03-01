@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { Exercise } from "@/lib/exercises";
 import { DIFFICULTY_LABELS } from "@/lib/exercises";
+import ExercisePreviewButton from "./ExercisePreviewButton";
 
 interface ExerciseCardProps {
   exercise: Exercise;
@@ -29,13 +30,16 @@ export default function ExerciseCard({
         <h3 className="font-semibold text-foreground leading-tight text-sm">
           {exercise.name}
         </h3>
-        <span
-          className={`text-[10px] px-2 py-0.5 rounded-full whitespace-nowrap ml-2 font-medium ${
-            DIFFICULTY_COLORS[exercise.difficulty] || DIFFICULTY_COLORS[1]
-          }`}
-        >
-          {DIFFICULTY_LABELS[exercise.difficulty]}
-        </span>
+        <div className="flex items-center gap-1.5 ml-2 flex-shrink-0">
+          <ExercisePreviewButton exercise={exercise} />
+          <span
+            className={`text-[10px] px-2 py-0.5 rounded-full whitespace-nowrap font-medium ${
+              DIFFICULTY_COLORS[exercise.difficulty] || DIFFICULTY_COLORS[1]
+            }`}
+          >
+            {DIFFICULTY_LABELS[exercise.difficulty]}
+          </span>
+        </div>
       </div>
       <p className="text-xs text-muted line-clamp-2 mb-3">
         {exercise.description}
