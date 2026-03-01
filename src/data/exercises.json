@@ -394,5 +394,181 @@
     "tags": ["range", "advanced", "chest voice", "mix voice"],
     "difficulty": 4,
     "category": "Range Extension"
+  },
+  {
+    "id": "mum-scale",
+    "name": "Mum Scale (Mix Bridge)",
+    "pattern": [0, 2, 4, 5, 7, 9, 11, 12, 11, 9, 7, 5, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 1.2,
+    "description": "Sing 'Mum' through a full octave scale. The nasal M consonant helps bridge chest and head voice smoothly through the passaggio.",
+    "tags": ["mix voice", "technique", "intermediate"],
+    "difficulty": 2,
+    "category": "Technique"
+  },
+  {
+    "id": "bratty-nay-octave",
+    "name": "Bratty Nay Octave (1-8-1)",
+    "pattern": [0, 12, 0],
+    "noteDuration": "2n",
+    "restBetweenReps": 1.2,
+    "description": "Sing 'Nay' with a bratty, nasal quality on an octave jump. The twang keeps mix voice engaged through the break. Embrace the ugly sound.",
+    "tags": ["mix voice", "technique", "range", "intermediate"],
+    "difficulty": 3,
+    "category": "Technique"
+  },
+  {
+    "id": "mix-voice-slide",
+    "name": "Mix Voice Slide (1 to 10)",
+    "pattern": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+    "noteDuration": "16n",
+    "restBetweenReps": 2,
+    "description": "Slide smoothly from chest voice up through the passaggio into head voice. The goal is a seamless, connected sound with no break or flip.",
+    "tags": ["mix voice", "range", "intermediate"],
+    "difficulty": 3,
+    "category": "Range Extension"
+  },
+  {
+    "id": "gee-scale",
+    "name": "Gee Scale (Mix Voice)",
+    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 1.2,
+    "description": "Sing 'Gee' through the 5-note scale. The G consonant creates cord compression that helps maintain chest voice quality as you ascend into mix.",
+    "tags": ["mix voice", "technique", "intermediate"],
+    "difficulty": 2,
+    "category": "Technique"
+  },
+  {
+    "id": "hooty-oo-scale",
+    "name": "Hooty Oo Scale",
+    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 1.2,
+    "description": "Sing a 5-note scale on a hooty 'oo' vowel. The round, owl-like vowel naturally engages head voice resonance without strain.",
+    "tags": ["head voice", "beginner", "warm-up"],
+    "difficulty": 1,
+    "category": "Warm-Ups"
+  },
+  {
+    "id": "falsetto-slide-down",
+    "name": "Falsetto Slide Down",
+    "pattern": [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0],
+    "noteDuration": "16n",
+    "restBetweenReps": 2,
+    "description": "Start in light falsetto at the top and glide down through your range. Builds control and awareness of your upper register. Keep it light.",
+    "tags": ["head voice", "range", "beginner"],
+    "difficulty": 1,
+    "category": "Range Extension"
+  },
+  {
+    "id": "head-voice-arpeggio",
+    "name": "Head Voice Arpeggio (light)",
+    "pattern": [0, 4, 7, 12, 7, 4, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 1.2,
+    "description": "Sing the octave arpeggio with a light, heady tone. Focus on keeping the sound forward and resonant without adding chest weight.",
+    "tags": ["head voice", "intermediate", "technique"],
+    "difficulty": 2,
+    "category": "Arpeggios"
+  },
+  {
+    "id": "ee-head-voice-scale",
+    "name": "Ee Head Voice Scale",
+    "pattern": [0, 2, 4, 5, 7, 9, 11, 12, 11, 9, 7, 5, 4, 2, 0],
+    "noteDuration": "4n",
+    "restBetweenReps": 1.2,
+    "description": "Full octave scale on 'ee' vowel. The narrow vowel naturally encourages head voice placement. Keep it light and bright, no pushing.",
+    "tags": ["head voice", "intermediate", "technique"],
+    "difficulty": 2,
+    "category": "Scales"
+  },
+  {
+    "id": "vibrato-pulses",
+    "name": "Vibrato Pulses",
+    "pattern": [0, 0, 0, 0, 0, 0, 0, 0],
+    "noteDuration": "8n",
+    "restBetweenReps": 1.2,
+    "description": "Hold a note and pulse the vibrato intentionally. Think of gently bouncing on the note with your diaphragm. Builds muscle memory for natural vibrato.",
+    "tags": ["vibrato", "technique", "intermediate"],
+    "difficulty": 2,
+    "category": "Technique"
+  },
+  {
+    "id": "sustained-vibrato",
+    "name": "Sustained Vibrato Hold",
+    "pattern": [0],
+    "noteDuration": "1n",
+    "restBetweenReps": 2,
+    "description": "Hold a single note and let vibrato develop naturally. Start straight, then allow oscillation to emerge. The goal is even, consistent vibrato.",
+    "tags": ["vibrato", "breath", "intermediate"],
+    "difficulty": 2,
+    "category": "Breath Control"
+  },
+  {
+    "id": "vibrato-oscillation",
+    "name": "Vibrato Semitone Oscillation",
+    "pattern": [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
+    "noteDuration": "8n",
+    "restBetweenReps": 1.2,
+    "description": "Slowly alternate between two adjacent notes to mimic the vibrato motion. Gradually speed up over time. Trains the laryngeal flexibility needed for natural vibrato.",
+    "tags": ["vibrato", "technique", "intermediate"],
+    "difficulty": 2,
+    "category": "Technique"
+  },
+  {
+    "id": "diaphragm-bounce",
+    "name": "Diaphragm Bounce",
+    "pattern": [0, 0, 0, 0, 0, 0],
+    "noteDuration": "8n",
+    "restBetweenReps": 1.2,
+    "description": "Repeated notes with deliberate diaphragmatic pulsing. Think 'huh huh huh.' Builds the breath support foundation that enables natural vibrato.",
+    "tags": ["vibrato", "breath", "beginner"],
+    "difficulty": 1,
+    "category": "Breath Control"
+  },
+  {
+    "id": "pentatonic-run-fast",
+    "name": "Fast Pentatonic Run",
+    "pattern": [0, 2, 4, 7, 9, 12, 9, 7, 4, 2, 0],
+    "noteDuration": "16n",
+    "restBetweenReps": 1.2,
+    "description": "Speed through the pentatonic scale up and back. The foundation of pop, R&B, and gospel riffs. Start slow, build up speed over weeks.",
+    "tags": ["runs", "agility", "intermediate"],
+    "difficulty": 3,
+    "category": "Agility"
+  },
+  {
+    "id": "three-note-turn",
+    "name": "Three-Note Turn",
+    "pattern": [0, 2, 0, 2, 4, 2, 4, 5, 4, 5, 7, 5],
+    "noteDuration": "16n",
+    "restBetweenReps": 1.2,
+    "description": "A classic ornament: step up, return, step up again. This weaving pattern is the building block of every vocal run and riff. Master this first.",
+    "tags": ["runs", "agility", "technique", "intermediate"],
+    "difficulty": 3,
+    "category": "Agility"
+  },
+  {
+    "id": "riff-cascade",
+    "name": "Descending Riff Cascade",
+    "pattern": [12, 11, 9, 7, 9, 7, 5, 4, 5, 4, 2, 0],
+    "noteDuration": "16n",
+    "restBetweenReps": 1.2,
+    "description": "Cascade down through scale tones in groups. The classic R&B and gospel descending run. Think Beyonce, Whitney, Mariah.",
+    "tags": ["runs", "agility", "advanced"],
+    "difficulty": 4,
+    "category": "Agility"
+  },
+  {
+    "id": "gospel-run",
+    "name": "Gospel Run",
+    "pattern": [0, 2, 4, 5, 7, 9, 12, 9, 7, 5, 4, 2, 0],
+    "noteDuration": "16n",
+    "restBetweenReps": 2,
+    "description": "An extended fast run combining scales and a leap to the octave. The full gospel/R&B run experience. Speed comes from relaxation, not force.",
+    "tags": ["runs", "agility", "advanced"],
+    "difficulty": 4,
+    "category": "Agility"
   }
 ]
