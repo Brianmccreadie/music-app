@@ -4,10 +4,12 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { getRoutines, deleteRoutine } from "@/lib/routines";
 import type { Routine } from "@/lib/routines";
+import { isRoutineFavorite, toggleRoutineFavorite } from "@/lib/favorites";
 
 export default function RoutinesPage() {
   const [routines, setRoutines] = useState<Routine[]>([]);
   const [loaded, setLoaded] = useState(false);
+  const [, setFavTick] = useState(0);
 
   useEffect(() => {
     setRoutines(getRoutines());
@@ -19,13 +21,18 @@ export default function RoutinesPage() {
     setRoutines(getRoutines());
   };
 
+  const handleToggleFavorite = (id: string) => {
+    toggleRoutineFavorite(id);
+    setFavTick((t) => t + 1);
+  };
+
   if (!loaded) return null;
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">My Routines</h1>
+          <h1 className="text-3xl font-bold text-foreground">Custom Routines</h1>
           <p className="text-muted mt-1">
             Build personalized practice routines and train consistently.
           </p>
@@ -69,15 +76,31 @@ export default function RoutinesPage() {
                 >
                   {routine.name}
                 </Link>
-                <button
-                  onClick={() => handleDelete(routine.id)}
-                  className="text-muted hover:text-red-500 text-xs p-1 transition-colors"
-                  title="Delete routine"
-                >
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                  </svg>
-                </button>
+                <div className="flex items-center gap-1">
+                  <button
+                    onClick={() => handleToggleFavorite(routine.id)}
+                    className="p-1 transition-colors"
+                    title={isRoutineFavorite(routine.id) ? "Remove from favorites" : "Add to favorites"}
+                  >
+                    <svg
+                      className={`w-4 h-4 ${isRoutineFavorite(routine.id) ? "text-red-500 fill-red-500" : "text-muted hover:text-red-400"}`}
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                    </svg>
+                  </button>
+                  <button
+                    onClick={() => handleDelete(routine.id)}
+                    className="text-muted hover:text-red-500 text-xs p-1 transition-colors"
+                    title="Delete routine"
+                  >
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
+                  </button>
+                </div>
               </div>
               {routine.description && (
                 <p className="text-sm text-muted line-clamp-2 mb-3">

@@ -153,6 +153,25 @@ export const TRACKS: Track[] = [
 
   // ── Focused Training ──
   {
+    id: "develop-chest-voice",
+    name: "Develop Your Chest Voice",
+    subtitle: "Build your foundation",
+    description:
+      "Strengthen your chest voice with power exercises, call techniques, and grounded onset work. Build the resonant lower register that anchors your whole voice.",
+    exerciseIds: [
+      "chest-voice-power-scale",
+      "hey-call",
+      "bah-onset",
+      "vocal-fry-onset",
+      "nay-twang",
+      "staccato-repeated",
+      "gee-scale",
+      "belt-1-3-5-8",
+    ],
+    gradient: "from-amber-700 to-yellow-800",
+    category: "Focused Training",
+  },
+  {
     id: "develop-head-voice",
     name: "Develop Your Head Voice",
     subtitle: "Unlock your upper register",
@@ -279,25 +298,6 @@ export const TRACKS: Track[] = [
       "vocal-fry-onset",
     ],
     gradient: "from-lime-600 to-green-700",
-    category: "Focused Training",
-  },
-  {
-    id: "develop-chest-voice",
-    name: "Develop Your Chest Voice",
-    subtitle: "Build your foundation",
-    description:
-      "Strengthen your chest voice with power exercises, call techniques, and grounded onset work. Build the resonant lower register that anchors your whole voice.",
-    exerciseIds: [
-      "chest-voice-power-scale",
-      "hey-call",
-      "bah-onset",
-      "vocal-fry-onset",
-      "nay-twang",
-      "staccato-repeated",
-      "gee-scale",
-      "belt-1-3-5-8",
-    ],
-    gradient: "from-amber-700 to-yellow-800",
     category: "Focused Training",
   },
   {

@@ -140,6 +140,59 @@ export function chordNotesForRoot(rootNote: string): string[] {
 }
 
 /**
+ * Compute a smart exercise range based on the exercise's voice register tags.
+ * Adjusts the user's full range to focus on the relevant portion:
+ *   - head voice:  upper ~40% of range
+ *   - chest voice: lower ~60% of range
+ *   - mix voice:   middle ~50% of range (centered around passaggio)
+ *   - cool-down:   comfortable middle portion, avoids extremes
+ *   - default:     full user range
+ */
+export function getSmartRange(
+  userLow: string,
+  userHigh: string,
+  tags: string[],
+  category: string
+): { low: string; high: string } {
+  const lowMidi = parseNote(userLow).midi;
+  const highMidi = parseNote(userHigh).midi;
+  const span = highMidi - lowMidi;
+
+  // Need at least a few semitones to subdivide
+  if (span < 8) return { low: userLow, high: userHigh };
+
+  const hasTag = (t: string) => tags.includes(t);
+
+  if (hasTag("head voice") && !hasTag("chest voice") && !hasTag("mix voice")) {
+    // Upper ~40%: start from 60% up
+    const smartLow = Math.round(lowMidi + span * 0.6);
+    return { low: midiToNote(smartLow), high: userHigh };
+  }
+
+  if (hasTag("chest voice") && !hasTag("head voice") && !hasTag("mix voice")) {
+    // Lower ~60%
+    const smartHigh = Math.round(lowMidi + span * 0.6);
+    return { low: userLow, high: midiToNote(smartHigh) };
+  }
+
+  if (hasTag("mix voice") && !hasTag("head voice") && !hasTag("chest voice")) {
+    // Middle ~50%: 25% to 75%
+    const smartLow = Math.round(lowMidi + span * 0.25);
+    const smartHigh = Math.round(lowMidi + span * 0.75);
+    return { low: midiToNote(smartLow), high: midiToNote(smartHigh) };
+  }
+
+  if (category === "Cool-Down") {
+    // Comfortable middle: 15% to 65% — avoids extremes
+    const smartLow = Math.round(lowMidi + span * 0.15);
+    const smartHigh = Math.round(lowMidi + span * 0.65);
+    return { low: midiToNote(smartLow), high: midiToNote(smartHigh) };
+  }
+
+  return { low: userLow, high: userHigh };
+}
+
+/**
  * Common note values for the range selector
  */
 export const PIANO_NOTES: string[] = [];

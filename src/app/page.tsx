@@ -5,7 +5,9 @@ import Link from "next/link";
 import exercisesData from "@/data/exercises.json";
 import type { Exercise } from "@/lib/exercises";
 import { TRACKS, TRACK_CATEGORIES } from "@/lib/tracks";
-import { getFavorites } from "@/lib/favorites";
+import { getFavorites, getRoutineFavorites } from "@/lib/favorites";
+import { getRoutines } from "@/lib/routines";
+import type { Routine } from "@/lib/routines";
 import ExerciseCard from "@/components/ExerciseCard";
 
 const exercises = exercisesData as Exercise[];
@@ -18,12 +20,21 @@ function getExercisesByIds(ids: string[]) {
 
 export default function HomePage() {
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
+  const [favoriteRoutines, setFavoriteRoutines] = useState<Routine[]>([]);
 
   useEffect(() => {
     setFavoriteIds(getFavorites());
+    const routineFavIds = getRoutineFavorites();
+    const allRoutines = getRoutines();
+    setFavoriteRoutines(
+      routineFavIds
+        .map((id) => allRoutines.find((r) => r.id === id))
+        .filter(Boolean) as Routine[]
+    );
   }, []);
 
   const favoriteExercises = getExercisesByIds(favoriteIds);
+  const hasFavorites = favoriteExercises.length > 0 || favoriteRoutines.length > 0;
 
   return (
     <div className="min-h-screen">
@@ -132,7 +143,7 @@ export default function HomePage() {
       </div>
 
       {/* Favorites section */}
-      {favoriteExercises.length > 0 && (
+      {hasFavorites && (
         <div className="max-w-6xl mx-auto px-4 pb-12">
           <div className="bg-white rounded-2xl border border-border p-8">
             <div className="flex items-center justify-between mb-6">
@@ -150,11 +161,8 @@ export default function HomePage() {
                       d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                     />
                   </svg>
-                  My Favorites
+                  Your Favorites
                 </h2>
-                <p className="text-sm text-muted mt-1">
-                  Your saved exercises — quick access to what you love
-                </p>
               </div>
               <Link
                 href="/exercises"
@@ -163,11 +171,42 @@ export default function HomePage() {
                 Browse all &rarr;
               </Link>
             </div>
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-              {favoriteExercises.map((ex) => (
-                <ExerciseCard key={ex.id} exercise={ex} />
-              ))}
-            </div>
+
+            {/* Favorite routines */}
+            {favoriteRoutines.length > 0 && (
+              <div className={favoriteExercises.length > 0 ? "mb-6" : ""}>
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                  {favoriteRoutines.map((routine) => (
+                    <Link
+                      key={routine.id}
+                      href={`/routines/${routine.id}`}
+                      className="group block bg-gradient-to-br from-accent/5 to-accent/10 rounded-xl border border-accent/20 p-4 hover:shadow-md hover:border-accent/40 transition-all"
+                    >
+                      <div className="flex items-center gap-2 mb-1.5">
+                        <span className="text-xs font-semibold text-accent uppercase tracking-wide">
+                          Routine
+                        </span>
+                      </div>
+                      <h3 className="font-bold text-foreground text-sm group-hover:text-accent transition-colors truncate">
+                        {routine.name}
+                      </h3>
+                      <p className="text-xs text-muted mt-1">
+                        {routine.exercises.length} exercises
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Favorite exercises */}
+            {favoriteExercises.length > 0 && (
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                {favoriteExercises.map((ex) => (
+                  <ExerciseCard key={ex.id} exercise={ex} />
+                ))}
+              </div>
+            )}
           </div>
         </div>
       )}
