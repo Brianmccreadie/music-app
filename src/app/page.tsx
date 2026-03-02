@@ -150,11 +150,8 @@ export default function HomePage() {
                       d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                     />
                   </svg>
-                  My Favorites
+                  Your Favorites
                 </h2>
-                <p className="text-sm text-muted mt-1">
-                  Your saved exercises — quick access to what you love
-                </p>
               </div>
               <Link
                 href="/exercises"
