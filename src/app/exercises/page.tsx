@@ -121,14 +121,14 @@ function ExercisesContent() {
             placeholder="Search exercises..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="flex-1 px-4 py-2 bg-card border border-border rounded-lg text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+            className="flex-1 px-4 py-2.5 bg-white border border-border rounded-full text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
           />
           <select
             value={sortBy}
             onChange={(e) =>
               setSortBy(e.target.value as "default" | "difficulty" | "name")
             }
-            className="px-3 py-2 bg-card border border-border rounded-lg text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+            className="px-3 py-2.5 bg-white border border-border rounded-full text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent"
           >
             <option value="default">Default order</option>
             <option value="difficulty">By difficulty</option>
@@ -142,8 +142,8 @@ function ExercisesContent() {
             onClick={() => setSelectedCategory("All")}
             className={`px-3 py-1 rounded-full text-sm transition-colors ${
               selectedCategory === "All"
-                ? "bg-accent text-background"
-                : "bg-card border border-border text-muted hover:text-foreground"
+                ? "bg-accent text-white"
+                : "bg-white border border-border text-muted hover:text-foreground"
             }`}
           >
             All
@@ -154,8 +154,8 @@ function ExercisesContent() {
               onClick={() => setSelectedCategory(cat)}
               className={`px-3 py-1 rounded-full text-sm transition-colors ${
                 selectedCategory === cat
-                  ? "bg-accent text-background"
-                  : "bg-card border border-border text-muted hover:text-foreground"
+                  ? "bg-accent text-white"
+                  : "bg-white border border-border text-muted hover:text-foreground"
               }`}
             >
               {cat}
@@ -169,8 +169,8 @@ function ExercisesContent() {
             onClick={() => setSelectedDifficulty(0)}
             className={`px-3 py-1 rounded-full text-sm transition-colors ${
               selectedDifficulty === 0
-                ? "bg-accent text-background"
-                : "bg-card border border-border text-muted hover:text-foreground"
+                ? "bg-accent text-white"
+                : "bg-white border border-border text-muted hover:text-foreground"
             }`}
           >
             Any Difficulty
@@ -181,8 +181,8 @@ function ExercisesContent() {
               onClick={() => setSelectedDifficulty(d)}
               className={`px-3 py-1 rounded-full text-sm transition-colors ${
                 selectedDifficulty === d
-                  ? "bg-accent text-background"
-                  : "bg-card border border-border text-muted hover:text-foreground"
+                  ? "bg-accent text-white"
+                  : "bg-white border border-border text-muted hover:text-foreground"
               }`}
             >
               {DIFFICULTY_LABELS[d]}
@@ -198,8 +198,8 @@ function ExercisesContent() {
               onClick={() => toggleTag(tag)}
               className={`px-2.5 py-1 rounded-full text-xs transition-colors ${
                 selectedTags.includes(tag)
-                  ? "bg-accent/20 text-accent border border-accent/50"
-                  : "bg-card border border-border text-muted hover:text-foreground"
+                  ? "bg-accent-light text-accent border border-accent/30"
+                  : "bg-white border border-border text-muted hover:text-foreground"
               }`}
             >
               {tag}
@@ -208,7 +208,7 @@ function ExercisesContent() {
           {selectedTags.length > 0 && (
             <button
               onClick={() => setSelectedTags([])}
-              className="px-2.5 py-1 rounded-full text-xs text-red-400 hover:text-red-300"
+              className="px-2.5 py-1 rounded-full text-xs text-red-500 hover:text-red-600"
             >
               Clear tags
             </button>

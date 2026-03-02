@@ -149,7 +149,7 @@ export default function RoutineDetailPage({
       </Link>
 
       {/* Routine header */}
-      <div className="bg-card rounded-xl border border-border p-6 mb-6">
+      <div className="bg-white rounded-2xl border border-border p-6 mb-6 shadow-sm">
         <div className="flex items-start justify-between mb-2">
           <h1 className="text-2xl font-bold text-foreground">{routine.name}</h1>
           <button
@@ -231,7 +231,7 @@ export default function RoutineDetailPage({
 
         {/* Add exercise panel */}
         {showAddExercise && (
-          <div className="bg-card border border-border rounded-xl p-4 mb-4">
+          <div className="bg-white border border-border rounded-xl p-4 mb-4 shadow-sm">
             <input
               type="text"
               placeholder="Search exercises..."
@@ -244,7 +244,7 @@ export default function RoutineDetailPage({
                 onClick={() => setAddCategory("All")}
                 className={`px-2 py-0.5 rounded-full text-[10px] ${
                   addCategory === "All"
-                    ? "bg-accent text-background"
+                    ? "bg-accent text-white"
                     : "bg-background text-muted"
                 }`}
               >
@@ -256,7 +256,7 @@ export default function RoutineDetailPage({
                   onClick={() => setAddCategory(cat)}
                   className={`px-2 py-0.5 rounded-full text-[10px] ${
                     addCategory === cat
-                      ? "bg-accent text-background"
+                      ? "bg-accent text-white"
                       : "bg-background text-muted"
                   }`}
                 >
@@ -290,7 +290,7 @@ export default function RoutineDetailPage({
                 key={`${pe.exerciseId}-${index}`}
                 className={`p-4 rounded-xl border-2 transition-all ${
                   isActive
-                    ? "border-accent bg-accent/5"
+                    ? "border-accent bg-accent-light"
                     : "border-border hover:border-accent/20"
                 }`}
               >
@@ -326,7 +326,7 @@ export default function RoutineDetailPage({
                     <div
                       className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
                         isActive
-                          ? "bg-accent text-background"
+                          ? "bg-accent text-white"
                           : "bg-border text-muted"
                       }`}
                     >
@@ -341,7 +341,7 @@ export default function RoutineDetailPage({
                   </button>
                   <button
                     onClick={() => handleRemoveExercise(index)}
-                    className="text-muted hover:text-red-400 p-1"
+                    className="text-muted hover:text-red-500 p-1"
                     title="Remove"
                   >
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -360,7 +360,7 @@ export default function RoutineDetailPage({
         routine.exercises.length > 0 ? (
           <button
             onClick={() => setActiveExerciseIndex(0)}
-            className="w-full py-4 bg-accent text-background rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors"
+            className="w-full py-4 bg-accent text-white rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors"
           >
             Start Practice
           </button>
@@ -400,7 +400,7 @@ export default function RoutineDetailPage({
                 onClick={() =>
                   setActiveExerciseIndex(activeExerciseIndex + 1)
                 }
-                className="flex-1 py-3 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors"
+                className="flex-1 py-3 bg-accent text-white rounded-lg font-semibold hover:bg-accent-hover transition-colors"
               >
                 Next Exercise
               </button>
