@@ -95,7 +95,7 @@ export default function ExercisePlayer({
       const notes = patternToNotes(rootNote, exercise.pattern);
       setCurrentRootIndex(repIndex);
 
-      const chordDuration = "2n";
+      const chordDuration = "4n";
       const chordDurationMs =
         engine.durationToSeconds(chordDuration, bpmRef.current) * 1000;
 
@@ -177,10 +177,9 @@ export default function ExercisePlayer({
             : null;
         playRep(rootNote, rootIndexRef.current, previousRoot, () => {
           rootIndexRef.current++;
-          restTimerRef.current = setTimeout(
-            playNext,
-            exercise.restBetweenReps * 1000
-          );
+          // Short breath before transition chords kick in
+          const restMs = 400;
+          restTimerRef.current = setTimeout(playNext, restMs);
         });
       };
 

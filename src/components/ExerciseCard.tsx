@@ -47,7 +47,7 @@ export default function ExerciseCard({
       <div className="flex items-center justify-between">
         <span className="text-[10px] text-muted">{exercise.category}</span>
         <div className="flex gap-1">
-          {exercise.tags.slice(0, 3).map((tag) => (
+          {exercise.tags.filter((tag) => tag.toLowerCase() !== exercise.category.toLowerCase()).slice(0, 3).map((tag) => (
             <span
               key={tag}
               className="text-[10px] px-1.5 py-0.5 rounded bg-accent/10 text-accent"
