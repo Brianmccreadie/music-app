@@ -252,6 +252,41 @@ export default function ExercisePlayer({
     rootIndexRef.current = 0;
   };
 
+  const jumpToScale = useCallback(
+    async (index: number) => {
+      // Stop current playback
+      if (cancelRef.current) {
+        cancelRef.current();
+        cancelRef.current = null;
+      }
+      if (chordTimerRef.current) {
+        clearTimeout(chordTimerRef.current);
+        chordTimerRef.current = null;
+      }
+      if (restTimerRef.current) {
+        clearTimeout(restTimerRef.current);
+        restTimerRef.current = null;
+      }
+      const engine = audioEngineRef.current;
+      if (engine) engine.stopAll();
+      isPlayingRef.current = false;
+      setShowingChord(false);
+      setChordPhase(null);
+
+      // Load audio if needed, then start from the target index
+      if (!audioEngineRef.current || !audioLoaded) {
+        try {
+          await loadAudio();
+        } catch {
+          return;
+        }
+      }
+      setPlayerState("playing");
+      playAllReps(index);
+    },
+    [audioLoaded, loadAudio, playAllReps]
+  );
+
   const handleBpmChange = (newBpm: number) => {
     setBpmState(newBpm);
     bpmRef.current = newBpm;
@@ -408,11 +443,31 @@ export default function ExercisePlayer({
           </div>
         )}
 
-        <div className="w-full bg-border rounded-full h-1.5">
-          <div
-            className="bg-accent h-1.5 rounded-full transition-all duration-300"
-            style={{ width: `${progress}%` }}
-          />
+        {/* Interactive scale dots */}
+        <div className="flex items-center gap-0.5 flex-wrap">
+          {roots.map((root, i) => {
+            const isCurrent = i === currentRootIndex;
+            const isCompleted = currentRootIndex >= 0 && i < currentRootIndex;
+            const midpoint = Math.ceil(totalReps / 2);
+            const isAsc = i < midpoint;
+            return (
+              <button
+                key={i}
+                type="button"
+                onClick={() => jumpToScale(i)}
+                title={`${root} (${isAsc ? "ascending" : "descending"})`}
+                className={`relative h-6 flex items-center justify-center rounded-full text-[9px] font-mono transition-all ${
+                  isCurrent
+                    ? "bg-accent text-white px-2 min-w-[2rem] font-bold shadow-sm"
+                    : isCompleted
+                      ? "bg-accent/20 text-accent w-3 hover:w-6 hover:px-1 hover:bg-accent/30"
+                      : "bg-border/60 text-muted/60 w-3 hover:w-6 hover:px-1 hover:bg-border"
+                }`}
+              >
+                {isCurrent ? noteShortName(root) : ""}
+              </button>
+            );
+          })}
         </div>
         {currentRootIndex >= 0 && (
           <div className="text-center text-xs text-muted mt-1">
@@ -424,6 +479,24 @@ export default function ExercisePlayer({
 
       {/* Controls */}
       <div className="flex items-center justify-center gap-3 mb-6">
+        {/* Skip back */}
+        {(playerState === "playing" || playerState === "paused") && (
+          <button
+            onClick={() => jumpToScale(Math.max(0, rootIndexRef.current - 1))}
+            disabled={rootIndexRef.current <= 0}
+            className={`rounded-full w-10 h-10 flex items-center justify-center transition-colors ${
+              rootIndexRef.current <= 0
+                ? "text-muted/30 cursor-not-allowed"
+                : "text-accent hover:bg-accent-light"
+            }`}
+            aria-label="Skip back one scale"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0019 16V8a1 1 0 00-1.6-.8l-5.334 4zM4.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0011 16V8a1 1 0 00-1.6-.8l-5.334 4z" />
+            </svg>
+          </button>
+        )}
+
         {playerState === "idle" && (
           <button
             onClick={handlePlay}
@@ -459,11 +532,12 @@ export default function ExercisePlayer({
             </button>
             <button
               onClick={handleStop}
-              className="bg-red-600 hover:bg-red-700 text-white rounded-full w-12 h-12 flex items-center justify-center transition-colors"
-              aria-label="Stop"
+              className="text-muted hover:text-foreground hover:bg-background rounded-full w-12 h-12 flex items-center justify-center transition-colors"
+              aria-label="Restart"
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M6 6h12v12H6z" />
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h5M20 20v-5h-5" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M7.05 9.1A7.002 7.002 0 0119.08 10M16.95 14.9A7.002 7.002 0 014.92 14" />
               </svg>
             </button>
           </>
@@ -481,14 +555,33 @@ export default function ExercisePlayer({
             </button>
             <button
               onClick={handleStop}
-              className="bg-red-600 hover:bg-red-700 text-white rounded-full w-12 h-12 flex items-center justify-center transition-colors"
-              aria-label="Stop"
+              className="text-muted hover:text-foreground hover:bg-background rounded-full w-12 h-12 flex items-center justify-center transition-colors"
+              aria-label="Restart"
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M6 6h12v12H6z" />
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h5M20 20v-5h-5" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M7.05 9.1A7.002 7.002 0 0119.08 10M16.95 14.9A7.002 7.002 0 014.92 14" />
               </svg>
             </button>
           </>
+        )}
+
+        {/* Skip forward */}
+        {(playerState === "playing" || playerState === "paused") && (
+          <button
+            onClick={() => jumpToScale(Math.min(roots.length - 1, rootIndexRef.current + 1))}
+            disabled={rootIndexRef.current >= roots.length - 1}
+            className={`rounded-full w-10 h-10 flex items-center justify-center transition-colors ${
+              rootIndexRef.current >= roots.length - 1
+                ? "text-muted/30 cursor-not-allowed"
+                : "text-accent hover:bg-accent-light"
+            }`}
+            aria-label="Skip forward one scale"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M11.933 12.8a1 1 0 000-1.6L6.6 7.2A1 1 0 005 8v8a1 1 0 001.6.8l5.333-4zM19.933 12.8a1 1 0 000-1.6l-5.333-4A1 1 0 0013 8v8a1 1 0 001.6.8l5.333-4z" />
+            </svg>
+          </button>
         )}
       </div>
 
