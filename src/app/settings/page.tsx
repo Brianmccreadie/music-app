@@ -75,7 +75,7 @@ export default function SettingsPage() {
         <select
           value={voiceType}
           onChange={(e) => setVoiceType(e.target.value)}
-          className="w-full px-4 py-2 bg-card border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+          className="w-full px-4 py-2 bg-white border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
         >
           <option value="">Not set</option>
           {VOICE_TYPES.map((vt) => (
@@ -100,7 +100,7 @@ export default function SettingsPage() {
               <select
                 value={rangeLow}
                 onChange={(e) => setRangeLow(e.target.value)}
-                className="flex-1 min-w-0 px-3 py-2 bg-card border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                className="flex-1 min-w-0 px-3 py-2 bg-white border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
               >
                 {LOW_NOTES.map((note) => (
                   <option key={note} value={note}>
@@ -119,7 +119,7 @@ export default function SettingsPage() {
               <select
                 value={rangeHigh}
                 onChange={(e) => setRangeHigh(e.target.value)}
-                className="flex-1 min-w-0 px-3 py-2 bg-card border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                className="flex-1 min-w-0 px-3 py-2 bg-white border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
               >
                 {HIGH_NOTES.map((note) => (
                   <option key={note} value={note}>
@@ -145,8 +145,8 @@ export default function SettingsPage() {
               onClick={() => setExperienceLevel(level)}
               className={`flex-1 py-2 rounded-lg text-sm transition-colors ${
                 experienceLevel === level
-                  ? "bg-accent text-background"
-                  : "bg-card border border-border text-muted hover:text-foreground"
+                  ? "bg-accent text-white"
+                  : "bg-white border border-border text-muted hover:text-foreground"
               }`}
             >
               {level}
@@ -167,7 +167,7 @@ export default function SettingsPage() {
               onClick={() => toggleGoal(goal)}
               className={`p-2 rounded-lg border text-sm text-left transition-all ${
                 goals.includes(goal)
-                  ? "border-accent bg-accent/10 text-accent"
+                  ? "border-accent bg-accent-light text-accent"
                   : "border-border text-muted hover:border-accent/30"
               }`}
             >
@@ -180,7 +180,7 @@ export default function SettingsPage() {
       {/* Save */}
       <button
         onClick={handleSave}
-        className="w-full py-3 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors"
+        className="w-full py-3 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors"
       >
         {saved ? "Saved!" : "Save Settings"}
       </button>

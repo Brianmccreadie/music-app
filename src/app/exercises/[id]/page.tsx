@@ -85,7 +85,7 @@ export default function ExerciseDetailPage({
         <button
           type="button"
           onClick={handleToggleFavorite}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border hover:bg-card-hover transition-colors"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border hover:bg-accent-light transition-colors"
           title={favorited ? "Remove from favorites" : "Add to favorites"}
         >
           <svg

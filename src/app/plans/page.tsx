@@ -44,9 +44,9 @@ export default function PlansPage() {
           </div>
           <Link
             href="/generate"
-            className="px-4 py-2 bg-accent text-background rounded-lg text-sm font-semibold hover:bg-accent-hover transition-colors"
+            className="px-4 py-2 bg-accent text-white rounded-full text-sm font-semibold hover:bg-accent-hover transition-colors"
           >
-            AI Generate
+            Build Plan
           </Link>
         </div>
       </div>
@@ -58,8 +58,8 @@ export default function PlansPage() {
             onClick={() => setSelectedCategory("All")}
             className={`px-3 py-1 rounded-full text-sm transition-colors ${
               selectedCategory === "All"
-                ? "bg-accent text-background"
-                : "bg-card border border-border text-muted hover:text-foreground"
+                ? "bg-accent text-white"
+                : "bg-white border border-border text-muted hover:text-foreground"
             }`}
           >
             All
@@ -70,8 +70,8 @@ export default function PlansPage() {
               onClick={() => setSelectedCategory(cat)}
               className={`px-3 py-1 rounded-full text-sm transition-colors ${
                 selectedCategory === cat
-                  ? "bg-accent text-background"
-                  : "bg-card border border-border text-muted hover:text-foreground"
+                  ? "bg-accent text-white"
+                  : "bg-white border border-border text-muted hover:text-foreground"
               }`}
             >
               {cat}
@@ -83,8 +83,8 @@ export default function PlansPage() {
             onClick={() => setSelectedDifficulty(0)}
             className={`px-3 py-1 rounded-full text-sm transition-colors ${
               selectedDifficulty === 0
-                ? "bg-accent text-background"
-                : "bg-card border border-border text-muted hover:text-foreground"
+                ? "bg-accent text-white"
+                : "bg-white border border-border text-muted hover:text-foreground"
             }`}
           >
             Any Difficulty
@@ -95,8 +95,8 @@ export default function PlansPage() {
               onClick={() => setSelectedDifficulty(d)}
               className={`px-3 py-1 rounded-full text-sm transition-colors ${
                 selectedDifficulty === d
-                  ? "bg-accent text-background"
-                  : "bg-card border border-border text-muted hover:text-foreground"
+                  ? "bg-accent text-white"
+                  : "bg-white border border-border text-muted hover:text-foreground"
               }`}
             >
               {DIFFICULTY_LABELS[d]}

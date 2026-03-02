@@ -1,14 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0B0B0F;
-  --foreground: #F0F0F5;
-  --card: #16161D;
-  --card-hover: #1E1E28;
-  --border: #2A2A35;
-  --muted: #6B6B7B;
-  --accent: #C8AA6E;
-  --accent-hover: #D4BA82;
+  --background: #FAF9F6;
+  --foreground: #1A1A2E;
+  --card: #FFFFFF;
+  --card-hover: #F5F3EF;
+  --border: #E5E2DB;
+  --muted: #6E6E7A;
+  --accent: #1B6B5A;
+  --accent-hover: #15594A;
+  --accent-light: #E8F5F1;
+  --hero-bg: #1A1A2E;
+  --hero-fg: #FFFFFF;
 }
 
 @theme inline {
@@ -20,7 +23,11 @@
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --color-accent-light: var(--accent-light);
+  --color-hero-bg: var(--hero-bg);
+  --color-hero-fg: var(--hero-fg);
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Georgia", "Times New Roman", serif;
   --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
 }
 
@@ -62,5 +69,5 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 select {
-  color-scheme: dark;
+  color-scheme: light;
 }

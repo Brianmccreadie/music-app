@@ -94,7 +94,7 @@ export default function OnboardingPage() {
                 onClick={() => handleVoiceSelect(vt)}
                 className={`p-4 rounded-xl border-2 text-left transition-all ${
                   voiceType === vt
-                    ? "border-accent bg-accent/10"
+                    ? "border-accent bg-accent-light"
                     : "border-border hover:border-accent/30"
                 }`}
               >
@@ -114,7 +114,7 @@ export default function OnboardingPage() {
             </button>
             <button
               onClick={() => setStep(2)}
-              className="flex-1 py-3 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors"
+              className="flex-1 py-3 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors"
             >
               Next
             </button>
@@ -143,7 +143,7 @@ export default function OnboardingPage() {
                 <select
                   value={rangeLow}
                   onChange={(e) => setRangeLow(e.target.value)}
-                  className="flex-1 min-w-0 px-4 py-3 bg-card border border-border rounded-lg text-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="flex-1 min-w-0 px-4 py-3 bg-white border border-border rounded-lg text-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
                 >
                   {LOW_NOTES.map((note) => (
                     <option key={note} value={note}>
@@ -162,7 +162,7 @@ export default function OnboardingPage() {
                 <select
                   value={rangeHigh}
                   onChange={(e) => setRangeHigh(e.target.value)}
-                  className="flex-1 min-w-0 px-4 py-3 bg-card border border-border rounded-lg text-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="flex-1 min-w-0 px-4 py-3 bg-white border border-border rounded-lg text-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
                 >
                   {HIGH_NOTES.map((note) => (
                     <option key={note} value={note}>
@@ -174,7 +174,7 @@ export default function OnboardingPage() {
               </div>
             </div>
           </div>
-          <div className="bg-card rounded-xl p-4 mb-6 text-center border border-border">
+          <div className="bg-white rounded-xl p-4 mb-6 text-center border border-border shadow-sm">
             <div className="text-sm text-muted">Your range</div>
             <div className="text-2xl font-bold text-accent">
               {rangeLow} — {rangeHigh}
@@ -189,7 +189,7 @@ export default function OnboardingPage() {
             </button>
             <button
               onClick={() => setStep(3)}
-              className="flex-1 py-3 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors"
+              className="flex-1 py-3 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors"
             >
               Next
             </button>
@@ -210,7 +210,7 @@ export default function OnboardingPage() {
                 onClick={() => toggleGoal(goal)}
                 className={`p-3 rounded-xl border-2 text-sm text-left transition-all ${
                   goals.includes(goal)
-                    ? "border-accent bg-accent/10 text-accent"
+                    ? "border-accent bg-accent-light text-accent"
                     : "border-border text-muted hover:border-accent/30"
                 }`}
               >
@@ -227,7 +227,7 @@ export default function OnboardingPage() {
             </button>
             <button
               onClick={() => setStep(4)}
-              className="flex-1 py-3 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors"
+              className="flex-1 py-3 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors"
             >
               Next
             </button>
@@ -250,7 +250,7 @@ export default function OnboardingPage() {
                 onClick={() => setExperienceLevel(level)}
                 className={`w-full p-4 rounded-xl border-2 text-left transition-all ${
                   experienceLevel === level
-                    ? "border-accent bg-accent/10"
+                    ? "border-accent bg-accent-light"
                     : "border-border hover:border-accent/30"
                 }`}
               >
@@ -273,7 +273,7 @@ export default function OnboardingPage() {
             <button
               onClick={handleComplete}
               disabled={!experienceLevel}
-              className="flex-1 py-3 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              className="flex-1 py-3 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
             >
               Get Started
             </button>

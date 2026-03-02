@@ -98,14 +98,14 @@ export default function GeneratePlanPage() {
       </Link>
 
       <h1 className="text-2xl font-bold text-foreground mb-2">
-        AI Plan Generator
+        Plan Builder
       </h1>
       <p className="text-muted mb-6">
         Generate a personalized practice plan based on your profile and goals.
       </p>
 
       {/* Profile summary */}
-      <div className="bg-card rounded-xl border border-border p-4 mb-6">
+      <div className="bg-white rounded-2xl border border-border p-4 shadow-sm mb-6">
         <div className="flex items-center justify-between mb-2">
           <h3 className="text-sm font-medium text-muted">Your Profile</h3>
           <Link
@@ -156,7 +156,7 @@ export default function GeneratePlanPage() {
         <button
           onClick={() => handleGenerate()}
           disabled={generating}
-          className="w-full py-4 bg-accent text-background rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full py-4 bg-accent text-white rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {generating ? (
             <span className="flex items-center justify-center gap-2">
@@ -173,14 +173,14 @@ export default function GeneratePlanPage() {
       )}
 
       {error && (
-        <div className="bg-red-900/30 border border-red-800 rounded-xl p-4 mt-4">
-          <div className="text-sm text-red-300">{error}</div>
+        <div className="bg-red-50 border border-red-200 rounded-xl p-4 mt-4">
+          <div className="text-sm text-red-600">{error}</div>
         </div>
       )}
 
       {plan && (
         <div>
-          <div className="bg-card rounded-xl border border-border p-6 mb-6">
+          <div className="bg-white rounded-2xl border border-border p-6 shadow-sm mb-6">
             <h2 className="text-xl font-bold text-foreground mb-1">
               {plan.name}
             </h2>
@@ -208,9 +208,9 @@ export default function GeneratePlanPage() {
                     onClick={() => setActiveExerciseIndex(index)}
                     className={`w-full text-left p-4 rounded-xl border-2 transition-all ${
                       isActive
-                        ? "border-accent bg-accent/5"
+                        ? "border-accent bg-accent-light"
                         : isCompleted
-                          ? "border-emerald-800 bg-emerald-900/20"
+                          ? "border-emerald-200 bg-emerald-50"
                           : "border-border hover:border-accent/20"
                     }`}
                   >
@@ -218,7 +218,7 @@ export default function GeneratePlanPage() {
                       <div
                         className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium ${
                           isActive
-                            ? "bg-accent text-background"
+                            ? "bg-accent text-white"
                             : isCompleted
                               ? "bg-emerald-600 text-white"
                               : "bg-border text-muted"
@@ -251,14 +251,14 @@ export default function GeneratePlanPage() {
           {activeExerciseIndex === -1 ? (
             <button
               onClick={() => setActiveExerciseIndex(0)}
-              className="w-full py-4 bg-accent text-background rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors"
+              className="w-full py-4 bg-accent text-white rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors"
             >
               Start Plan
             </button>
           ) : activeExercise ? (
             <div>
               {activeExerciseConfig?.notes && (
-                <div className="bg-accent/10 border border-accent/20 rounded-xl p-4 mb-4">
+                <div className="bg-accent-light border border-accent/20 rounded-xl p-4 mb-4">
                   <div className="text-xs font-medium text-accent mb-1">
                     Coach Tip
                   </div>
@@ -290,7 +290,7 @@ export default function GeneratePlanPage() {
                     onClick={() =>
                       setActiveExerciseIndex(activeExerciseIndex + 1)
                     }
-                    className="flex-1 py-3 bg-accent text-background rounded-lg font-semibold hover:bg-accent-hover transition-colors"
+                    className="flex-1 py-3 bg-accent text-white rounded-lg font-semibold hover:bg-accent-hover transition-colors"
                   >
                     Next Exercise
                   </button>
@@ -323,8 +323,8 @@ export default function GeneratePlanPage() {
                   onClick={() => setFeedback(suggestion)}
                   className={`px-3 py-1 rounded-full text-xs transition-colors ${
                     feedback === suggestion
-                      ? "bg-accent text-background"
-                      : "bg-card border border-border text-muted hover:text-foreground"
+                      ? "bg-accent text-white"
+                      : "bg-white border border-border text-muted hover:text-foreground"
                   }`}
                 >
                   {suggestion}
@@ -337,12 +337,12 @@ export default function GeneratePlanPage() {
                 value={feedback}
                 onChange={(e) => setFeedback(e.target.value)}
                 placeholder="Or type specific feedback..."
-                className="flex-1 px-4 py-2 bg-card border border-border rounded-lg text-sm text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent"
+                className="flex-1 px-4 py-2 bg-white border border-border rounded-lg text-sm text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent"
               />
               <button
                 onClick={handleRegenerate}
                 disabled={generating}
-                className="px-4 py-2 bg-accent text-background rounded-lg text-sm font-semibold hover:bg-accent-hover transition-colors disabled:opacity-50"
+                className="px-4 py-2 bg-accent text-white rounded-lg text-sm font-semibold hover:bg-accent-hover transition-colors disabled:opacity-50"
               >
                 {generating ? "..." : "Regenerate"}
               </button>

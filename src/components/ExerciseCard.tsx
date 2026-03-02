@@ -11,11 +11,11 @@ interface ExerciseCardProps {
 }
 
 const DIFFICULTY_COLORS: Record<number, string> = {
-  1: "bg-emerald-900/50 text-emerald-400",
-  2: "bg-blue-900/50 text-blue-400",
-  3: "bg-yellow-900/50 text-yellow-400",
-  4: "bg-orange-900/50 text-orange-400",
-  5: "bg-red-900/50 text-red-400",
+  1: "bg-emerald-100 text-emerald-700",
+  2: "bg-blue-100 text-blue-700",
+  3: "bg-yellow-100 text-yellow-700",
+  4: "bg-orange-100 text-orange-700",
+  5: "bg-red-100 text-red-700",
 };
 
 export default function ExerciseCard({
@@ -45,10 +45,7 @@ export default function ExerciseCard({
         {exercise.description}
       </p>
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <ExercisePreviewButton exercise={exercise} />
-          <span className="text-[10px] text-muted">{exercise.category}</span>
-        </div>
+        <span className="text-[10px] text-muted">{exercise.category}</span>
         <div className="flex gap-1">
           {exercise.tags.slice(0, 3).map((tag) => (
             <span
@@ -68,10 +65,10 @@ export default function ExerciseCard({
       <button
         type="button"
         onClick={onClick}
-        className={`block w-full text-left rounded-xl border transition-all p-4 ${
+        className={`block w-full text-left rounded-2xl border transition-all p-5 ${
           selected
-            ? "bg-accent/10 border-accent"
-            : "bg-card border-border hover:bg-card-hover hover:border-accent/30"
+            ? "bg-accent-light border-accent shadow-sm"
+            : "bg-white border-border hover:shadow-md hover:border-accent/30"
         }`}
       >
         {inner}
@@ -82,7 +79,7 @@ export default function ExerciseCard({
   return (
     <Link
       href={href || `/exercises/${exercise.id}`}
-      className="block bg-card rounded-xl border border-border hover:bg-card-hover hover:border-accent/30 transition-all p-4"
+      className="block bg-white rounded-2xl border border-border hover:shadow-md hover:border-accent/30 transition-all p-5"
     >
       {inner}
     </Link>
