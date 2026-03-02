@@ -10,6 +10,7 @@ import { TRACKS } from "@/lib/tracks";
 import ExercisePlayer from "@/components/ExercisePlayer";
 import ExerciseDemo from "@/components/ExerciseDemo";
 import { getProfile } from "@/lib/user-profile";
+import { getSmartRange } from "@/lib/music-utils";
 
 const exercises = exercisesData as Exercise[];
 const demos = demoData as Record<
@@ -48,18 +49,38 @@ function PracticeModeContent() {
   const [startNote, setStartNote] = useState("C3");
   const [endNote, setEndNote] = useState("A4");
 
-  useEffect(() => {
-    const profile = getProfile();
-    if (profile.onboardingComplete) {
-      setStartNote(profile.rangeLow);
-      setEndNote(profile.rangeHigh);
-    }
-  }, []);
+  const trackExercises = track
+    ? (track.exerciseIds
+        .map((id) => exercises.find((ex) => ex.id === id))
+        .filter(Boolean) as Exercise[])
+    : [];
+
+  const currentExercise = trackExercises[currentIndex] ?? null;
+  const demoInfo = currentExercise ? demos[currentExercise.id] : null;
 
   // Reset to first exercise when track changes
   useEffect(() => {
     setCurrentIndex(0);
   }, [trackId]);
+
+  // Apply smart range per exercise
+  useEffect(() => {
+    const profile = getProfile();
+    if (!profile.onboardingComplete) return;
+    if (currentExercise) {
+      const smart = getSmartRange(
+        profile.rangeLow,
+        profile.rangeHigh,
+        currentExercise.tags,
+        currentExercise.category
+      );
+      setStartNote(smart.low);
+      setEndNote(smart.high);
+    } else {
+      setStartNote(profile.rangeLow);
+      setEndNote(profile.rangeHigh);
+    }
+  }, [currentExercise]);
 
   if (!track) {
     return (
@@ -73,13 +94,6 @@ function PracticeModeContent() {
       </div>
     );
   }
-
-  const trackExercises = track.exerciseIds
-    .map((id) => exercises.find((ex) => ex.id === id))
-    .filter(Boolean) as Exercise[];
-
-  const currentExercise = trackExercises[currentIndex];
-  const demoInfo = currentExercise ? demos[currentExercise.id] : null;
 
   const goToPrev = useCallback(() => {
     setCurrentIndex((i) => Math.max(0, i - 1));
