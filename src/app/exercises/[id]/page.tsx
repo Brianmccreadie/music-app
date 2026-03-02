@@ -103,7 +103,7 @@ function ExerciseDetailContent({ id }: { id: string }) {
   const backLabel = track ? `${track.name}` : "Library";
 
   return (
-    <div className="max-w-lg mx-auto px-4 py-8">
+    <div className="max-w-6xl mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-6">
         <Link
           href={backHref}
@@ -170,21 +170,35 @@ function ExerciseDetailContent({ id }: { id: string }) {
         </div>
       )}
 
-      {demoInfo && (
-        <div className="mb-6">
-          <ExerciseDemo exercise={exercise} demoInfo={demoInfo} />
+      {/* Side-by-side layout: Info + Player */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Left: Exercise info (how to do, technique tips, vocal tips) */}
+        <div>
+          {demoInfo ? (
+            <ExerciseDemo exercise={exercise} demoInfo={demoInfo} />
+          ) : (
+            <div className="bg-white rounded-2xl border border-border p-5 shadow-sm">
+              <h3 className="text-sm font-bold text-accent uppercase tracking-wide mb-3">
+                Exercise Info
+              </h3>
+              <p className="text-sm text-muted">{exercise.description}</p>
+            </div>
+          )}
         </div>
-      )}
 
-      <ExercisePlayer
-        exercise={exercise}
-        startNote={startNote}
-        endNote={endNote}
-        onRangeChange={(low, high) => {
-          setStartNote(low);
-          setEndNote(high);
-        }}
-      />
+        {/* Right: Exercise player */}
+        <div>
+          <ExercisePlayer
+            exercise={exercise}
+            startNote={startNote}
+            endNote={endNote}
+            onRangeChange={(low, high) => {
+              setStartNote(low);
+              setEndNote(high);
+            }}
+          />
+        </div>
+      </div>
     </div>
   );
 }
