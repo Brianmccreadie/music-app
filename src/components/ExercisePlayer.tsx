@@ -134,7 +134,7 @@ export default function ExercisePlayer({
           setCurrentNoteName(rootNote);
           engine.playChord(newChordNotes, chordDuration, bpmRef.current);
 
-          chordTimerRef.current = setTimeout(startExercise, chordDurationMs);
+          chordTimerRef.current = setTimeout(startExercise, chordDurationMs * 2);
         }, chordDurationMs);
       } else {
         // First rep — just play the new key chord
