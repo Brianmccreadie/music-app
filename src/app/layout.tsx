@@ -40,22 +40,16 @@ export default function RootLayout({
                 Plans
               </Link>
               <Link
-                href="/routines"
-                className="text-muted hover:text-foreground transition-colors"
-              >
-                Routines
-              </Link>
-              <Link
                 href="/settings"
                 className="text-muted hover:text-foreground transition-colors"
               >
                 Settings
               </Link>
               <Link
-                href="/routines/new"
+                href="/routines"
                 className="px-4 py-2 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors text-sm"
               >
-                Get Started
+                Custom Routines
               </Link>
             </div>
           </div>
@@ -84,7 +78,7 @@ export default function RootLayout({
                 <div className="space-y-2 text-sm">
                   <Link href="/exercises" className="block hover:text-white transition-colors">Exercise Library</Link>
                   <Link href="/plans" className="block hover:text-white transition-colors">Practice Plans</Link>
-                  <Link href="/routines" className="block hover:text-white transition-colors">My Routines</Link>
+                  <Link href="/routines" className="block hover:text-white transition-colors">Custom Routines</Link>
                 </div>
               </div>
               <div>

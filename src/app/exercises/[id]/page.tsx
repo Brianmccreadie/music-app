@@ -10,6 +10,7 @@ import { TRACKS } from "@/lib/tracks";
 import ExercisePlayer from "@/components/ExercisePlayer";
 import ExerciseDemo from "@/components/ExerciseDemo";
 import { getProfile } from "@/lib/user-profile";
+import { getSmartRange } from "@/lib/music-utils";
 import { isFavorite, toggleFavorite } from "@/lib/favorites";
 
 const exercises = exercisesData as Exercise[];
@@ -58,9 +59,15 @@ function ExerciseDetailContent({ id }: { id: string }) {
 
   useEffect(() => {
     const profile = getProfile();
-    if (profile.onboardingComplete) {
-      setStartNote(profile.rangeLow);
-      setEndNote(profile.rangeHigh);
+    if (profile.onboardingComplete && exercise) {
+      const smart = getSmartRange(
+        profile.rangeLow,
+        profile.rangeHigh,
+        exercise.tags,
+        exercise.category
+      );
+      setStartNote(smart.low);
+      setEndNote(smart.high);
     }
     if (exercise) {
       setFavorited(isFavorite(exercise.id));
