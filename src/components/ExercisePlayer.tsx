@@ -444,27 +444,27 @@ export default function ExercisePlayer({
         )}
 
         {/* Interactive scale dots */}
-        <div className="flex items-center gap-0.5 flex-wrap">
+        <div className="flex items-center gap-1 flex-wrap">
           {roots.map((root, i) => {
             const isCurrent = i === currentRootIndex;
             const isCompleted = currentRootIndex >= 0 && i < currentRootIndex;
-            const midpoint = Math.ceil(totalReps / 2);
-            const isAsc = i < midpoint;
             return (
               <button
                 key={i}
                 type="button"
                 onClick={() => jumpToScale(i)}
-                title={`${root} (${isAsc ? "ascending" : "descending"})`}
-                className={`relative h-6 flex items-center justify-center rounded-full text-[9px] font-mono transition-all ${
+                className={`group relative h-6 rounded-full text-[10px] font-mono transition-all flex items-center justify-center ${
                   isCurrent
                     ? "bg-accent text-white px-2 min-w-[2rem] font-bold shadow-sm"
                     : isCompleted
-                      ? "bg-accent/20 text-accent w-3 hover:w-6 hover:px-1 hover:bg-accent/30"
-                      : "bg-border/60 text-muted/60 w-3 hover:w-6 hover:px-1 hover:bg-border"
+                      ? "bg-accent/15 text-accent px-1.5 min-w-[1.5rem] hover:bg-accent/25"
+                      : "bg-border/50 text-muted/50 px-1.5 min-w-[1.5rem] hover:bg-border hover:text-muted"
                 }`}
               >
-                {isCurrent ? noteShortName(root) : ""}
+                {/* Always visible on mobile, hover-reveal on desktop */}
+                <span className={`${isCurrent ? "" : "lg:opacity-0 lg:group-hover:opacity-100"} transition-opacity`}>
+                  {noteShortName(root)}
+                </span>
               </button>
             );
           })}
