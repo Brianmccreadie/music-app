@@ -458,12 +458,12 @@ export default function ExercisePlayer({
                   key={i}
                   type="button"
                   onClick={() => jumpToScale(i)}
-                  className={`group relative h-6 rounded-full text-[10px] font-mono transition-all flex items-center justify-center ${
+                  className={`group relative rounded-full font-mono transition-all flex items-center justify-center ${
                     isCurrent
-                      ? "bg-accent text-white px-2 min-w-[2rem] font-bold shadow-sm"
+                      ? "h-7 bg-accent text-white px-2.5 min-w-[2.25rem] text-xs font-bold shadow-sm"
                       : isCompleted
-                        ? "bg-accent/15 text-accent px-1.5 min-w-[1.5rem] hover:bg-accent/25"
-                        : "bg-border/50 text-muted/50 px-1.5 min-w-[1.5rem] hover:bg-border hover:text-muted"
+                        ? "h-6 bg-accent/15 text-accent px-1.5 min-w-[1.5rem] text-[10px] lg:hover:h-7 lg:hover:px-2.5 lg:hover:min-w-[2.25rem] lg:hover:text-xs lg:hover:bg-accent/25 lg:hover:font-semibold"
+                        : "h-6 bg-border/50 text-muted/50 px-1.5 min-w-[1.5rem] text-[10px] lg:hover:h-7 lg:hover:px-2.5 lg:hover:min-w-[2.25rem] lg:hover:text-xs lg:hover:bg-border lg:hover:text-muted lg:hover:font-semibold"
                   }`}
                 >
                   <span className={`${isCurrent ? "" : "lg:opacity-0 lg:group-hover:opacity-100"} transition-opacity`}>
