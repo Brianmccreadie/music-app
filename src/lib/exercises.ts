@@ -35,18 +35,38 @@ export const DIFFICULTY_LABELS: Record<number, string> = {
 };
 
 export const ALL_TAGS = [
-  "intonation",
-  "staccato",
-  "legato",
   "chest voice",
   "head voice",
   "mix voice",
+  "intonation",
+  "agility",
+  "range",
+  "breath",
+  "staccato",
+  "legato",
   "vibrato",
   "runs",
   "sovt",
   "onset",
   "phrasing",
 ] as const;
+
+export const TAG_LABELS: Record<string, string> = {
+  "chest voice": "Chest Voice",
+  "head voice": "Head Voice",
+  "mix voice": "Mix Voice",
+  intonation: "Intonation",
+  agility: "Agility",
+  range: "Range",
+  breath: "Breath",
+  staccato: "Staccato",
+  legato: "Legato",
+  vibrato: "Vibrato",
+  runs: "Runs",
+  sovt: "SOVT",
+  onset: "Onset",
+  phrasing: "Phrasing",
+};
 
 // Goal tags map goals (user-facing) to exercise tags (data-facing)
 // Uses both displayed tags and hidden tags on exercises for matching

@@ -40,16 +40,22 @@ export default function RootLayout({
                 Plans
               </Link>
               <Link
+                href="/routines"
+                className="text-muted hover:text-foreground transition-colors"
+              >
+                Custom Routines
+              </Link>
+              <Link
                 href="/settings"
                 className="text-muted hover:text-foreground transition-colors"
               >
                 Settings
               </Link>
               <Link
-                href="/routines"
+                href="/"
                 className="px-4 py-2 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors text-sm"
               >
-                Custom Routines
+                Dashboard
               </Link>
             </div>
           </div>
