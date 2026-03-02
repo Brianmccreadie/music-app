@@ -41,7 +41,7 @@ export default function HomePage() {
             </h1>
             <p className="text-lg text-white/60 max-w-xl mb-10 leading-relaxed">
               Professional vocal exercises with real piano accompaniment, personalized
-              routines, and AI-powered practice plans. Built for singers who take
+              routines, and custom practice plans. Built for singers who take
               their craft seriously.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -79,8 +79,8 @@ export default function HomePage() {
               <div className="text-sm text-muted mt-1">Training Tracks</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-accent">AI</div>
-              <div className="text-sm text-muted mt-1">Powered Plans</div>
+              <div className="text-3xl font-bold text-accent">Custom</div>
+              <div className="text-sm text-muted mt-1">Built Plans</div>
             </div>
           </div>
         </div>
@@ -114,7 +114,7 @@ export default function HomePage() {
             </div>
             <h3 className="text-lg font-bold text-foreground mb-2">Pick Your Exercises</h3>
             <p className="text-muted text-sm leading-relaxed">
-              Browse {exercises.length}+ exercises across {TRACKS.length} training tracks, or let our AI build a custom plan for you.
+              Browse {exercises.length}+ exercises across {TRACKS.length} training tracks, or let us build a custom plan for you.
             </p>
           </div>
           <div className="bg-white rounded-2xl border border-border p-8 hover:shadow-lg transition-shadow">
@@ -249,7 +249,7 @@ export default function HomePage() {
               href="/generate"
               className="px-8 py-3.5 border border-white/20 text-white rounded-full font-medium hover:bg-white/10 transition-colors"
             >
-              AI Generate Plan
+              Build a Plan
             </Link>
           </div>
         </div>

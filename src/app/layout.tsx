@@ -99,7 +99,7 @@ export default function RootLayout({
                 <h4 className="text-white font-semibold mb-3 text-sm">Get Started</h4>
                 <div className="space-y-2 text-sm">
                   <Link href="/onboarding" className="block hover:text-white transition-colors">Onboarding</Link>
-                  <Link href="/generate" className="block hover:text-white transition-colors">AI Plan Generator</Link>
+                  <Link href="/generate" className="block hover:text-white transition-colors">Plan Builder</Link>
                   <Link href="/settings" className="block hover:text-white transition-colors">Settings</Link>
                 </div>
               </div>

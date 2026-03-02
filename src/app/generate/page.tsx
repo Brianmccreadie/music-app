@@ -98,7 +98,7 @@ export default function GeneratePlanPage() {
       </Link>
 
       <h1 className="text-2xl font-bold text-foreground mb-2">
-        AI Plan Generator
+        Plan Builder
       </h1>
       <p className="text-muted mb-6">
         Generate a personalized practice plan based on your profile and goals.
