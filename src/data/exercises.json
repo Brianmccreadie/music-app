@@ -23,7 +23,7 @@
     ],
     "difficulty": 1,
     "category": "Warm-Ups",
-    "goodFor": "Building even tone across your range and warming up your voice for any practice session. A go-to daily exercise for singers at every level."
+    "goodFor": "Warming up with a simple 1-2-3-4-5-4-3-2-1 stepwise pattern that sits comfortably in one position. The short range means you can focus purely on even tone and smooth connections between neighboring notes."
   },
   {
     "id": "major-triad",
@@ -45,7 +45,7 @@
     ],
     "difficulty": 1,
     "category": "Arpeggios",
-    "goodFor": "Training your ear to lock into chord tones and developing clean intonation across wider intervals. Strengthens your harmonic foundation."
+    "goodFor": "Locking your pitch onto the 1st, 3rd, and 5th scale degrees \u2014 the three notes that define a major chord. The skips between notes train your ear to hear chord tones and land each interval cleanly."
   },
   {
     "id": "octave-arpeggio",
@@ -69,7 +69,7 @@
     ],
     "difficulty": 2,
     "category": "Arpeggios",
-    "goodFor": "Bridging between chest and head voice while building range. Teaches you to maintain support through wide intervals and register transitions."
+    "goodFor": "Singing 1-3-5-8-5-3-1 takes you through a full octave on chord tones, so you're likely crossing your vocal break somewhere in the middle. This exercise trains you to keep one consistent sound through that transition."
   },
   {
     "id": "chromatic-five",
@@ -97,7 +97,7 @@
     ],
     "difficulty": 2,
     "category": "Scales",
-    "goodFor": "Sharpening pitch accuracy and ear training. The half-step movement demands precision and builds the muscle memory for hitting notes dead-center."
+    "goodFor": "Moving in half steps (semitones) through five notes. Because each pitch is so close together, any intonation drift is immediately obvious \u2014 making this a precision exercise for your pitch accuracy."
   },
   {
     "id": "fifth-jump",
@@ -118,7 +118,7 @@
     ],
     "difficulty": 2,
     "category": "Intervals",
-    "goodFor": "Developing interval recognition and clean pitch on one of the most common jumps in music. Builds confidence for melodic leaps in songs."
+    "goodFor": "Repeatedly jumping root-to-fifth (7 semitones) and back. This specific interval appears constantly in melodies, so nailing it here means fewer pitch wobbles when you encounter it in songs."
   },
   {
     "id": "major-scale-full",
@@ -150,7 +150,7 @@
     ],
     "difficulty": 2,
     "category": "Scales",
-    "goodFor": "Establishing solid intonation across a full octave and developing even tone throughout your range. The backbone of all Western vocal music."
+    "goodFor": "Running all eight notes of the major scale up and down. Unlike the 5-note version, this covers a full octave, so you practice maintaining consistent tone and intonation across a wider span."
   },
   {
     "id": "minor-triad",
@@ -172,7 +172,7 @@
     ],
     "difficulty": 1,
     "category": "Arpeggios",
-    "goodFor": "Training your ear for minor tonality and building comfort with darker harmonic colors. Essential for emotive singing in ballads and contemporary styles."
+    "goodFor": "The 1-b3-5 triad has a smaller gap between root and third (3 semitones vs 4 in major). Training this darker interval sharpens your ear for the subtle difference and helps you sing minor passages in tune."
   },
   {
     "id": "dominant-seventh",
@@ -196,7 +196,7 @@
     ],
     "difficulty": 3,
     "category": "Arpeggios",
-    "goodFor": "Expanding your harmonic vocabulary and developing comfort with jazz and blues intervals. Adds genre versatility to your singing."
+    "goodFor": "Adding the b7 to the major triad (1-3-5-b7-5-3-1) introduces an interval you won't find in basic scale exercises. This chord shape shows up in blues, jazz, and pop turnarounds."
   },
   {
     "id": "staccato-repeated",
@@ -219,7 +219,7 @@
     ],
     "difficulty": 1,
     "category": "Technique",
-    "goodFor": "Building diaphragm control, clean vocal onsets, and breath support. The short, bouncy attacks train the core muscles of singing."
+    "goodFor": "Hitting the same note five times with short, detached attacks. Each onset requires a quick diaphragm engagement \u2014 there's no momentum from a melody to carry you. Isolates your breath-onset coordination."
   },
   {
     "id": "sustained-tone",
@@ -237,7 +237,7 @@
     ],
     "difficulty": 1,
     "category": "Breath Control",
-    "goodFor": "Developing breath control, steady airflow, and consistent tone. The simplest yet most revealing exercise \u2014 exposes any weakness in your support."
+    "goodFor": "Holding one single note for as long as possible. With no melody to distract you, every flaw in your airflow, pitch stability, and tone consistency is exposed. The simplest and most honest vocal test."
   },
   {
     "id": "thirds-pattern",
@@ -265,7 +265,7 @@
     ],
     "difficulty": 3,
     "category": "Agility",
-    "goodFor": "Building vocal agility and interval awareness with weaving patterns. Prepares you for the kind of melodic movement found in real songs."
+    "goodFor": "Weaving up and down in thirds (e.g., C-E-D-F-E-G) instead of stepwise motion. This zigzag pattern mimics real melodic writing and forces your voice to handle quick direction changes at every note."
   },
   {
     "id": "octave-jump",
@@ -285,7 +285,7 @@
     ],
     "difficulty": 3,
     "category": "Intervals",
-    "goodFor": "Mastering the widest common interval and building confidence across your full range. Teaches clean pitch without scooping on dramatic leaps."
+    "goodFor": "Jumping a full 12 semitones from root to octave and back \u2014 the widest common interval. There's nowhere to hide: you either nail both notes cleanly or you don't. Builds courage for dramatic leaps in songs."
   },
   {
     "id": "descending-five-note",
@@ -308,7 +308,7 @@
     ],
     "difficulty": 1,
     "category": "Warm-Ups",
-    "goodFor": "Practicing smooth head-to-chest voice transitions and training a consistent descending tone. Great for singers who tend to lose support on the way down."
+    "goodFor": "Starting on the 5th and stepping down to the root. Most singers lose support and tone quality when descending. This specifically trains you to stay engaged and avoid going flat on the way down."
   },
   {
     "id": "lip-trill-scale",
@@ -335,7 +335,7 @@
     ],
     "difficulty": 1,
     "category": "Warm-Ups",
-    "goodFor": "Releasing jaw and lip tension while gently warming up your voice. The back-pressure from the bubbling balances airflow and cord closure naturally."
+    "goodFor": "Running the 5-note scale while buzzing your lips. The trill creates back-pressure that naturally balances your airflow and cord closure \u2014 you can't force or strain through a lip trill, so it self-corrects bad habits."
   },
   {
     "id": "pentatonic-scale",
@@ -361,7 +361,7 @@
     ],
     "difficulty": 2,
     "category": "Scales",
-    "goodFor": "Building familiarity with the five-note scale used in pop, R&B, rock, and country. The foundation for learning riffs and improvisation."
+    "goodFor": "The 1-2-3-5-6 scale (no 4th or 7th) eliminates the tricky half-step intervals. This is the exact scale behind most pop hooks, R&B riffs, and rock solos \u2014 learning it as a pattern builds your riffing vocabulary."
   },
   {
     "id": "minor-scale-full",
@@ -393,7 +393,7 @@
     ],
     "difficulty": 2,
     "category": "Scales",
-    "goodFor": "Developing comfort with minor tonality across a full octave. Essential for classical repertoire, emotional ballads, and contemporary styles."
+    "goodFor": "All eight notes of the natural minor scale across a full octave. The b3, b6, and b7 give it a different feel from major \u2014 practicing this scale trains your ear to handle both tonalities equally well."
   },
   {
     "id": "messa-di-voce",
@@ -412,7 +412,7 @@
     ],
     "difficulty": 3,
     "category": "Breath Control",
-    "goodFor": "Mastering dynamic control \u2014 the ability to go from quiet to loud and back on a single note. One of the most important skills for expressive singing."
+    "goodFor": "Going from pianissimo to fortissimo and back on a single held note. This demands independent control of airflow and cord tension \u2014 you're adjusting volume without changing pitch, tone, or vowel shape."
   },
   {
     "id": "rapid-five-note",
@@ -438,7 +438,7 @@
     ],
     "difficulty": 3,
     "category": "Agility",
-    "goodFor": "Building vocal speed and coordination without sacrificing pitch accuracy. Develops the agility needed for fast passages in songs."
+    "goodFor": "The same 1-2-3-4-5-4-3-2-1 pattern as the standard warm-up, but at double tempo. Speed reveals any tension or coordination issues that slower singing masks. Trains your voice to stay relaxed at pace."
   },
   {
     "id": "sirens",
@@ -468,7 +468,7 @@
     ],
     "difficulty": 2,
     "category": "Range Extension",
-    "goodFor": "Smoothing out register transitions and exploring your full range. The continuous glide helps you find and eliminate breaks between chest and head voice."
+    "goodFor": "A continuous chromatic glide from root to octave \u2014 no discrete pitches, just a smooth slide. This exposes exactly where your register break is and trains you to smooth it out instead of flipping."
   },
   {
     "id": "fourth-jump",
@@ -489,7 +489,7 @@
     ],
     "difficulty": 2,
     "category": "Intervals",
-    "goodFor": "Training one of music's most natural-sounding intervals. Builds interval recognition and clean pitch on a jump found constantly in melodies."
+    "goodFor": "Bouncing between root and fourth (5 semitones) repeatedly. The perfect fourth is one of the most natural intervals in music \u2014 think of 'Here Comes the Bride.' Ingraining it here makes it automatic in songs."
   },
   {
     "id": "two-octave-arpeggio",
@@ -519,7 +519,7 @@
     ],
     "difficulty": 4,
     "category": "Range Extension",
-    "goodFor": "Challenging your full vocal range from low chest through high head voice. An advanced exercise for singers ready to push their limits safely."
+    "goodFor": "Arpeggios spanning two full octaves (1-3-5-8-10-12-15 and back). You'll move through chest, mix, and head voice in a single pass \u2014 this is for singers who can already handle one-octave exercises and want to push further."
   },
   {
     "id": "diminished-seventh",
@@ -543,7 +543,7 @@
     ],
     "difficulty": 4,
     "category": "Arpeggios",
-    "goodFor": "Training your ear for symmetrical, unusual intervals common in classical and jazz. Builds pitch accuracy on intervals that don't fall naturally."
+    "goodFor": "Every interval in this arpeggio is a minor third (3 semitones), creating a symmetrical, unsettling pattern. Because nothing sounds 'settled,' your ear can't rely on tonal gravity \u2014 it's pure pitch memory training."
   },
   {
     "id": "tongue-trill-scale",
@@ -570,7 +570,7 @@
     ],
     "difficulty": 1,
     "category": "Warm-Ups",
-    "goodFor": "Warming up with gentle tongue engagement and releasing tension. An alternative to lip trills that adds coordination training for the tongue."
+    "goodFor": "A rolled R through the 5-note scale. Unlike lip trills, the tongue trill adds coordination for the tongue itself while still creating the semi-occluded back-pressure that promotes balanced phonation."
   },
   {
     "id": "humming",
@@ -597,7 +597,7 @@
     ],
     "difficulty": 1,
     "category": "Warm-Ups",
-    "goodFor": "The gentlest possible warm-up \u2014 building mask resonance, forward placement, and awareness of facial vibrations without any strain on your voice."
+    "goodFor": "Closed-mouth 5-note scale where all sound resonates through your nasal cavity and face. You'll feel exactly where your voice vibrates \u2014 forehead, cheekbones, nose \u2014 building awareness of forward placement."
   },
   {
     "id": "nay-twang",
@@ -624,7 +624,7 @@
     ],
     "difficulty": 2,
     "category": "Technique",
-    "goodFor": "Developing forward placement, bright resonance, and the twang quality essential for belting. A cornerstone exercise for pop, musical theater, and country singers."
+    "goodFor": "The 'Nay' syllable on a 5-note scale, exaggerating the nasal twang. This specific sound narrows the vocal tract above the cords, creating a bright, cutting resonance used in belting, pop, and musical theater."
   },
   {
     "id": "vocal-fry-onset",
@@ -645,7 +645,7 @@
     ],
     "difficulty": 2,
     "category": "Technique",
-    "goodFor": "Building clean cord closure and learning to start notes without a breathy or glottal attack. Trains the foundation of healthy vocal onset."
+    "goodFor": "Starting three repeated notes from vocal fry (the creaky, low rumble) and transitioning into clear chest voice. This teaches your vocal folds to close gently before adding air \u2014 the healthiest way to begin a note."
   },
   {
     "id": "yawn-sigh",
@@ -676,7 +676,7 @@
     ],
     "difficulty": 1,
     "category": "Warm-Ups",
-    "goodFor": "Releasing tension in the throat and jaw while finding relaxed head voice. A natural, feel-good exercise that resets your voice when it's tired or tight."
+    "goodFor": "A chromatic slide from the top of your range all the way down, mimicking a yawn. The yawn position naturally lowers the larynx and opens the throat, releasing accumulated tension after intense practice."
   },
   {
     "id": "staccato-five-descending",
@@ -698,7 +698,7 @@
     ],
     "difficulty": 2,
     "category": "Agility",
-    "goodFor": "Developing agility and diaphragmatic engagement on descending patterns. Builds the control needed for quick, accurate downward runs."
+    "goodFor": "Short, bounced notes on each step from the 5th down to the root. Combines the breath control demands of staccato with the support challenges of descending \u2014 two difficulties in one pattern."
   },
   {
     "id": "wide-arpeggio",
@@ -720,7 +720,7 @@
     ],
     "difficulty": 3,
     "category": "Arpeggios",
-    "goodFor": "Building range and intonation simultaneously with challenging interval skips. Teaches you to stay supported through wide melodic leaps."
+    "goodFor": "Jumping root-fifth-octave (1-5-8-5-1) skips the third entirely, creating two large leaps back-to-back. This is harder than a standard arpeggio because there's no middle note to step through."
   },
   {
     "id": "semitone-trill",
@@ -746,7 +746,7 @@
     ],
     "difficulty": 4,
     "category": "Agility",
-    "goodFor": "Developing laryngeal flexibility and speed for ornaments, trills, and fast passages. An advanced agility builder that unlocks vocal decoration."
+    "goodFor": "Rapidly alternating between two notes a half step apart (like a classical trill). This requires your larynx to make tiny, fast adjustments \u2014 building the flexibility needed for ornaments and fast passages."
   },
   {
     "id": "blues-scale",
@@ -776,7 +776,7 @@
     ],
     "difficulty": 3,
     "category": "Scales",
-    "goodFor": "Adding soul and style to your singing with the classic blues sound. Essential for gospel, R&B, blues, and rock improvisation and riffing."
+    "goodFor": "The 1-b3-4-b5-5-b7 scale includes the 'blue note' (b5) \u2014 that tense, gritty note between the 4th and 5th. Practicing this specific scale gives you the raw material for gospel, R&B, and blues improvisation."
   },
   {
     "id": "major-sixth-jump",
@@ -798,7 +798,7 @@
     ],
     "difficulty": 3,
     "category": "Intervals",
-    "goodFor": "Mastering a wide, expressive interval that challenges your intonation. Builds confidence for the dramatic leaps found in Broadway and classical repertoire."
+    "goodFor": "Leaping 9 semitones (a major sixth) repeatedly. This is the interval that opens 'My Bonnie Lies Over the Ocean' \u2014 wide enough to challenge your intonation but common enough to appear regularly in repertoire."
   },
   {
     "id": "nine-note-run",
@@ -832,7 +832,7 @@
     ],
     "difficulty": 5,
     "category": "Agility",
-    "goodFor": "The ultimate agility test \u2014 building speed, accuracy, and relaxation through extended fast passages. For singers ready to execute impressive vocal runs."
+    "goodFor": "A rapid run spanning 9+ scale degrees and back, reaching beyond one octave. At tempo, this is a speed-and-accuracy gauntlet \u2014 if you can stay relaxed and in tune through this, shorter runs will feel easy."
   },
   {
     "id": "vowel-modification",
@@ -855,7 +855,7 @@
     ],
     "difficulty": 2,
     "category": "Technique",
-    "goodFor": "Training pure vowel shapes and consistent resonance. Essential for singing clearly in any language and maintaining tone quality across different vowel sounds."
+    "goodFor": "Cycling through Ah-Eh-Ee-Oh-Oo on a single held pitch. Each vowel reshapes your mouth and throat differently \u2014 this trains you to keep your pitch and resonance consistent regardless of the vowel you're singing."
   },
   {
     "id": "sob-exercise",
@@ -878,7 +878,7 @@
     ],
     "difficulty": 2,
     "category": "Technique",
-    "goodFor": "Accessing head voice with emotion and warmth. The cry quality tilts the larynx forward, thins the folds, and helps you sing high without strain."
+    "goodFor": "Descending 5 notes with a gentle crying or sobbing quality. The 'cry' tilts your thyroid cartilage forward, naturally thinning your vocal folds \u2014 this is the specific mechanism that lets you sing higher without straining."
   },
   {
     "id": "belt-1-3-5-8",
@@ -900,7 +900,7 @@
     ],
     "difficulty": 4,
     "category": "Range Extension",
-    "goodFor": "Building chest-dominant mix and belt power for high notes. The money-note exercise for musical theater, pop, and any style that demands powerful high notes."
+    "goodFor": "An ascend-only arpeggio ending on the octave and holding it. The entire exercise builds toward that top note, training you to arrive with enough breath, support, and cord closure to sustain a powerful belt."
   },
   {
     "id": "mum-scale",
@@ -932,7 +932,7 @@
     ],
     "difficulty": 2,
     "category": "Technique",
-    "goodFor": "Smoothly bridging chest and head voice through the passaggio. The nasal M consonant helps you navigate the break without flipping or cracking."
+    "goodFor": "Singing 'Mum' through a full octave scale. The M consonant channels sound through your nose, and the short 'uh' vowel keeps your throat open. Together, they guide you through the passaggio without cracking."
   },
   {
     "id": "bratty-nay-octave",
@@ -953,7 +953,7 @@
     ],
     "difficulty": 3,
     "category": "Technique",
-    "goodFor": "Training mix voice engagement through a wide interval. The bratty quality keeps cord closure through the passaggio \u2014 essential for eliminating the vocal break."
+    "goodFor": "A bratty 'Nay' on an octave jump (1-8-1). The exaggerated nasal twang keeps your cords engaged through the break. The wide interval forces you to maintain that engagement across your full range."
   },
   {
     "id": "mix-voice-slide",
@@ -986,7 +986,7 @@
     ],
     "difficulty": 3,
     "category": "Range Extension",
-    "goodFor": "Finding and developing the seamless blend between chest and head voice. Teaches you to navigate your passaggio without a break, flip, or sudden shift in tone."
+    "goodFor": "A continuous slide spanning over an octave from chest through mix into head. Because it's a slide (not discrete notes), you feel exactly where your voice wants to break \u2014 and learn to smooth through it."
   },
   {
     "id": "gee-scale",
@@ -1012,7 +1012,7 @@
     ],
     "difficulty": 2,
     "category": "Technique",
-    "goodFor": "Maintaining chest voice quality as you ascend into mix. The G consonant creates the cord compression needed to keep your sound strong and connected going up."
+    "goodFor": "Singing 'Gee' on the 5-note scale. The G consonant creates a brief glottal compression that maintains cord closure as you ascend \u2014 preventing the breathy flip that happens when cords separate in the passaggio."
   },
   {
     "id": "hooty-oo-scale",
@@ -1038,7 +1038,7 @@
     ],
     "difficulty": 1,
     "category": "Warm-Ups",
-    "goodFor": "Engaging head voice resonance in a gentle, strain-free way. The round vowel naturally places your voice in the right spot for easy upper-range singing."
+    "goodFor": "Singing 'Oo' with an owl-like, hooty quality on the 5-note scale. The rounded lip position and back vowel naturally thin the vocal folds and engage head resonance \u2014 making it almost impossible to strain."
   },
   {
     "id": "falsetto-slide-down",
@@ -1068,7 +1068,7 @@
     ],
     "difficulty": 1,
     "category": "Range Extension",
-    "goodFor": "Building awareness and control of your upper register. The light, descending glide develops falsetto strength and smooths the transition back to chest voice."
+    "goodFor": "Starting in light falsetto and gliding chromatically down to your low range. This specifically strengthens the top of your voice and trains a smooth handoff from falsetto back into chest voice."
   },
   {
     "id": "head-voice-arpeggio",
@@ -1092,7 +1092,7 @@
     ],
     "difficulty": 2,
     "category": "Arpeggios",
-    "goodFor": "Strengthening head voice while maintaining forward resonance. Teaches you to sing high notes that are light but full, not breathy or thin."
+    "goodFor": "A full octave arpeggio (1-3-5-8-5-3-1) sung with a light, heady tone. Unlike the standard arpeggio, the focus here is keeping the sound forward and resonant without adding chest weight as you come back down."
   },
   {
     "id": "ee-head-voice-scale",
@@ -1124,7 +1124,7 @@
     ],
     "difficulty": 2,
     "category": "Scales",
-    "goodFor": "Developing head voice placement with a vowel that naturally encourages it. The narrow Ee guides your voice into the right resonance for your upper range."
+    "goodFor": "A full octave scale on the 'Ee' vowel. The narrow tongue position and small mouth opening of 'Ee' naturally encourage head voice placement \u2014 your voice almost has to go there. Ideal for singers who get stuck in chest."
   },
   {
     "id": "vibrato-pulses",
@@ -1149,7 +1149,7 @@
     ],
     "difficulty": 2,
     "category": "Technique",
-    "goodFor": "Building the muscle memory for natural vibrato through intentional diaphragmatic pulsing. Teaches your body the oscillation pattern that eventually becomes automatic."
+    "goodFor": "Pulsing a held note with deliberate diaphragmatic bounces. You're manually creating the oscillation that vibrato does naturally \u2014 think of it as training wheels for vibrato development."
   },
   {
     "id": "sustained-vibrato",
@@ -1167,7 +1167,7 @@
     ],
     "difficulty": 2,
     "category": "Breath Control",
-    "goodFor": "Developing even, consistent vibrato that adds warmth and beauty to sustained notes. The goal is natural oscillation that emerges from relaxed, supported singing."
+    "goodFor": "Holding a single note and allowing vibrato to emerge on its own. Unlike the pulse exercise, here you're not forcing the oscillation \u2014 you're creating the conditions (relaxed throat, steady air) for it to happen naturally."
   },
   {
     "id": "vibrato-oscillation",
@@ -1195,7 +1195,7 @@
     ],
     "difficulty": 2,
     "category": "Technique",
-    "goodFor": "Training the laryngeal flexibility needed for natural vibrato by slowly mimicking the oscillation. A mechanical approach that builds the physical coordination over time."
+    "goodFor": "Slowly alternating between two notes a semitone apart, mimicking the pitch oscillation of vibrato. By starting slow and gradually speeding up, you teach your larynx the specific motion pattern that produces real vibrato."
   },
   {
     "id": "diaphragm-bounce",
@@ -1218,7 +1218,7 @@
     ],
     "difficulty": 1,
     "category": "Breath Control",
-    "goodFor": "Strengthening the diaphragmatic engagement that underlies vibrato, staccato, and all breath-based vocal techniques. The physical foundation of advanced singing."
+    "goodFor": "Repeated notes with deliberate abdominal pulses ('huh huh huh'). This isolates and strengthens the specific diaphragmatic engagement that powers staccato, vibrato, and dynamic changes in singing."
   },
   {
     "id": "pentatonic-run-fast",
@@ -1246,7 +1246,7 @@
     ],
     "difficulty": 3,
     "category": "Agility",
-    "goodFor": "Building speed on the pentatonic scale \u2014 the foundation of pop, R&B, and gospel riffs. Develops the agility to execute impressive vocal runs."
+    "goodFor": "Speeding through the pentatonic scale (1-2-3-5-6-8 and back). This is the exact pattern behind pop and R&B riffs \u2014 practicing it fast builds the muscle memory so riffs flow automatically when you improvise."
   },
   {
     "id": "three-note-turn",
@@ -1276,7 +1276,7 @@
     ],
     "difficulty": 3,
     "category": "Agility",
-    "goodFor": "Mastering the fundamental ornament that builds into every vocal run and riff. Once you nail this pattern, complex runs become combinations of this basic move."
+    "goodFor": "A weaving three-note ornament pattern (step up, step back, step up). This tiny figure is the fundamental building block of every vocal run \u2014 once it's automatic, longer runs are just chains of this one move."
   },
   {
     "id": "riff-cascade",
@@ -1305,7 +1305,7 @@
     ],
     "difficulty": 4,
     "category": "Agility",
-    "goodFor": "Executing the classic R&B and gospel descending run. Builds the speed and accuracy needed for the kind of vocal decoration heard from the greatest singers."
+    "goodFor": "A descending pattern that groups scale tones in overlapping clusters (8-7-5, 5-4-2, etc.). This is the specific rhythmic shape of classic R&B and gospel runs \u2014 the pattern that makes a run sound like a 'cascade' rather than just a fast scale."
   },
   {
     "id": "gospel-run",
@@ -1335,7 +1335,7 @@
     ],
     "difficulty": 4,
     "category": "Agility",
-    "goodFor": "Performing extended, impressive vocal runs combining scales and leaps. The full gospel and R&B run experience for singers ready to show off their agility."
+    "goodFor": "An extended run combining a scale ascent with a leap to the octave and back down. This is the full-length run pattern used in gospel and R&B \u2014 practicing it as a single phrase builds the stamina for real performance runs."
   },
   {
     "id": "straw-phonation",
@@ -1361,7 +1361,7 @@
     ],
     "difficulty": 1,
     "category": "Technique",
-    "goodFor": "Balancing airflow and vocal fold vibration with the gold standard of semi-occluded vocal tract exercises. Used by professional singers and voice therapists worldwide."
+    "goodFor": "Singing through a straw (or mimicking the resistance) on a 5-note scale. The narrow opening creates precise back-pressure that balances subglottic pressure and cord closure \u2014 used by voice therapists for vocal recovery and by pros for daily maintenance."
   },
   {
     "id": "sustained-vvv",
@@ -1379,7 +1379,7 @@
     ],
     "difficulty": 1,
     "category": "Technique",
-    "goodFor": "Gently massaging the vocal folds through back-pressure created by the voiced fricative. A therapeutic exercise that promotes healthy phonation and reduces strain."
+    "goodFor": "Holding a voiced 'Vvv' on a single pitch. Your upper lip vibrates against your lower teeth, creating a semi-occluded tract. This specific fricative provides gentle, continuous back-pressure \u2014 like a sustained version of straw phonation."
   },
   {
     "id": "sustained-zzz",
@@ -1405,7 +1405,7 @@
     ],
     "difficulty": 1,
     "category": "Technique",
-    "goodFor": "Activating forward resonance and healthy phonation through voiced fricative back-pressure. A versatile SOVT exercise that warms up your voice safely."
+    "goodFor": "Singing 'Zzz' through the 5-note scale. The tongue-to-teeth contact creates forward buzzing that you can literally feel on your lips and teeth \u2014 instant biofeedback for whether your resonance is placed forward or stuck in your throat."
   },
   {
     "id": "ma-me-mi-mo-mu",
@@ -1427,7 +1427,7 @@
     ],
     "difficulty": 2,
     "category": "Technique",
-    "goodFor": "Training smooth transitions between vowel shapes while maintaining forward placement. Builds the consistency needed for clear, connected singing across all vowels."
+    "goodFor": "Each of the five ascending notes gets a different vowel: Ma-Me-Mi-Mo-Mu. Because you change vowel on every single note, you're forced to reshape your mouth quickly while maintaining the same resonance and forward placement."
   },
   {
     "id": "bah-onset",
@@ -1449,7 +1449,7 @@
     ],
     "difficulty": 1,
     "category": "Technique",
-    "goodFor": "Developing clean, healthy vocal onsets without glottal attack. The B consonant builds cord closure naturally, making this one of the most universal onset exercises."
+    "goodFor": "Repeating 'Bah' on five notes at the same pitch. The B consonant brings your lips together, naturally building cord closure before the vowel releases. This trains the clean, balanced onset that avoids both breathiness and hard glottal attacks."
   },
   {
     "id": "vee-resonance",
@@ -1475,7 +1475,7 @@
     ],
     "difficulty": 2,
     "category": "Technique",
-    "goodFor": "Activating forward resonance and mask placement for a brighter, more projected tone. Combines SOVT benefits with resonance training in one exercise."
+    "goodFor": "Singing 'Vee' through the 5-note scale. The V consonant creates a forward buzz at your lip-teeth contact point, then the 'ee' vowel keeps the resonance narrow and high. Dual forward-placement training in one syllable."
   },
   {
     "id": "wah-open-throat",
@@ -1501,7 +1501,7 @@
     ],
     "difficulty": 2,
     "category": "Technique",
-    "goodFor": "Releasing throat tension and encouraging relaxed, open resonance. The W glide naturally opens the throat while the Ah vowel promotes a free, unrestricted sound."
+    "goodFor": "Singing 'Wah' through the 5-note scale. The W starts with rounded lips and a low larynx, then the Ah opens wide \u2014 this specific lip-to-open sequence naturally stretches your throat open without you having to think about it."
   },
   {
     "id": "gentle-descending-hum",
@@ -1523,7 +1523,7 @@
     ],
     "difficulty": 1,
     "category": "Cool-Down",
-    "goodFor": "Winding down your voice gently after practice. The soft descending hum releases remaining tension and brings your vocal folds back to a relaxed state."
+    "goodFor": "A soft hum from the 5th down to the root at low volume. After an intense practice session, this returns your voice to a resting state \u2014 the closed mouth and descending pitch gradually reduce the energy your folds are producing."
   },
   {
     "id": "low-range-sigh",
@@ -1553,7 +1553,7 @@
     ],
     "difficulty": 1,
     "category": "Cool-Down",
-    "goodFor": "Cooling down with a gentle chromatic descent that keeps everything light and tension-free. Specifically designed to release strain after intensive upper-range work."
+    "goodFor": "A gentle chromatic sigh spanning a full octave downward. Unlike the yawn-sigh which focuses on releasing tension, this targets the low range specifically \u2014 keeping those lower notes resonant and supported during cool-down."
   },
   {
     "id": "cool-down-lip-trill",
@@ -1574,7 +1574,7 @@
     ],
     "difficulty": 1,
     "category": "Cool-Down",
-    "goodFor": "Releasing jaw and lip tension after singing. The gentle bubbling motion relaxes the facial muscles while the descending pattern brings your voice to rest."
+    "goodFor": "A descending lip trill from the 5th to the root. Combines the tension-releasing benefits of lip trills with a descending pattern that gradually reduces vocal effort \u2014 bringing your voice to rest without just stopping cold."
   },
   {
     "id": "quiet-sustained-oo",
@@ -1592,7 +1592,7 @@
     ],
     "difficulty": 1,
     "category": "Cool-Down",
-    "goodFor": "The perfect final exercise of any session. Pianissimo singing requires minimal cord contact and gentle airflow, bringing your voice to complete rest."
+    "goodFor": "Holding a very quiet 'Oo' at a comfortable pitch. Pianissimo singing requires the least cord contact and gentlest airflow \u2014 this is the vocal equivalent of stretching after a workout, bringing everything back to baseline."
   },
   {
     "id": "chest-voice-power-scale",
@@ -1618,7 +1618,7 @@
     ],
     "difficulty": 2,
     "category": "Technique",
-    "goodFor": "Building a strong, resonant chest voice foundation. Develops the grounded, powerful lower register that anchors your entire vocal range."
+    "goodFor": "Singing 'Hey' with full chest resonance on the 5-note scale, staying deliberately in your lower register. This builds the foundation of your voice's power \u2014 the rich, grounded sound that everything else sits on top of."
   },
   {
     "id": "hey-call",
@@ -1637,7 +1637,7 @@
     ],
     "difficulty": 2,
     "category": "Technique",
-    "goodFor": "Developing projection, forward placement, and natural chest voice power through speech-like sounds. Builds the confident, carrying tone needed for live performance."
+    "goodFor": "Calling 'Hey!' from root to fifth, like projecting your voice across a room. This speech-like exercise activates your natural projection instincts \u2014 the ones you already use when calling someone \u2014 and applies them to singing."
   },
   {
     "id": "minor-third-jump",
@@ -1658,7 +1658,7 @@
     ],
     "difficulty": 2,
     "category": "Intervals",
-    "goodFor": "Training your ear for one of music's most soulful intervals. Found in blues, R&B, and folk melodies \u2014 essential for emotive, genre-authentic singing."
+    "goodFor": "Bouncing between root and b3 (3 semitones) \u2014 the minor third that opens 'Smoke on the Water' and countless blues licks. This small but distinctive interval defines the minor sound and appears in almost every genre."
   },
   {
     "id": "major-third-jump",
@@ -1679,7 +1679,7 @@
     ],
     "difficulty": 2,
     "category": "Intervals",
-    "goodFor": "Mastering the bright, optimistic interval heard in countless melodies. Builds clean pitch accuracy on this fundamental harmonic building block."
+    "goodFor": "Jumping root to major 3rd (4 semitones) and back \u2014 the bright interval that opens 'Kumbaya' and 'When the Saints Go Marching In.' Slightly wider than the minor third, it requires a precise ear adjustment between the two."
   },
   {
     "id": "minor-seventh-jump",
@@ -1701,7 +1701,7 @@
     ],
     "difficulty": 3,
     "category": "Intervals",
-    "goodFor": "Tackling a wide, dramatic interval that challenges both range and intonation. Builds confidence for the expressive leaps in musical theater and jazz."
+    "goodFor": "Leaping 10 semitones (a minor seventh) \u2014 the dramatic interval that opens 'Somewhere' from West Side Story. This wide jump challenges both your range and your ability to place a distant pitch without scooping up to it."
   },
   {
     "id": "pa-ta-ka",
@@ -1724,7 +1724,7 @@
     ],
     "difficulty": 2,
     "category": "Articulation",
-    "goodFor": "The gold standard diction exercise \u2014 each consonant activates different articulators for complete mouth coordination. Essential for clear lyrics in any genre."
+    "goodFor": "Rapidly alternating Pa-Ta-Ka on repeated notes. P uses your lips, T uses your tongue tip, K uses your tongue back \u2014 each consonant activates a completely different articulator. The fastest way to build mouth coordination for clear lyrics."
   },
   {
     "id": "tongue-twister-scale",
@@ -1749,7 +1749,7 @@
     ],
     "difficulty": 3,
     "category": "Articulation",
-    "goodFor": "Building precise tongue coordination at speed for clear diction while singing. Consonant clusters force your articulators to work independently and accurately."
+    "goodFor": "Singing consonant clusters like 'Bri-Bri-Bri' or 'Dri-Dri-Dri' through the 5-note scale. The double consonants force your tongue to reset quickly between each note \u2014 building the speed needed for crisp diction in fast-moving songs."
   },
   {
     "id": "rapid-consonant-switch",
@@ -1774,7 +1774,7 @@
     ],
     "difficulty": 3,
     "category": "Articulation",
-    "goodFor": "Developing independent control of lips, tongue tip, and tongue back. Builds the articulator separation needed for crisp consonants in fast-moving lyrics."
+    "goodFor": "Alternating 'Bee-Dee-Gee' through the scale, switching between lip (B), tongue-tip (D), and tongue-back (G) consonants on every note. This trains each articulator to fire independently without the others locking up."
   },
   {
     "id": "legato-phrase",
@@ -1804,6 +1804,6 @@
     ],
     "difficulty": 2,
     "category": "Technique",
-    "goodFor": "Mastering smooth, connected singing across a wide range. Teaches you to create one seamless line of sound \u2014 the essence of beautiful vocal phrasing."
+    "goodFor": "Singing 'La' in one long connected phrase over a full octave and back. No breaks, no breaths in the middle \u2014 just one sustained line. This trains the breath management and smooth connection that separates singing from just hitting notes."
   }
 ]

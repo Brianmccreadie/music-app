@@ -199,6 +199,14 @@ function PracticeModeContent() {
                 Exercise Info
               </h3>
               <p className="text-sm text-muted">{currentExercise.description}</p>
+              {currentExercise.goodFor && (
+                <div className="bg-background rounded-lg p-3 mt-4 border border-border">
+                  <div className="text-xs font-semibold text-accent uppercase tracking-wide mb-1">
+                    What It&apos;s Good For
+                  </div>
+                  <p className="text-sm text-foreground/80">{currentExercise.goodFor}</p>
+                </div>
+              )}
             </div>
           )}
         </div>
