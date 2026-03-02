@@ -8,6 +8,7 @@ export interface Exercise {
   tags: string[];
   difficulty: number;
   category: string;
+  goodFor: string;
 }
 
 export const CATEGORIES = [

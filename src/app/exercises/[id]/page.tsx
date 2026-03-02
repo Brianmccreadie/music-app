@@ -199,6 +199,47 @@ function ExerciseDetailContent({ id }: { id: string }) {
           />
         </div>
       </div>
+
+      {/* What it's good for */}
+      {exercise.goodFor && (
+        <div className="mt-6 bg-white rounded-2xl border border-border p-5 shadow-sm">
+          <h3 className="text-sm font-bold text-accent uppercase tracking-wide mb-2">
+            What It&apos;s Good For
+          </h3>
+          <p className="text-sm text-foreground/80 leading-relaxed">
+            {exercise.goodFor}
+          </p>
+        </div>
+      )}
+
+      {/* Found in practice tracks */}
+      {(() => {
+        const containingTracks = TRACKS.filter((t) =>
+          t.exerciseIds.includes(exercise.id)
+        );
+        if (containingTracks.length === 0) return null;
+        return (
+          <div className="mt-6 bg-white rounded-2xl border border-border p-5 shadow-sm">
+            <h3 className="text-sm font-bold text-accent uppercase tracking-wide mb-3">
+              Found in Practice Tracks
+            </h3>
+            <div className="flex flex-wrap gap-2">
+              {containingTracks.map((t) => (
+                <Link
+                  key={t.id}
+                  href={`/exercises?track=${t.id}`}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm bg-background border border-border hover:border-accent/30 hover:bg-accent-light transition-colors text-foreground"
+                >
+                  <span
+                    className={`w-2 h-2 rounded-full bg-gradient-to-r ${t.gradient}`}
+                  />
+                  {t.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }
