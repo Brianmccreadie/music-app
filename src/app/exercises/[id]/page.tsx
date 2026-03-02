@@ -182,6 +182,14 @@ function ExerciseDetailContent({ id }: { id: string }) {
                 Exercise Info
               </h3>
               <p className="text-sm text-muted">{exercise.description}</p>
+              {exercise.goodFor && (
+                <div className="bg-background rounded-lg p-3 mt-4 border border-border">
+                  <div className="text-xs font-semibold text-accent uppercase tracking-wide mb-1">
+                    What It&apos;s Good For
+                  </div>
+                  <p className="text-sm text-foreground/80">{exercise.goodFor}</p>
+                </div>
+              )}
             </div>
           )}
         </div>
@@ -199,18 +207,6 @@ function ExerciseDetailContent({ id }: { id: string }) {
           />
         </div>
       </div>
-
-      {/* What it's good for */}
-      {exercise.goodFor && (
-        <div className="mt-6 bg-white rounded-2xl border border-border p-5 shadow-sm">
-          <h3 className="text-sm font-bold text-accent uppercase tracking-wide mb-2">
-            What It&apos;s Good For
-          </h3>
-          <p className="text-sm text-foreground/80 leading-relaxed">
-            {exercise.goodFor}
-          </p>
-        </div>
-      )}
 
       {/* Found in practice tracks */}
       {(() => {

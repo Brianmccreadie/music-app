@@ -156,6 +156,16 @@ export default function ExerciseDemo({ exercise, demoInfo }: ExerciseDemoProps) 
           )}
         </>
       )}
+
+      {/* What it's good for */}
+      {exercise.goodFor && (
+        <div className="bg-background rounded-lg p-3 mt-4 border border-border">
+          <div className="text-xs font-semibold text-accent uppercase tracking-wide mb-1">
+            What It&apos;s Good For
+          </div>
+          <p className="text-sm text-foreground/80">{exercise.goodFor}</p>
+        </div>
+      )}
     </div>
   );
 }
