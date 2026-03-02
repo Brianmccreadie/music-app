@@ -1,10 +1,12 @@
 "use client";
 
-import { use, useState, useEffect } from "react";
+import { use, useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import exercisesData from "@/data/exercises.json";
 import demoData from "@/data/exercise-demos.json";
 import type { Exercise } from "@/lib/exercises";
+import { TRACKS } from "@/lib/tracks";
 import ExercisePlayer from "@/components/ExercisePlayer";
 import ExerciseDemo from "@/components/ExerciseDemo";
 import { getProfile } from "@/lib/user-profile";
@@ -36,6 +38,18 @@ export default function ExerciseDetailPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = use(params);
+  return (
+    <Suspense>
+      <ExerciseDetailContent id={id} />
+    </Suspense>
+  );
+}
+
+function ExerciseDetailContent({ id }: { id: string }) {
+  const searchParams = useSearchParams();
+  const trackId = searchParams.get("track");
+  const track = trackId ? TRACKS.find((t) => t.id === trackId) : null;
+
   const exercise = exercises.find((ex) => ex.id === id);
 
   const [startNote, setStartNote] = useState("C3");
@@ -66,6 +80,18 @@ export default function ExerciseDetailPage({
     );
   }
 
+  // Track-aware navigation
+  let prevExercise: Exercise | null = null;
+  let nextExercise: Exercise | null = null;
+  if (track) {
+    const trackExercises = track.exerciseIds
+      .map((eid) => exercises.find((ex) => ex.id === eid))
+      .filter(Boolean) as Exercise[];
+    const idx = trackExercises.findIndex((ex) => ex.id === id);
+    if (idx > 0) prevExercise = trackExercises[idx - 1];
+    if (idx < trackExercises.length - 1) nextExercise = trackExercises[idx + 1];
+  }
+
   const demoInfo = demos[exercise.id];
 
   const handleToggleFavorite = () => {
@@ -73,14 +99,17 @@ export default function ExerciseDetailPage({
     setFavorited(nowFavorited);
   };
 
+  const backHref = track ? `/exercises?track=${track.id}` : "/exercises";
+  const backLabel = track ? `${track.name}` : "Library";
+
   return (
     <div className="max-w-lg mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-6">
         <Link
-          href="/exercises"
+          href={backHref}
           className="text-sm text-accent hover:text-accent-hover"
         >
-          &larr; Back to Library
+          &larr; {backLabel}
         </Link>
         <button
           type="button"
@@ -108,6 +137,38 @@ export default function ExerciseDetailPage({
           </span>
         </button>
       </div>
+
+      {/* Track prev/next navigation */}
+      {track && (
+        <div className="flex items-center justify-between mb-6 gap-2">
+          {prevExercise ? (
+            <Link
+              href={`/exercises/${prevExercise.id}?track=${track.id}`}
+              className="flex items-center gap-1 text-sm text-accent hover:text-accent-hover min-w-0"
+            >
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+              <span className="truncate">{prevExercise.name}</span>
+            </Link>
+          ) : (
+            <div />
+          )}
+          {nextExercise ? (
+            <Link
+              href={`/exercises/${nextExercise.id}?track=${track.id}`}
+              className="flex items-center gap-1 text-sm text-accent hover:text-accent-hover min-w-0 text-right"
+            >
+              <span className="truncate">{nextExercise.name}</span>
+              <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          ) : (
+            <div />
+          )}
+        </div>
+      )}
 
       {demoInfo && (
         <div className="mb-6">

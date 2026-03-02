@@ -99,6 +99,15 @@ function ExercisesContent() {
               </Link>
             </div>
             <p className="text-muted">{activeTrack.description}</p>
+            <Link
+              href={`/exercises/practice?track=${activeTrack.id}`}
+              className="inline-flex items-center gap-2 mt-3 px-5 py-2.5 bg-accent hover:bg-accent-hover text-white rounded-full text-sm font-semibold transition-colors"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              Start Practice
+            </Link>
           </div>
         ) : (
           <>
@@ -224,7 +233,11 @@ function ExercisesContent() {
       ) : (
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {filtered.map((ex) => (
-            <ExerciseCard key={ex.id} exercise={ex} />
+            <ExerciseCard
+              key={ex.id}
+              exercise={ex}
+              href={activeTrack ? `/exercises/${ex.id}?track=${activeTrack.id}` : undefined}
+            />
           ))}
         </div>
       )}
