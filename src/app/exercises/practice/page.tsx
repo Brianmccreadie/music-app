@@ -103,65 +103,124 @@ function PracticeModeContent() {
   }
 
   return (
-    <div className="max-w-lg mx-auto px-4 py-6 pb-32">
-      {/* Header */}
-      <div className="flex items-center justify-between mb-4">
-        <Link
-          href={`/exercises?track=${track.id}`}
-          className="text-sm text-accent hover:text-accent-hover"
-        >
-          &larr; {track.name}
-        </Link>
-        <span className="text-xs text-muted">
-          {currentIndex + 1} of {trackExercises.length}
-        </span>
+    <div className="max-w-6xl mx-auto px-4 py-6 pb-32">
+      {/* Back link */}
+      <Link
+        href={`/exercises?track=${track.id}`}
+        className="text-sm text-accent hover:text-accent-hover inline-block mb-4"
+      >
+        &larr; Back to {track.name}
+      </Link>
+
+      {/* Track title & description */}
+      <div className="mb-6">
+        <h1 className="text-2xl font-bold text-foreground">{track.name}</h1>
+        <p className="text-sm text-muted mt-1">{track.subtitle}</p>
+        <p className="text-sm text-muted/70 mt-1">{track.description}</p>
       </div>
 
-      {/* Exercise nav strip */}
-      <div className="mb-6 -mx-4 px-4">
-        <div className="flex gap-1.5 overflow-x-auto pb-2 scrollbar-hide">
-          {trackExercises.map((ex, i) => (
-            <button
-              key={ex.id}
-              type="button"
-              onClick={() => setCurrentIndex(i)}
-              className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs font-medium transition-colors whitespace-nowrap ${
-                i === currentIndex
-                  ? "bg-accent text-white"
-                  : i < currentIndex
-                    ? "bg-accent/10 text-accent border border-accent/20"
-                    : "bg-white border border-border text-muted hover:text-foreground"
-              }`}
-            >
-              {i + 1}. {ex.name.length > 20 ? ex.name.slice(0, 20) + "…" : ex.name}
-            </button>
-          ))}
+      {/* Exercise nav with arrows */}
+      <div className="mb-6">
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={goToPrev}
+            disabled={currentIndex === 0}
+            className={`flex-shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-colors ${
+              currentIndex === 0
+                ? "border-border text-muted/30 cursor-not-allowed"
+                : "border-accent/30 text-accent hover:bg-accent-light"
+            }`}
+            aria-label="Previous exercise"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          <div className="flex-1 bg-white border border-border rounded-xl px-4 py-2.5 min-w-0">
+            <div className="flex items-center justify-between">
+              <div className="min-w-0">
+                <div className="text-xs text-muted">
+                  Exercise {currentIndex + 1} of {trackExercises.length}
+                </div>
+                <div className="text-sm font-semibold text-foreground truncate">
+                  {currentExercise.name}
+                </div>
+              </div>
+              {/* Dot indicators */}
+              <div className="flex gap-1 ml-3 flex-shrink-0">
+                {trackExercises.map((_, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => setCurrentIndex(i)}
+                    className={`w-2 h-2 rounded-full transition-colors ${
+                      i === currentIndex
+                        ? "bg-accent"
+                        : i < currentIndex
+                          ? "bg-accent/30"
+                          : "bg-border"
+                    }`}
+                    aria-label={`Go to exercise ${i + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            onClick={goToNext}
+            disabled={currentIndex === trackExercises.length - 1}
+            className={`flex-shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-colors ${
+              currentIndex === trackExercises.length - 1
+                ? "border-border text-muted/30 cursor-not-allowed"
+                : "border-accent/30 text-accent hover:bg-accent-light"
+            }`}
+            aria-label="Next exercise"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
       </div>
 
-      {/* Current exercise content */}
-      <div key={currentExercise.id}>
-        {demoInfo && (
-          <div className="mb-6">
+      {/* Side-by-side layout: Info + Player */}
+      <div key={currentExercise.id} className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Left: Exercise info (how to do, technique tips, vocal tips) */}
+        <div>
+          {demoInfo ? (
             <ExerciseDemo exercise={currentExercise} demoInfo={demoInfo} />
-          </div>
-        )}
+          ) : (
+            <div className="bg-white rounded-2xl border border-border p-5 shadow-sm">
+              <h3 className="text-sm font-bold text-accent uppercase tracking-wide mb-3">
+                Exercise Info
+              </h3>
+              <p className="text-sm text-muted">{currentExercise.description}</p>
+            </div>
+          )}
+        </div>
 
-        <ExercisePlayer
-          key={currentExercise.id}
-          exercise={currentExercise}
-          startNote={startNote}
-          endNote={endNote}
-          onRangeChange={(low, high) => {
-            setStartNote(low);
-            setEndNote(high);
-          }}
-        />
+        {/* Right: Exercise player */}
+        <div>
+          <ExercisePlayer
+            key={currentExercise.id}
+            exercise={currentExercise}
+            startNote={startNote}
+            endNote={endNote}
+            onRangeChange={(low, high) => {
+              setStartNote(low);
+              setEndNote(high);
+            }}
+          />
+        </div>
       </div>
 
       {/* Fixed bottom navigation */}
       <div className="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-sm border-t border-border px-4 py-3 z-50">
-        <div className="max-w-lg mx-auto flex items-center justify-between gap-3">
+        <div className="max-w-6xl mx-auto flex items-center justify-between gap-3">
           <button
             type="button"
             onClick={goToPrev}
