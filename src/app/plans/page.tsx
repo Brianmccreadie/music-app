@@ -46,7 +46,7 @@ export default function PlansPage() {
             href="/generate"
             className="px-4 py-2 bg-accent text-white rounded-full text-sm font-semibold hover:bg-accent-hover transition-colors"
           >
-            AI Generate
+            Build Plan
           </Link>
         </div>
       </div>
