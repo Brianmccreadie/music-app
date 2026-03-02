@@ -46,6 +46,7 @@ export default function ExercisePlayer({
   const [roots, setRoots] = useState<string[]>([]);
   const [audioLoaded, setAudioLoaded] = useState(false);
   const [showingChord, setShowingChord] = useState(false);
+  const [chordPhase, setChordPhase] = useState<"previous" | "new" | null>(null);
 
   const cancelRef = useRef<(() => void) | null>(null);
   const restTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -87,23 +88,21 @@ export default function ExercisePlayer({
   }, [audioLoaded]);
 
   const playRep = useCallback(
-    (rootNote: string, repIndex: number, onComplete: () => void) => {
+    (rootNote: string, repIndex: number, previousRoot: string | null, onComplete: () => void) => {
       const engine = audioEngineRef.current;
       if (!engine) return;
 
       const notes = patternToNotes(rootNote, exercise.pattern);
       setCurrentRootIndex(repIndex);
 
-      const chordNotes = chordNotesForRoot(rootNote);
-      setShowingChord(true);
-      setCurrentNoteName(rootNote);
-      engine.playChord(chordNotes, "2n", bpmRef.current);
-
+      const chordDuration = "2n";
       const chordDurationMs =
-        engine.durationToSeconds("2n", bpmRef.current) * 1000;
-      chordTimerRef.current = setTimeout(() => {
+        engine.durationToSeconds(chordDuration, bpmRef.current) * 1000;
+
+      const startExercise = () => {
         if (!isPlayingRef.current) return;
         setShowingChord(false);
+        setChordPhase(null);
 
         const cancel = engine.playSequence({
           notes,
@@ -117,7 +116,36 @@ export default function ExercisePlayer({
         });
 
         cancelRef.current = cancel;
-      }, chordDurationMs);
+      };
+
+      if (previousRoot) {
+        // Two-chord transition: previous key chord -> new key chord
+        const prevChordNotes = chordNotesForRoot(previousRoot);
+        setShowingChord(true);
+        setChordPhase("previous");
+        setCurrentNoteName(previousRoot);
+        engine.playChord(prevChordNotes, chordDuration, bpmRef.current);
+
+        chordTimerRef.current = setTimeout(() => {
+          if (!isPlayingRef.current) return;
+          // Now play the new key chord
+          const newChordNotes = chordNotesForRoot(rootNote);
+          setChordPhase("new");
+          setCurrentNoteName(rootNote);
+          engine.playChord(newChordNotes, chordDuration, bpmRef.current);
+
+          chordTimerRef.current = setTimeout(startExercise, chordDurationMs);
+        }, chordDurationMs);
+      } else {
+        // First rep — just play the new key chord
+        const newChordNotes = chordNotesForRoot(rootNote);
+        setShowingChord(true);
+        setChordPhase("new");
+        setCurrentNoteName(rootNote);
+        engine.playChord(newChordNotes, chordDuration, bpmRef.current);
+
+        chordTimerRef.current = setTimeout(startExercise, chordDurationMs);
+      }
     },
     [exercise]
   );
@@ -137,12 +165,17 @@ export default function ExercisePlayer({
           setCurrentRootIndex(-1);
           setCurrentNoteIndex(-1);
           setCurrentNoteName("");
+          setChordPhase(null);
           isPlayingRef.current = false;
           return;
         }
 
         const rootNote = roots[rootIndexRef.current];
-        playRep(rootNote, rootIndexRef.current, () => {
+        const previousRoot =
+          rootIndexRef.current > startFromIndex
+            ? roots[rootIndexRef.current - 1]
+            : null;
+        playRep(rootNote, rootIndexRef.current, previousRoot, () => {
           rootIndexRef.current++;
           restTimerRef.current = setTimeout(
             playNext,
@@ -185,6 +218,7 @@ export default function ExercisePlayer({
     if (engine) engine.stopAll();
     isPlayingRef.current = false;
     setShowingChord(false);
+    setChordPhase(null);
     setPlayerState("paused");
   };
 
@@ -211,6 +245,7 @@ export default function ExercisePlayer({
     if (engine) engine.stopAll();
     isPlayingRef.current = false;
     setShowingChord(false);
+    setChordPhase(null);
     setPlayerState("idle");
     setCurrentRootIndex(-1);
     setCurrentNoteIndex(-1);
@@ -265,13 +300,24 @@ export default function ExercisePlayer({
         <div className="bg-background rounded-xl p-6">
           {currentNoteName ? (
             <>
-              {showingChord && (
+              {showingChord && chordPhase === "previous" && (
                 <div className="text-xs font-semibold text-amber-600 uppercase tracking-wide mb-1">
-                  Chord — Listen
+                  Resolve &mdash; {noteShortName(currentNoteName)} Major
+                </div>
+              )}
+              {showingChord && chordPhase === "new" && (
+                <div className="text-xs font-semibold text-accent uppercase tracking-wide mb-1">
+                  New Key &mdash; Listen
                 </div>
               )}
               <div
-                className={`text-5xl font-bold mb-1 ${showingChord ? "text-amber-600" : "text-accent"}`}
+                className={`text-5xl font-bold mb-1 ${
+                  showingChord && chordPhase === "previous"
+                    ? "text-amber-600"
+                    : showingChord && chordPhase === "new"
+                      ? "text-accent"
+                      : "text-accent"
+                }`}
               >
                 {noteShortName(currentNoteName)}
               </div>
