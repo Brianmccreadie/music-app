@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import exercisesData from "@/data/exercises.json";
 import type { Exercise } from "@/lib/exercises";
-import { CATEGORIES, DIFFICULTY_LABELS, ALL_TAGS } from "@/lib/exercises";
+import { CATEGORIES, DIFFICULTY_LABELS, ALL_TAGS, TAG_LABELS } from "@/lib/exercises";
 import { TRACKS } from "@/lib/tracks";
 import ExerciseCard from "@/components/ExerciseCard";
 
@@ -147,82 +147,97 @@ function ExercisesContent() {
           </div>
 
           {/* Category filters */}
-          <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => setSelectedCategory("All")}
-              className={`px-3 py-1 rounded-full text-sm transition-colors ${
-                selectedCategory === "All"
-                  ? "bg-accent text-white"
-                  : "bg-white border border-border text-muted hover:text-foreground"
-              }`}
-            >
-              All
-            </button>
-            {CATEGORIES.map((cat) => (
+          <div>
+            <div className="text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+              Category
+            </div>
+            <div className="flex flex-wrap gap-2">
               <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
+                onClick={() => setSelectedCategory("All")}
                 className={`px-3 py-1 rounded-full text-sm transition-colors ${
-                  selectedCategory === cat
+                  selectedCategory === "All"
                     ? "bg-accent text-white"
                     : "bg-white border border-border text-muted hover:text-foreground"
                 }`}
               >
-                {cat}
+                All
               </button>
-            ))}
+              {CATEGORIES.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-3 py-1 rounded-full text-sm transition-colors ${
+                    selectedCategory === cat
+                      ? "bg-accent text-white"
+                      : "bg-white border border-border text-muted hover:text-foreground"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Difficulty filters */}
-          <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => setSelectedDifficulty(0)}
-              className={`px-3 py-1 rounded-full text-sm transition-colors ${
-                selectedDifficulty === 0
-                  ? "bg-accent text-white"
-                  : "bg-white border border-border text-muted hover:text-foreground"
-              }`}
-            >
-              Any Difficulty
-            </button>
-            {[1, 2, 3, 4, 5].map((d) => (
+          <div>
+            <div className="text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+              Difficulty
+            </div>
+            <div className="flex flex-wrap gap-2">
               <button
-                key={d}
-                onClick={() => setSelectedDifficulty(d)}
+                onClick={() => setSelectedDifficulty(0)}
                 className={`px-3 py-1 rounded-full text-sm transition-colors ${
-                  selectedDifficulty === d
+                  selectedDifficulty === 0
                     ? "bg-accent text-white"
                     : "bg-white border border-border text-muted hover:text-foreground"
                 }`}
               >
-                {DIFFICULTY_LABELS[d]}
+                Any
               </button>
-            ))}
+              {[1, 2, 3, 4, 5].map((d) => (
+                <button
+                  key={d}
+                  onClick={() => setSelectedDifficulty(d)}
+                  className={`px-3 py-1 rounded-full text-sm transition-colors ${
+                    selectedDifficulty === d
+                      ? "bg-accent text-white"
+                      : "bg-white border border-border text-muted hover:text-foreground"
+                  }`}
+                >
+                  {DIFFICULTY_LABELS[d]}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* Tag filters */}
-          <div className="flex flex-wrap gap-2">
-            {ALL_TAGS.filter((tag) => !["beginner", "intermediate", "advanced"].includes(tag)).map((tag) => (
-              <button
-                key={tag}
-                onClick={() => toggleTag(tag)}
-                className={`px-2.5 py-1 rounded-full text-xs transition-colors ${
-                  selectedTags.includes(tag)
-                    ? "bg-accent-light text-accent border border-accent/30"
-                    : "bg-white border border-border text-muted hover:text-foreground"
-                }`}
-              >
-                {tag}
-              </button>
-            ))}
-            {selectedTags.length > 0 && (
-              <button
-                onClick={() => setSelectedTags([])}
-                className="px-2.5 py-1 rounded-full text-xs text-red-500 hover:text-red-600"
-              >
-                Clear tags
-              </button>
-            )}
+          <div>
+            <div className="text-xs font-semibold text-muted uppercase tracking-wide mb-1.5">
+              Tags
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {ALL_TAGS.map((tag) => (
+                <button
+                  key={tag}
+                  onClick={() => toggleTag(tag)}
+                  className={`px-2.5 py-1 rounded-full text-xs transition-colors ${
+                    selectedTags.includes(tag)
+                      ? "bg-accent-light text-accent border border-accent/30"
+                      : "bg-white border border-border text-muted hover:text-foreground"
+                  }`}
+                >
+                  {TAG_LABELS[tag] || tag}
+                </button>
+              ))}
+              {selectedTags.length > 0 && (
+                <button
+                  onClick={() => setSelectedTags([])}
+                  className="px-2.5 py-1 rounded-full text-xs text-red-500 hover:text-red-600"
+                >
+                  Clear tags
+                </button>
+              )}
+            </div>
           </div>
         </div>
       )}

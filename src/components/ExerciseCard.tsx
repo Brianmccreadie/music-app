@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Exercise } from "@/lib/exercises";
-import { DIFFICULTY_LABELS } from "@/lib/exercises";
+import { DIFFICULTY_LABELS, TAG_LABELS } from "@/lib/exercises";
 import ExercisePreviewButton from "./ExercisePreviewButton";
 
 interface ExerciseCardProps {
@@ -52,7 +52,7 @@ export default function ExerciseCard({
               key={tag}
               className="text-[10px] px-1.5 py-0.5 rounded bg-accent/10 text-accent"
             >
-              {tag}
+              {TAG_LABELS[tag] || tag}
             </span>
           ))}
         </div>
