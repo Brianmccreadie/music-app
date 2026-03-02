@@ -122,108 +122,110 @@ function ExercisesContent() {
         )}
       </div>
 
-      {/* Filters */}
-      <div className="mb-6 space-y-3">
-        <div className="flex gap-3">
-          <input
-            type="text"
-            placeholder="Search exercises..."
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            className="flex-1 px-4 py-2.5 bg-white border border-border rounded-full text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
-          />
-          <select
-            value={sortBy}
-            onChange={(e) =>
-              setSortBy(e.target.value as "default" | "difficulty" | "name")
-            }
-            className="px-3 py-2.5 bg-white border border-border rounded-full text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent"
-          >
-            <option value="default">Default order</option>
-            <option value="difficulty">By difficulty</option>
-            <option value="name">By name</option>
-          </select>
-        </div>
+      {/* Filters — only show when browsing the full library */}
+      {!activeTrack && (
+        <div className="mb-6 space-y-3">
+          <div className="flex gap-3">
+            <input
+              type="text"
+              placeholder="Search exercises..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="flex-1 px-4 py-2.5 bg-white border border-border rounded-full text-foreground placeholder:text-muted focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+            />
+            <select
+              value={sortBy}
+              onChange={(e) =>
+                setSortBy(e.target.value as "default" | "difficulty" | "name")
+              }
+              className="px-3 py-2.5 bg-white border border-border rounded-full text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-accent"
+            >
+              <option value="default">Default order</option>
+              <option value="difficulty">By difficulty</option>
+              <option value="name">By name</option>
+            </select>
+          </div>
 
-        {/* Category filters */}
-        <div className="flex flex-wrap gap-2">
-          <button
-            onClick={() => setSelectedCategory("All")}
-            className={`px-3 py-1 rounded-full text-sm transition-colors ${
-              selectedCategory === "All"
-                ? "bg-accent text-white"
-                : "bg-white border border-border text-muted hover:text-foreground"
-            }`}
-          >
-            All
-          </button>
-          {CATEGORIES.map((cat) => (
+          {/* Category filters */}
+          <div className="flex flex-wrap gap-2">
             <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
+              onClick={() => setSelectedCategory("All")}
               className={`px-3 py-1 rounded-full text-sm transition-colors ${
-                selectedCategory === cat
+                selectedCategory === "All"
                   ? "bg-accent text-white"
                   : "bg-white border border-border text-muted hover:text-foreground"
               }`}
             >
-              {cat}
+              All
             </button>
-          ))}
-        </div>
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-3 py-1 rounded-full text-sm transition-colors ${
+                  selectedCategory === cat
+                    ? "bg-accent text-white"
+                    : "bg-white border border-border text-muted hover:text-foreground"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
 
-        {/* Difficulty filters */}
-        <div className="flex flex-wrap gap-2">
-          <button
-            onClick={() => setSelectedDifficulty(0)}
-            className={`px-3 py-1 rounded-full text-sm transition-colors ${
-              selectedDifficulty === 0
-                ? "bg-accent text-white"
-                : "bg-white border border-border text-muted hover:text-foreground"
-            }`}
-          >
-            Any Difficulty
-          </button>
-          {[1, 2, 3, 4, 5].map((d) => (
+          {/* Difficulty filters */}
+          <div className="flex flex-wrap gap-2">
             <button
-              key={d}
-              onClick={() => setSelectedDifficulty(d)}
+              onClick={() => setSelectedDifficulty(0)}
               className={`px-3 py-1 rounded-full text-sm transition-colors ${
-                selectedDifficulty === d
+                selectedDifficulty === 0
                   ? "bg-accent text-white"
                   : "bg-white border border-border text-muted hover:text-foreground"
               }`}
             >
-              {DIFFICULTY_LABELS[d]}
+              Any Difficulty
             </button>
-          ))}
-        </div>
+            {[1, 2, 3, 4, 5].map((d) => (
+              <button
+                key={d}
+                onClick={() => setSelectedDifficulty(d)}
+                className={`px-3 py-1 rounded-full text-sm transition-colors ${
+                  selectedDifficulty === d
+                    ? "bg-accent text-white"
+                    : "bg-white border border-border text-muted hover:text-foreground"
+                }`}
+              >
+                {DIFFICULTY_LABELS[d]}
+              </button>
+            ))}
+          </div>
 
-        {/* Tag filters */}
-        <div className="flex flex-wrap gap-2">
-          {ALL_TAGS.filter((tag) => !["beginner", "intermediate", "advanced"].includes(tag)).map((tag) => (
-            <button
-              key={tag}
-              onClick={() => toggleTag(tag)}
-              className={`px-2.5 py-1 rounded-full text-xs transition-colors ${
-                selectedTags.includes(tag)
-                  ? "bg-accent-light text-accent border border-accent/30"
-                  : "bg-white border border-border text-muted hover:text-foreground"
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
-          {selectedTags.length > 0 && (
-            <button
-              onClick={() => setSelectedTags([])}
-              className="px-2.5 py-1 rounded-full text-xs text-red-500 hover:text-red-600"
-            >
-              Clear tags
-            </button>
-          )}
+          {/* Tag filters */}
+          <div className="flex flex-wrap gap-2">
+            {ALL_TAGS.filter((tag) => !["beginner", "intermediate", "advanced"].includes(tag)).map((tag) => (
+              <button
+                key={tag}
+                onClick={() => toggleTag(tag)}
+                className={`px-2.5 py-1 rounded-full text-xs transition-colors ${
+                  selectedTags.includes(tag)
+                    ? "bg-accent-light text-accent border border-accent/30"
+                    : "bg-white border border-border text-muted hover:text-foreground"
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
+            {selectedTags.length > 0 && (
+              <button
+                onClick={() => setSelectedTags([])}
+                className="px-2.5 py-1 rounded-full text-xs text-red-500 hover:text-red-600"
+              >
+                Clear tags
+              </button>
+            )}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Results */}
       {filtered.length === 0 ? (
