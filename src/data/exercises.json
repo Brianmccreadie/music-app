@@ -2,793 +2,1808 @@
   {
     "id": "five-note-scale",
     "name": "5-Note Scale (1-2-3-4-5-4-3-2-1)",
-    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "The classic warm-up. Sing up 5 notes of the major scale and back down. Focus on even tone and smooth transitions between notes.",
-    "tags": ["warm-up", "beginner", "intonation"],
+    "tags": [
+      "warm-up",
+      "beginner",
+      "intonation"
+    ],
     "difficulty": 1,
-    "category": "Warm-Ups"
+    "category": "Warm-Ups",
+    "goodFor": "Building even tone across your range and warming up your voice for any practice session. A go-to daily exercise for singers at every level."
   },
   {
     "id": "major-triad",
     "name": "Major Triad (1-3-5-3-1)",
-    "pattern": [0, 4, 7, 4, 0],
+    "pattern": [
+      0,
+      4,
+      7,
+      4,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Sing each note of the major triad ascending and descending. Focus on clean pitch and even tone across the intervals.",
-    "tags": ["warm-up", "intonation", "beginner"],
+    "tags": [
+      "warm-up",
+      "intonation",
+      "beginner"
+    ],
     "difficulty": 1,
-    "category": "Arpeggios"
+    "category": "Arpeggios",
+    "goodFor": "Training your ear to lock into chord tones and developing clean intonation across wider intervals. Strengthens your harmonic foundation."
   },
   {
     "id": "octave-arpeggio",
     "name": "Octave Arpeggio (1-3-5-8-5-3-1)",
-    "pattern": [0, 4, 7, 12, 7, 4, 0],
+    "pattern": [
+      0,
+      4,
+      7,
+      12,
+      7,
+      4,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Full octave arpeggio. Great for building range and bridging registers. Keep your support steady through the top note.",
-    "tags": ["range", "intermediate", "intonation"],
+    "tags": [
+      "range",
+      "intermediate",
+      "intonation"
+    ],
     "difficulty": 2,
-    "category": "Arpeggios"
+    "category": "Arpeggios",
+    "goodFor": "Bridging between chest and head voice while building range. Teaches you to maintain support through wide intervals and register transitions."
   },
   {
     "id": "chromatic-five",
     "name": "Chromatic Scale (5 Half Steps)",
-    "pattern": [0, 1, 2, 3, 4, 5, 4, 3, 2, 1, 0],
+    "pattern": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      4,
+      3,
+      2,
+      1,
+      0
+    ],
     "noteDuration": "8n",
     "restBetweenReps": 1.2,
     "description": "Chromatic half-step exercise. Excellent for pitch accuracy and ear training. Keep each note clean and distinct.",
-    "tags": ["technique", "intonation", "intermediate"],
+    "tags": [
+      "technique",
+      "intonation",
+      "intermediate"
+    ],
     "difficulty": 2,
-    "category": "Scales"
+    "category": "Scales",
+    "goodFor": "Sharpening pitch accuracy and ear training. The half-step movement demands precision and builds the muscle memory for hitting notes dead-center."
   },
   {
     "id": "fifth-jump",
     "name": "Fifth Interval Jump (1-5-1-5-1)",
-    "pattern": [0, 7, 0, 7, 0],
+    "pattern": [
+      0,
+      7,
+      0,
+      7,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Practice jumping a perfect fifth. Focus on nailing the interval without scooping. Builds interval recognition.",
-    "tags": ["intonation", "beginner"],
+    "tags": [
+      "intonation",
+      "beginner"
+    ],
     "difficulty": 2,
-    "category": "Intervals"
+    "category": "Intervals",
+    "goodFor": "Developing interval recognition and clean pitch on one of the most common jumps in music. Builds confidence for melodic leaps in songs."
   },
   {
     "id": "major-scale-full",
     "name": "Major Scale (Full Octave)",
-    "pattern": [0, 2, 4, 5, 7, 9, 11, 12, 11, 9, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      11,
+      12,
+      11,
+      9,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Full major scale up and down one octave. The foundation of Western music. Focus on even spacing and consistent tone.",
-    "tags": ["technique", "intermediate", "intonation"],
+    "tags": [
+      "technique",
+      "intermediate",
+      "intonation"
+    ],
     "difficulty": 2,
-    "category": "Scales"
+    "category": "Scales",
+    "goodFor": "Establishing solid intonation across a full octave and developing even tone throughout your range. The backbone of all Western vocal music."
   },
   {
     "id": "minor-triad",
     "name": "Minor Triad (1-b3-5-b3-1)",
-    "pattern": [0, 3, 7, 3, 0],
+    "pattern": [
+      0,
+      3,
+      7,
+      3,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Minor triad arpeggio. Practice the darker tonality with clean pitch. Notice the difference from the major triad.",
-    "tags": ["warm-up", "intonation", "beginner"],
+    "tags": [
+      "warm-up",
+      "intonation",
+      "beginner"
+    ],
     "difficulty": 1,
-    "category": "Arpeggios"
+    "category": "Arpeggios",
+    "goodFor": "Training your ear for minor tonality and building comfort with darker harmonic colors. Essential for emotive singing in ballads and contemporary styles."
   },
   {
     "id": "dominant-seventh",
     "name": "Dominant 7th Arpeggio (1-3-5-b7-5-3-1)",
-    "pattern": [0, 4, 7, 10, 7, 4, 0],
+    "pattern": [
+      0,
+      4,
+      7,
+      10,
+      7,
+      4,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Dominant seventh chord arpeggio. Adds the flat-7th for a bluesy, jazzy quality. Great for genre versatility.",
-    "tags": ["intermediate", "intonation", "technique"],
+    "tags": [
+      "intermediate",
+      "intonation",
+      "technique"
+    ],
     "difficulty": 3,
-    "category": "Arpeggios"
+    "category": "Arpeggios",
+    "goodFor": "Expanding your harmonic vocabulary and developing comfort with jazz and blues intervals. Adds genre versatility to your singing."
   },
   {
     "id": "staccato-repeated",
     "name": "Staccato Repeated Note",
-    "pattern": [0, 0, 0, 0, 0],
+    "pattern": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
     "noteDuration": "8n",
     "restBetweenReps": 1.2,
     "description": "Repeat the same note with short, bouncy staccato. Builds diaphragm control and clean onset. Think 'ha ha ha ha ha'.",
-    "tags": ["technique", "staccato", "breath", "beginner"],
+    "tags": [
+      "technique",
+      "staccato",
+      "breath",
+      "beginner"
+    ],
     "difficulty": 1,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Building diaphragm control, clean vocal onsets, and breath support. The short, bouncy attacks train the core muscles of singing."
   },
   {
     "id": "sustained-tone",
     "name": "Sustained Single Tone",
-    "pattern": [0],
+    "pattern": [
+      0
+    ],
     "noteDuration": "1n",
     "restBetweenReps": 2,
     "description": "Hold a single note as long and steady as possible. Focus on consistent airflow, no wobble. Build your breath support foundation.",
-    "tags": ["breath", "beginner", "legato"],
+    "tags": [
+      "breath",
+      "beginner",
+      "legato"
+    ],
     "difficulty": 1,
-    "category": "Breath Control"
+    "category": "Breath Control",
+    "goodFor": "Developing breath control, steady airflow, and consistent tone. The simplest yet most revealing exercise \u2014 exposes any weakness in your support."
   },
   {
     "id": "thirds-pattern",
     "name": "Ascending Thirds",
-    "pattern": [0, 4, 2, 5, 4, 7, 4, 5, 2, 4, 0],
+    "pattern": [
+      0,
+      4,
+      2,
+      5,
+      4,
+      7,
+      4,
+      5,
+      2,
+      4,
+      0
+    ],
     "noteDuration": "8n",
     "restBetweenReps": 1.2,
     "description": "Weaving thirds pattern. Builds agility and interval awareness. Keep it smooth and connected.",
-    "tags": ["agility", "intermediate", "technique"],
+    "tags": [
+      "agility",
+      "intermediate",
+      "technique"
+    ],
     "difficulty": 3,
-    "category": "Agility"
+    "category": "Agility",
+    "goodFor": "Building vocal agility and interval awareness with weaving patterns. Prepares you for the kind of melodic movement found in real songs."
   },
   {
     "id": "octave-jump",
     "name": "Octave Jump (1-8-1)",
-    "pattern": [0, 12, 0],
+    "pattern": [
+      0,
+      12,
+      0
+    ],
     "noteDuration": "2n",
     "restBetweenReps": 1.2,
     "description": "Jump a full octave and back. The ultimate interval challenge. Keep both notes in tune without scooping.",
-    "tags": ["range", "intermediate", "intonation"],
+    "tags": [
+      "range",
+      "intermediate",
+      "intonation"
+    ],
     "difficulty": 3,
-    "category": "Intervals"
+    "category": "Intervals",
+    "goodFor": "Mastering the widest common interval and building confidence across your full range. Teaches clean pitch without scooping on dramatic leaps."
   },
   {
     "id": "descending-five-note",
     "name": "Descending 5-Note Scale",
-    "pattern": [7, 5, 4, 2, 0],
+    "pattern": [
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Start from the 5th and descend. Great for practicing head-to-chest transitions. Keep the tone consistent as you come down.",
-    "tags": ["warm-up", "beginner", "technique", "phrasing"],
+    "tags": [
+      "warm-up",
+      "beginner",
+      "technique",
+      "phrasing"
+    ],
     "difficulty": 1,
-    "category": "Warm-Ups"
+    "category": "Warm-Ups",
+    "goodFor": "Practicing smooth head-to-chest voice transitions and training a consistent descending tone. Great for singers who tend to lose support on the way down."
   },
   {
     "id": "lip-trill-scale",
     "name": "Lip Trill / Bubble Scale",
-    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Do this exercise on a lip trill (bubble lips). Relaxes tension, warms up the voice gently. Perfect first exercise of any session.",
-    "tags": ["warm-up", "beginner", "breath", "sovt"],
+    "tags": [
+      "warm-up",
+      "beginner",
+      "breath",
+      "sovt"
+    ],
     "difficulty": 1,
-    "category": "Warm-Ups"
+    "category": "Warm-Ups",
+    "goodFor": "Releasing jaw and lip tension while gently warming up your voice. The back-pressure from the bubbling balances airflow and cord closure naturally."
   },
   {
     "id": "pentatonic-scale",
     "name": "Pentatonic Scale",
-    "pattern": [0, 2, 4, 7, 9, 7, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      7,
+      9,
+      7,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "The 5-note pentatonic scale used in pop, R&B, and rock. No awkward half steps. Great for riff building.",
-    "tags": ["technique", "intermediate", "agility"],
+    "tags": [
+      "technique",
+      "intermediate",
+      "agility"
+    ],
     "difficulty": 2,
-    "category": "Scales"
+    "category": "Scales",
+    "goodFor": "Building familiarity with the five-note scale used in pop, R&B, rock, and country. The foundation for learning riffs and improvisation."
   },
   {
     "id": "minor-scale-full",
     "name": "Natural Minor Scale (Full Octave)",
-    "pattern": [0, 2, 3, 5, 7, 8, 10, 12, 10, 8, 7, 5, 3, 2, 0],
+    "pattern": [
+      0,
+      2,
+      3,
+      5,
+      7,
+      8,
+      10,
+      12,
+      10,
+      8,
+      7,
+      5,
+      3,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Full natural minor scale. Practice the darker, more emotional tonality. Essential for classical and contemporary styles.",
-    "tags": ["technique", "intermediate", "intonation"],
+    "tags": [
+      "technique",
+      "intermediate",
+      "intonation"
+    ],
     "difficulty": 2,
-    "category": "Scales"
+    "category": "Scales",
+    "goodFor": "Developing comfort with minor tonality across a full octave. Essential for classical repertoire, emotional ballads, and contemporary styles."
   },
   {
     "id": "messa-di-voce",
     "name": "Messa di Voce (Swell)",
-    "pattern": [0],
+    "pattern": [
+      0
+    ],
     "noteDuration": "1n",
     "restBetweenReps": 2.5,
     "description": "Hold a single note. Start quiet, crescendo to full volume, then diminuendo back to quiet. The ultimate dynamic control exercise.",
-    "tags": ["breath", "advanced", "technique", "legato"],
+    "tags": [
+      "breath",
+      "advanced",
+      "technique",
+      "legato"
+    ],
     "difficulty": 3,
-    "category": "Breath Control"
+    "category": "Breath Control",
+    "goodFor": "Mastering dynamic control \u2014 the ability to go from quiet to loud and back on a single note. One of the most important skills for expressive singing."
   },
   {
     "id": "rapid-five-note",
     "name": "Rapid 5-Note Scale",
-    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "8n",
     "restBetweenReps": 1.2,
     "description": "The classic 5-note scale at double speed. Builds vocal agility and coordination. Don't sacrifice pitch for speed.",
-    "tags": ["agility", "intermediate", "technique"],
+    "tags": [
+      "agility",
+      "intermediate",
+      "technique"
+    ],
     "difficulty": 3,
-    "category": "Agility"
+    "category": "Agility",
+    "goodFor": "Building vocal speed and coordination without sacrificing pitch accuracy. Develops the agility needed for fast passages in songs."
   },
   {
     "id": "sirens",
     "name": "Siren Slide (1 to 8)",
-    "pattern": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "pattern": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
     "noteDuration": "16n",
     "restBetweenReps": 2,
     "description": "Glide smoothly from root to octave like a siren. Focus on seamless register transitions. Don't break the sound.",
-    "tags": ["warm-up", "range", "beginner"],
+    "tags": [
+      "warm-up",
+      "range",
+      "beginner"
+    ],
     "difficulty": 2,
-    "category": "Range Extension"
+    "category": "Range Extension",
+    "goodFor": "Smoothing out register transitions and exploring your full range. The continuous glide helps you find and eliminate breaks between chest and head voice."
   },
   {
     "id": "fourth-jump",
     "name": "Fourth Interval Jump (1-4-1-4-1)",
-    "pattern": [0, 5, 0, 5, 0],
+    "pattern": [
+      0,
+      5,
+      0,
+      5,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Practice the perfect fourth interval. A natural-sounding jump found everywhere in music. Keep both notes centered.",
-    "tags": ["intonation", "beginner"],
+    "tags": [
+      "intonation",
+      "beginner"
+    ],
     "difficulty": 2,
-    "category": "Intervals"
+    "category": "Intervals",
+    "goodFor": "Training one of music's most natural-sounding intervals. Builds interval recognition and clean pitch on a jump found constantly in melodies."
   },
   {
     "id": "two-octave-arpeggio",
     "name": "Two-Octave Arpeggio",
-    "pattern": [0, 4, 7, 12, 16, 19, 24, 19, 16, 12, 7, 4, 0],
+    "pattern": [
+      0,
+      4,
+      7,
+      12,
+      16,
+      19,
+      24,
+      19,
+      16,
+      12,
+      7,
+      4,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 2,
     "description": "Extended two-octave arpeggio for advanced range work. Challenges your full register from chest through head voice.",
-    "tags": ["range", "advanced", "technique"],
+    "tags": [
+      "range",
+      "advanced",
+      "technique"
+    ],
     "difficulty": 4,
-    "category": "Range Extension"
+    "category": "Range Extension",
+    "goodFor": "Challenging your full vocal range from low chest through high head voice. An advanced exercise for singers ready to push their limits safely."
   },
   {
     "id": "diminished-seventh",
     "name": "Diminished 7th Arpeggio",
-    "pattern": [0, 3, 6, 9, 6, 3, 0],
+    "pattern": [
+      0,
+      3,
+      6,
+      9,
+      6,
+      3,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Each interval is a minor third. The symmetrical pattern trains your ear for unusual intervals common in classical and jazz.",
-    "tags": ["technique", "advanced", "intonation"],
+    "tags": [
+      "technique",
+      "advanced",
+      "intonation"
+    ],
     "difficulty": 4,
-    "category": "Arpeggios"
+    "category": "Arpeggios",
+    "goodFor": "Training your ear for symmetrical, unusual intervals common in classical and jazz. Builds pitch accuracy on intervals that don't fall naturally."
   },
   {
     "id": "tongue-trill-scale",
     "name": "Tongue Trill Scale",
-    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Rolled R (tongue trill) through the 5-note scale. An alternative to lip trills that works the same relaxation benefits with different coordination.",
-    "tags": ["warm-up", "beginner", "technique", "sovt"],
+    "tags": [
+      "warm-up",
+      "beginner",
+      "technique",
+      "sovt"
+    ],
     "difficulty": 1,
-    "category": "Warm-Ups"
+    "category": "Warm-Ups",
+    "goodFor": "Warming up with gentle tongue engagement and releasing tension. An alternative to lip trills that adds coordination training for the tongue."
   },
   {
     "id": "humming",
     "name": "Humming Scale",
-    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Hum with closed lips through the 5-note scale. Feel the vibrations in your face (mask resonance). The gentlest possible warm-up.",
-    "tags": ["warm-up", "beginner", "technique", "sovt"],
+    "tags": [
+      "warm-up",
+      "beginner",
+      "technique",
+      "sovt"
+    ],
     "difficulty": 1,
-    "category": "Warm-Ups"
+    "category": "Warm-Ups",
+    "goodFor": "The gentlest possible warm-up \u2014 building mask resonance, forward placement, and awareness of facial vibrations without any strain on your voice."
   },
   {
     "id": "nay-twang",
     "name": "Nay Twang Exercise",
-    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Sing 'Nay' with an exaggerated twang. Builds forward placement and bright resonance. Essential for contemporary singing and belt technique.",
-    "tags": ["technique", "intermediate", "chest voice", "mix voice"],
+    "tags": [
+      "technique",
+      "intermediate",
+      "chest voice",
+      "mix voice"
+    ],
     "difficulty": 2,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Developing forward placement, bright resonance, and the twang quality essential for belting. A cornerstone exercise for pop, musical theater, and country singers."
   },
   {
     "id": "vocal-fry-onset",
     "name": "Vocal Fry to Chest Voice",
-    "pattern": [0, 0, 0],
+    "pattern": [
+      0,
+      0,
+      0
+    ],
     "noteDuration": "2n",
     "restBetweenReps": 2,
     "description": "Start in vocal fry, then gradually add air to transition into full chest voice. Builds cord closure and clean onset.",
-    "tags": ["technique", "intermediate", "chest voice", "onset"],
+    "tags": [
+      "technique",
+      "intermediate",
+      "chest voice",
+      "onset"
+    ],
     "difficulty": 2,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Building clean cord closure and learning to start notes without a breathy or glottal attack. Trains the foundation of healthy vocal onset."
   },
   {
     "id": "yawn-sigh",
     "name": "Yawn-Sigh",
-    "pattern": [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0],
+    "pattern": [
+      12,
+      11,
+      10,
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1,
+      0
+    ],
     "noteDuration": "16n",
     "restBetweenReps": 2,
     "description": "Start high and sigh downward through your full range. Releases tension and helps find relaxed head voice. Think of a lazy yawn.",
-    "tags": ["warm-up", "beginner", "range", "head voice"],
+    "tags": [
+      "warm-up",
+      "beginner",
+      "range",
+      "head voice"
+    ],
     "difficulty": 1,
-    "category": "Warm-Ups"
+    "category": "Warm-Ups",
+    "goodFor": "Releasing tension in the throat and jaw while finding relaxed head voice. A natural, feel-good exercise that resets your voice when it's tired or tight."
   },
   {
     "id": "staccato-five-descending",
     "name": "Descending Staccato 5-Note",
-    "pattern": [7, 5, 4, 2, 0],
+    "pattern": [
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "8n",
     "restBetweenReps": 1.2,
     "description": "Staccato bouncing from the 5th descending. Builds agility and diaphragmatic engagement with descending patterns.",
-    "tags": ["agility", "intermediate", "staccato"],
+    "tags": [
+      "agility",
+      "intermediate",
+      "staccato"
+    ],
     "difficulty": 2,
-    "category": "Agility"
+    "category": "Agility",
+    "goodFor": "Developing agility and diaphragmatic engagement on descending patterns. Builds the control needed for quick, accurate downward runs."
   },
   {
     "id": "wide-arpeggio",
     "name": "Wide Arpeggio (1-5-8-5-1)",
-    "pattern": [0, 7, 12, 7, 0],
+    "pattern": [
+      0,
+      7,
+      12,
+      7,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Skips the third and jumps straight to the fifth and octave. Challenging intervals that build range and intonation simultaneously.",
-    "tags": ["range", "intermediate", "intonation"],
+    "tags": [
+      "range",
+      "intermediate",
+      "intonation"
+    ],
     "difficulty": 3,
-    "category": "Arpeggios"
+    "category": "Arpeggios",
+    "goodFor": "Building range and intonation simultaneously with challenging interval skips. Teaches you to stay supported through wide melodic leaps."
   },
   {
     "id": "semitone-trill",
     "name": "Semitone Trill",
-    "pattern": [0, 1, 0, 1, 0, 1, 0, 1, 0],
+    "pattern": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
     "noteDuration": "16n",
     "restBetweenReps": 1.2,
     "description": "Rapidly alternate between two adjacent notes. Builds laryngeal flexibility and vocal agility. Start slow and increase speed.",
-    "tags": ["agility", "advanced", "technique"],
+    "tags": [
+      "agility",
+      "advanced",
+      "technique"
+    ],
     "difficulty": 4,
-    "category": "Agility"
+    "category": "Agility",
+    "goodFor": "Developing laryngeal flexibility and speed for ornaments, trills, and fast passages. An advanced agility builder that unlocks vocal decoration."
   },
   {
     "id": "blues-scale",
     "name": "Blues Scale",
-    "pattern": [0, 3, 5, 6, 7, 10, 12, 10, 7, 6, 5, 3, 0],
+    "pattern": [
+      0,
+      3,
+      5,
+      6,
+      7,
+      10,
+      12,
+      10,
+      7,
+      6,
+      5,
+      3,
+      0
+    ],
     "noteDuration": "8n",
     "restBetweenReps": 1.2,
     "description": "The classic blues scale with the blue note (b5). Essential for gospel, R&B, blues, and rock. Feel the soul in those chromatic passing tones.",
-    "tags": ["technique", "intermediate", "agility"],
+    "tags": [
+      "technique",
+      "intermediate",
+      "agility"
+    ],
     "difficulty": 3,
-    "category": "Scales"
+    "category": "Scales",
+    "goodFor": "Adding soul and style to your singing with the classic blues sound. Essential for gospel, R&B, blues, and rock improvisation and riffing."
   },
   {
     "id": "major-sixth-jump",
     "name": "Major 6th Interval Jump",
-    "pattern": [0, 9, 0, 9, 0],
+    "pattern": [
+      0,
+      9,
+      0,
+      9,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
-    "description": "Jump a major sixth — the opening interval of 'My Bonnie Lies Over the Ocean.' A wide, beautiful interval that challenges intonation.",
-    "tags": ["intonation", "intermediate", "range"],
+    "description": "Jump a major sixth \u2014 the opening interval of 'My Bonnie Lies Over the Ocean.' A wide, beautiful interval that challenges intonation.",
+    "tags": [
+      "intonation",
+      "intermediate",
+      "range"
+    ],
     "difficulty": 3,
-    "category": "Intervals"
+    "category": "Intervals",
+    "goodFor": "Mastering a wide, expressive interval that challenges your intonation. Builds confidence for the dramatic leaps found in Broadway and classical repertoire."
   },
   {
     "id": "nine-note-run",
     "name": "9-Note Rapid Run",
-    "pattern": [0, 2, 4, 5, 7, 9, 11, 12, 14, 12, 11, 9, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      11,
+      12,
+      14,
+      12,
+      11,
+      9,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "16n",
     "restBetweenReps": 2,
     "description": "A blazing fast run through 9 notes and beyond. The ultimate agility test. Speed comes from relaxation, not force.",
-    "tags": ["agility", "advanced", "technique"],
+    "tags": [
+      "agility",
+      "advanced",
+      "technique"
+    ],
     "difficulty": 5,
-    "category": "Agility"
+    "category": "Agility",
+    "goodFor": "The ultimate agility test \u2014 building speed, accuracy, and relaxation through extended fast passages. For singers ready to execute impressive vocal runs."
   },
   {
     "id": "vowel-modification",
     "name": "Vowel Modification (Ah-Eh-Ee-Oh-Oo)",
-    "pattern": [0, 0, 0, 0, 0],
+    "pattern": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
     "noteDuration": "2n",
     "restBetweenReps": 2,
     "description": "Hold a single pitch while cycling through all five Italian vowels. Trains vowel purity and consistent resonance across different mouth shapes.",
-    "tags": ["technique", "intermediate", "legato", "phrasing"],
+    "tags": [
+      "technique",
+      "intermediate",
+      "legato",
+      "phrasing"
+    ],
     "difficulty": 2,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Training pure vowel shapes and consistent resonance. Essential for singing clearly in any language and maintaining tone quality across different vowel sounds."
   },
   {
     "id": "sob-exercise",
     "name": "Sob / Cry Exercise",
-    "pattern": [7, 5, 4, 2, 0],
+    "pattern": [
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Sing with a gentle 'crying' quality. This tilts the larynx forward, thins the vocal folds, and helps access head voice with emotion.",
-    "tags": ["technique", "intermediate", "head voice", "mix voice"],
+    "tags": [
+      "technique",
+      "intermediate",
+      "head voice",
+      "mix voice"
+    ],
     "difficulty": 2,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Accessing head voice with emotion and warmth. The cry quality tilts the larynx forward, thins the folds, and helps you sing high without strain."
   },
   {
     "id": "belt-1-3-5-8",
     "name": "Belt Arpeggio (1-3-5-8)",
-    "pattern": [0, 4, 7, 12],
+    "pattern": [
+      0,
+      4,
+      7,
+      12
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Ascend-only arpeggio finishing on the octave. Build toward holding the top note with chest-dominant mix. The money note exercise.",
-    "tags": ["range", "advanced", "chest voice", "mix voice"],
+    "tags": [
+      "range",
+      "advanced",
+      "chest voice",
+      "mix voice"
+    ],
     "difficulty": 4,
-    "category": "Range Extension"
+    "category": "Range Extension",
+    "goodFor": "Building chest-dominant mix and belt power for high notes. The money-note exercise for musical theater, pop, and any style that demands powerful high notes."
   },
   {
     "id": "mum-scale",
     "name": "Mum Scale (Mix Bridge)",
-    "pattern": [0, 2, 4, 5, 7, 9, 11, 12, 11, 9, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      11,
+      12,
+      11,
+      9,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Sing 'Mum' through a full octave scale. The nasal M consonant helps bridge chest and head voice smoothly through the passaggio.",
-    "tags": ["mix voice", "technique", "intermediate"],
+    "tags": [
+      "mix voice",
+      "technique",
+      "intermediate"
+    ],
     "difficulty": 2,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Smoothly bridging chest and head voice through the passaggio. The nasal M consonant helps you navigate the break without flipping or cracking."
   },
   {
     "id": "bratty-nay-octave",
     "name": "Bratty Nay Octave (1-8-1)",
-    "pattern": [0, 12, 0],
+    "pattern": [
+      0,
+      12,
+      0
+    ],
     "noteDuration": "2n",
     "restBetweenReps": 1.2,
     "description": "Sing 'Nay' with a bratty, nasal quality on an octave jump. The twang keeps mix voice engaged through the break. Embrace the ugly sound.",
-    "tags": ["mix voice", "technique", "range", "intermediate"],
+    "tags": [
+      "mix voice",
+      "technique",
+      "range",
+      "intermediate"
+    ],
     "difficulty": 3,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Training mix voice engagement through a wide interval. The bratty quality keeps cord closure through the passaggio \u2014 essential for eliminating the vocal break."
   },
   {
     "id": "mix-voice-slide",
     "name": "Mix Voice Slide (1 to 10)",
-    "pattern": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+    "pattern": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
     "noteDuration": "16n",
     "restBetweenReps": 2,
     "description": "Slide smoothly from chest voice up through the passaggio into head voice. The goal is a seamless, connected sound with no break or flip.",
-    "tags": ["mix voice", "range", "intermediate"],
+    "tags": [
+      "mix voice",
+      "range",
+      "intermediate"
+    ],
     "difficulty": 3,
-    "category": "Range Extension"
+    "category": "Range Extension",
+    "goodFor": "Finding and developing the seamless blend between chest and head voice. Teaches you to navigate your passaggio without a break, flip, or sudden shift in tone."
   },
   {
     "id": "gee-scale",
     "name": "Gee Scale (Mix Voice)",
-    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Sing 'Gee' through the 5-note scale. The G consonant creates cord compression that helps maintain chest voice quality as you ascend into mix.",
-    "tags": ["mix voice", "technique", "intermediate"],
+    "tags": [
+      "mix voice",
+      "technique",
+      "intermediate"
+    ],
     "difficulty": 2,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Maintaining chest voice quality as you ascend into mix. The G consonant creates the cord compression needed to keep your sound strong and connected going up."
   },
   {
     "id": "hooty-oo-scale",
     "name": "Hooty Oo Scale",
-    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Sing a 5-note scale on a hooty 'oo' vowel. The round, owl-like vowel naturally engages head voice resonance without strain.",
-    "tags": ["head voice", "beginner", "warm-up"],
+    "tags": [
+      "head voice",
+      "beginner",
+      "warm-up"
+    ],
     "difficulty": 1,
-    "category": "Warm-Ups"
+    "category": "Warm-Ups",
+    "goodFor": "Engaging head voice resonance in a gentle, strain-free way. The round vowel naturally places your voice in the right spot for easy upper-range singing."
   },
   {
     "id": "falsetto-slide-down",
     "name": "Falsetto Slide Down",
-    "pattern": [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0],
+    "pattern": [
+      12,
+      11,
+      10,
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1,
+      0
+    ],
     "noteDuration": "16n",
     "restBetweenReps": 2,
     "description": "Start in light falsetto at the top and glide down through your range. Builds control and awareness of your upper register. Keep it light.",
-    "tags": ["head voice", "range", "beginner"],
+    "tags": [
+      "head voice",
+      "range",
+      "beginner"
+    ],
     "difficulty": 1,
-    "category": "Range Extension"
+    "category": "Range Extension",
+    "goodFor": "Building awareness and control of your upper register. The light, descending glide develops falsetto strength and smooths the transition back to chest voice."
   },
   {
     "id": "head-voice-arpeggio",
     "name": "Head Voice Arpeggio (light)",
-    "pattern": [0, 4, 7, 12, 7, 4, 0],
+    "pattern": [
+      0,
+      4,
+      7,
+      12,
+      7,
+      4,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Sing the octave arpeggio with a light, heady tone. Focus on keeping the sound forward and resonant without adding chest weight.",
-    "tags": ["head voice", "intermediate", "technique"],
+    "tags": [
+      "head voice",
+      "intermediate",
+      "technique"
+    ],
     "difficulty": 2,
-    "category": "Arpeggios"
+    "category": "Arpeggios",
+    "goodFor": "Strengthening head voice while maintaining forward resonance. Teaches you to sing high notes that are light but full, not breathy or thin."
   },
   {
     "id": "ee-head-voice-scale",
     "name": "Ee Head Voice Scale",
-    "pattern": [0, 2, 4, 5, 7, 9, 11, 12, 11, 9, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      11,
+      12,
+      11,
+      9,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Full octave scale on 'ee' vowel. The narrow vowel naturally encourages head voice placement. Keep it light and bright, no pushing.",
-    "tags": ["head voice", "intermediate", "technique"],
+    "tags": [
+      "head voice",
+      "intermediate",
+      "technique"
+    ],
     "difficulty": 2,
-    "category": "Scales"
+    "category": "Scales",
+    "goodFor": "Developing head voice placement with a vowel that naturally encourages it. The narrow Ee guides your voice into the right resonance for your upper range."
   },
   {
     "id": "vibrato-pulses",
     "name": "Vibrato Pulses",
-    "pattern": [0, 0, 0, 0, 0, 0, 0, 0],
+    "pattern": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
     "noteDuration": "8n",
     "restBetweenReps": 1.2,
     "description": "Hold a note and pulse the vibrato intentionally. Think of gently bouncing on the note with your diaphragm. Builds muscle memory for natural vibrato.",
-    "tags": ["vibrato", "technique", "intermediate"],
+    "tags": [
+      "vibrato",
+      "technique",
+      "intermediate"
+    ],
     "difficulty": 2,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Building the muscle memory for natural vibrato through intentional diaphragmatic pulsing. Teaches your body the oscillation pattern that eventually becomes automatic."
   },
   {
     "id": "sustained-vibrato",
     "name": "Sustained Vibrato Hold",
-    "pattern": [0],
+    "pattern": [
+      0
+    ],
     "noteDuration": "1n",
     "restBetweenReps": 2,
     "description": "Hold a single note and let vibrato develop naturally. Start straight, then allow oscillation to emerge. The goal is even, consistent vibrato.",
-    "tags": ["vibrato", "breath", "intermediate"],
+    "tags": [
+      "vibrato",
+      "breath",
+      "intermediate"
+    ],
     "difficulty": 2,
-    "category": "Breath Control"
+    "category": "Breath Control",
+    "goodFor": "Developing even, consistent vibrato that adds warmth and beauty to sustained notes. The goal is natural oscillation that emerges from relaxed, supported singing."
   },
   {
     "id": "vibrato-oscillation",
     "name": "Vibrato Semitone Oscillation",
-    "pattern": [0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0],
+    "pattern": [
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0
+    ],
     "noteDuration": "8n",
     "restBetweenReps": 1.2,
     "description": "Slowly alternate between two adjacent notes to mimic the vibrato motion. Gradually speed up over time. Trains the laryngeal flexibility needed for natural vibrato.",
-    "tags": ["vibrato", "technique", "intermediate"],
+    "tags": [
+      "vibrato",
+      "technique",
+      "intermediate"
+    ],
     "difficulty": 2,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Training the laryngeal flexibility needed for natural vibrato by slowly mimicking the oscillation. A mechanical approach that builds the physical coordination over time."
   },
   {
     "id": "diaphragm-bounce",
     "name": "Diaphragm Bounce",
-    "pattern": [0, 0, 0, 0, 0, 0],
+    "pattern": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
     "noteDuration": "8n",
     "restBetweenReps": 1.2,
     "description": "Repeated notes with deliberate diaphragmatic pulsing. Think 'huh huh huh.' Builds the breath support foundation that enables natural vibrato.",
-    "tags": ["vibrato", "breath", "beginner"],
+    "tags": [
+      "vibrato",
+      "breath",
+      "beginner"
+    ],
     "difficulty": 1,
-    "category": "Breath Control"
+    "category": "Breath Control",
+    "goodFor": "Strengthening the diaphragmatic engagement that underlies vibrato, staccato, and all breath-based vocal techniques. The physical foundation of advanced singing."
   },
   {
     "id": "pentatonic-run-fast",
     "name": "Fast Pentatonic Run",
-    "pattern": [0, 2, 4, 7, 9, 12, 9, 7, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      7,
+      9,
+      12,
+      9,
+      7,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "16n",
     "restBetweenReps": 1.2,
     "description": "Speed through the pentatonic scale up and back. The foundation of pop, R&B, and gospel riffs. Start slow, build up speed over weeks.",
-    "tags": ["runs", "agility", "intermediate"],
+    "tags": [
+      "runs",
+      "agility",
+      "intermediate"
+    ],
     "difficulty": 3,
-    "category": "Agility"
+    "category": "Agility",
+    "goodFor": "Building speed on the pentatonic scale \u2014 the foundation of pop, R&B, and gospel riffs. Develops the agility to execute impressive vocal runs."
   },
   {
     "id": "three-note-turn",
     "name": "Three-Note Turn",
-    "pattern": [0, 2, 0, 2, 4, 2, 4, 5, 4, 5, 7, 5],
+    "pattern": [
+      0,
+      2,
+      0,
+      2,
+      4,
+      2,
+      4,
+      5,
+      4,
+      5,
+      7,
+      5
+    ],
     "noteDuration": "16n",
     "restBetweenReps": 1.2,
     "description": "A classic ornament: step up, return, step up again. This weaving pattern is the building block of every vocal run and riff. Master this first.",
-    "tags": ["runs", "agility", "technique", "intermediate"],
+    "tags": [
+      "runs",
+      "agility",
+      "technique",
+      "intermediate"
+    ],
     "difficulty": 3,
-    "category": "Agility"
+    "category": "Agility",
+    "goodFor": "Mastering the fundamental ornament that builds into every vocal run and riff. Once you nail this pattern, complex runs become combinations of this basic move."
   },
   {
     "id": "riff-cascade",
     "name": "Descending Riff Cascade",
-    "pattern": [12, 11, 9, 7, 9, 7, 5, 4, 5, 4, 2, 0],
+    "pattern": [
+      12,
+      11,
+      9,
+      7,
+      9,
+      7,
+      5,
+      4,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "16n",
     "restBetweenReps": 1.2,
     "description": "Cascade down through scale tones in groups. The classic R&B and gospel descending run. Think Beyonce, Whitney, Mariah.",
-    "tags": ["runs", "agility", "advanced"],
+    "tags": [
+      "runs",
+      "agility",
+      "advanced"
+    ],
     "difficulty": 4,
-    "category": "Agility"
+    "category": "Agility",
+    "goodFor": "Executing the classic R&B and gospel descending run. Builds the speed and accuracy needed for the kind of vocal decoration heard from the greatest singers."
   },
   {
     "id": "gospel-run",
     "name": "Gospel Run",
-    "pattern": [0, 2, 4, 5, 7, 9, 12, 9, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      12,
+      9,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "16n",
     "restBetweenReps": 2,
     "description": "An extended fast run combining scales and a leap to the octave. The full gospel/R&B run experience. Speed comes from relaxation, not force.",
-    "tags": ["runs", "agility", "advanced"],
+    "tags": [
+      "runs",
+      "agility",
+      "advanced"
+    ],
     "difficulty": 4,
-    "category": "Agility"
+    "category": "Agility",
+    "goodFor": "Performing extended, impressive vocal runs combining scales and leaps. The full gospel and R&B run experience for singers ready to show off their agility."
   },
   {
     "id": "straw-phonation",
     "name": "Straw Phonation Scale",
-    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Sing through a straw (or mimic the narrowing) on a 5-note scale. The gold standard of modern voice therapy. Balances airflow and vocal fold vibration effortlessly.",
-    "tags": ["sovt", "warm-up", "beginner"],
+    "tags": [
+      "sovt",
+      "warm-up",
+      "beginner"
+    ],
     "difficulty": 1,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Balancing airflow and vocal fold vibration with the gold standard of semi-occluded vocal tract exercises. Used by professional singers and voice therapists worldwide."
   },
   {
     "id": "sustained-vvv",
     "name": "Sustained Vvv Buzz",
-    "pattern": [0],
+    "pattern": [
+      0
+    ],
     "noteDuration": "1n",
     "restBetweenReps": 2,
     "description": "Hold a voiced 'Vvv' fricative on a single pitch. The lip contact creates back-pressure that gently massages the vocal folds. A powerful SOVT exercise.",
-    "tags": ["sovt", "breath", "beginner"],
+    "tags": [
+      "sovt",
+      "breath",
+      "beginner"
+    ],
     "difficulty": 1,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Gently massaging the vocal folds through back-pressure created by the voiced fricative. A therapeutic exercise that promotes healthy phonation and reduces strain."
   },
   {
     "id": "sustained-zzz",
     "name": "Sustained Zzz Buzz Scale",
-    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Sing 'Zzz' through a 5-note scale. The voiced fricative activates forward resonance and creates gentle back-pressure for healthy phonation.",
-    "tags": ["sovt", "warm-up", "beginner"],
+    "tags": [
+      "sovt",
+      "warm-up",
+      "beginner"
+    ],
     "difficulty": 1,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Activating forward resonance and healthy phonation through voiced fricative back-pressure. A versatile SOVT exercise that warms up your voice safely."
   },
   {
     "id": "ma-me-mi-mo-mu",
     "name": "Ma Me Mi Mo Mu Scale",
-    "pattern": [0, 2, 4, 5, 7],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.5,
     "description": "Each ascending note gets a different vowel: Ma-Me-Mi-Mo-Mu. Trains smooth vowel transitions while maintaining forward placement through the nasal M consonant.",
-    "tags": ["phrasing", "technique", "intermediate"],
+    "tags": [
+      "phrasing",
+      "technique",
+      "intermediate"
+    ],
     "difficulty": 2,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Training smooth transitions between vowel shapes while maintaining forward placement. Builds the consistency needed for clear, connected singing across all vowels."
   },
   {
     "id": "bah-onset",
     "name": "Bah Onset Exercise",
-    "pattern": [0, 0, 0, 0, 0],
+    "pattern": [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Sing 'Bah' on repeated notes. The bilabial plosive B builds clean cord closure without glottal attack. One of the most universal onset exercises in vocal pedagogy.",
-    "tags": ["onset", "chest voice", "beginner"],
+    "tags": [
+      "onset",
+      "chest voice",
+      "beginner"
+    ],
     "difficulty": 1,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Developing clean, healthy vocal onsets without glottal attack. The B consonant builds cord closure naturally, making this one of the most universal onset exercises."
   },
   {
     "id": "vee-resonance",
     "name": "Vee Resonance Scale",
-    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Sing 'Vee' through the 5-note scale. The labiodental V activates forward resonance and mask placement. Used by speech therapists and vocal coaches alike.",
-    "tags": ["technique", "sovt", "intermediate"],
+    "tags": [
+      "technique",
+      "sovt",
+      "intermediate"
+    ],
     "difficulty": 2,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Activating forward resonance and mask placement for a brighter, more projected tone. Combines SOVT benefits with resonance training in one exercise."
   },
   {
     "id": "wah-open-throat",
     "name": "Wah Open Throat Scale",
-    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Sing 'Wah' through the 5-note scale. The W glide naturally opens the throat while the Ah vowel encourages relaxed, open resonance. Great for releasing tension.",
-    "tags": ["technique", "onset", "beginner"],
+    "tags": [
+      "technique",
+      "onset",
+      "beginner"
+    ],
     "difficulty": 2,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Releasing throat tension and encouraging relaxed, open resonance. The W glide naturally opens the throat while the Ah vowel promotes a free, unrestricted sound."
   },
   {
     "id": "gentle-descending-hum",
     "name": "Gentle Descending Hum",
-    "pattern": [7, 5, 4, 2, 0],
+    "pattern": [
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "2n",
     "restBetweenReps": 1.5,
     "description": "Softly hum from the 5th down to the root. A gentle cool-down that releases tension and brings the voice back to a relaxed state after intensive practice.",
-    "tags": ["sovt", "legato", "beginner"],
+    "tags": [
+      "sovt",
+      "legato",
+      "beginner"
+    ],
     "difficulty": 1,
-    "category": "Cool-Down"
+    "category": "Cool-Down",
+    "goodFor": "Winding down your voice gently after practice. The soft descending hum releases remaining tension and brings your vocal folds back to a relaxed state."
   },
   {
     "id": "low-range-sigh",
     "name": "Low Range Sigh",
-    "pattern": [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0],
+    "pattern": [
+      12,
+      11,
+      10,
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1,
+      0
+    ],
     "noteDuration": "16n",
     "restBetweenReps": 2,
     "description": "A gentle chromatic sigh from octave down to root. Like the yawn-sigh but specifically for cooling down. Keep it light, breathy, and completely tension-free.",
-    "tags": ["head voice", "legato", "beginner"],
+    "tags": [
+      "head voice",
+      "legato",
+      "beginner"
+    ],
     "difficulty": 1,
-    "category": "Cool-Down"
+    "category": "Cool-Down",
+    "goodFor": "Cooling down with a gentle chromatic descent that keeps everything light and tension-free. Specifically designed to release strain after intensive upper-range work."
   },
   {
     "id": "cool-down-lip-trill",
     "name": "Cool-Down Lip Trill",
-    "pattern": [7, 5, 4, 2, 0],
+    "pattern": [
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.5,
     "description": "Gentle descending lip trill to wind down your voice. The bubbling releases any remaining tension in the lips and jaw. Use minimal effort.",
-    "tags": ["sovt", "beginner"],
+    "tags": [
+      "sovt",
+      "beginner"
+    ],
     "difficulty": 1,
-    "category": "Cool-Down"
+    "category": "Cool-Down",
+    "goodFor": "Releasing jaw and lip tension after singing. The gentle bubbling motion relaxes the facial muscles while the descending pattern brings your voice to rest."
   },
   {
     "id": "quiet-sustained-oo",
     "name": "Quiet Sustained Oo",
-    "pattern": [0],
+    "pattern": [
+      0
+    ],
     "noteDuration": "1n",
     "restBetweenReps": 2.5,
-    "description": "Hold a very quiet 'Oo' on a comfortable pitch. Pianissimo singing is the perfect cool-down — it requires minimal cord contact and gentle airflow. End your session here.",
-    "tags": ["breath", "legato", "beginner"],
+    "description": "Hold a very quiet 'Oo' on a comfortable pitch. Pianissimo singing is the perfect cool-down \u2014 it requires minimal cord contact and gentle airflow. End your session here.",
+    "tags": [
+      "breath",
+      "legato",
+      "beginner"
+    ],
     "difficulty": 1,
-    "category": "Cool-Down"
+    "category": "Cool-Down",
+    "goodFor": "The perfect final exercise of any session. Pianissimo singing requires minimal cord contact and gentle airflow, bringing your voice to complete rest."
   },
   {
     "id": "chest-voice-power-scale",
     "name": "Chest Voice Power Scale",
-    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
     "description": "Sing 'Hey' with strong chest voice resonance on the 5-note scale. Stay in your lower range and focus on a full, grounded sound. Build the foundation of your voice.",
-    "tags": ["chest voice", "onset", "intermediate"],
+    "tags": [
+      "chest voice",
+      "onset",
+      "intermediate"
+    ],
     "difficulty": 2,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Building a strong, resonant chest voice foundation. Develops the grounded, powerful lower register that anchors your entire vocal range."
   },
   {
     "id": "hey-call",
     "name": "Hey Call Exercise",
-    "pattern": [0, 7],
+    "pattern": [
+      0,
+      7
+    ],
     "noteDuration": "2n",
     "restBetweenReps": 1.5,
     "description": "Call out 'Hey!' on the root then the fifth. Like calling across a room. Builds projection, forward placement, and chest voice power through speech-like sounds.",
-    "tags": ["chest voice", "onset", "intermediate"],
+    "tags": [
+      "chest voice",
+      "onset",
+      "intermediate"
+    ],
     "difficulty": 2,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Developing projection, forward placement, and natural chest voice power through speech-like sounds. Builds the confident, carrying tone needed for live performance."
   },
   {
     "id": "minor-third-jump",
     "name": "Minor 3rd Interval Jump (1-b3-1-b3-1)",
-    "pattern": [0, 3, 0, 3, 0],
+    "pattern": [
+      0,
+      3,
+      0,
+      3,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
-    "description": "Jump a minor third — the soulful, bluesy interval. Think of the first two notes of 'Greensleeves.' Trains your ear for this essential interval.",
-    "tags": ["intonation", "beginner"],
+    "description": "Jump a minor third \u2014 the soulful, bluesy interval. Think of the first two notes of 'Greensleeves.' Trains your ear for this essential interval.",
+    "tags": [
+      "intonation",
+      "beginner"
+    ],
     "difficulty": 2,
-    "category": "Intervals"
+    "category": "Intervals",
+    "goodFor": "Training your ear for one of music's most soulful intervals. Found in blues, R&B, and folk melodies \u2014 essential for emotive, genre-authentic singing."
   },
   {
     "id": "major-third-jump",
     "name": "Major 3rd Interval Jump (1-3-1-3-1)",
-    "pattern": [0, 4, 0, 4, 0],
+    "pattern": [
+      0,
+      4,
+      0,
+      4,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
-    "description": "Jump a major third — the bright, happy interval. Think of the first two notes of 'When the Saints Go Marching In.' Clean and precise.",
-    "tags": ["intonation", "beginner"],
+    "description": "Jump a major third \u2014 the bright, happy interval. Think of the first two notes of 'When the Saints Go Marching In.' Clean and precise.",
+    "tags": [
+      "intonation",
+      "beginner"
+    ],
     "difficulty": 2,
-    "category": "Intervals"
+    "category": "Intervals",
+    "goodFor": "Mastering the bright, optimistic interval heard in countless melodies. Builds clean pitch accuracy on this fundamental harmonic building block."
   },
   {
     "id": "minor-seventh-jump",
     "name": "Minor 7th Interval Jump (1-b7-1-b7-1)",
-    "pattern": [0, 10, 0, 10, 0],
+    "pattern": [
+      0,
+      10,
+      0,
+      10,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.2,
-    "description": "Jump a minor seventh — a wide, dramatic interval. Think of the opening of 'Somewhere' from West Side Story. Challenges your range and intonation.",
-    "tags": ["intonation", "intermediate", "range"],
+    "description": "Jump a minor seventh \u2014 a wide, dramatic interval. Think of the opening of 'Somewhere' from West Side Story. Challenges your range and intonation.",
+    "tags": [
+      "intonation",
+      "intermediate",
+      "range"
+    ],
     "difficulty": 3,
-    "category": "Intervals"
+    "category": "Intervals",
+    "goodFor": "Tackling a wide, dramatic interval that challenges both range and intonation. Builds confidence for the expressive leaps in musical theater and jazz."
   },
   {
     "id": "pa-ta-ka",
     "name": "Pa-Ta-Ka Articulation",
-    "pattern": [0, 0, 0, 0, 0, 0],
+    "pattern": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
     "noteDuration": "8n",
     "restBetweenReps": 1.2,
     "description": "Alternate Pa-Ta-Ka on repeated notes. Each consonant activates different articulators: Pa (lips), Ta (tongue tip), Ka (tongue back). The gold standard of diction exercises.",
-    "tags": ["staccato", "onset", "beginner"],
+    "tags": [
+      "staccato",
+      "onset",
+      "beginner"
+    ],
     "difficulty": 2,
-    "category": "Articulation"
+    "category": "Articulation",
+    "goodFor": "The gold standard diction exercise \u2014 each consonant activates different articulators for complete mouth coordination. Essential for clear lyrics in any genre."
   },
   {
     "id": "tongue-twister-scale",
     "name": "Tongue Twister Scale",
-    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "8n",
     "restBetweenReps": 1.5,
     "description": "Sing 'Bri-Bri-Bri' or 'Dri-Dri-Dri' through the 5-note scale. Consonant clusters force precise tongue coordination at speed. Essential for clear diction while singing.",
-    "tags": ["staccato", "intermediate"],
+    "tags": [
+      "staccato",
+      "intermediate"
+    ],
     "difficulty": 3,
-    "category": "Articulation"
+    "category": "Articulation",
+    "goodFor": "Building precise tongue coordination at speed for clear diction while singing. Consonant clusters force your articulators to work independently and accurately."
   },
   {
     "id": "rapid-consonant-switch",
     "name": "Rapid Consonant Switch",
-    "pattern": [0, 2, 4, 5, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "8n",
     "restBetweenReps": 1.5,
     "description": "Alternate 'Bee-Dee-Gee' rapidly through the scale. Each consonant shifts the point of articulation forward to back. Builds independent control of lips, tongue tip, and tongue back.",
-    "tags": ["staccato", "intermediate"],
+    "tags": [
+      "staccato",
+      "intermediate"
+    ],
     "difficulty": 3,
-    "category": "Articulation"
+    "category": "Articulation",
+    "goodFor": "Developing independent control of lips, tongue tip, and tongue back. Builds the articulator separation needed for crisp consonants in fast-moving lyrics."
   },
   {
     "id": "legato-phrase",
     "name": "Legato Phrase Exercise",
-    "pattern": [0, 2, 4, 5, 7, 9, 12, 9, 7, 5, 4, 2, 0],
+    "pattern": [
+      0,
+      2,
+      4,
+      5,
+      7,
+      9,
+      12,
+      9,
+      7,
+      5,
+      4,
+      2,
+      0
+    ],
     "noteDuration": "4n",
     "restBetweenReps": 1.5,
-    "description": "Sing 'La' in a long, connected phrase over an octave and back. Focus on seamless legato — no breaks, no bumps, just a smooth line of sound from start to finish.",
-    "tags": ["legato", "phrasing", "intermediate"],
+    "description": "Sing 'La' in a long, connected phrase over an octave and back. Focus on seamless legato \u2014 no breaks, no bumps, just a smooth line of sound from start to finish.",
+    "tags": [
+      "legato",
+      "phrasing",
+      "intermediate"
+    ],
     "difficulty": 2,
-    "category": "Technique"
+    "category": "Technique",
+    "goodFor": "Mastering smooth, connected singing across a wide range. Teaches you to create one seamless line of sound \u2014 the essence of beautiful vocal phrasing."
   }
 ]
