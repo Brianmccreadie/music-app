@@ -113,19 +113,19 @@ export default function SubscribePage() {
               }`}
             >
               Yearly
-              <span className="ml-1 text-xs opacity-75">Save 20%</span>
+              <span className="ml-1 text-xs opacity-75">Save 25%</span>
             </button>
           </div>
 
           {/* Price display */}
           <div className="text-center mb-8">
             <div className="text-5xl font-bold text-foreground">
-              {billingCycle === "monthly" ? "$9.99" : "$95.88"}
+              {billingCycle === "monthly" ? "$9.99" : "$89.99"}
             </div>
             <div className="text-muted text-sm mt-1">
               {billingCycle === "monthly"
                 ? "per month"
-                : "per year ($7.99/month)"}
+                : "per year ($7.50/month)"}
             </div>
           </div>
 

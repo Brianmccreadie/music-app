@@ -4,7 +4,7 @@
 // SETUP REQUIRED:
 // 1. In App Store Connect, create subscription products:
 //    - com.vocalreps.pro.monthly ($9.99/month)
-//    - com.vocalreps.pro.yearly ($95.88/year)
+//    - com.vocalreps.pro.yearly ($89.99/year)
 // 2. Add the StoreKit capability in Xcode
 // 3. The native plugin code is in ios/App/App/IAPPlugin.swift
 
