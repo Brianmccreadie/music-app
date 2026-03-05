@@ -159,12 +159,6 @@ export default function LoginPage() {
         )}
       </div>
 
-      <div className="text-center mt-4">
-        <Link href="/" className="text-xs text-muted hover:text-foreground">
-          Continue without an account
-        </Link>
-      </div>
-
       {mode === "signup" && (
         <p className="text-[10px] text-muted text-center mt-4">
           By creating an account, you agree to our{" "}
