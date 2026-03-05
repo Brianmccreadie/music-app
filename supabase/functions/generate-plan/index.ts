@@ -31,7 +31,7 @@ Deno.serve(async (req) => {
       ? `\nUSER FEEDBACK ON PREVIOUS PLAN:\n${feedback}\nAdjust the new plan based on this feedback.\n`
       : "";
 
-    const prompt = `You are a vocal coach AI. Given the singer's profile and the exercise library below, create a personalized practice plan.
+    const prompt = `You are an expert vocal coach. Given the singer's profile and the exercise library below, create a personalized practice plan.
 
 SINGER PROFILE:
 - Voice type: ${voiceType || "Not specified"}
@@ -104,7 +104,7 @@ Return ONLY the JSON object, no other text.`;
     const jsonMatch = responseText.match(/\{[\s\S]*\}/);
     if (!jsonMatch) {
       return new Response(
-        JSON.stringify({ error: "Failed to parse AI response" }),
+        JSON.stringify({ error: "Failed to parse plan response" }),
         { status: 500, headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } }
       );
     }
@@ -119,7 +119,7 @@ Return ONLY the JSON object, no other text.`;
 
     if (plan.exercises.length === 0) {
       return new Response(
-        JSON.stringify({ error: "AI generated plan with no valid exercises" }),
+        JSON.stringify({ error: "Generated plan had no valid exercises" }),
         { status: 500, headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" } }
       );
     }

@@ -34,12 +34,8 @@ export default function Paywall({ feature, onClose }: PaywallProps) {
 
   const handleSubscribe = () => {
     if (native) {
-      // iOS In-App Purchase - will be wired up with StoreKit
-      // For now show a message
       alert("In-App Purchase coming soon! Start a free trial instead.");
     } else {
-      // Web - redirect to Stripe checkout
-      // This will be replaced with actual Stripe checkout URL
       window.location.href = "/subscribe";
     }
   };
@@ -79,7 +75,7 @@ export default function Paywall({ feature, onClose }: PaywallProps) {
           <ul className="space-y-3 mb-6">
             {[
               "Unlimited custom routines",
-              "AI-powered plan generation",
+              "Custom plan generation",
               "Full exercise library access",
               "Progress tracking & streaks",
               "Priority support",
@@ -125,7 +121,6 @@ export default function Paywall({ feature, onClose }: PaywallProps) {
             </div>
           ) : (
             <div className="space-y-3">
-              {/* Free trial button */}
               <button
                 onClick={handleStartTrial}
                 disabled={starting}
@@ -134,7 +129,6 @@ export default function Paywall({ feature, onClose }: PaywallProps) {
                 {starting ? "Starting..." : "Start 7-Day Free Trial"}
               </button>
 
-              {/* Subscribe button */}
               <button
                 onClick={handleSubscribe}
                 className="w-full py-3.5 bg-hero-bg text-white rounded-full font-semibold hover:bg-hero-bg/90 transition-colors"
@@ -142,15 +136,28 @@ export default function Paywall({ feature, onClose }: PaywallProps) {
                 Subscribe — $9.99/month
               </button>
 
-              <p className="text-xs text-muted text-center">
-                {native
-                  ? "Payment through App Store. Cancel anytime."
-                  : "Secure payment via Stripe. Cancel anytime."}
+              {/* App Store compliance disclaimer */}
+              <p className="text-[10px] text-muted text-center leading-relaxed">
+                {native ? (
+                  <>
+                    Payment will be charged to your Apple ID account at confirmation of purchase.
+                    Subscription automatically renews unless cancelled at least 24 hours before the
+                    end of the current period. Manage subscriptions in your device Settings.{" "}
+                    <Link href="/terms" className="text-accent">Terms</Link> &{" "}
+                    <Link href="/privacy" className="text-accent">Privacy</Link>
+                  </>
+                ) : (
+                  <>
+                    Secure payment via Stripe. Cancel anytime from account settings.
+                    Subscription auto-renews. See our{" "}
+                    <Link href="/terms" className="text-accent">Terms</Link> &{" "}
+                    <Link href="/privacy" className="text-accent">Privacy Policy</Link>.
+                  </>
+                )}
               </p>
             </div>
           )}
 
-          {/* Close */}
           {onClose && (
             <button
               onClick={onClose}

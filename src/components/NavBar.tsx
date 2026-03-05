@@ -19,6 +19,9 @@ export default function NavBar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
+  // Don't show full nav for unauthenticated users on homepage (marketing page shows)
+  const isMarketingPage = !user && pathname === "/";
+
   return (
     <nav className="bg-white/90 backdrop-blur-sm sticky top-0 z-50 border-b border-border">
       <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -38,7 +41,7 @@ export default function NavBar() {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-6 text-sm font-medium">
-          {NAV_LINKS.map((link) => (
+          {user && NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -70,29 +73,41 @@ export default function NavBar() {
           )}
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className="md:hidden p-2 -mr-2 text-foreground"
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? (
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          ) : (
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          )}
-        </button>
+        {/* Mobile hamburger - only show for authenticated users or non-marketing pages */}
+        {(user || !isMarketingPage) && (
+          <button
+            className="md:hidden p-2 -mr-2 text-foreground"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? (
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
+          </button>
+        )}
+
+        {/* Mobile: show Sign In button when no hamburger */}
+        {!user && isMarketingPage && (
+          <Link
+            href="/login"
+            className="md:hidden px-4 py-2 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors text-sm"
+          >
+            Sign In
+          </Link>
+        )}
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
         <div className="md:hidden border-t border-border bg-white">
           <div className="px-4 py-3 space-y-1">
-            {NAV_LINKS.map((link) => (
+            {user && NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -118,12 +133,7 @@ export default function NavBar() {
               )}
               {!loading && (
                 user ? (
-                  <button
-                    onClick={() => { signOut(); setMenuOpen(false); }}
-                    className="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium text-red-600 hover:bg-red-50 transition-colors"
-                  >
-                    Sign Out
-                  </button>
+                  <SignOutButton onDone={() => setMenuOpen(false)} />
                 ) : (
                   <Link
                     href="/login"
@@ -139,5 +149,17 @@ export default function NavBar() {
         </div>
       )}
     </nav>
+  );
+}
+
+function SignOutButton({ onDone }: { onDone: () => void }) {
+  const { signOut } = useAuth();
+  return (
+    <button
+      onClick={() => { signOut(); onDone(); }}
+      className="w-full text-left px-3 py-2.5 rounded-lg text-sm font-medium text-red-600 hover:bg-red-50 transition-colors"
+    >
+      Sign Out
+    </button>
   );
 }

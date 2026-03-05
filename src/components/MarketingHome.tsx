@@ -11,7 +11,7 @@ const TESTIMONIALS = [
   {
     name: "James L.",
     role: "Tenor, Music Student",
-    text: "The AI-generated plans saved me so much time. I went from scattered practice to focused improvement.",
+    text: "The custom plans saved me so much time. I went from scattered practice to focused improvement.",
   },
   {
     name: "Maria K.",
@@ -23,7 +23,7 @@ const TESTIMONIALS = [
 const PRICING_FEATURES = [
   "50+ vocal exercises with piano accompaniment",
   "15 curated training tracks",
-  "AI-powered personalized practice plans",
+  "Personalized custom practice plans",
   "Unlimited custom routines",
   "Progress tracking & streaks",
   "Voice profile & range detection",
@@ -49,7 +49,7 @@ export default function MarketingHome() {
             </h1>
             <p className="text-lg lg:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
               Professional vocal training with real piano accompaniment,
-              AI-powered practice plans, and personalized routines. Built for
+              personalized practice plans, and custom routines. Built for
               singers who take their craft seriously.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
@@ -86,8 +86,8 @@ export default function MarketingHome() {
               <div className="text-sm text-muted mt-1">Training Tracks</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-accent">AI</div>
-              <div className="text-sm text-muted mt-1">Powered Plans</div>
+              <div className="text-3xl font-bold text-accent">Custom</div>
+              <div className="text-sm text-muted mt-1">Practice Plans</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-accent">4.9</div>
@@ -118,7 +118,7 @@ export default function MarketingHome() {
             {
               step: "02",
               title: "Get Your Plan",
-              desc: "Browse 50+ exercises, pick a training track, or let our AI build a custom plan for you.",
+              desc: "Browse 50+ exercises, pick a training track, or build a custom plan tailored to your voice.",
               icon: "M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3",
             },
             {
@@ -177,8 +177,8 @@ export default function MarketingHome() {
                 desc: "Practice with sampled grand piano, not MIDI beeps. Adjust tempo and range to match your voice.",
               },
               {
-                title: "AI Practice Plans",
-                desc: "Tell us your goals and let our AI create personalized practice plans tailored to your voice.",
+                title: "Custom Practice Plans",
+                desc: "Tell us your goals and get personalized practice plans tailored to your voice and skill level.",
               },
               {
                 title: "Training Tracks",
@@ -265,62 +265,23 @@ export default function MarketingHome() {
               Simple, transparent pricing
             </h2>
             <p className="text-muted mt-3 text-lg">
-              Start free, upgrade when you&apos;re ready.
+              Try everything free for 7 days. No credit card required.
             </p>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-2 max-w-3xl mx-auto">
-            {/* Free tier */}
-            <div className="bg-white rounded-2xl border border-border p-8">
-              <h3 className="text-lg font-bold text-foreground mb-1">Free</h3>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-foreground">$0</span>
-                <span className="text-muted ml-1">/month</span>
-              </div>
-              <ul className="space-y-3 mb-8">
-                {[
-                  "5 sample exercises",
-                  "1 training track",
-                  "Basic progress tracking",
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-sm">
-                    <svg
-                      className="w-4 h-4 text-accent flex-shrink-0"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={3}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                    <span className="text-foreground">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href="/login"
-                className="block w-full py-3.5 border border-border text-foreground rounded-full font-semibold text-center hover:bg-background transition-colors"
-              >
-                Get Started
-              </Link>
-            </div>
-
-            {/* Pro tier */}
+          <div className="max-w-md mx-auto">
             <div className="bg-white rounded-2xl border-2 border-accent p-8 relative">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white text-xs font-bold px-4 py-1 rounded-full">
-                MOST POPULAR
+                7-DAY FREE TRIAL
               </div>
-              <h3 className="text-lg font-bold text-foreground mb-1">Pro</h3>
-              <div className="mb-6">
+              <h3 className="text-lg font-bold text-foreground mb-1">Vocal Reps Pro</h3>
+              <div className="mb-2">
                 <span className="text-4xl font-bold text-foreground">
                   $9.99
                 </span>
                 <span className="text-muted ml-1">/month</span>
               </div>
+              <p className="text-sm text-muted mb-6">or $89.99/year (save 25%)</p>
               <ul className="space-y-3 mb-8">
                 {PRICING_FEATURES.map((item) => (
                   <li key={item} className="flex items-center gap-3 text-sm">
@@ -348,7 +309,7 @@ export default function MarketingHome() {
                 Start 7-Day Free Trial
               </Link>
               <p className="text-xs text-muted text-center mt-3">
-                No credit card required to start trial
+                No credit card required. Cancel anytime.
               </p>
             </div>
           </div>

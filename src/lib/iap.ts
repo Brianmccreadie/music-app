@@ -112,3 +112,24 @@ export async function restorePurchases(
     return false;
   }
 }
+
+// Verify a receipt with the server for cross-platform subscription sync.
+// Called on app launch to ensure web/iOS subscription status stays in sync.
+export async function verifyReceiptWithServer(
+  userId: string,
+  receiptData: string,
+  originalTransactionId?: string
+): Promise<{ valid: boolean; tier: string } | null> {
+  try {
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+    const res = await fetch(`${supabaseUrl}/functions/v1/verify-iap-receipt`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ userId, receiptData, originalTransactionId }),
+    });
+    if (!res.ok) return null;
+    return res.json();
+  } catch {
+    return null;
+  }
+}
