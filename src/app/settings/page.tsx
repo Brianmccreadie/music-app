@@ -7,7 +7,7 @@ import {
   EXPERIENCE_LEVELS,
   GOAL_OPTIONS,
   getProfile,
-  saveProfile,
+  saveProfileToDB,
 } from "@/lib/user-profile";
 import { PIANO_NOTES } from "@/lib/music-utils";
 import PlayNoteButton from "@/components/PlayNoteButton";
@@ -44,8 +44,8 @@ export default function SettingsPage() {
     );
   };
 
-  const handleSave = () => {
-    saveProfile({
+  const handleSave = async () => {
+    await saveProfileToDB({
       voiceType,
       rangeLow,
       rangeHigh,

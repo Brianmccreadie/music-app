@@ -6,6 +6,7 @@ import { getProfile } from "@/lib/user-profile";
 import exercisesData from "@/data/exercises.json";
 import type { Exercise } from "@/lib/exercises";
 import ExercisePlayer from "@/components/ExercisePlayer";
+import SubscriptionGate from "@/components/SubscriptionGate";
 
 const exercises = exercisesData as Exercise[];
 
@@ -43,7 +44,8 @@ export default function GeneratePlanPage() {
     setActiveExerciseIndex(-1);
 
     try {
-      const res = await fetch("/api/generate-plan", {
+      const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+      const res = await fetch(`${supabaseUrl}/functions/v1/generate-plan`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -53,6 +55,16 @@ export default function GeneratePlanPage() {
           experienceLevel: profile.experienceLevel,
           goals: profile.goals,
           feedback: userFeedback,
+          exerciseLibrary: exercises.map((ex) => ({
+            id: ex.id,
+            name: ex.name,
+            pattern: ex.pattern,
+            noteDuration: ex.noteDuration,
+            description: ex.description,
+            tags: ex.tags,
+            difficulty: ex.difficulty,
+            category: ex.category,
+          })),
         }),
       });
 
@@ -89,6 +101,7 @@ export default function GeneratePlanPage() {
     : null;
 
   return (
+    <SubscriptionGate feature="AI Plan Builder">
     <div className="max-w-2xl mx-auto px-4 py-8">
       <Link
         href="/plans"
@@ -351,5 +364,6 @@ export default function GeneratePlanPage() {
         </div>
       )}
     </div>
+    </SubscriptionGate>
   );
 }

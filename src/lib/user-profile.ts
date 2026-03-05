@@ -1,3 +1,5 @@
+import { supabase } from "@/lib/supabase";
+
 export interface UserProfile {
   displayName: string;
   rangeLow: string;
@@ -60,6 +62,8 @@ const DEFAULT_PROFILE: UserProfile = {
   onboardingComplete: false,
 };
 
+// ── Local storage (synchronous, used for immediate reads) ──
+
 export function getProfile(): UserProfile {
   if (typeof window === "undefined") return DEFAULT_PROFILE;
   try {
@@ -80,4 +84,55 @@ export function saveProfile(profile: Partial<UserProfile>): UserProfile {
 
 export function clearProfile(): void {
   localStorage.removeItem(STORAGE_KEY);
+}
+
+// ── Supabase sync (async, called when user is authenticated) ──
+
+export async function fetchProfileFromDB(): Promise<UserProfile | null> {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return null;
+
+  const { data } = await supabase
+    .from("profiles")
+    .select("*")
+    .eq("id", user.id)
+    .single();
+
+  if (!data) return null;
+
+  const profile: UserProfile = {
+    displayName: data.display_name ?? "",
+    voiceType: data.voice_type ?? "",
+    rangeLow: data.range_low ?? "C3",
+    rangeHigh: data.range_high ?? "A4",
+    experienceLevel: data.experience_level ?? "",
+    goals: data.goals ?? [],
+    onboardingComplete: data.onboarding_complete ?? false,
+  };
+
+  // Keep localStorage in sync for fast reads
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(profile));
+  return profile;
+}
+
+export async function saveProfileToDB(profile: Partial<UserProfile>): Promise<UserProfile> {
+  // Always save locally first for speed
+  const updated = saveProfile(profile);
+
+  const { data: { user } } = await supabase.auth.getUser();
+  if (user) {
+    await supabase.from("profiles").upsert({
+      id: user.id,
+      display_name: updated.displayName || null,
+      voice_type: updated.voiceType || null,
+      range_low: updated.rangeLow,
+      range_high: updated.rangeHigh,
+      experience_level: updated.experienceLevel || null,
+      goals: updated.goals,
+      onboarding_complete: updated.onboardingComplete,
+      updated_at: new Date().toISOString(),
+    });
+  }
+
+  return updated;
 }
