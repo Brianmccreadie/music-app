@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { AuthProvider } from "@/lib/auth-context";
+import { SubscriptionProvider } from "@/lib/subscription";
 import NavBar from "@/components/NavBar";
 import "./globals.css";
 
@@ -36,8 +37,10 @@ export default function RootLayout({
       </head>
       <body className="antialiased bg-background text-foreground">
         <AuthProvider>
-          <NavBar />
-          <main className="min-h-screen">{children}</main>
+          <SubscriptionProvider>
+            <NavBar />
+            <main className="min-h-screen">{children}</main>
+          </SubscriptionProvider>
         </AuthProvider>
 
         {/* Footer */}

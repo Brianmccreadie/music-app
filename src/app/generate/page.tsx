@@ -6,6 +6,7 @@ import { getProfile } from "@/lib/user-profile";
 import exercisesData from "@/data/exercises.json";
 import type { Exercise } from "@/lib/exercises";
 import ExercisePlayer from "@/components/ExercisePlayer";
+import SubscriptionGate from "@/components/SubscriptionGate";
 
 const exercises = exercisesData as Exercise[];
 
@@ -100,6 +101,7 @@ export default function GeneratePlanPage() {
     : null;
 
   return (
+    <SubscriptionGate feature="AI Plan Builder">
     <div className="max-w-2xl mx-auto px-4 py-8">
       <Link
         href="/plans"
@@ -362,5 +364,6 @@ export default function GeneratePlanPage() {
         </div>
       )}
     </div>
+    </SubscriptionGate>
   );
 }

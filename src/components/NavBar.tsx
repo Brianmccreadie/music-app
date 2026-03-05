@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAuth } from "@/lib/auth-context";
+import { useSubscription } from "@/lib/subscription";
 
 const NAV_LINKS = [
   { href: "/exercises", label: "Library" },
@@ -14,6 +15,7 @@ const NAV_LINKS = [
 
 export default function NavBar() {
   const { user, loading, signOut } = useAuth();
+  const { isActive, tier } = useSubscription();
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
@@ -27,6 +29,11 @@ export default function NavBar() {
             </svg>
           </div>
           <span className="text-lg font-bold text-foreground tracking-tight">Vocal Reps</span>
+          {isActive && (
+            <span className="px-1.5 py-0.5 bg-accent text-white text-[10px] font-bold rounded-md uppercase tracking-wide">
+              Pro
+            </span>
+          )}
         </Link>
 
         {/* Desktop nav */}
@@ -100,6 +107,15 @@ export default function NavBar() {
               </Link>
             ))}
             <div className="pt-2 border-t border-border mt-2">
+              {user && !isActive && (
+                <Link
+                  href="/subscribe"
+                  onClick={() => setMenuOpen(false)}
+                  className="block px-3 py-2.5 rounded-lg text-sm font-semibold text-accent bg-accent-light hover:bg-accent/10 transition-colors mb-1"
+                >
+                  Upgrade to Pro
+                </Link>
+              )}
               {!loading && (
                 user ? (
                   <button

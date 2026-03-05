@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import exercisesData from "@/data/exercises.json";
 import type { Exercise } from "@/lib/exercises";
@@ -9,7 +9,11 @@ import { getFavorites, getRoutineFavorites } from "@/lib/favorites";
 import { getRoutines } from "@/lib/routines";
 import type { Routine } from "@/lib/routines";
 import { getTotalPracticeMinutes, getStreak } from "@/lib/practice-sessions";
+import { useAuth } from "@/lib/auth-context";
+import { isNativeApp } from "@/lib/platform";
 import ExerciseCard from "@/components/ExerciseCard";
+import SplashScreen from "@/components/SplashScreen";
+import MarketingHome from "@/components/MarketingHome";
 
 const exercises = exercisesData as Exercise[];
 
@@ -20,10 +24,23 @@ function getExercisesByIds(ids: string[]) {
 }
 
 export default function HomePage() {
+  const { user, loading: authLoading } = useAuth();
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
   const [favoriteRoutines, setFavoriteRoutines] = useState<Routine[]>([]);
   const [practiceMinutes, setPracticeMinutes] = useState(0);
   const [streak, setStreak] = useState(0);
+  const [showSplash, setShowSplash] = useState(false);
+  const native = isNativeApp();
+
+  useEffect(() => {
+    // Show splash screen on native app, only on first visit per session
+    if (native && !sessionStorage.getItem("splash-shown")) {
+      setShowSplash(true);
+      sessionStorage.setItem("splash-shown", "1");
+    }
+  }, [native]);
+
+  const handleSplashFinished = useCallback(() => setShowSplash(false), []);
 
   useEffect(() => {
     setFavoriteIds(getFavorites());
@@ -41,8 +58,16 @@ export default function HomePage() {
   const favoriteExercises = getExercisesByIds(favoriteIds);
   const hasFavorites = favoriteExercises.length > 0 || favoriteRoutines.length > 0;
 
+  // Show marketing homepage for non-authenticated web users
+  if (!authLoading && !user && !native) {
+    return <MarketingHome />;
+  }
+
   return (
     <div className="min-h-screen">
+      {/* Splash screen for native app */}
+      {showSplash && <SplashScreen onFinished={handleSplashFinished} />}
+
       {/* Hero */}
       <div className="bg-hero-bg text-hero-fg">
         <div className="max-w-6xl mx-auto px-4 py-20 lg:py-28">
