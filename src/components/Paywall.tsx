@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useAuth } from "@/lib/auth-context";
 import { useSubscription, startFreeTrial } from "@/lib/subscription";
 import { isNativeApp } from "@/lib/platform";
+import { purchaseProduct, IAP_PRODUCTS } from "@/lib/iap";
 import Link from "next/link";
 
 interface PaywallProps {
@@ -32,9 +33,19 @@ export default function Paywall({ feature, onClose }: PaywallProps) {
     setStarting(false);
   };
 
-  const handleSubscribe = () => {
+  const handleSubscribe = async () => {
+    if (!user) return;
     if (native) {
-      alert("In-App Purchase coming soon! Start a free trial instead.");
+      setStarting(true);
+      setError("");
+      const success = await purchaseProduct(IAP_PRODUCTS.monthly, user.id);
+      if (success) {
+        await refresh();
+        onClose?.();
+      } else {
+        setError("Purchase failed or was cancelled. Please try again.");
+      }
+      setStarting(false);
     } else {
       window.location.href = "/subscribe";
     }

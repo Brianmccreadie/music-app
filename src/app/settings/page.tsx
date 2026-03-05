@@ -15,6 +15,8 @@ import PlayNoteButton from "@/components/PlayNoteButton";
 import { useAuth } from "@/lib/auth-context";
 import { useSubscription } from "@/lib/subscription";
 import { supabase } from "@/lib/supabase";
+import { isNativeApp } from "@/lib/platform";
+import { restorePurchases } from "@/lib/iap";
 
 const LOW_NOTES = PIANO_NOTES.filter((n) => {
   const octave = parseInt(n.slice(-1));
@@ -28,7 +30,7 @@ const HIGH_NOTES = PIANO_NOTES.filter((n) => {
 export default function SettingsPage() {
   const router = useRouter();
   const { user, signOut } = useAuth();
-  const { tier, trialEndsAt, isActive } = useSubscription();
+  const { tier, trialEndsAt, isActive, refresh } = useSubscription();
   const [voiceType, setVoiceType] = useState("");
   const [rangeLow, setRangeLow] = useState("C3");
   const [rangeHigh, setRangeHigh] = useState("A4");
@@ -38,6 +40,8 @@ export default function SettingsPage() {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [deleteConfirmText, setDeleteConfirmText] = useState("");
   const [deleting, setDeleting] = useState(false);
+  const [restoring, setRestoring] = useState(false);
+  const [restoreMessage, setRestoreMessage] = useState("");
 
   useEffect(() => {
     const profile = getProfile();
@@ -96,6 +100,22 @@ export default function SettingsPage() {
     setDeleting(false);
   };
 
+  const handleRestorePurchases = async () => {
+    if (!user) return;
+    setRestoring(true);
+    setRestoreMessage("");
+    const restored = await restorePurchases(user.id);
+    if (restored) {
+      setRestoreMessage("Purchases restored successfully!");
+      await refresh();
+    } else {
+      setRestoreMessage("No previous purchases found.");
+    }
+    setRestoring(false);
+  };
+
+  const native = isNativeApp();
+
   const trialDaysLeft = trialEndsAt
     ? Math.max(0, Math.ceil((new Date(trialEndsAt).getTime() - Date.now()) / (1000 * 60 * 60 * 24)))
     : 0;
@@ -134,6 +154,20 @@ export default function SettingsPage() {
               </Link>
             )}
           </div>
+          {native && (
+            <div className="mt-3 pt-3 border-t border-border">
+              <button
+                onClick={handleRestorePurchases}
+                disabled={restoring}
+                className="text-sm text-accent font-medium hover:text-accent-hover disabled:opacity-50"
+              >
+                {restoring ? "Restoring..." : "Restore Purchases"}
+              </button>
+              {restoreMessage && (
+                <p className="text-xs text-muted mt-1">{restoreMessage}</p>
+              )}
+            </div>
+          )}
         </div>
       )}
 
