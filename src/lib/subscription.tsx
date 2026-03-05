@@ -10,7 +10,7 @@ import {
 import { useAuth } from "@/lib/auth-context";
 import { supabase } from "@/lib/supabase";
 
-export type SubscriptionTier = "free" | "trial" | "premium";
+export type SubscriptionTier = "none" | "trial" | "premium";
 
 export interface SubscriptionState {
   tier: SubscriptionTier;
@@ -33,14 +33,19 @@ interface StoredSubscription {
 
 function getLocalSubscription(): StoredSubscription {
   if (typeof window === "undefined")
-    return { tier: "free", trialEndsAt: null };
+    return { tier: "none", trialEndsAt: null };
   try {
     const raw = localStorage.getItem(LOCAL_KEY);
-    if (raw) return JSON.parse(raw);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      // Migrate old "free" tier to "none"
+      if (parsed.tier === "free") parsed.tier = "none";
+      return parsed;
+    }
   } catch {
     // ignore
   }
-  return { tier: "free", trialEndsAt: null };
+  return { tier: "none", trialEndsAt: null };
 }
 
 function setLocalSubscription(sub: StoredSubscription) {
@@ -59,14 +64,14 @@ export function SubscriptionProvider({
   children: React.ReactNode;
 }) {
   const { user } = useAuth();
-  const [tier, setTier] = useState<SubscriptionTier>("free");
+  const [tier, setTier] = useState<SubscriptionTier>("none");
   const [trialEndsAt, setTrialEndsAt] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
   const fetchSubscription = useCallback(async () => {
     if (!user) {
       const local = getLocalSubscription();
-      setTier(local.tier === "trial" && isTrialExpired(local.trialEndsAt) ? "free" : local.tier);
+      setTier(local.tier === "trial" && isTrialExpired(local.trialEndsAt) ? "none" : local.tier);
       setTrialEndsAt(local.trialEndsAt);
       setLoading(false);
       return;
@@ -80,9 +85,9 @@ export function SubscriptionProvider({
         .single();
 
       if (data) {
-        let currentTier: SubscriptionTier = data.tier;
+        let currentTier: SubscriptionTier = data.tier === "free" ? "none" : data.tier;
         if (currentTier === "trial" && isTrialExpired(data.trial_ends_at)) {
-          currentTier = "free";
+          currentTier = "none";
         }
         setTier(currentTier);
         setTrialEndsAt(data.trial_ends_at);
@@ -91,7 +96,7 @@ export function SubscriptionProvider({
           trialEndsAt: data.trial_ends_at,
         });
       } else {
-        setTier("free");
+        setTier("none");
         setTrialEndsAt(null);
       }
     } catch {

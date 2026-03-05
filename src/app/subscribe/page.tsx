@@ -134,7 +134,7 @@ export default function SubscribePage() {
             {[
               "50+ vocal exercises with piano",
               "15 training tracks",
-              "AI-powered practice plans",
+              "Custom practice plans",
               "Unlimited custom routines",
               "Progress tracking & streaks",
             ].map((item) => (
@@ -165,9 +165,12 @@ export default function SubscribePage() {
             {loading ? "Redirecting to checkout..." : "Subscribe Now"}
           </button>
 
-          <p className="text-xs text-muted text-center mt-4">
-            Secure payment powered by Stripe. Cancel anytime from your account
-            settings.
+          <p className="text-[10px] text-muted text-center mt-4 leading-relaxed">
+            Secure payment powered by Stripe. Subscription automatically renews
+            unless cancelled. Cancel anytime from your account settings. By
+            subscribing you agree to our{" "}
+            <Link href="/terms" className="text-accent">Terms of Service</Link> and{" "}
+            <Link href="/privacy" className="text-accent">Privacy Policy</Link>.
           </p>
         </div>
       )}

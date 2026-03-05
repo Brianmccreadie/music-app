@@ -101,7 +101,7 @@ export default function GeneratePlanPage() {
     : null;
 
   return (
-    <SubscriptionGate feature="AI Plan Builder">
+    <SubscriptionGate feature="Custom Plan Builder">
     <div className="max-w-2xl mx-auto px-4 py-8">
       <Link
         href="/plans"

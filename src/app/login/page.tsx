@@ -4,11 +4,12 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAuth } from "@/lib/auth-context";
+import { supabase } from "@/lib/supabase";
 
 export default function LoginPage() {
   const router = useRouter();
   const { signIn, signUp } = useAuth();
-  const [mode, setMode] = useState<"login" | "signup">("login");
+  const [mode, setMode] = useState<"login" | "signup" | "reset">("login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -21,7 +22,17 @@ export default function LoginPage() {
     setMessage("");
     setLoading(true);
 
-    if (mode === "signup") {
+    if (mode === "reset") {
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/login`,
+      });
+      if (error) {
+        setError(error.message);
+      } else {
+        setMessage("Check your email for a password reset link.");
+        setMode("login");
+      }
+    } else if (mode === "signup") {
       const { error } = await signUp(email, password);
       if (error) {
         setError(error);
@@ -50,12 +61,14 @@ export default function LoginPage() {
           </svg>
         </div>
         <h1 className="text-2xl font-bold text-foreground">
-          {mode === "login" ? "Welcome back" : "Create your account"}
+          {mode === "login" ? "Welcome back" : mode === "signup" ? "Create your account" : "Reset password"}
         </h1>
         <p className="text-muted text-sm mt-1">
           {mode === "login"
             ? "Sign in to access your training"
-            : "Start your vocal training journey"}
+            : mode === "signup"
+              ? "Start your 7-day free trial"
+              : "Enter your email to receive a reset link"}
         </p>
       </div>
 
@@ -83,50 +96,76 @@ export default function LoginPage() {
             placeholder="you@example.com"
           />
         </div>
-        <div>
-          <label className="text-sm font-medium text-muted block mb-1">Password</label>
-          <input
-            type="password"
-            required
-            minLength={6}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-4 py-3 bg-white border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
-            placeholder="At least 6 characters"
-          />
-        </div>
+        {mode !== "reset" && (
+          <div>
+            <label className="text-sm font-medium text-muted block mb-1">Password</label>
+            <input
+              type="password"
+              required
+              minLength={6}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-3 bg-white border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-accent"
+              placeholder="At least 6 characters"
+            />
+          </div>
+        )}
         <button
           type="submit"
           disabled={loading}
           className="w-full py-3 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors disabled:opacity-50"
         >
-          {loading ? "..." : mode === "login" ? "Sign In" : "Create Account"}
+          {loading
+            ? "..."
+            : mode === "login"
+              ? "Sign In"
+              : mode === "signup"
+                ? "Create Account"
+                : "Send Reset Link"}
         </button>
       </form>
 
-      <p className="text-center text-sm text-muted mt-6">
-        {mode === "login" ? (
+      <div className="text-center text-sm text-muted mt-6 space-y-2">
+        {mode === "login" && (
           <>
-            Don&apos;t have an account?{" "}
-            <button onClick={() => { setMode("signup"); setError(""); }} className="text-accent font-medium hover:underline">
-              Sign up
-            </button>
-          </>
-        ) : (
-          <>
-            Already have an account?{" "}
-            <button onClick={() => { setMode("login"); setError(""); }} className="text-accent font-medium hover:underline">
-              Sign in
-            </button>
+            <p>
+              Don&apos;t have an account?{" "}
+              <button onClick={() => { setMode("signup"); setError(""); setMessage(""); }} className="text-accent font-medium hover:underline">
+                Sign up
+              </button>
+            </p>
+            <p>
+              <button onClick={() => { setMode("reset"); setError(""); setMessage(""); }} className="text-accent font-medium hover:underline">
+                Forgot password?
+              </button>
+            </p>
           </>
         )}
-      </p>
-
-      <div className="text-center mt-4">
-        <Link href="/" className="text-xs text-muted hover:text-foreground">
-          Continue without an account
-        </Link>
+        {mode === "signup" && (
+          <p>
+            Already have an account?{" "}
+            <button onClick={() => { setMode("login"); setError(""); setMessage(""); }} className="text-accent font-medium hover:underline">
+              Sign in
+            </button>
+          </p>
+        )}
+        {mode === "reset" && (
+          <p>
+            Remember your password?{" "}
+            <button onClick={() => { setMode("login"); setError(""); setMessage(""); }} className="text-accent font-medium hover:underline">
+              Sign in
+            </button>
+          </p>
+        )}
       </div>
+
+      {mode === "signup" && (
+        <p className="text-[10px] text-muted text-center mt-4">
+          By creating an account, you agree to our{" "}
+          <Link href="/terms" className="text-accent">Terms of Service</Link> and{" "}
+          <Link href="/privacy" className="text-accent">Privacy Policy</Link>.
+        </p>
+      )}
     </div>
   );
 }
