@@ -7,7 +7,7 @@ import {
   EXPERIENCE_LEVELS,
   GOAL_OPTIONS,
   VOICE_RANGE_PRESETS,
-  saveProfile,
+  saveProfileToDB,
   getProfile,
 } from "@/lib/user-profile";
 import { PIANO_NOTES } from "@/lib/music-utils";
@@ -53,8 +53,8 @@ export default function OnboardingPage() {
     );
   };
 
-  const handleComplete = () => {
-    saveProfile({
+  const handleComplete = async () => {
+    await saveProfileToDB({
       voiceType,
       rangeLow,
       rangeHigh,

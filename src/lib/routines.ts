@@ -1,3 +1,5 @@
+import { supabase } from "@/lib/supabase";
+
 export interface RoutineExercise {
   exerciseId: string;
   tempoOverride?: number;
@@ -20,6 +22,8 @@ const STORAGE_KEY = "vocal-app-routines";
 function generateId(): string {
   return `routine-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
+
+// ── localStorage (synchronous) ──
 
 export function getRoutines(): Routine[] {
   if (typeof window === "undefined") return [];
@@ -98,4 +102,99 @@ export function removeExerciseFromRoutine(
   if (!routine) return undefined;
   const exercises = routine.exercises.filter((_, i) => i !== exerciseIndex);
   return updateRoutine(routineId, { exercises });
+}
+
+// ── Supabase sync ──
+
+export async function fetchRoutinesFromDB(): Promise<Routine[]> {
+  const { data: { user } } = await supabase.auth.getUser();
+  if (!user) return getRoutines();
+
+  const { data } = await supabase
+    .from("routines")
+    .select("*")
+    .eq("user_id", user.id)
+    .order("created_at", { ascending: false });
+
+  if (!data) return getRoutines();
+
+  const routines: Routine[] = data.map((r) => ({
+    id: r.id,
+    name: r.name,
+    description: r.description ?? "",
+    exercises: r.exercises ?? [],
+    rangeLow: "",
+    rangeHigh: "",
+    createdAt: new Date(r.created_at).getTime(),
+    updatedAt: new Date(r.updated_at).getTime(),
+  }));
+
+  saveRoutines(routines);
+  return routines;
+}
+
+export async function createRoutineDB(
+  data: Omit<Routine, "id" | "createdAt" | "updatedAt">
+): Promise<Routine> {
+  // Save locally first
+  const routine = createRoutine(data);
+
+  const { data: { user } } = await supabase.auth.getUser();
+  if (user) {
+    const { data: inserted } = await supabase
+      .from("routines")
+      .insert({
+        user_id: user.id,
+        name: routine.name,
+        description: routine.description || null,
+        exercises: routine.exercises,
+      })
+      .select()
+      .single();
+
+    if (inserted) {
+      // Update local ID to match the DB UUID
+      const routines = getRoutines();
+      const idx = routines.findIndex((r) => r.id === routine.id);
+      if (idx !== -1) {
+        routines[idx].id = inserted.id;
+        saveRoutines(routines);
+        routine.id = inserted.id;
+      }
+    }
+  }
+
+  return routine;
+}
+
+export async function updateRoutineDB(
+  id: string,
+  data: Partial<Omit<Routine, "id" | "createdAt">>
+): Promise<Routine | undefined> {
+  const updated = updateRoutine(id, data);
+
+  const { data: { user } } = await supabase.auth.getUser();
+  if (user && updated) {
+    await supabase
+      .from("routines")
+      .update({
+        name: updated.name,
+        description: updated.description || null,
+        exercises: updated.exercises,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("id", id)
+      .eq("user_id", user.id);
+  }
+
+  return updated;
+}
+
+export async function deleteRoutineDB(id: string): Promise<void> {
+  deleteRoutine(id);
+
+  const { data: { user } } = await supabase.auth.getUser();
+  if (user) {
+    await supabase.from("routines").delete().eq("id", id).eq("user_id", user.id);
+  }
 }
