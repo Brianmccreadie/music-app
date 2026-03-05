@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   VOICE_TYPES,
   EXPERIENCE_LEVELS,
@@ -11,6 +12,11 @@ import {
 } from "@/lib/user-profile";
 import { PIANO_NOTES } from "@/lib/music-utils";
 import PlayNoteButton from "@/components/PlayNoteButton";
+import { useAuth } from "@/lib/auth-context";
+import { useSubscription } from "@/lib/subscription";
+import { supabase } from "@/lib/supabase";
+import { isNativeApp } from "@/lib/platform";
+import { restorePurchases } from "@/lib/iap";
 
 const LOW_NOTES = PIANO_NOTES.filter((n) => {
   const octave = parseInt(n.slice(-1));
@@ -22,12 +28,20 @@ const HIGH_NOTES = PIANO_NOTES.filter((n) => {
 });
 
 export default function SettingsPage() {
+  const router = useRouter();
+  const { user, signOut } = useAuth();
+  const { tier, trialEndsAt, isActive, refresh } = useSubscription();
   const [voiceType, setVoiceType] = useState("");
   const [rangeLow, setRangeLow] = useState("C3");
   const [rangeHigh, setRangeHigh] = useState("A4");
   const [goals, setGoals] = useState<string[]>([]);
   const [experienceLevel, setExperienceLevel] = useState("");
   const [saved, setSaved] = useState(false);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [deleteConfirmText, setDeleteConfirmText] = useState("");
+  const [deleting, setDeleting] = useState(false);
+  const [restoring, setRestoring] = useState(false);
+  const [restoreMessage, setRestoreMessage] = useState("");
 
   useEffect(() => {
     const profile = getProfile();
@@ -57,6 +71,55 @@ export default function SettingsPage() {
     setTimeout(() => setSaved(false), 2000);
   };
 
+  const handleDeleteAccount = async () => {
+    if (deleteConfirmText !== "DELETE") return;
+    setDeleting(true);
+
+    try {
+      if (user) {
+        // Delete user data from Supabase tables
+        await Promise.all([
+          supabase.from("subscriptions").delete().eq("user_id", user.id),
+          supabase.from("profiles").delete().eq("user_id", user.id),
+          supabase.from("favorites").delete().eq("user_id", user.id),
+          supabase.from("routines").delete().eq("user_id", user.id),
+          supabase.from("practice_sessions").delete().eq("user_id", user.id),
+        ]);
+      }
+
+      // Clear local storage
+      localStorage.clear();
+
+      // Sign out
+      await signOut();
+      router.push("/");
+    } catch {
+      alert("Failed to delete account. Please contact support.");
+    }
+
+    setDeleting(false);
+  };
+
+  const handleRestorePurchases = async () => {
+    if (!user) return;
+    setRestoring(true);
+    setRestoreMessage("");
+    const restored = await restorePurchases(user.id);
+    if (restored) {
+      setRestoreMessage("Purchases restored successfully!");
+      await refresh();
+    } else {
+      setRestoreMessage("No previous purchases found.");
+    }
+    setRestoring(false);
+  };
+
+  const native = isNativeApp();
+
+  const trialDaysLeft = trialEndsAt
+    ? Math.max(0, Math.ceil((new Date(trialEndsAt).getTime() - Date.now()) / (1000 * 60 * 60 * 24)))
+    : 0;
+
   return (
     <div className="max-w-lg mx-auto px-4 py-8">
       <Link
@@ -66,6 +129,47 @@ export default function SettingsPage() {
         &larr; Home
       </Link>
       <h1 className="text-2xl font-bold text-foreground mb-6">Settings</h1>
+
+      {/* Subscription Status */}
+      {user && (
+        <div className="bg-white rounded-2xl border border-border p-4 shadow-sm mb-6">
+          <h3 className="text-sm font-medium text-muted mb-2">Subscription</h3>
+          <div className="flex items-center justify-between">
+            <div>
+              {tier === "premium" && (
+                <span className="text-sm font-semibold text-accent">Pro — Active</span>
+              )}
+              {tier === "trial" && isActive && (
+                <span className="text-sm font-semibold text-accent">
+                  Free Trial — {trialDaysLeft} day{trialDaysLeft !== 1 ? "s" : ""} remaining
+                </span>
+              )}
+              {!isActive && (
+                <span className="text-sm text-muted">No active subscription</span>
+              )}
+            </div>
+            {!isActive && (
+              <Link href="/subscribe" className="text-sm text-accent font-semibold hover:text-accent-hover">
+                Subscribe
+              </Link>
+            )}
+          </div>
+          {native && (
+            <div className="mt-3 pt-3 border-t border-border">
+              <button
+                onClick={handleRestorePurchases}
+                disabled={restoring}
+                className="text-sm text-accent font-medium hover:text-accent-hover disabled:opacity-50"
+              >
+                {restoring ? "Restoring..." : "Restore Purchases"}
+              </button>
+              {restoreMessage && (
+                <p className="text-xs text-muted mt-1">{restoreMessage}</p>
+              )}
+            </div>
+          )}
+        </div>
+      )}
 
       {/* Voice Type */}
       <div className="mb-6">
@@ -184,6 +288,72 @@ export default function SettingsPage() {
       >
         {saved ? "Saved!" : "Save Settings"}
       </button>
+
+      {/* Account Danger Zone */}
+      {user && (
+        <div className="mt-12 border-t border-border pt-8">
+          <h2 className="text-lg font-bold text-foreground mb-4">Account</h2>
+
+          <div className="space-y-4">
+            <div className="flex items-center justify-between p-4 bg-white rounded-xl border border-border">
+              <div>
+                <div className="text-sm font-medium text-foreground">{user.email}</div>
+                <div className="text-xs text-muted">Signed in</div>
+              </div>
+              <button
+                onClick={() => signOut()}
+                className="text-sm text-red-600 font-medium hover:text-red-700"
+              >
+                Sign Out
+              </button>
+            </div>
+
+            <div className="bg-red-50 rounded-xl border border-red-200 p-4">
+              <h3 className="text-sm font-bold text-red-600 mb-1">Delete Account</h3>
+              <p className="text-xs text-red-500 mb-3">
+                This will permanently delete your account, subscription, and all data.
+                This action cannot be undone.
+              </p>
+              {!showDeleteConfirm ? (
+                <button
+                  onClick={() => setShowDeleteConfirm(true)}
+                  className="px-4 py-2 bg-red-600 text-white rounded-lg text-sm font-semibold hover:bg-red-700 transition-colors"
+                >
+                  Delete My Account
+                </button>
+              ) : (
+                <div className="space-y-3">
+                  <p className="text-xs text-red-600 font-medium">
+                    Type DELETE to confirm:
+                  </p>
+                  <input
+                    type="text"
+                    value={deleteConfirmText}
+                    onChange={(e) => setDeleteConfirmText(e.target.value)}
+                    className="w-full px-3 py-2 border border-red-300 rounded-lg text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-red-400"
+                    placeholder="DELETE"
+                  />
+                  <div className="flex gap-2">
+                    <button
+                      onClick={handleDeleteAccount}
+                      disabled={deleteConfirmText !== "DELETE" || deleting}
+                      className="flex-1 py-2 bg-red-600 text-white rounded-lg text-sm font-semibold hover:bg-red-700 transition-colors disabled:opacity-50"
+                    >
+                      {deleting ? "Deleting..." : "Confirm Delete"}
+                    </button>
+                    <button
+                      onClick={() => { setShowDeleteConfirm(false); setDeleteConfirmText(""); }}
+                      className="flex-1 py-2 border border-border rounded-lg text-sm text-muted hover:text-foreground transition-colors"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
