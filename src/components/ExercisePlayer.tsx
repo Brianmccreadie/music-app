@@ -10,6 +10,7 @@ import {
   chordNotesForRoot,
   PIANO_NOTES,
 } from "@/lib/music-utils";
+import { recordSessionDB } from "@/lib/practice-sessions";
 
 type PlayerState = "idle" | "loading" | "playing" | "paused";
 
@@ -54,6 +55,7 @@ export default function ExercisePlayer({
   const rootIndexRef = useRef(0);
   const isPlayingRef = useRef(false);
   const bpmRef = useRef(bpm);
+  const playStartRef = useRef<number>(0);
   const audioEngineRef = useRef<typeof import("@/lib/audio-engine") | null>(
     null
   );
@@ -161,6 +163,18 @@ export default function ExercisePlayer({
       const playNext = () => {
         if (!isPlayingRef.current || rootIndexRef.current >= roots.length) {
           engine.stopAll();
+          // Record completed session
+          if (rootIndexRef.current >= roots.length && playStartRef.current > 0) {
+            const durationSeconds = Math.round((Date.now() - playStartRef.current) / 1000);
+            recordSessionDB({
+              exerciseId: exercise.id,
+              durationSeconds,
+              bpm: bpmRef.current,
+              rangeLow: localStartNote,
+              rangeHigh: localEndNote,
+            });
+            playStartRef.current = 0;
+          }
           setPlayerState("idle");
           setCurrentRootIndex(-1);
           setCurrentNoteIndex(-1);
@@ -192,6 +206,7 @@ export default function ExercisePlayer({
     setPlayerState("loading");
     try {
       await loadAudio();
+      playStartRef.current = Date.now();
       setPlayerState("playing");
       playAllReps(0);
     } catch (err) {

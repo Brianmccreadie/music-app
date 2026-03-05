@@ -8,6 +8,7 @@ import { TRACKS, TRACK_CATEGORIES } from "@/lib/tracks";
 import { getFavorites, getRoutineFavorites } from "@/lib/favorites";
 import { getRoutines } from "@/lib/routines";
 import type { Routine } from "@/lib/routines";
+import { getTotalPracticeMinutes, getStreak } from "@/lib/practice-sessions";
 import ExerciseCard from "@/components/ExerciseCard";
 
 const exercises = exercisesData as Exercise[];
@@ -21,6 +22,8 @@ function getExercisesByIds(ids: string[]) {
 export default function HomePage() {
   const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
   const [favoriteRoutines, setFavoriteRoutines] = useState<Routine[]>([]);
+  const [practiceMinutes, setPracticeMinutes] = useState(0);
+  const [streak, setStreak] = useState(0);
 
   useEffect(() => {
     setFavoriteIds(getFavorites());
@@ -31,6 +34,8 @@ export default function HomePage() {
         .map((id) => allRoutines.find((r) => r.id === id))
         .filter(Boolean) as Routine[]
     );
+    setPracticeMinutes(getTotalPracticeMinutes());
+    setStreak(getStreak());
   }, []);
 
   const favoriteExercises = getExercisesByIds(favoriteIds);
@@ -76,12 +81,12 @@ export default function HomePage() {
       {/* Stats bar */}
       <div className="bg-white border-b border-border">
         <div className="max-w-6xl mx-auto px-4 py-8">
-          <div className="grid grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
             <div className="text-center">
               <div className="text-3xl font-bold text-accent">
                 {exercises.length}+
               </div>
-              <div className="text-sm text-muted mt-1">Vocal Exercises</div>
+              <div className="text-sm text-muted mt-1">Exercises</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-accent">
@@ -90,8 +95,16 @@ export default function HomePage() {
               <div className="text-sm text-muted mt-1">Training Tracks</div>
             </div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-accent">Custom</div>
-              <div className="text-sm text-muted mt-1">Built Plans</div>
+              <div className="text-3xl font-bold text-accent">
+                {practiceMinutes > 0 ? `${practiceMinutes}` : "0"}
+              </div>
+              <div className="text-sm text-muted mt-1">Minutes Practiced</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-accent">
+                {streak > 0 ? `${streak}` : "0"}
+              </div>
+              <div className="text-sm text-muted mt-1">Day Streak</div>
             </div>
           </div>
         </div>

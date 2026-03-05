@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import Link from "next/link";
 import { AuthProvider } from "@/lib/auth-context";
 import NavBar from "@/components/NavBar";
@@ -8,6 +8,20 @@ export const metadata: Metadata = {
   title: "Vocal Reps — Train Your Voice",
   description:
     "Professional vocal training with personalized routines, training tracks, and real piano accompaniment.",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Vocal Reps",
+  },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  themeColor: "#1B6B5A",
 };
 
 export default function RootLayout({
@@ -17,6 +31,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+      </head>
       <body className="antialiased bg-background text-foreground">
         <AuthProvider>
           <NavBar />
