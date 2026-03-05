@@ -4,6 +4,7 @@ import { SubscriptionProvider } from "@/lib/subscription";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
+import AppGate from "@/components/AppGate";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -53,7 +54,9 @@ export default function RootLayout({
         <AuthProvider>
           <SubscriptionProvider>
             <NavBar />
-            <main className="min-h-screen">{children}</main>
+            <main className="min-h-screen">
+              <AppGate>{children}</AppGate>
+            </main>
             <Footer />
             <CookieConsent />
           </SubscriptionProvider>
