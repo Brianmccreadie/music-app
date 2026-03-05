@@ -71,7 +71,7 @@ export default function RoutinesPage() {
             >
               <div className="flex items-start justify-between mb-2">
                 <Link
-                  href={`/routines/${routine.id}`}
+                  href={`/routines/detail?id=${routine.id}`}
                   className="font-bold text-foreground text-lg hover:text-accent transition-colors"
                 >
                   {routine.name}
@@ -114,7 +114,7 @@ export default function RoutinesPage() {
                 </span>
               </div>
               <Link
-                href={`/routines/${routine.id}`}
+                href={`/routines/detail?id=${routine.id}`}
                 className="mt-3 block w-full text-center py-2 rounded-full bg-accent-light text-accent text-sm font-medium hover:bg-accent/20 transition-colors"
               >
                 Practice

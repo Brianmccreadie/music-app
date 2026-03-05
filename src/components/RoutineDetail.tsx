@@ -51,12 +51,7 @@ function findExercise(id: string): Exercise | undefined {
   return allExercises.find((ex) => ex.id === id);
 }
 
-export default function RoutineDetailPage({
-  params,
-}: {
-  params: Promise<{ id: string }>;
-}) {
-  const { id } = use(params);
+export default function RoutineDetail({ id }: { id: string }) {
   const router = useRouter();
   const [routine, setRoutine] = useState<Routine | null>(null);
   const [activeExerciseIndex, setActiveExerciseIndex] = useState(-1);
