@@ -192,7 +192,7 @@ export default function HomePage() {
                   {favoriteRoutines.map((routine) => (
                     <Link
                       key={routine.id}
-                      href={`/routines/${routine.id}`}
+                      href={`/routines/detail?id=${routine.id}`}
                       className="group block bg-gradient-to-br from-accent/5 to-accent/10 rounded-xl border border-accent/20 p-4 hover:shadow-md hover:border-accent/40 transition-all"
                     >
                       <div className="flex items-center gap-2 mb-1.5">
