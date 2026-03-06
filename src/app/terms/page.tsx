@@ -44,7 +44,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-xl font-bold text-foreground mb-3">4. Free Trial</h2>
           <p>
-            New users are eligible for a 7-day free trial of Vocal Reps Pro. The trial provides full access
+            New users are eligible for a 3-day free trial of Vocal Reps Pro. The trial provides full access
             to all features. After the trial period ends, you will need an active subscription to continue
             accessing Pro features. No credit card is required to start a trial.
           </p>
