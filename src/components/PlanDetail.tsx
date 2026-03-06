@@ -9,9 +9,29 @@ import type { Exercise } from "@/lib/exercises";
 import { DIFFICULTY_LABELS } from "@/lib/exercises";
 import { getProfile } from "@/lib/user-profile";
 import ExercisePlayer from "@/components/ExercisePlayer";
+import ExerciseDemo from "@/components/ExerciseDemo";
+import demoData from "@/data/exercise-demos.json";
 
 const plans = plansData as Plan[];
 const exercises = exercisesData as Exercise[];
+const demos = demoData as Record<
+  string,
+  {
+    vocalInstruction: string;
+    syllables: string;
+    technique: string;
+    demoDescription: string;
+    demoRootNote: string;
+    vowelOptions?: string[];
+    tips?: {
+      vowelShape: string;
+      breathSupport: string;
+      mouthAndJaw: string;
+      posture: string;
+      commonMistakes: string;
+    };
+  }
+>;
 
 function findExercise(id: string): Exercise | undefined {
   return exercises.find((ex) => ex.id === id);
@@ -56,6 +76,9 @@ export default function PlanDetail({ id }: { id: string }) {
         ? { ...activeExercise }
         : activeExercise
       : null;
+  const activeDemoInfo = activeExercise
+    ? demos[activeExercise.id]
+    : undefined;
 
   const isStarted = activeExerciseIndex >= 0;
   const progress = isStarted
@@ -290,6 +313,16 @@ export default function PlanDetail({ id }: { id: string }) {
                     <div className="text-sm text-foreground/80">
                       {activeExerciseConfig.notes}
                     </div>
+                  </div>
+                )}
+
+                {/* Demo: vocal tips, technique, vowel options */}
+                {activeDemoInfo && activeExercise && (
+                  <div className="mb-6">
+                    <ExerciseDemo
+                      exercise={activeExercise}
+                      demoInfo={activeDemoInfo}
+                    />
                   </div>
                 )}
 
