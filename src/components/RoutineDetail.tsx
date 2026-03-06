@@ -9,9 +9,9 @@ import type { Exercise } from "@/lib/exercises";
 import { CATEGORIES } from "@/lib/exercises";
 import {
   getRoutine,
-  updateRoutine,
-  addExerciseToRoutine,
-  removeExerciseFromRoutine,
+  updateRoutineDB,
+  addExerciseToRoutineDB,
+  removeExerciseFromRoutineDB,
 } from "@/lib/routines";
 import type { Routine, RoutineExercise } from "@/lib/routines";
 import { PIANO_NOTES } from "@/lib/music-utils";
@@ -67,13 +67,13 @@ export default function RoutineDetail({ id }: { id: string }) {
     setLoaded(true);
   }, [id]);
 
-  const autoSave = (updates: Partial<Omit<Routine, "id" | "createdAt">>) => {
-    const updated = updateRoutine(id, updates);
+  const autoSave = async (updates: Partial<Omit<Routine, "id" | "createdAt">>) => {
+    const updated = await updateRoutineDB(id, updates);
     if (updated) setRoutine(updated);
   };
 
-  const handleRemoveExercise = (index: number) => {
-    const updated = removeExerciseFromRoutine(id, index);
+  const handleRemoveExercise = async (index: number) => {
+    const updated = await removeExerciseFromRoutineDB(id, index);
     if (updated) {
       setRoutine(updated);
       if (activeExerciseIndex === index) setActiveExerciseIndex(-1);
@@ -82,8 +82,8 @@ export default function RoutineDetail({ id }: { id: string }) {
     }
   };
 
-  const handleAddExercise = (exerciseId: string) => {
-    const updated = addExerciseToRoutine(id, { exerciseId });
+  const handleAddExercise = async (exerciseId: string) => {
+    const updated = await addExerciseToRoutineDB(id, { exerciseId });
     if (updated) setRoutine(updated);
   };
 
