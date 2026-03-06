@@ -67,7 +67,7 @@ export default function LoginPage() {
           {mode === "login"
             ? "Sign in to access your training"
             : mode === "signup"
-              ? "Start your 7-day free trial"
+              ? "Start your 3-day free trial"
               : "Enter your email to receive a reset link"}
         </p>
       </div>
