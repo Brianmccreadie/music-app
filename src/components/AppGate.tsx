@@ -6,11 +6,13 @@ import { usePathname } from "next/navigation";
 import Paywall from "@/components/Paywall";
 
 /**
- * Gates the entire app behind authentication + active subscription (trial or paid).
- * Allows through: login, subscribe, terms, privacy, contact, and the marketing homepage.
+ * Gates app features behind authentication + active subscription (trial or paid).
+ * Public pages (homepage, terms, privacy, etc.) are always accessible.
+ * Gated pages show content behind a paywall overlay (grayed out, non-interactive).
  */
 
 const PUBLIC_PATHS = [
+  "/",
   "/login",
   "/subscribe",
   "/subscribe/success",
@@ -26,12 +28,7 @@ export default function AppGate({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
   // Always allow public pages
-  if (PUBLIC_PATHS.some((p) => pathname.startsWith(p))) {
-    return <>{children}</>;
-  }
-
-  // Marketing homepage for unauthenticated web users — let through (page.tsx handles it)
-  if (!authLoading && !user && pathname === "/") {
+  if (PUBLIC_PATHS.includes(pathname) || PUBLIC_PATHS.some((p) => p !== "/" && pathname.startsWith(p))) {
     return <>{children}</>;
   }
 
@@ -44,14 +41,16 @@ export default function AppGate({ children }: { children: React.ReactNode }) {
     );
   }
 
-  // Not logged in — redirect-style: show the paywall which has a sign-up CTA
-  if (!user) {
-    return <Paywall />;
-  }
-
-  // Logged in but no active subscription — show paywall
-  if (!isActive) {
-    return <Paywall />;
+  // No active subscription — show content behind paywall overlay
+  if (!user || !isActive) {
+    return (
+      <>
+        <div className="pointer-events-none select-none opacity-40" aria-hidden="true">
+          {children}
+        </div>
+        <Paywall />
+      </>
+    );
   }
 
   // Active subscription — render the app
