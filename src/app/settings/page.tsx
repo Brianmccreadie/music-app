@@ -13,7 +13,7 @@ import {
 import { PIANO_NOTES } from "@/lib/music-utils";
 import PlayNoteButton from "@/components/PlayNoteButton";
 import { useAuth } from "@/lib/auth-context";
-import { useSubscription } from "@/lib/subscription";
+import { useSubscription, cancelTrial, cancelStripeSubscription } from "@/lib/subscription";
 import { supabase } from "@/lib/supabase";
 import { isNativeApp } from "@/lib/platform";
 import { restorePurchases } from "@/lib/iap";
@@ -42,6 +42,8 @@ export default function SettingsPage() {
   const [deleting, setDeleting] = useState(false);
   const [restoring, setRestoring] = useState(false);
   const [restoreMessage, setRestoreMessage] = useState("");
+  const [cancelling, setCancelling] = useState(false);
+  const [showCancelConfirm, setShowCancelConfirm] = useState(false);
 
   useEffect(() => {
     const profile = getProfile();
@@ -114,6 +116,32 @@ export default function SettingsPage() {
     setRestoring(false);
   };
 
+  const handleCancelTrial = async () => {
+    if (!user) return;
+    setCancelling(true);
+    const ok = await cancelTrial(user.id);
+    if (ok) {
+      await refresh();
+    } else {
+      alert("Failed to cancel trial. Please try again.");
+    }
+    setCancelling(false);
+    setShowCancelConfirm(false);
+  };
+
+  const handleCancelSubscription = async () => {
+    if (!user) return;
+    setCancelling(true);
+    const ok = await cancelStripeSubscription(user.id);
+    if (ok) {
+      await refresh();
+    } else {
+      alert("Failed to cancel subscription. Please contact support.");
+    }
+    setCancelling(false);
+    setShowCancelConfirm(false);
+  };
+
   const native = isNativeApp();
 
   const trialDaysLeft = trialEndsAt
@@ -154,6 +182,92 @@ export default function SettingsPage() {
               </Link>
             )}
           </div>
+
+          {/* Upgrade from trial */}
+          {tier === "trial" && isActive && (
+            <div className="mt-3 pt-3 border-t border-border">
+              <Link
+                href="/subscribe"
+                className="inline-block px-4 py-2 bg-accent text-white rounded-full text-sm font-semibold hover:bg-accent-hover transition-colors"
+              >
+                Upgrade to Pro
+              </Link>
+              <p className="text-xs text-muted mt-1">
+                Subscribe now to keep access after your trial ends.
+              </p>
+            </div>
+          )}
+
+          {/* Cancel trial */}
+          {tier === "trial" && isActive && (
+            <div className="mt-3 pt-3 border-t border-border">
+              {!showCancelConfirm ? (
+                <button
+                  onClick={() => setShowCancelConfirm(true)}
+                  className="text-sm text-red-600 font-medium hover:text-red-700"
+                >
+                  Cancel Trial
+                </button>
+              ) : (
+                <div className="bg-red-50 rounded-lg p-3">
+                  <p className="text-sm text-red-600 mb-2">
+                    Are you sure? You will lose access immediately.
+                  </p>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={handleCancelTrial}
+                      disabled={cancelling}
+                      className="px-4 py-1.5 bg-red-600 text-white rounded-lg text-sm font-semibold hover:bg-red-700 disabled:opacity-50"
+                    >
+                      {cancelling ? "Cancelling..." : "Yes, Cancel"}
+                    </button>
+                    <button
+                      onClick={() => setShowCancelConfirm(false)}
+                      className="px-4 py-1.5 border border-border rounded-lg text-sm text-muted hover:text-foreground"
+                    >
+                      Keep Trial
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Cancel paid subscription */}
+          {tier === "premium" && (
+            <div className="mt-3 pt-3 border-t border-border">
+              {!showCancelConfirm ? (
+                <button
+                  onClick={() => setShowCancelConfirm(true)}
+                  className="text-sm text-red-600 font-medium hover:text-red-700"
+                >
+                  Cancel Subscription
+                </button>
+              ) : (
+                <div className="bg-red-50 rounded-lg p-3">
+                  <p className="text-sm text-red-600 mb-2">
+                    Are you sure you want to cancel your Pro subscription? You will lose access to all premium features.
+                  </p>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={handleCancelSubscription}
+                      disabled={cancelling}
+                      className="px-4 py-1.5 bg-red-600 text-white rounded-lg text-sm font-semibold hover:bg-red-700 disabled:opacity-50"
+                    >
+                      {cancelling ? "Cancelling..." : "Yes, Cancel"}
+                    </button>
+                    <button
+                      onClick={() => setShowCancelConfirm(false)}
+                      className="px-4 py-1.5 border border-border rounded-lg text-sm text-muted hover:text-foreground"
+                    >
+                      Keep Subscription
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
           {native && (
             <div className="mt-3 pt-3 border-t border-border">
               <button
