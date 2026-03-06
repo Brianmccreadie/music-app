@@ -226,41 +226,6 @@ export default function PlanDetail({ id }: { id: string }) {
         {/* ── Right Panel: Player ── */}
         <div className="flex-1 min-w-0">
           <div className="md:sticky md:top-8">
-            {/* Exercise navigation bar */}
-            {isStarted && (
-              <div className="bg-white rounded-xl border border-border p-3 mb-4 shadow-sm">
-                <div className="flex items-center gap-1 overflow-x-auto pb-1">
-                  {plan.exercises.map((pe, index) => {
-                    const ex = findExercise(pe.exerciseId);
-                    const isActive = index === activeExerciseIndex;
-                    const isCompleted = index < activeExerciseIndex;
-                    return (
-                      <button
-                        key={index}
-                        onClick={() => setActiveExerciseIndex(index)}
-                        className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-medium transition-all ${
-                          isActive
-                            ? "bg-accent text-white shadow-md scale-110"
-                            : isCompleted
-                              ? "bg-emerald-100 text-emerald-700"
-                              : "bg-background text-muted hover:bg-accent/10"
-                        }`}
-                        title={ex?.name}
-                      >
-                        {isCompleted ? (
-                          <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                          </svg>
-                        ) : (
-                          index + 1
-                        )}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
             {!isStarted ? (
               <div className="bg-white rounded-2xl border border-border shadow-sm p-8 text-center">
                 <div className="w-16 h-16 bg-accent-light rounded-full flex items-center justify-center mx-auto mb-4">
@@ -316,16 +281,6 @@ export default function PlanDetail({ id }: { id: string }) {
                   </div>
                 )}
 
-                {/* Demo: vocal tips, technique, vowel options */}
-                {activeDemoInfo && activeExercise && (
-                  <div className="mb-6">
-                    <ExerciseDemo
-                      exercise={activeExercise}
-                      demoInfo={activeDemoInfo}
-                    />
-                  </div>
-                )}
-
                 {/* Player */}
                 <ExercisePlayer
                   key={`${plan.id}-${activeExerciseIndex}`}
@@ -333,6 +288,16 @@ export default function PlanDetail({ id }: { id: string }) {
                   startNote={rangeLow}
                   endNote={rangeHigh}
                 />
+
+                {/* Demo: vocal tips, technique, vowel options */}
+                {activeDemoInfo && activeExercise && (
+                  <div className="mt-6">
+                    <ExerciseDemo
+                      exercise={activeExercise}
+                      demoInfo={activeDemoInfo}
+                    />
+                  </div>
+                )}
 
                 {/* Navigation */}
                 <div className="flex gap-3 mt-4">

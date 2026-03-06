@@ -444,32 +444,6 @@ export default function RoutineDetail({ id }: { id: string }) {
         {/* ── Right Panel: Player ── */}
         <div className="flex-1 min-w-0">
           <div className="md:sticky md:top-8">
-            {/* Exercise navigation bar */}
-            {isStarted && (
-              <div className="bg-white rounded-xl border border-border p-3 mb-4 shadow-sm">
-                <div className="flex items-center gap-1 overflow-x-auto pb-1">
-                  {routine.exercises.map((pe, index) => {
-                    const ex = findExercise(pe.exerciseId);
-                    const isActive = index === activeExerciseIndex;
-                    return (
-                      <button
-                        key={index}
-                        onClick={() => setActiveExerciseIndex(index)}
-                        className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-medium transition-all ${
-                          isActive
-                            ? "bg-accent text-white shadow-md scale-110"
-                            : "bg-background text-muted hover:bg-accent/10"
-                        }`}
-                        title={ex?.name}
-                      >
-                        {index + 1}
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            )}
-
             {!isStarted ? (
               routine.exercises.length > 0 ? (
                 <div className="bg-white rounded-2xl border border-border shadow-sm p-8 text-center">
@@ -524,16 +498,6 @@ export default function RoutineDetail({ id }: { id: string }) {
                   </div>
                 </div>
 
-                {/* Demo info */}
-                {activeDemoInfo && (
-                  <div className="mb-6">
-                    <ExerciseDemo
-                      exercise={activeExercise}
-                      demoInfo={activeDemoInfo}
-                    />
-                  </div>
-                )}
-
                 {/* Player */}
                 <ExercisePlayer
                   key={`routine-${id}-${activeExerciseIndex}`}
@@ -541,6 +505,16 @@ export default function RoutineDetail({ id }: { id: string }) {
                   startNote={routine.rangeLow}
                   endNote={routine.rangeHigh}
                 />
+
+                {/* Demo info */}
+                {activeDemoInfo && (
+                  <div className="mt-6">
+                    <ExerciseDemo
+                      exercise={activeExercise}
+                      demoInfo={activeDemoInfo}
+                    />
+                  </div>
+                )}
 
                 {/* Navigation */}
                 <div className="flex gap-3 mt-4">
