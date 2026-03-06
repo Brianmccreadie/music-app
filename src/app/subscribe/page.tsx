@@ -74,7 +74,7 @@ export default function SubscribePage() {
           Upgrade to Vocal Reps Pro
         </h1>
         <p className="text-muted text-sm mt-1">
-          Unlock everything. Cancel anytime.
+          Start with a 3-day free trial. Cancel anytime.
         </p>
       </div>
 
@@ -162,10 +162,13 @@ export default function SubscribePage() {
             disabled={loading}
             className="w-full py-3.5 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors disabled:opacity-50 text-lg"
           >
-            {loading ? "Redirecting to checkout..." : "Subscribe Now"}
+            {loading ? "Redirecting to checkout..." : "Start 3-Day Free Trial"}
           </button>
 
-          <p className="text-[10px] text-muted text-center mt-4 leading-relaxed">
+          <p className="text-xs text-muted text-center mt-3">
+            No charge during your 3-day trial. Then {billingCycle === "monthly" ? "$9.99/month" : "$89.99/year"}.
+          </p>
+          <p className="text-[10px] text-muted text-center mt-3 leading-relaxed">
             Secure payment powered by Stripe. Subscription automatically renews
             unless cancelled. Cancel anytime from your account settings. By
             subscribing you agree to our{" "}
