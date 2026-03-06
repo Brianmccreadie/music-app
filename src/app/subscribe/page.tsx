@@ -133,8 +133,8 @@ export default function SubscribePage() {
           <ul className="space-y-3 mb-8">
             {[
               "70+ vocal exercises with piano",
-              "15 training tracks",
-              "Pre-built routine library",
+              "15 core training programs",
+              "Pre-built exercise sequences",
               "Unlimited custom routines",
               "Progress tracking & streaks",
             ].map((item) => (

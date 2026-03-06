@@ -63,7 +63,7 @@ export default function PlanDetail({ id }: { id: string }) {
         href="/plans"
         className="text-sm text-accent hover:text-accent-hover mb-6 inline-block"
       >
-        &larr; Back to Routine Library
+        &larr; Back to Core Training
       </Link>
 
       {/* Plan header */}

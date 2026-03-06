@@ -117,7 +117,7 @@ export default function HomePage() {
               <div className="text-3xl font-bold text-accent">
                 {TRACKS.length}
               </div>
-              <div className="text-sm text-muted mt-1">Training Tracks</div>
+              <div className="text-sm text-muted mt-1">Core Training</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-accent">
@@ -163,7 +163,7 @@ export default function HomePage() {
             </div>
             <h3 className="text-lg font-bold text-foreground mb-2">Pick Your Exercises</h3>
             <p className="text-muted text-sm leading-relaxed">
-              Browse {exercises.length}+ exercises across {TRACKS.length} training tracks, or let us build a custom plan for you.
+              Browse {exercises.length}+ exercises across {TRACKS.length} core training programs, or let us build a custom plan for you.
             </p>
           </div>
           <div className="bg-white rounded-2xl border border-border p-8 hover:shadow-lg transition-shadow">
@@ -263,7 +263,7 @@ export default function HomePage() {
               </h2>
               <p className="text-muted mt-2">
                 {category === "Foundations"
-                  ? "Build your vocal foundation with these core training tracks."
+                  ? "Build your vocal foundation with these core training programs."
                   : "Isolate and develop specific vocal techniques and skills."}
               </p>
             </div>
@@ -294,7 +294,7 @@ export default function HomePage() {
                           {trackExercises.length} exercises
                         </span>
                         <span className="text-sm text-muted group-hover:text-accent transition-colors font-medium">
-                          View track &rarr;
+                          View program &rarr;
                         </span>
                       </div>
                     </div>

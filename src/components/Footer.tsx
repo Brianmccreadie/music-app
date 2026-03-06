@@ -28,7 +28,7 @@ export default function Footer() {
               <h4 className="text-white font-semibold mb-3 text-sm">Train</h4>
               <div className="space-y-2 text-sm">
                 <Link href="/exercises" className="block hover:text-white transition-colors">Exercise Library</Link>
-                <Link href="/plans" className="block hover:text-white transition-colors">Routine Library</Link>
+                <Link href="/plans" className="block hover:text-white transition-colors">Core Training</Link>
                 <Link href="/routines" className="block hover:text-white transition-colors">My Routines</Link>
               </div>
             </div>

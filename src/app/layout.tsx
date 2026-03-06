@@ -10,7 +10,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Vocal Reps — Train Your Voice",
   description:
-    "Professional vocal training with personalized routines, training tracks, and piano accompaniment. 70+ exercises, custom routines, and progress tracking.",
+    "Professional vocal training with core training programs, custom routines, and piano accompaniment. 70+ exercises and progress tracking.",
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
