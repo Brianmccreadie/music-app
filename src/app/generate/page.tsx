@@ -105,14 +105,14 @@ export default function GeneratePlanPage() {
         href="/plans"
         className="text-sm text-accent hover:text-accent-hover mb-6 inline-block"
       >
-        &larr; Back to Plans
+        &larr; Back to Routine Library
       </Link>
 
       <h1 className="text-2xl font-bold text-foreground mb-2">
-        Plan Builder
+        Custom Routine Builder
       </h1>
       <p className="text-muted mb-6">
-        Generate a personalized practice plan based on your profile and goals.
+        Generate a personalized practice routine based on your profile and goals.
       </p>
 
       {/* Profile summary */}
@@ -158,7 +158,7 @@ export default function GeneratePlanPage() {
             <Link href="/onboarding" className="text-accent hover:underline">
               Complete onboarding
             </Link>{" "}
-            to get personalized plans.
+            to get personalized routines.
           </div>
         )}
       </div>
@@ -175,10 +175,10 @@ export default function GeneratePlanPage() {
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
               </svg>
-              Generating your plan...
+              Generating your routine...
             </span>
           ) : (
-            "Generate Custom Plan"
+            "Generate Custom Routine"
           )}
         </button>
       )}
@@ -264,7 +264,7 @@ export default function GeneratePlanPage() {
               onClick={() => setActiveExerciseIndex(0)}
               className="w-full py-4 bg-accent text-white rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors"
             >
-              Start Plan
+              Start Routine
             </button>
           ) : activeExercise ? (
             <div>
@@ -319,7 +319,7 @@ export default function GeneratePlanPage() {
 
           <div className="mt-8 border-t border-border pt-6">
             <h3 className="text-sm font-medium text-muted mb-2">
-              Want a different plan?
+              Want a different routine?
             </h3>
             <div className="flex gap-2 mb-3 flex-wrap">
               {[
@@ -327,7 +327,7 @@ export default function GeneratePlanPage() {
                 "Too hard",
                 "More agility work",
                 "More warm-ups",
-                "Shorter plan",
+                "Shorter routine",
               ].map((suggestion) => (
                 <button
                   key={suggestion}

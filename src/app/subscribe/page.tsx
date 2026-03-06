@@ -134,7 +134,7 @@ export default function SubscribePage() {
             {[
               "50+ vocal exercises with piano",
               "15 training tracks",
-              "Custom practice plans",
+              "Pre-built routine library",
               "Unlimited custom routines",
               "Progress tracking & streaks",
             ].map((item) => (

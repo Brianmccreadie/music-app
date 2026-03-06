@@ -11,7 +11,7 @@ const TESTIMONIALS = [
   {
     name: "James L.",
     role: "Tenor, Music Student",
-    text: "The custom plans saved me so much time. I went from scattered practice to focused improvement.",
+    text: "The custom routines saved me so much time. I went from scattered practice to focused improvement.",
   },
   {
     name: "Maria K.",
@@ -23,7 +23,7 @@ const TESTIMONIALS = [
 const PRICING_FEATURES = [
   "50+ vocal exercises with piano accompaniment",
   "15 curated training tracks",
-  "Personalized custom practice plans",
+  "Personalized custom routines",
   "Unlimited custom routines",
   "Progress tracking & streaks",
   "Voice profile & range detection",
@@ -49,7 +49,7 @@ export default function MarketingHome() {
             </h1>
             <p className="text-lg lg:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
               Professional vocal training with real piano accompaniment,
-              personalized practice plans, and custom routines. Built for
+              personalized routines, and real piano accompaniment. Built for
               singers who take their craft seriously.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
@@ -87,7 +87,7 @@ export default function MarketingHome() {
             </div>
             <div>
               <div className="text-3xl font-bold text-accent">Custom</div>
-              <div className="text-sm text-muted mt-1">Practice Plans</div>
+              <div className="text-sm text-muted mt-1">Practice Routines</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-accent">4.9</div>
@@ -117,8 +117,8 @@ export default function MarketingHome() {
             },
             {
               step: "02",
-              title: "Get Your Plan",
-              desc: "Browse 50+ exercises, pick a training track, or build a custom plan tailored to your voice.",
+              title: "Pick a Routine",
+              desc: "Browse 50+ exercises, pick a training track, or build a custom routine tailored to your voice.",
               icon: "M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3",
             },
             {
@@ -177,8 +177,8 @@ export default function MarketingHome() {
                 desc: "Practice with sampled grand piano, not MIDI beeps. Adjust tempo and range to match your voice.",
               },
               {
-                title: "Custom Practice Plans",
-                desc: "Tell us your goals and get personalized practice plans tailored to your voice and skill level.",
+                title: "Custom Routines",
+                desc: "Tell us your goals and get personalized practice routines tailored to your voice and skill level.",
               },
               {
                 title: "Training Tracks",
