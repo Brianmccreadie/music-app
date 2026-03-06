@@ -16,14 +16,14 @@ const TESTIMONIALS = [
   {
     name: "Maria K.",
     role: "Alto, Singer-Songwriter",
-    text: "Having 50+ exercises organized by training tracks is exactly what I needed to build consistency.",
+    text: "Having 70+ exercises organized by routines is exactly what I needed to build consistency.",
   },
 ];
 
 const PRICING_FEATURES = [
-  "50+ vocal exercises with piano accompaniment",
-  "15 curated training tracks",
-  "Personalized custom routines",
+  "70+ vocal exercises with piano accompaniment",
+  "15 core training programs",
+  "70+ exercise library",
   "Unlimited custom routines",
   "Progress tracking & streaks",
   "Voice profile & range detection",
@@ -48,8 +48,8 @@ export default function MarketingHome() {
               <span className="text-accent">One rep at a time.</span>
             </h1>
             <p className="text-lg lg:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
-              Professional vocal training with real piano accompaniment,
-              personalized routines, and real piano accompaniment. Built for
+              Professional vocal training with piano accompaniment,
+              personalized routines, and progress tracking. Built for
               singers who take their craft seriously.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
@@ -78,12 +78,12 @@ export default function MarketingHome() {
         <div className="max-w-6xl mx-auto px-4 py-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-accent">50+</div>
+              <div className="text-3xl font-bold text-accent">70+</div>
               <div className="text-sm text-muted mt-1">Vocal Exercises</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-accent">15</div>
-              <div className="text-sm text-muted mt-1">Training Tracks</div>
+              <div className="text-sm text-muted mt-1">Core Training</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-accent">Custom</div>
@@ -118,13 +118,13 @@ export default function MarketingHome() {
             {
               step: "02",
               title: "Pick a Routine",
-              desc: "Browse 50+ exercises, pick a training track, or build a custom routine tailored to your voice.",
+              desc: "Browse 70+ exercises, follow a core training program, or build a custom routine tailored to your voice.",
               icon: "M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3",
             },
             {
               step: "03",
               title: "Train & Improve",
-              desc: "Practice with real piano accompaniment. Track your progress and build consistent habits.",
+              desc: "Practice with piano accompaniment. Track your progress and build consistent habits.",
               icon: "M13 10V3L4 14h7v7l9-11h-7z",
             },
           ].map((item) => (
@@ -173,7 +173,7 @@ export default function MarketingHome() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                title: "Real Piano Accompaniment",
+                title: "Piano Accompaniment",
                 desc: "Practice with sampled grand piano, not MIDI beeps. Adjust tempo and range to match your voice.",
               },
               {
@@ -181,20 +181,20 @@ export default function MarketingHome() {
                 desc: "Tell us your goals and get personalized practice routines tailored to your voice and skill level.",
               },
               {
-                title: "Training Tracks",
-                desc: "15 curated tracks covering warm-ups, agility, range, breath control, and more.",
+                title: "Core Training",
+                desc: "15 curated training programs covering warm-ups, agility, range, breath control, and more.",
               },
               {
-                title: "Custom Routines",
-                desc: "Build your own routines from any exercise. Save favorites and track your progress.",
+                title: "70+ Exercise Library",
+                desc: "Browse a growing library of vocal exercises covering warm-ups, technique, agility, range, and more.",
               },
               {
                 title: "Progress Tracking",
                 desc: "Track practice minutes, maintain streaks, and see your improvement over time.",
               },
               {
-                title: "Works Everywhere",
-                desc: "Train on iOS or web. Your progress syncs across all your devices.",
+                title: "Your Daily Practice Partner",
+                desc: "Designed for singers who just need reps. Open the app, hit play, and build your voice one session at a time.",
               },
             ].map((item) => (
               <div

@@ -105,7 +105,7 @@ export default function GeneratePlanPage() {
         href="/plans"
         className="text-sm text-accent hover:text-accent-hover mb-6 inline-block"
       >
-        &larr; Back to Routine Library
+        &larr; Back to Core Training
       </Link>
 
       <h1 className="text-2xl font-bold text-foreground mb-2">
