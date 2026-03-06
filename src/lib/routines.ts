@@ -123,8 +123,8 @@ export async function fetchRoutinesFromDB(): Promise<Routine[]> {
     name: r.name,
     description: r.description ?? "",
     exercises: r.exercises ?? [],
-    rangeLow: "",
-    rangeHigh: "",
+    rangeLow: r.range_low ?? "C3",
+    rangeHigh: r.range_high ?? "A4",
     createdAt: new Date(r.created_at).getTime(),
     updatedAt: new Date(r.updated_at).getTime(),
   }));
@@ -148,6 +148,8 @@ export async function createRoutineDB(
         name: routine.name,
         description: routine.description || null,
         exercises: routine.exercises,
+        range_low: routine.rangeLow,
+        range_high: routine.rangeHigh,
       })
       .select()
       .single();
@@ -181,6 +183,8 @@ export async function updateRoutineDB(
         name: updated.name,
         description: updated.description || null,
         exercises: updated.exercises,
+        range_low: updated.rangeLow,
+        range_high: updated.rangeHigh,
         updated_at: new Date().toISOString(),
       })
       .eq("id", id)
@@ -197,4 +201,40 @@ export async function deleteRoutineDB(id: string): Promise<void> {
   if (user) {
     await supabase.from("routines").delete().eq("id", id).eq("user_id", user.id);
   }
+}
+
+export async function addExerciseToRoutineDB(
+  routineId: string,
+  exercise: RoutineExercise
+): Promise<Routine | undefined> {
+  const updated = addExerciseToRoutine(routineId, exercise);
+  if (updated) {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      await supabase
+        .from("routines")
+        .update({ exercises: updated.exercises, updated_at: new Date().toISOString() })
+        .eq("id", routineId)
+        .eq("user_id", user.id);
+    }
+  }
+  return updated;
+}
+
+export async function removeExerciseFromRoutineDB(
+  routineId: string,
+  exerciseIndex: number
+): Promise<Routine | undefined> {
+  const updated = removeExerciseFromRoutine(routineId, exerciseIndex);
+  if (updated) {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (user) {
+      await supabase
+        .from("routines")
+        .update({ exercises: updated.exercises, updated_at: new Date().toISOString() })
+        .eq("id", routineId)
+        .eq("user_id", user.id);
+    }
+  }
+  return updated;
 }

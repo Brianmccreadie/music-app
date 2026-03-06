@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { getRoutines, deleteRoutine } from "@/lib/routines";
+import { fetchRoutinesFromDB, deleteRoutineDB, getRoutines } from "@/lib/routines";
 import type { Routine } from "@/lib/routines";
 import { isRoutineFavorite, toggleRoutineFavorite } from "@/lib/favorites";
 
@@ -12,12 +12,16 @@ export default function RoutinesPage() {
   const [, setFavTick] = useState(0);
 
   useEffect(() => {
+    // Load from localStorage immediately, then sync from DB
     setRoutines(getRoutines());
     setLoaded(true);
+    fetchRoutinesFromDB().then((dbRoutines) => {
+      setRoutines(dbRoutines);
+    });
   }, []);
 
-  const handleDelete = (id: string) => {
-    deleteRoutine(id);
+  const handleDelete = async (id: string) => {
+    await deleteRoutineDB(id);
     setRoutines(getRoutines());
   };
 
