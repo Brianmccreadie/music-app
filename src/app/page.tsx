@@ -249,7 +249,7 @@ export default function HomePage() {
         </div>
       )}
 
-      {/* Training Tracks by Category */}
+      {/* Core Training by Category */}
       {TRACK_CATEGORIES.map((category) => {
         const categoryTracks = TRACKS.filter((t) => t.category === category);
         return (
