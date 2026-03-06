@@ -81,7 +81,7 @@ export default function HomePage() {
               One rep at a time.
             </h1>
             <p className="text-lg text-white/60 max-w-xl mb-10 leading-relaxed">
-              Professional vocal exercises with real piano accompaniment, personalized
+              Professional vocal exercises with piano accompaniment, personalized
               routines, and progress tracking. Built for singers who take
               their craft seriously.
             </p>
@@ -174,7 +174,7 @@ export default function HomePage() {
             </div>
             <h3 className="text-lg font-bold text-foreground mb-2">Train &amp; Improve</h3>
             <p className="text-muted text-sm leading-relaxed">
-              Practice with real piano accompaniment. Track your progress, adjust tempo, and build consistent habits.
+              Practice with piano accompaniment. Track your progress, adjust tempo, and build consistent habits.
             </p>
           </div>
         </div>

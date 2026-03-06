@@ -48,7 +48,7 @@ export default function MarketingHome() {
               <span className="text-accent">One rep at a time.</span>
             </h1>
             <p className="text-lg lg:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
-              Professional vocal training with real piano accompaniment,
+              Professional vocal training with piano accompaniment,
               personalized routines, and progress tracking. Built for
               singers who take their craft seriously.
             </p>
@@ -124,7 +124,7 @@ export default function MarketingHome() {
             {
               step: "03",
               title: "Train & Improve",
-              desc: "Practice with real piano accompaniment. Track your progress and build consistent habits.",
+              desc: "Practice with piano accompaniment. Track your progress and build consistent habits.",
               icon: "M13 10V3L4 14h7v7l9-11h-7z",
             },
           ].map((item) => (
@@ -173,7 +173,7 @@ export default function MarketingHome() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                title: "Real Piano Accompaniment",
+                title: "Piano Accompaniment",
                 desc: "Practice with sampled grand piano, not MIDI beeps. Adjust tempo and range to match your voice.",
               },
               {
