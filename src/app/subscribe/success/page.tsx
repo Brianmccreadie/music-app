@@ -1,16 +1,25 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useSubscription } from "@/lib/subscription";
 
 export default function SubscribeSuccessPage() {
-  const { refresh } = useSubscription();
+  const { refresh, isActive } = useSubscription();
+  const [retries, setRetries] = useState(0);
 
   useEffect(() => {
-    // Refresh subscription status after successful checkout
-    refresh();
-  }, [refresh]);
+    // Poll for subscription update — the webhook may take a few seconds
+    if (isActive) return;
+    if (retries >= 10) return;
+
+    const timer = setTimeout(async () => {
+      await refresh();
+      setRetries((r) => r + 1);
+    }, retries === 0 ? 500 : 2000);
+
+    return () => clearTimeout(timer);
+  }, [refresh, isActive, retries]);
 
   return (
     <div className="max-w-lg mx-auto px-4 py-24 text-center">

@@ -131,10 +131,10 @@ export function useSubscription() {
   return context;
 }
 
-// Start a 7-day free trial
+// Start a 3-day free trial
 export async function startFreeTrial(userId: string): Promise<boolean> {
   const trialEndsAt = new Date();
-  trialEndsAt.setDate(trialEndsAt.getDate() + 7);
+  trialEndsAt.setDate(trialEndsAt.getDate() + 3);
   const trialEndsAtStr = trialEndsAt.toISOString();
 
   const { error } = await supabase.from("subscriptions").upsert({
