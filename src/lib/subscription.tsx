@@ -150,3 +150,47 @@ export async function startFreeTrial(userId: string): Promise<boolean> {
   }
   return false;
 }
+
+// Cancel trial — sets tier back to "none" immediately
+export async function cancelTrial(userId: string): Promise<boolean> {
+  const { error } = await supabase
+    .from("subscriptions")
+    .update({
+      tier: "none",
+      trial_ends_at: null,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("user_id", userId);
+
+  if (!error) {
+    setLocalSubscription({ tier: "none", trialEndsAt: null });
+    return true;
+  }
+  return false;
+}
+
+// Cancel Stripe subscription via Edge Function
+export async function cancelStripeSubscription(userId: string): Promise<boolean> {
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_SUPABASE_URL}/functions/v1/cancel-subscription`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}`,
+        },
+        body: JSON.stringify({ userId }),
+      }
+    );
+
+    const data = await response.json();
+    if (data.success) {
+      setLocalSubscription({ tier: "none", trialEndsAt: null });
+      return true;
+    }
+    return false;
+  } catch {
+    return false;
+  }
+}
