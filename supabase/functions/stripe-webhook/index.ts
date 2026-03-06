@@ -82,13 +82,16 @@ Deno.serve(async (req) => {
       const subscriptionId = session.subscription;
 
       if (userId) {
-        await supabase.from("subscriptions").upsert({
-          user_id: userId,
-          tier: "premium",
-          stripe_customer_id: customerId,
-          stripe_subscription_id: subscriptionId,
-          updated_at: new Date().toISOString(),
-        });
+        await supabase.from("subscriptions").upsert(
+          {
+            user_id: userId,
+            tier: "premium",
+            stripe_customer_id: customerId,
+            stripe_subscription_id: subscriptionId,
+            updated_at: new Date().toISOString(),
+          },
+          { onConflict: "user_id" }
+        );
       }
       break;
     }
