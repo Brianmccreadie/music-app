@@ -148,9 +148,9 @@ export default function RoutineDetail({ id }: { id: string }) {
         &larr; Back to My Routines
       </Link>
 
-      <div className="flex flex-col lg:flex-row gap-8">
+      <div className="flex flex-col md:flex-row gap-8">
         {/* ── Left Panel: Routine Info & Exercise List ── */}
-        <div className="lg:w-[420px] lg:flex-shrink-0">
+        <div className="md:w-[360px] md:flex-shrink-0">
           {/* Routine header */}
           <div className="bg-white rounded-2xl border border-border p-6 mb-6 shadow-sm">
             <div className="flex items-start justify-between mb-2">
@@ -434,7 +434,7 @@ export default function RoutineDetail({ id }: { id: string }) {
           {!isStarted && routine.exercises.length > 0 && (
             <button
               onClick={() => setActiveExerciseIndex(0)}
-              className="w-full py-4 bg-accent text-white rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors lg:hidden"
+              className="w-full py-4 bg-accent text-white rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors md:hidden"
             >
               Start Practice
             </button>
@@ -443,7 +443,7 @@ export default function RoutineDetail({ id }: { id: string }) {
 
         {/* ── Right Panel: Player ── */}
         <div className="flex-1 min-w-0">
-          <div className="lg:sticky lg:top-8">
+          <div className="md:sticky md:top-8">
             {/* Exercise navigation bar */}
             {isStarted && (
               <div className="bg-white rounded-xl border border-border p-3 mb-4 shadow-sm">
