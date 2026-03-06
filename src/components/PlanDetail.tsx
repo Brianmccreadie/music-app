@@ -9,9 +9,29 @@ import type { Exercise } from "@/lib/exercises";
 import { DIFFICULTY_LABELS } from "@/lib/exercises";
 import { getProfile } from "@/lib/user-profile";
 import ExercisePlayer from "@/components/ExercisePlayer";
+import ExerciseDemo from "@/components/ExerciseDemo";
+import demoData from "@/data/exercise-demos.json";
 
 const plans = plansData as Plan[];
 const exercises = exercisesData as Exercise[];
+const demos = demoData as Record<
+  string,
+  {
+    vocalInstruction: string;
+    syllables: string;
+    technique: string;
+    demoDescription: string;
+    demoRootNote: string;
+    vowelOptions?: string[];
+    tips?: {
+      vowelShape: string;
+      breathSupport: string;
+      mouthAndJaw: string;
+      posture: string;
+      commonMistakes: string;
+    };
+  }
+>;
 
 function findExercise(id: string): Exercise | undefined {
   return exercises.find((ex) => ex.id === id);
@@ -56,6 +76,9 @@ export default function PlanDetail({ id }: { id: string }) {
         ? { ...activeExercise }
         : activeExercise
       : null;
+  const activeDemoInfo = activeExercise
+    ? demos[activeExercise.id]
+    : undefined;
 
   const isStarted = activeExerciseIndex >= 0;
   const progress = isStarted
@@ -71,9 +94,9 @@ export default function PlanDetail({ id }: { id: string }) {
         &larr; Back to Core Training
       </Link>
 
-      <div className="flex flex-col lg:flex-row gap-8">
+      <div className="flex flex-col md:flex-row gap-8">
         {/* ── Left Panel: Plan Info & Exercise List ── */}
-        <div className="lg:w-[420px] lg:flex-shrink-0">
+        <div className="md:w-[360px] md:flex-shrink-0">
           {/* Plan header */}
           <div className="bg-white rounded-2xl border border-border p-6 mb-6 shadow-sm">
             <div className="flex items-start justify-between mb-2">
@@ -193,7 +216,7 @@ export default function PlanDetail({ id }: { id: string }) {
           {!isStarted && (
             <button
               onClick={() => setActiveExerciseIndex(0)}
-              className="w-full py-4 bg-accent text-white rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors lg:hidden"
+              className="w-full py-4 bg-accent text-white rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors md:hidden"
             >
               Start Program
             </button>
@@ -202,7 +225,7 @@ export default function PlanDetail({ id }: { id: string }) {
 
         {/* ── Right Panel: Player ── */}
         <div className="flex-1 min-w-0">
-          <div className="lg:sticky lg:top-8">
+          <div className="md:sticky md:top-8">
             {/* Exercise navigation bar */}
             {isStarted && (
               <div className="bg-white rounded-xl border border-border p-3 mb-4 shadow-sm">
@@ -290,6 +313,16 @@ export default function PlanDetail({ id }: { id: string }) {
                     <div className="text-sm text-foreground/80">
                       {activeExerciseConfig.notes}
                     </div>
+                  </div>
+                )}
+
+                {/* Demo: vocal tips, technique, vowel options */}
+                {activeDemoInfo && activeExercise && (
+                  <div className="mb-6">
+                    <ExerciseDemo
+                      exercise={activeExercise}
+                      demoInfo={activeDemoInfo}
+                    />
                   </div>
                 )}
 

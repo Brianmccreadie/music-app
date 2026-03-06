@@ -6,7 +6,7 @@ import Link from "next/link";
 import exercisesData from "@/data/exercises.json";
 import type { Exercise } from "@/lib/exercises";
 import { CATEGORIES, DIFFICULTY_LABELS, GOAL_TAG_MAP } from "@/lib/exercises";
-import { createRoutine } from "@/lib/routines";
+import { createRoutineDB } from "@/lib/routines";
 import { getProfile, GOAL_OPTIONS, VOICE_TYPES, VOICE_RANGE_PRESETS, EXPERIENCE_LEVELS } from "@/lib/user-profile";
 import { PIANO_NOTES } from "@/lib/music-utils";
 import ExerciseCard from "@/components/ExerciseCard";
@@ -147,9 +147,9 @@ export default function NewRoutinePage() {
     setSelectedExercises((prev) => prev.filter((_, i) => i !== index));
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (!routineName.trim() || selectedExercises.length === 0) return;
-    createRoutine({
+    await createRoutineDB({
       name: routineName.trim(),
       description: routineDesc.trim(),
       exercises: selectedExercises,
