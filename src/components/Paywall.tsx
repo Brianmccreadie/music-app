@@ -169,13 +169,20 @@ export default function Paywall({ feature, onClose }: PaywallProps) {
             </div>
           )}
 
-          {onClose && (
+          {onClose ? (
             <button
               onClick={onClose}
               className="w-full mt-3 py-2.5 text-sm text-muted hover:text-foreground transition-colors"
             >
               Maybe later
             </button>
+          ) : (
+            <Link
+              href="/"
+              className="block w-full mt-3 py-2.5 text-sm text-muted hover:text-foreground transition-colors text-center"
+            >
+              ← Back to Home
+            </Link>
           )}
         </div>
       </div>
