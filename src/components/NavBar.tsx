@@ -7,9 +7,10 @@ import { useAuth } from "@/lib/auth-context";
 import { useSubscription } from "@/lib/subscription";
 
 const NAV_LINKS = [
-  { href: "/exercises", label: "Library" },
-  { href: "/plans", label: "Routines" },
+  { href: "/exercises", label: "Exercise Library" },
+  { href: "/plans", label: "Core Training" },
   { href: "/routines", label: "My Routines" },
+  { href: "/routines/new", label: "Create Routine", accent: true },
   { href: "/settings", label: "Settings" },
 ];
 
@@ -46,12 +47,14 @@ export default function NavBar() {
               key={link.href}
               href={link.href}
               className={`transition-colors ${
-                pathname === link.href
-                  ? "text-accent font-semibold"
-                  : "text-muted hover:text-foreground"
+                link.accent
+                  ? "px-3 py-1.5 bg-accent/10 text-accent rounded-full hover:bg-accent/20 font-semibold"
+                  : pathname === link.href
+                    ? "text-accent font-semibold"
+                    : "text-muted hover:text-foreground"
               }`}
             >
-              {link.label}
+              {link.accent && "+ "}{link.label}
             </Link>
           ))}
           {!loading && (
@@ -113,12 +116,14 @@ export default function NavBar() {
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
                 className={`block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                  pathname === link.href
-                    ? "bg-accent-light text-accent"
-                    : "text-foreground hover:bg-background"
+                  link.accent
+                    ? "bg-accent/10 text-accent font-semibold"
+                    : pathname === link.href
+                      ? "bg-accent-light text-accent"
+                      : "text-foreground hover:bg-background"
                 }`}
               >
-                {link.label}
+                {link.accent && "+ "}{link.label}
               </Link>
             ))}
             <div className="pt-2 border-t border-border mt-2">

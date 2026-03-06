@@ -81,7 +81,7 @@ export default function HomePage() {
               One rep at a time.
             </h1>
             <p className="text-lg text-white/60 max-w-xl mb-10 leading-relaxed">
-              Professional vocal exercises with real piano accompaniment, personalized
+              Professional vocal exercises with piano accompaniment, personalized
               routines, and progress tracking. Built for singers who take
               their craft seriously.
             </p>
@@ -117,7 +117,7 @@ export default function HomePage() {
               <div className="text-3xl font-bold text-accent">
                 {TRACKS.length}
               </div>
-              <div className="text-sm text-muted mt-1">Training Tracks</div>
+              <div className="text-sm text-muted mt-1">Core Training</div>
             </div>
             <div className="text-center">
               <div className="text-3xl font-bold text-accent">
@@ -163,7 +163,7 @@ export default function HomePage() {
             </div>
             <h3 className="text-lg font-bold text-foreground mb-2">Pick Your Exercises</h3>
             <p className="text-muted text-sm leading-relaxed">
-              Browse {exercises.length}+ exercises across {TRACKS.length} training tracks, or let us build a custom plan for you.
+              Browse {exercises.length}+ exercises across {TRACKS.length} core training programs, or let us build a custom plan for you.
             </p>
           </div>
           <div className="bg-white rounded-2xl border border-border p-8 hover:shadow-lg transition-shadow">
@@ -174,7 +174,7 @@ export default function HomePage() {
             </div>
             <h3 className="text-lg font-bold text-foreground mb-2">Train &amp; Improve</h3>
             <p className="text-muted text-sm leading-relaxed">
-              Practice with real piano accompaniment. Track your progress, adjust tempo, and build consistent habits.
+              Practice with piano accompaniment. Track your progress, adjust tempo, and build consistent habits.
             </p>
           </div>
         </div>
@@ -249,7 +249,7 @@ export default function HomePage() {
         </div>
       )}
 
-      {/* Training Tracks by Category */}
+      {/* Core Training by Category */}
       {TRACK_CATEGORIES.map((category) => {
         const categoryTracks = TRACKS.filter((t) => t.category === category);
         return (
@@ -263,7 +263,7 @@ export default function HomePage() {
               </h2>
               <p className="text-muted mt-2">
                 {category === "Foundations"
-                  ? "Build your vocal foundation with these core training tracks."
+                  ? "Build your vocal foundation with these core training programs."
                   : "Isolate and develop specific vocal techniques and skills."}
               </p>
             </div>
@@ -294,7 +294,7 @@ export default function HomePage() {
                           {trackExercises.length} exercises
                         </span>
                         <span className="text-sm text-muted group-hover:text-accent transition-colors font-medium">
-                          View track &rarr;
+                          View program &rarr;
                         </span>
                       </div>
                     </div>
