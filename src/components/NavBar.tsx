@@ -8,7 +8,7 @@ import { useSubscription } from "@/lib/subscription";
 
 const NAV_LINKS = [
   { href: "/exercises", label: "Exercise Library" },
-  { href: "/plans", label: "Routines" },
+  { href: "/plans", label: "Core Training" },
   { href: "/routines", label: "My Routines" },
   { href: "/routines/new", label: "Create Routine", accent: true },
   { href: "/settings", label: "Settings" },

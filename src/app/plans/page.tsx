@@ -36,10 +36,10 @@ export default function PlansPage() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold text-foreground">
-              Routine Library
+              Core Training
             </h1>
             <p className="text-muted mt-1">
-              Pre-built exercise sequences for focused practice sessions.
+              Curated exercise sequences for focused practice sessions.
             </p>
           </div>
           <Link

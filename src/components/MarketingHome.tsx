@@ -22,7 +22,7 @@ const TESTIMONIALS = [
 
 const PRICING_FEATURES = [
   "70+ vocal exercises with piano accompaniment",
-  "15 curated routines",
+  "15 core training programs",
   "70+ exercise library",
   "Unlimited custom routines",
   "Progress tracking & streaks",
@@ -83,7 +83,7 @@ export default function MarketingHome() {
             </div>
             <div>
               <div className="text-3xl font-bold text-accent">15</div>
-              <div className="text-sm text-muted mt-1">Routines</div>
+              <div className="text-sm text-muted mt-1">Core Training</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-accent">Custom</div>
@@ -118,7 +118,7 @@ export default function MarketingHome() {
             {
               step: "02",
               title: "Pick a Routine",
-              desc: "Browse 70+ exercises, pick a routine, or build a custom routine tailored to your voice.",
+              desc: "Browse 70+ exercises, follow a core training program, or build a custom routine tailored to your voice.",
               icon: "M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3",
             },
             {
@@ -181,8 +181,8 @@ export default function MarketingHome() {
                 desc: "Tell us your goals and get personalized practice routines tailored to your voice and skill level.",
               },
               {
-                title: "Routines",
-                desc: "15 curated routines covering warm-ups, agility, range, breath control, and more.",
+                title: "Core Training",
+                desc: "15 curated training programs covering warm-ups, agility, range, breath control, and more.",
               },
               {
                 title: "70+ Exercise Library",
