@@ -36,10 +36,10 @@ export default function PlanDetail({ id }: { id: string }) {
     return (
       <div className="max-w-lg mx-auto px-4 py-8 text-center">
         <h1 className="text-2xl font-bold text-foreground mb-4">
-          Plan not found
+          Routine not found
         </h1>
         <Link href="/plans" className="text-accent hover:underline">
-          Back to plans
+          Back to routines
         </Link>
       </div>
     );
@@ -63,7 +63,7 @@ export default function PlanDetail({ id }: { id: string }) {
         href="/plans"
         className="text-sm text-accent hover:text-accent-hover mb-6 inline-block"
       >
-        &larr; Back to Plans
+        &larr; Back to Routine Library
       </Link>
 
       {/* Plan header */}
@@ -144,7 +144,7 @@ export default function PlanDetail({ id }: { id: string }) {
           onClick={() => setActiveExerciseIndex(0)}
           className="w-full py-4 bg-accent text-white rounded-xl font-semibold text-lg hover:bg-accent-hover transition-colors"
         >
-          Start Plan
+          Start Routine
         </button>
       ) : playerExercise ? (
         <div>
@@ -188,7 +188,7 @@ export default function PlanDetail({ id }: { id: string }) {
                 onClick={() => setActiveExerciseIndex(-1)}
                 className="flex-1 py-3 bg-emerald-600 text-white rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
               >
-                Finish Plan
+                Finish Routine
               </button>
             )}
           </div>

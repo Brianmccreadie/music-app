@@ -82,7 +82,7 @@ export default function HomePage() {
             </h1>
             <p className="text-lg text-white/60 max-w-xl mb-10 leading-relaxed">
               Professional vocal exercises with real piano accompaniment, personalized
-              routines, and custom practice plans. Built for singers who take
+              routines, and progress tracking. Built for singers who take
               their craft seriously.
             </p>
             <div className="flex flex-wrap gap-4">

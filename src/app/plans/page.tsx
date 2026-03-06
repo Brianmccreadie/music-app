@@ -36,17 +36,17 @@ export default function PlansPage() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-3xl font-bold text-foreground">
-              Practice Plans
+              Routine Library
             </h1>
             <p className="text-muted mt-1">
-              Curated exercise sequences for focused practice sessions.
+              Pre-built exercise sequences for focused practice sessions.
             </p>
           </div>
           <Link
             href="/generate"
             className="px-4 py-2 bg-accent text-white rounded-full text-sm font-semibold hover:bg-accent-hover transition-colors"
           >
-            Build Plan
+            Create Custom Routine
           </Link>
         </div>
       </div>
@@ -107,7 +107,7 @@ export default function PlansPage() {
 
       {filtered.length === 0 ? (
         <div className="text-center py-12 text-muted">
-          No plans match your filters.
+          No routines match your filters.
         </div>
       ) : (
         <div className="grid gap-3 sm:grid-cols-2">
