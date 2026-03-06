@@ -8,9 +8,25 @@ import AppGate from "@/components/AppGate";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Vocal Reps — Train Your Voice",
+  metadataBase: new URL("https://vocalreps.com"),
+  title: {
+    default: "Vocal Reps — Train Your Voice",
+    template: "%s | Vocal Reps",
+  },
   description:
     "Professional vocal training with core training programs, custom routines, and piano accompaniment. 70+ exercises and progress tracking.",
+  keywords: [
+    "vocal training",
+    "singing exercises",
+    "voice training app",
+    "vocal warm-ups",
+    "piano accompaniment",
+    "vocal reps",
+    "singing practice",
+    "voice lessons",
+    "vocal agility",
+    "breath control",
+  ],
   manifest: "/manifest.json",
   appleWebApp: {
     capable: true,
@@ -20,15 +36,19 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Vocal Reps — Train Your Voice",
     description:
-      "Professional vocal training with piano accompaniment. 70+ exercises, custom routines, and progress tracking.",
+      "Professional vocal training with piano accompaniment. 70+ exercises, core training programs, custom routines, and progress tracking.",
     type: "website",
     siteName: "Vocal Reps",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title: "Vocal Reps — Train Your Voice",
     description:
-      "Professional vocal training with piano accompaniment. 70+ exercises, custom routines, and progress tracking.",
+      "Professional vocal training with piano accompaniment. 70+ exercises, core training programs, custom routines, and progress tracking.",
+  },
+  other: {
+    "apple-mobile-web-app-capable": "yes",
   },
 };
 
