@@ -16,14 +16,14 @@ const TESTIMONIALS = [
   {
     name: "Maria K.",
     role: "Alto, Singer-Songwriter",
-    text: "Having 50+ exercises organized by training tracks is exactly what I needed to build consistency.",
+    text: "Having 70+ exercises organized by training tracks is exactly what I needed to build consistency.",
   },
 ];
 
 const PRICING_FEATURES = [
-  "50+ vocal exercises with piano accompaniment",
+  "70+ vocal exercises with piano accompaniment",
   "15 curated training tracks",
-  "50+ exercise library",
+  "70+ exercise library",
   "Unlimited custom routines",
   "Progress tracking & streaks",
   "Voice profile & range detection",
@@ -78,7 +78,7 @@ export default function MarketingHome() {
         <div className="max-w-6xl mx-auto px-4 py-8">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-accent">50+</div>
+              <div className="text-3xl font-bold text-accent">70+</div>
               <div className="text-sm text-muted mt-1">Vocal Exercises</div>
             </div>
             <div>
@@ -118,7 +118,7 @@ export default function MarketingHome() {
             {
               step: "02",
               title: "Pick a Routine",
-              desc: "Browse 50+ exercises, pick a training track, or build a custom routine tailored to your voice.",
+              desc: "Browse 70+ exercises, pick a training track, or build a custom routine tailored to your voice.",
               icon: "M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3",
             },
             {
@@ -185,7 +185,7 @@ export default function MarketingHome() {
                 desc: "15 curated tracks covering warm-ups, agility, range, breath control, and more.",
               },
               {
-                title: "50+ Exercise Library",
+                title: "70+ Exercise Library",
                 desc: "Browse a growing library of vocal exercises covering warm-ups, technique, agility, range, and more.",
               },
               {
