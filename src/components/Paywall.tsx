@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useAuth } from "@/lib/auth-context";
-import { useSubscription, startFreeTrial } from "@/lib/subscription";
+import { useSubscription } from "@/lib/subscription";
 import { isNativeApp } from "@/lib/platform";
 import { purchaseProduct, IAP_PRODUCTS } from "@/lib/iap";
 import Link from "next/link";
@@ -18,20 +18,6 @@ export default function Paywall({ feature, onClose }: PaywallProps) {
   const [starting, setStarting] = useState(false);
   const [error, setError] = useState("");
   const native = isNativeApp();
-
-  const handleStartTrial = async () => {
-    if (!user) return;
-    setStarting(true);
-    setError("");
-    const ok = await startFreeTrial(user.id);
-    if (ok) {
-      await refresh();
-      onClose?.();
-    } else {
-      setError("Something went wrong. Please try again.");
-    }
-    setStarting(false);
-  };
 
   const handleSubscribe = async () => {
     if (!user) return;
@@ -124,28 +110,24 @@ export default function Paywall({ feature, onClose }: PaywallProps) {
                 href="/login"
                 className="block w-full py-3.5 bg-accent text-white rounded-full font-semibold text-center hover:bg-accent-hover transition-colors"
               >
-                Sign Up to Start Free Trial
+                Start 3-Day Free Trial
               </Link>
               <p className="text-xs text-muted text-center">
-                Create an account to get 7 days free
+                Create an account to get started — no charge for 3 days
               </p>
             </div>
           ) : (
             <div className="space-y-3">
               <button
-                onClick={handleStartTrial}
+                onClick={handleSubscribe}
                 disabled={starting}
                 className="w-full py-3.5 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors disabled:opacity-50"
               >
-                {starting ? "Starting..." : "Start 7-Day Free Trial"}
+                {starting ? "Processing..." : "Start 3-Day Free Trial"}
               </button>
-
-              <button
-                onClick={handleSubscribe}
-                className="w-full py-3.5 bg-hero-bg text-white rounded-full font-semibold hover:bg-hero-bg/90 transition-colors"
-              >
-                Subscribe — $9.99/month
-              </button>
+              <p className="text-xs text-muted text-center">
+                Then $9.99/month. Cancel anytime.
+              </p>
 
               {/* App Store compliance disclaimer */}
               <p className="text-[10px] text-muted text-center leading-relaxed">
@@ -169,13 +151,20 @@ export default function Paywall({ feature, onClose }: PaywallProps) {
             </div>
           )}
 
-          {onClose && (
+          {onClose ? (
             <button
               onClick={onClose}
               className="w-full mt-3 py-2.5 text-sm text-muted hover:text-foreground transition-colors"
             >
               Maybe later
             </button>
+          ) : (
+            <Link
+              href="/"
+              className="block w-full mt-3 py-2.5 text-sm text-muted hover:text-foreground transition-colors text-center"
+            >
+              ← Back to Home
+            </Link>
           )}
         </div>
       </div>
