@@ -57,7 +57,7 @@ export default function MarketingHome() {
                 href="/login"
                 className="px-8 py-4 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors text-lg"
               >
-                Get Started
+                Start Free Trial
               </Link>
               <a
                 href="#pricing"
@@ -66,6 +66,9 @@ export default function MarketingHome() {
                 View Pricing
               </a>
             </div>
+            <p className="mt-4 text-white/40 text-sm">
+              3-day free trial. Cancel anytime.
+            </p>
           </div>
         </div>
       </div>
@@ -262,14 +265,14 @@ export default function MarketingHome() {
               Simple, transparent pricing
             </h2>
             <p className="text-muted mt-3 text-lg">
-              One plan, full access to everything.
+              Start with a 3-day free trial. Cancel anytime.
             </p>
           </div>
 
           <div className="max-w-md mx-auto">
             <div className="bg-white rounded-2xl border-2 border-accent p-8 relative">
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent text-white text-xs font-bold px-4 py-1 rounded-full">
-                FULL ACCESS
+                3-DAY FREE TRIAL
               </div>
               <h3 className="text-lg font-bold text-foreground mb-1">Vocal Reps Pro</h3>
               <div className="mb-2">
@@ -303,10 +306,10 @@ export default function MarketingHome() {
                 href="/login"
                 className="block w-full py-3.5 bg-accent text-white rounded-full font-semibold text-center hover:bg-accent-hover transition-colors"
               >
-                Subscribe Now
+                Start 3-Day Free Trial
               </Link>
               <p className="text-xs text-muted text-center mt-3">
-                Cancel anytime from account settings.
+                Then $9.99/month. Cancel anytime.
               </p>
             </div>
           </div>
@@ -326,7 +329,7 @@ export default function MarketingHome() {
             href="/login"
             className="inline-block px-10 py-4 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors text-lg"
           >
-            Get Started
+            Start Your Free Trial
           </Link>
         </div>
       </div>

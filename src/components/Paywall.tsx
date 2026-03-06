@@ -110,10 +110,10 @@ export default function Paywall({ feature, onClose }: PaywallProps) {
                 href="/login"
                 className="block w-full py-3.5 bg-accent text-white rounded-full font-semibold text-center hover:bg-accent-hover transition-colors"
               >
-                Sign Up to Subscribe
+                Start 3-Day Free Trial
               </Link>
               <p className="text-xs text-muted text-center">
-                Create an account to get started
+                Create an account to get started — no charge for 3 days
               </p>
             </div>
           ) : (
@@ -123,8 +123,11 @@ export default function Paywall({ feature, onClose }: PaywallProps) {
                 disabled={starting}
                 className="w-full py-3.5 bg-accent text-white rounded-full font-semibold hover:bg-accent-hover transition-colors disabled:opacity-50"
               >
-                {starting ? "Processing..." : "Subscribe — $9.99/month"}
+                {starting ? "Processing..." : "Start 3-Day Free Trial"}
               </button>
+              <p className="text-xs text-muted text-center">
+                Then $9.99/month. Cancel anytime.
+              </p>
 
               {/* App Store compliance disclaimer */}
               <p className="text-[10px] text-muted text-center leading-relaxed">

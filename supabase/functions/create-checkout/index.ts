@@ -65,7 +65,7 @@ Deno.serve(async (req) => {
     params.append("success_url", returnUrl || "https://vocalreps.com/subscribe/success");
     params.append("cancel_url", returnUrl?.replace("/success", "") || "https://vocalreps.com/subscribe");
     params.append("client_reference_id", userId);
-    params.append("subscription_data[trial_period_days]", "7");
+    params.append("subscription_data[trial_period_days]", "3");
     if (email) {
       params.append("customer_email", email);
     }
