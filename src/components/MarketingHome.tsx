@@ -23,7 +23,7 @@ const TESTIMONIALS = [
 const PRICING_FEATURES = [
   "50+ vocal exercises with piano accompaniment",
   "15 curated training tracks",
-  "Personalized custom routines",
+  "50+ exercise library",
   "Unlimited custom routines",
   "Progress tracking & streaks",
   "Voice profile & range detection",
@@ -49,7 +49,7 @@ export default function MarketingHome() {
             </h1>
             <p className="text-lg lg:text-xl text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed">
               Professional vocal training with real piano accompaniment,
-              personalized routines, and real piano accompaniment. Built for
+              personalized routines, and progress tracking. Built for
               singers who take their craft seriously.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
@@ -185,16 +185,16 @@ export default function MarketingHome() {
                 desc: "15 curated tracks covering warm-ups, agility, range, breath control, and more.",
               },
               {
-                title: "Custom Routines",
-                desc: "Build your own routines from any exercise. Save favorites and track your progress.",
+                title: "50+ Exercise Library",
+                desc: "Browse a growing library of vocal exercises covering warm-ups, technique, agility, range, and more.",
               },
               {
                 title: "Progress Tracking",
                 desc: "Track practice minutes, maintain streaks, and see your improvement over time.",
               },
               {
-                title: "Works Everywhere",
-                desc: "Train on iOS or web. Your progress syncs across all your devices.",
+                title: "Your Daily Practice Partner",
+                desc: "Designed for singers who just need reps. Open the app, hit play, and build your voice one session at a time.",
               },
             ].map((item) => (
               <div
