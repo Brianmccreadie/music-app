@@ -27,7 +27,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-xl font-bold text-foreground mb-3">2. Description of Service</h2>
           <p>
-            Vocal Reps is a vocal training application that provides exercises, practice plans, training tracks,
+            Vocal Reps is a vocal training application that provides exercises, practice routines, training tracks,
             and progress tracking tools for singers. The Service is available via web browser and mobile applications.
           </p>
         </section>

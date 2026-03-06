@@ -32,7 +32,7 @@ export default function PrivacyPage() {
           <h2 className="text-xl font-bold text-foreground mb-3">2. How We Use Your Information</h2>
           <ul className="list-disc pl-6 space-y-1">
             <li>To provide and personalize the vocal training experience</li>
-            <li>To generate custom practice plans based on your profile</li>
+            <li>To generate custom practice routines based on your profile</li>
             <li>To track your practice progress and maintain streaks</li>
             <li>To process subscriptions and payments</li>
             <li>To send important service updates and notifications</li>

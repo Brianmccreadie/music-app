@@ -32,7 +32,7 @@ export default function RoutinesPage() {
     <div className="max-w-4xl mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-foreground">Custom Routines</h1>
+          <h1 className="text-3xl font-bold text-foreground">My Routines</h1>
           <p className="text-muted mt-1">
             Build personalized practice routines and train consistently.
           </p>
